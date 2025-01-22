@@ -61,6 +61,10 @@ void Error_Handler(void);
 #define KICKER_CHARGE_GPIO_Port GPIOC
 #define KICKER_KICK_Pin GPIO_PIN_1
 #define KICKER_KICK_GPIO_Port GPIOC
+#define LED1_Pin GPIO_PIN_5
+#define LED1_GPIO_Port GPIOA
+#define LED2_Pin GPIO_PIN_6
+#define LED2_GPIO_Port GPIOA
 #define HOLD_FRONT_Pin GPIO_PIN_4
 #define HOLD_FRONT_GPIO_Port GPIOC
 #define HOLD_BACK_Pin GPIO_PIN_5

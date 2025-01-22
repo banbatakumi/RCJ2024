@@ -1,0 +1,485 @@
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"Button.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "lib/Button/Button.cpp"
+  20              		.section	.text._ZN6ButtonC2EP12GPIO_TypeDeft,"ax",%progbits
+  21              		.align	1
+  22              		.global	_ZN6ButtonC2EP12GPIO_TypeDeft
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	_ZN6ButtonC2EP12GPIO_TypeDeft:
+  28              		.fnstart
+  29              	.LVL0:
+  30              	.LFB252:
+   1:lib/Button/Button.cpp **** #include "Button.hpp"
+   2:lib/Button/Button.cpp **** 
+   3:lib/Button/Button.cpp **** Button::Button(GPIO_TypeDef *port, uint16_t pin) : button(port, pin), pressState(false), isPressed(
+  31              		.loc 1 3 1 view -0
+  32              		.cfi_startproc
+  33              		@ args = 0, pretend = 0, frame = 0
+  34              		@ frame_needed = 0, uses_anonymous_args = 0
+  35              		.loc 1 3 1 is_stmt 0 view .LVU1
+  36 0000 10B5     		push	{r4, lr}
+  37              		.save {r4, lr}
+  38              	.LCFI0:
+  39              		.cfi_def_cfa_offset 8
+  40              		.cfi_offset 4, -8
+  41              		.cfi_offset 14, -4
+  42 0002 0446     		mov	r4, r0
+  43              	.LVL1:
+  44              	.LBB8:
+  45              	.LBB9:
+  46              	.LBI9:
+  47              		.file 2 "Lib/DigitalInOut/DigitalInOut.hpp"
+   1:Lib/DigitalInOut/DigitalInOut.hpp **** #ifndef __DigitalInOut__
+   2:Lib/DigitalInOut/DigitalInOut.hpp **** #define __DigitalInOut__
+   3:Lib/DigitalInOut/DigitalInOut.hpp **** 
+   4:Lib/DigitalInOut/DigitalInOut.hpp **** #include "main.h"
+   5:Lib/DigitalInOut/DigitalInOut.hpp **** 
+   6:Lib/DigitalInOut/DigitalInOut.hpp **** #ifdef __cplusplus
+   7:Lib/DigitalInOut/DigitalInOut.hpp **** 
+   8:Lib/DigitalInOut/DigitalInOut.hpp **** extern "C" {
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s 			page 2
+
+
+   9:Lib/DigitalInOut/DigitalInOut.hpp **** 
+  10:Lib/DigitalInOut/DigitalInOut.hpp **** class DigitalOut {
+  11:Lib/DigitalInOut/DigitalInOut.hpp ****   public:
+  12:Lib/DigitalInOut/DigitalInOut.hpp ****     DigitalOut(GPIO_TypeDef *port, uint16_t pin) : port(port), pin(pin) {
+  13:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
+  14:Lib/DigitalInOut/DigitalInOut.hpp ****     }
+  15:Lib/DigitalInOut/DigitalInOut.hpp ****     void write(bool value) {
+  16:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+  17:Lib/DigitalInOut/DigitalInOut.hpp ****     }
+  18:Lib/DigitalInOut/DigitalInOut.hpp **** 
+  19:Lib/DigitalInOut/DigitalInOut.hpp ****     void operator=(bool value) {
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+  21:Lib/DigitalInOut/DigitalInOut.hpp ****     }
+  22:Lib/DigitalInOut/DigitalInOut.hpp **** 
+  23:Lib/DigitalInOut/DigitalInOut.hpp ****     operator bool() {
+  24:Lib/DigitalInOut/DigitalInOut.hpp ****         return HAL_GPIO_ReadPin(port, pin) == GPIO_PIN_SET;
+  25:Lib/DigitalInOut/DigitalInOut.hpp ****     }
+  26:Lib/DigitalInOut/DigitalInOut.hpp **** 
+  27:Lib/DigitalInOut/DigitalInOut.hpp ****   private:
+  28:Lib/DigitalInOut/DigitalInOut.hpp ****     GPIO_TypeDef *port;
+  29:Lib/DigitalInOut/DigitalInOut.hpp ****     uint16_t pin;
+  30:Lib/DigitalInOut/DigitalInOut.hpp **** };
+  31:Lib/DigitalInOut/DigitalInOut.hpp **** 
+  32:Lib/DigitalInOut/DigitalInOut.hpp **** class DigitalIn {
+  33:Lib/DigitalInOut/DigitalInOut.hpp ****   public:
+  34:Lib/DigitalInOut/DigitalInOut.hpp ****     DigitalIn(GPIO_TypeDef *port, uint16_t pin) : port(port), pin(pin) {
+  48              		.loc 2 34 5 is_stmt 1 view .LVU2
+  49              	.LBB10:
+  50              		.loc 2 34 51 is_stmt 0 view .LVU3
+  51 0004 0160     		str	r1, [r0]
+  52              		.loc 2 34 63 view .LVU4
+  53 0006 8280     		strh	r2, [r0, #4]	@ movhi
+  54              	.LVL2:
+  55              		.loc 2 34 63 view .LVU5
+  56              	.LBE10:
+  57              	.LBE9:
+  58              		.loc 1 3 71 view .LVU6
+  59 0008 0023     		movs	r3, #0
+  60 000a 0372     		strb	r3, [r0, #8]
+  61              		.loc 1 3 90 view .LVU7
+  62 000c C372     		strb	r3, [r0, #11]
+  63              		.loc 1 3 108 view .LVU8
+  64 000e 8381     		strh	r3, [r0, #12]	@ movhi
+  65              		.loc 1 3 121 view .LVU9
+  66 0010 1030     		adds	r0, r0, #16
+  67              	.LVL3:
+  68              		.loc 1 3 121 view .LVU10
+  69 0012 FFF7FEFF 		bl	_ZN5TimerC1Ev
+  70              	.LVL4:
+  71              		.loc 1 3 121 view .LVU11
+  72              	.LBE8:
+   4:lib/Button/Button.cpp **** }
+  73              		.loc 1 4 1 view .LVU12
+  74 0016 2046     		mov	r0, r4
+  75 0018 10BD     		pop	{r4, pc}
+  76              		.loc 1 4 1 view .LVU13
+  77              		.cfi_endproc
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s 			page 3
+
+
+  78              	.LFE252:
+  79              		.fnend
+  81              		.global	_ZN6ButtonC1EP12GPIO_TypeDeft
+  82              		.thumb_set _ZN6ButtonC1EP12GPIO_TypeDeft,_ZN6ButtonC2EP12GPIO_TypeDeft
+  83              		.section	.text._ZN6Button4readEv,"ax",%progbits
+  84              		.align	1
+  85              		.global	_ZN6Button4readEv
+  86              		.syntax unified
+  87              		.thumb
+  88              		.thumb_func
+  90              	_ZN6Button4readEv:
+  91              		.fnstart
+  92              	.LVL5:
+  93              	.LFB255:
+   5:lib/Button/Button.cpp **** 
+   6:lib/Button/Button.cpp **** void Button::update() {
+   7:lib/Button/Button.cpp ****     if (read() == pressState) {
+   8:lib/Button/Button.cpp ****         // button is pressed
+   9:lib/Button/Button.cpp ****         if (isPressed == false) {
+  10:lib/Button/Button.cpp ****             isPressed = true;
+  11:lib/Button/Button.cpp ****             pressedTimer.reset();
+  12:lib/Button/Button.cpp ****         }
+  13:lib/Button/Button.cpp ****     } else {
+  14:lib/Button/Button.cpp ****         // button is released
+  15:lib/Button/Button.cpp ****         if (isPressed == true) {
+  16:lib/Button/Button.cpp ****             isPressed = false;
+  17:lib/Button/Button.cpp ****             pressedTime = pressedTimer.read_ms();
+  18:lib/Button/Button.cpp ****         }
+  19:lib/Button/Button.cpp ****     }
+  20:lib/Button/Button.cpp **** }
+  21:lib/Button/Button.cpp **** 
+  22:lib/Button/Button.cpp **** bool Button::read() {
+  94              		.loc 1 22 21 is_stmt 1 view -0
+  95              		.cfi_startproc
+  96              		@ args = 0, pretend = 0, frame = 0
+  97              		@ frame_needed = 0, uses_anonymous_args = 0
+  98              		.loc 1 22 21 is_stmt 0 view .LVU15
+  99 0000 10B5     		push	{r4, lr}
+ 100              		.save {r4, lr}
+ 101              	.LCFI1:
+ 102              		.cfi_def_cfa_offset 8
+ 103              		.cfi_offset 4, -8
+ 104              		.cfi_offset 14, -4
+ 105 0002 0446     		mov	r4, r0
+  23:lib/Button/Button.cpp ****     lastButtonState = buttonState;
+ 106              		.loc 1 23 5 is_stmt 1 view .LVU16
+ 107              		.loc 1 23 23 is_stmt 0 view .LVU17
+ 108 0004 437A     		ldrb	r3, [r0, #9]	@ zero_extendqisi2
+ 109              		.loc 1 23 21 view .LVU18
+ 110 0006 8372     		strb	r3, [r0, #10]
+  24:lib/Button/Button.cpp ****     buttonState = button.read();
+ 111              		.loc 1 24 5 is_stmt 1 view .LVU19
+ 112              	.LVL6:
+ 113              	.LBB11:
+ 114              	.LBI11:
+  35:Lib/DigitalInOut/DigitalInOut.hpp ****     }
+  36:Lib/DigitalInOut/DigitalInOut.hpp ****     bool read() {
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s 			page 4
+
+
+ 115              		.loc 2 36 10 view .LVU20
+ 116              	.LBB12:
+  37:Lib/DigitalInOut/DigitalInOut.hpp ****         return HAL_GPIO_ReadPin(port, pin) == GPIO_PIN_SET;
+ 117              		.loc 2 37 9 view .LVU21
+ 118              		.loc 2 37 32 is_stmt 0 view .LVU22
+ 119 0008 8188     		ldrh	r1, [r0, #4]
+ 120 000a 0068     		ldr	r0, [r0]
+ 121              	.LVL7:
+ 122              		.loc 2 37 32 view .LVU23
+ 123 000c FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 124              	.LVL8:
+ 125              		.loc 2 37 47 view .LVU24
+ 126 0010 0128     		cmp	r0, #1
+ 127 0012 14BF     		ite	ne
+ 128 0014 0020     		movne	r0, #0
+ 129 0016 0120     		moveq	r0, #1
+ 130              	.LVL9:
+ 131              		.loc 2 37 47 view .LVU25
+ 132              	.LBE12:
+ 133              	.LBE11:
+ 134              		.loc 1 24 17 view .LVU26
+ 135 0018 6072     		strb	r0, [r4, #9]
+  25:lib/Button/Button.cpp ****     return buttonState;
+ 136              		.loc 1 25 5 is_stmt 1 view .LVU27
+  26:lib/Button/Button.cpp **** }
+ 137              		.loc 1 26 1 is_stmt 0 view .LVU28
+ 138 001a 10BD     		pop	{r4, pc}
+ 139              		.loc 1 26 1 view .LVU29
+ 140              		.cfi_endproc
+ 141              	.LFE255:
+ 142              		.fnend
+ 144              		.section	.text._ZN6Button6updateEv,"ax",%progbits
+ 145              		.align	1
+ 146              		.global	_ZN6Button6updateEv
+ 147              		.syntax unified
+ 148              		.thumb
+ 149              		.thumb_func
+ 151              	_ZN6Button6updateEv:
+ 152              		.fnstart
+ 153              	.LVL10:
+ 154              	.LFB254:
+   6:lib/Button/Button.cpp ****     if (read() == pressState) {
+ 155              		.loc 1 6 23 is_stmt 1 view -0
+ 156              		.cfi_startproc
+ 157              		@ args = 0, pretend = 0, frame = 0
+ 158              		@ frame_needed = 0, uses_anonymous_args = 0
+   6:lib/Button/Button.cpp ****     if (read() == pressState) {
+ 159              		.loc 1 6 23 is_stmt 0 view .LVU31
+ 160 0000 10B5     		push	{r4, lr}
+ 161              		.save {r4, lr}
+ 162              	.LCFI2:
+ 163              		.cfi_def_cfa_offset 8
+ 164              		.cfi_offset 4, -8
+ 165              		.cfi_offset 14, -4
+ 166 0002 0446     		mov	r4, r0
+   7:lib/Button/Button.cpp ****         // button is pressed
+ 167              		.loc 1 7 5 is_stmt 1 view .LVU32
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s 			page 5
+
+
+   7:lib/Button/Button.cpp ****         // button is pressed
+ 168              		.loc 1 7 13 is_stmt 0 view .LVU33
+ 169 0004 FFF7FEFF 		bl	_ZN6Button4readEv
+ 170              	.LVL11:
+   7:lib/Button/Button.cpp ****         // button is pressed
+ 171              		.loc 1 7 19 view .LVU34
+ 172 0008 237A     		ldrb	r3, [r4, #8]	@ zero_extendqisi2
+   7:lib/Button/Button.cpp ****         // button is pressed
+ 173              		.loc 1 7 5 view .LVU35
+ 174 000a 8342     		cmp	r3, r0
+ 175 000c 02D0     		beq	.L9
+  15:lib/Button/Button.cpp ****             isPressed = false;
+ 176              		.loc 1 15 9 is_stmt 1 view .LVU36
+  15:lib/Button/Button.cpp ****             isPressed = false;
+ 177              		.loc 1 15 13 is_stmt 0 view .LVU37
+ 178 000e E37A     		ldrb	r3, [r4, #11]	@ zero_extendqisi2
+  15:lib/Button/Button.cpp ****             isPressed = false;
+ 179              		.loc 1 15 9 view .LVU38
+ 180 0010 53B9     		cbnz	r3, .L10
+ 181              	.L5:
+  20:lib/Button/Button.cpp **** 
+ 182              		.loc 1 20 1 view .LVU39
+ 183 0012 10BD     		pop	{r4, pc}
+ 184              	.LVL12:
+ 185              	.L9:
+   9:lib/Button/Button.cpp ****             isPressed = true;
+ 186              		.loc 1 9 9 is_stmt 1 view .LVU40
+   9:lib/Button/Button.cpp ****             isPressed = true;
+ 187              		.loc 1 9 13 is_stmt 0 view .LVU41
+ 188 0014 E37A     		ldrb	r3, [r4, #11]	@ zero_extendqisi2
+   9:lib/Button/Button.cpp ****             isPressed = true;
+ 189              		.loc 1 9 9 view .LVU42
+ 190 0016 002B     		cmp	r3, #0
+ 191 0018 FBD1     		bne	.L5
+  10:lib/Button/Button.cpp ****             pressedTimer.reset();
+ 192              		.loc 1 10 13 is_stmt 1 view .LVU43
+  10:lib/Button/Button.cpp ****             pressedTimer.reset();
+ 193              		.loc 1 10 23 is_stmt 0 view .LVU44
+ 194 001a 0123     		movs	r3, #1
+ 195 001c E372     		strb	r3, [r4, #11]
+  11:lib/Button/Button.cpp ****         }
+ 196              		.loc 1 11 13 is_stmt 1 view .LVU45
+  11:lib/Button/Button.cpp ****         }
+ 197              		.loc 1 11 31 is_stmt 0 view .LVU46
+ 198 001e 04F11000 		add	r0, r4, #16
+ 199 0022 FFF7FEFF 		bl	_ZN5Timer5resetEv
+ 200              	.LVL13:
+ 201 0026 F4E7     		b	.L5
+ 202              	.L10:
+  16:lib/Button/Button.cpp ****             pressedTime = pressedTimer.read_ms();
+ 203              		.loc 1 16 13 is_stmt 1 view .LVU47
+  16:lib/Button/Button.cpp ****             pressedTime = pressedTimer.read_ms();
+ 204              		.loc 1 16 23 is_stmt 0 view .LVU48
+ 205 0028 0023     		movs	r3, #0
+ 206 002a E372     		strb	r3, [r4, #11]
+  17:lib/Button/Button.cpp ****         }
+ 207              		.loc 1 17 13 is_stmt 1 view .LVU49
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s 			page 6
+
+
+  17:lib/Button/Button.cpp ****         }
+ 208              		.loc 1 17 47 is_stmt 0 view .LVU50
+ 209 002c 04F11000 		add	r0, r4, #16
+ 210 0030 FFF7FEFF 		bl	_ZN5Timer7read_msEv
+ 211              	.LVL14:
+  17:lib/Button/Button.cpp ****         }
+ 212              		.loc 1 17 25 view .LVU51
+ 213 0034 A081     		strh	r0, [r4, #12]	@ movhi
+  20:lib/Button/Button.cpp **** 
+ 214              		.loc 1 20 1 view .LVU52
+ 215 0036 ECE7     		b	.L5
+ 216              		.cfi_endproc
+ 217              	.LFE254:
+ 218              		.fnend
+ 220              		.section	.text._ZN6Button7isPressEv,"ax",%progbits
+ 221              		.align	1
+ 222              		.global	_ZN6Button7isPressEv
+ 223              		.syntax unified
+ 224              		.thumb
+ 225              		.thumb_func
+ 227              	_ZN6Button7isPressEv:
+ 228              		.fnstart
+ 229              	.LVL15:
+ 230              	.LFB256:
+  27:lib/Button/Button.cpp **** 
+  28:lib/Button/Button.cpp **** bool Button::isPress() {
+ 231              		.loc 1 28 24 is_stmt 1 view -0
+ 232              		.cfi_startproc
+ 233              		@ args = 0, pretend = 0, frame = 0
+ 234              		@ frame_needed = 0, uses_anonymous_args = 0
+ 235              		@ link register save eliminated.
+  29:lib/Button/Button.cpp ****     return buttonState == pressState;
+ 236              		.loc 1 29 5 view .LVU54
+ 237              		.loc 1 29 12 is_stmt 0 view .LVU55
+ 238 0000 437A     		ldrb	r3, [r0, #9]	@ zero_extendqisi2
+ 239              		.loc 1 29 27 view .LVU56
+ 240 0002 007A     		ldrb	r0, [r0, #8]	@ zero_extendqisi2
+ 241              	.LVL16:
+  30:lib/Button/Button.cpp **** }
+ 242              		.loc 1 30 1 view .LVU57
+ 243 0004 9842     		cmp	r0, r3
+ 244 0006 14BF     		ite	ne
+ 245 0008 0020     		movne	r0, #0
+ 246 000a 0120     		moveq	r0, #1
+ 247 000c 7047     		bx	lr
+ 248              		.cfi_endproc
+ 249              	.LFE256:
+ 250              		.cantunwind
+ 251              		.fnend
+ 253              		.section	.text._ZN6Button9isReleaseEv,"ax",%progbits
+ 254              		.align	1
+ 255              		.global	_ZN6Button9isReleaseEv
+ 256              		.syntax unified
+ 257              		.thumb
+ 258              		.thumb_func
+ 260              	_ZN6Button9isReleaseEv:
+ 261              		.fnstart
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s 			page 7
+
+
+ 262              	.LVL17:
+ 263              	.LFB257:
+  31:lib/Button/Button.cpp **** 
+  32:lib/Button/Button.cpp **** bool Button::isRelease() {
+ 264              		.loc 1 32 26 is_stmt 1 view -0
+ 265              		.cfi_startproc
+ 266              		@ args = 0, pretend = 0, frame = 0
+ 267              		@ frame_needed = 0, uses_anonymous_args = 0
+ 268              		@ link register save eliminated.
+  33:lib/Button/Button.cpp ****     return (buttonState != lastButtonState) && (buttonState != pressState);
+ 269              		.loc 1 33 5 view .LVU59
+ 270              		.loc 1 33 13 is_stmt 0 view .LVU60
+ 271 0000 437A     		ldrb	r3, [r0, #9]	@ zero_extendqisi2
+ 272              		.loc 1 33 28 view .LVU61
+ 273 0002 827A     		ldrb	r2, [r0, #10]	@ zero_extendqisi2
+ 274              		.loc 1 33 45 view .LVU62
+ 275 0004 9342     		cmp	r3, r2
+ 276 0006 06D0     		beq	.L14
+ 277              		.loc 1 33 64 discriminator 1 view .LVU63
+ 278 0008 027A     		ldrb	r2, [r0, #8]	@ zero_extendqisi2
+ 279              		.loc 1 33 45 discriminator 1 view .LVU64
+ 280 000a 9342     		cmp	r3, r2
+ 281 000c 01D0     		beq	.L16
+ 282              		.loc 1 33 45 view .LVU65
+ 283 000e 0120     		movs	r0, #1
+ 284              	.LVL18:
+  34:lib/Button/Button.cpp **** }
+ 285              		.loc 1 34 1 view .LVU66
+ 286 0010 7047     		bx	lr
+ 287              	.LVL19:
+ 288              	.L16:
+  33:lib/Button/Button.cpp ****     return (buttonState != lastButtonState) && (buttonState != pressState);
+ 289              		.loc 1 33 45 view .LVU67
+ 290 0012 0020     		movs	r0, #0
+ 291              	.LVL20:
+  33:lib/Button/Button.cpp ****     return (buttonState != lastButtonState) && (buttonState != pressState);
+ 292              		.loc 1 33 45 view .LVU68
+ 293 0014 7047     		bx	lr
+ 294              	.LVL21:
+ 295              	.L14:
+  33:lib/Button/Button.cpp ****     return (buttonState != lastButtonState) && (buttonState != pressState);
+ 296              		.loc 1 33 45 view .LVU69
+ 297 0016 0020     		movs	r0, #0
+ 298              	.LVL22:
+  33:lib/Button/Button.cpp ****     return (buttonState != lastButtonState) && (buttonState != pressState);
+ 299              		.loc 1 33 45 view .LVU70
+ 300 0018 7047     		bx	lr
+ 301              		.cfi_endproc
+ 302              	.LFE257:
+ 303              		.cantunwind
+ 304              		.fnend
+ 306              		.section	.text._ZN6Button15readPressedTimeEv,"ax",%progbits
+ 307              		.align	1
+ 308              		.global	_ZN6Button15readPressedTimeEv
+ 309              		.syntax unified
+ 310              		.thumb
+ 311              		.thumb_func
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s 			page 8
+
+
+ 313              	_ZN6Button15readPressedTimeEv:
+ 314              		.fnstart
+ 315              	.LVL23:
+ 316              	.LFB258:
+  35:lib/Button/Button.cpp **** 
+  36:lib/Button/Button.cpp **** uint16_t Button::readPressedTime() {
+ 317              		.loc 1 36 36 is_stmt 1 view -0
+ 318              		.cfi_startproc
+ 319              		@ args = 0, pretend = 0, frame = 0
+ 320              		@ frame_needed = 0, uses_anonymous_args = 0
+ 321              		@ link register save eliminated.
+  37:lib/Button/Button.cpp ****     return pressedTime;
+ 322              		.loc 1 37 5 view .LVU72
+  38:lib/Button/Button.cpp **** }...
+ 323              		.loc 1 38 1 is_stmt 0 view .LVU73
+ 324 0000 8089     		ldrh	r0, [r0, #12]
+ 325              	.LVL24:
+ 326              		.loc 1 38 1 view .LVU74
+ 327 0002 7047     		bx	lr
+ 328              		.cfi_endproc
+ 329              	.LFE258:
+ 330              		.cantunwind
+ 331              		.fnend
+ 333              		.text
+ 334              	.Letext0:
+ 335              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 336              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 337              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 338              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 339              		.file 7 "Lib/Timer/Timer.hpp"
+ 340              		.file 8 "lib/Button/Button.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Button.cpp
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:21     .text._ZN6ButtonC2EP12GPIO_TypeDeft:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:27     .text._ZN6ButtonC2EP12GPIO_TypeDeft:00000000 _ZN6ButtonC2EP12GPIO_TypeDeft
+.ARM.exidx.text._ZN6ButtonC2EP12GPIO_TypeDeft:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:27     .text._ZN6ButtonC2EP12GPIO_TypeDeft:00000000 _ZN6ButtonC1EP12GPIO_TypeDeft
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:84     .text._ZN6Button4readEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:90     .text._ZN6Button4readEv:00000000 _ZN6Button4readEv
+.ARM.exidx.text._ZN6Button4readEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:145    .text._ZN6Button6updateEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:151    .text._ZN6Button6updateEv:00000000 _ZN6Button6updateEv
+.ARM.exidx.text._ZN6Button6updateEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:221    .text._ZN6Button7isPressEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:227    .text._ZN6Button7isPressEv:00000000 _ZN6Button7isPressEv
+.ARM.exidx.text._ZN6Button7isPressEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:254    .text._ZN6Button9isReleaseEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:260    .text._ZN6Button9isReleaseEv:00000000 _ZN6Button9isReleaseEv
+.ARM.exidx.text._ZN6Button9isReleaseEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:307    .text._ZN6Button15readPressedTimeEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccjRFd3l.s:313    .text._ZN6Button15readPressedTimeEv:00000000 _ZN6Button15readPressedTimeEv
+.ARM.exidx.text._ZN6Button15readPressedTimeEv:00000000 $d
+
+UNDEFINED SYMBOLS
+_ZN5TimerC1Ev
+__aeabi_unwind_cpp_pr0
+HAL_GPIO_ReadPin
+_ZN5Timer5resetEv
+_ZN5Timer7read_msEv
