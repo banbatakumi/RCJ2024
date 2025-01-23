@@ -1,0 +1,992 @@
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"motor_drive.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "src/unit/motor_drive/motor_drive.cpp"
+  20              		.section	.text._ZN12PwmSingleOut4initEv,"axG",%progbits,_ZN12PwmSingleOut4initEv,comdat
+  21              		.align	1
+  22              		.weak	_ZN12PwmSingleOut4initEv
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	_ZN12PwmSingleOut4initEv:
+  28              		.fnstart
+  29              	.LVL0:
+  30              	.LFB245:
+  31              		.file 2 "Lib/PWMSingle/PWMSingle.hpp"
+   1:Lib/PWMSingle/PWMSingle.hpp **** #ifndef __PWMSINGLE__
+   2:Lib/PWMSingle/PWMSingle.hpp **** #define __PWMSINGLE__
+   3:Lib/PWMSingle/PWMSingle.hpp **** 
+   4:Lib/PWMSingle/PWMSingle.hpp **** #include "MyMath.hpp"
+   5:Lib/PWMSingle/PWMSingle.hpp **** #include "tim.h"
+   6:Lib/PWMSingle/PWMSingle.hpp **** 
+   7:Lib/PWMSingle/PWMSingle.hpp **** #ifdef __cplusplus
+   8:Lib/PWMSingle/PWMSingle.hpp **** extern "C" {
+   9:Lib/PWMSingle/PWMSingle.hpp **** 
+  10:Lib/PWMSingle/PWMSingle.hpp **** class PwmSingleOut {
+  11:Lib/PWMSingle/PWMSingle.hpp ****      public:
+  12:Lib/PWMSingle/PWMSingle.hpp ****       PwmSingleOut(TIM_HandleTypeDef *htim, uint32_t channel)
+  13:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+  14:Lib/PWMSingle/PWMSingle.hpp ****       }
+  15:Lib/PWMSingle/PWMSingle.hpp **** 
+  16:Lib/PWMSingle/PWMSingle.hpp ****       void init() {
+  32              		.loc 2 16 12 view -0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 0, uses_anonymous_args = 0
+  36              		.loc 2 16 12 is_stmt 0 view .LVU1
+  37 0000 10B5     		push	{r4, lr}
+  38              		.save {r4, lr}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 8
+  41              		.cfi_offset 4, -8
+  42              		.cfi_offset 14, -4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 2
+
+
+  43 0002 0446     		mov	r4, r0
+  17:Lib/PWMSingle/PWMSingle.hpp ****             HAL_TIM_PWM_Start(_htim, _channel);
+  44              		.loc 2 17 13 is_stmt 1 view .LVU2
+  45              		.loc 2 17 30 is_stmt 0 view .LVU3
+  46 0004 4168     		ldr	r1, [r0, #4]
+  47 0006 0068     		ldr	r0, [r0]
+  48              	.LVL1:
+  49              		.loc 2 17 30 view .LVU4
+  50 0008 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  51              	.LVL2:
+  18:Lib/PWMSingle/PWMSingle.hpp ****             _maxValue = _htim->Init.Period;
+  52              		.loc 2 18 13 is_stmt 1 view .LVU5
+  53              		.loc 2 18 25 is_stmt 0 view .LVU6
+  54 000c 2368     		ldr	r3, [r4]
+  55              		.loc 2 18 37 view .LVU7
+  56 000e DB68     		ldr	r3, [r3, #12]
+  57              		.loc 2 18 23 view .LVU8
+  58 0010 A360     		str	r3, [r4, #8]
+  19:Lib/PWMSingle/PWMSingle.hpp ****       }
+  59              		.loc 2 19 7 view .LVU9
+  60 0012 10BD     		pop	{r4, pc}
+  61              		.loc 2 19 7 view .LVU10
+  62              		.cfi_endproc
+  63              	.LFE245:
+  64              		.fnend
+  66              		.global	__aeabi_f2d
+  67              		.global	__aeabi_ui2d
+  68              		.global	__aeabi_dmul
+  69              		.global	__aeabi_d2iz
+  70              		.section	.text._ZN12PwmSingleOut5writeEf,"axG",%progbits,_ZN12PwmSingleOut5writeEf,comdat
+  71              		.align	1
+  72              		.weak	_ZN12PwmSingleOut5writeEf
+  73              		.syntax unified
+  74              		.thumb
+  75              		.thumb_func
+  77              	_ZN12PwmSingleOut5writeEf:
+  78              		.fnstart
+  79              	.LVL3:
+  80              	.LFB246:
+  20:Lib/PWMSingle/PWMSingle.hpp **** 
+  21:Lib/PWMSingle/PWMSingle.hpp ****       void write(float duty) {
+  81              		.loc 2 21 12 is_stmt 1 view -0
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+  85              		.loc 2 21 12 is_stmt 0 view .LVU12
+  86 0000 D0B5     		push	{r4, r6, r7, lr}
+  87              	.LCFI1:
+  88              		.cfi_def_cfa_offset 16
+  89              		.cfi_offset 4, -16
+  90              		.cfi_offset 6, -12
+  91              		.cfi_offset 7, -8
+  92              		.cfi_offset 14, -4
+  93 0002 0446     		mov	r4, r0
+  22:Lib/PWMSingle/PWMSingle.hpp ****             duty = (int)(Constrain(duty, 0.0, 1.0) * _maxValue);
+  94              		.loc 2 22 13 is_stmt 1 view .LVU13
+  95              		.loc 2 22 26 is_stmt 0 view .LVU14
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 3
+
+
+  96 0004 B5EEC00A 		vcmpe.f32	s0, #0
+  97 0008 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+  98 000c 10D4     		bmi	.L9
+  99              		.loc 2 22 26 discriminator 2 view .LVU15
+ 100 000e F7EE007A 		vmov.f32	s15, #1.0e+0
+ 101 0012 B4EEE70A 		vcmpe.f32	s0, s15
+ 102 0016 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 103 001a 02DD     		ble	.L12
+ 104              		.loc 2 22 26 view .LVU16
+ 105 001c 0026     		movs	r6, #0
+ 106 001e 1D4F     		ldr	r7, .L15
+ 107 0020 08E0     		b	.L4
+ 108              	.L12:
+ 109              		.loc 2 22 26 discriminator 5 view .LVU17
+ 110 0022 10EE100A 		vmov	r0, s0
+ 111              	.LVL4:
+ 112              		.loc 2 22 26 discriminator 5 view .LVU18
+ 113 0026 FFF7FEFF 		bl	__aeabi_f2d
+ 114              	.LVL5:
+ 115              		.loc 2 22 26 discriminator 5 view .LVU19
+ 116 002a 0646     		mov	r6, r0
+ 117 002c 0F46     		mov	r7, r1
+ 118 002e 01E0     		b	.L4
+ 119              	.LVL6:
+ 120              	.L9:
+ 121              		.loc 2 22 26 view .LVU20
+ 122 0030 0026     		movs	r6, #0
+ 123 0032 0027     		movs	r7, #0
+ 124              	.LVL7:
+ 125              	.L4:
+ 126              		.loc 2 22 52 discriminator 8 view .LVU21
+ 127 0034 A068     		ldr	r0, [r4, #8]
+ 128 0036 FFF7FEFF 		bl	__aeabi_ui2d
+ 129              	.LVL8:
+ 130 003a 3246     		mov	r2, r6
+ 131 003c 3B46     		mov	r3, r7
+ 132 003e FFF7FEFF 		bl	__aeabi_dmul
+ 133              	.LVL9:
+ 134              		.loc 2 22 20 discriminator 8 view .LVU22
+ 135 0042 FFF7FEFF 		bl	__aeabi_d2iz
+ 136              	.LVL10:
+ 137 0046 07EE900A 		vmov	s15, r0	@ int
+ 138              		.loc 2 22 18 discriminator 8 view .LVU23
+ 139 004a F8EEE77A 		vcvt.f32.s32	s15, s15
+ 140              	.LVL11:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 141              		.loc 2 23 13 is_stmt 1 discriminator 8 view .LVU24
+ 142 004e 6368     		ldr	r3, [r4, #4]
+ 143 0050 33B9     		cbnz	r3, .L5
+ 144              		.loc 2 23 13 is_stmt 0 discriminator 1 view .LVU25
+ 145 0052 2368     		ldr	r3, [r4]
+ 146 0054 1B68     		ldr	r3, [r3]
+ 147 0056 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 148              	.LVL12:
+ 149              		.loc 2 23 13 discriminator 1 view .LVU26
+ 150 005a C3ED0D7A 		vstr.32	s15, [r3, #52]	@ int
+ 151              	.L3:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 4
+
+
+  24:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 152              		.loc 2 24 7 view .LVU27
+ 153 005e D0BD     		pop	{r4, r6, r7, pc}
+ 154              	.LVL13:
+ 155              	.L5:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 156              		.loc 2 23 13 discriminator 2 view .LVU28
+ 157 0060 042B     		cmp	r3, #4
+ 158 0062 08D0     		beq	.L13
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 159              		.loc 2 23 13 discriminator 4 view .LVU29
+ 160 0064 082B     		cmp	r3, #8
+ 161 0066 0DD0     		beq	.L14
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 162              		.loc 2 23 13 discriminator 6 view .LVU30
+ 163 0068 2368     		ldr	r3, [r4]
+ 164 006a 1B68     		ldr	r3, [r3]
+ 165 006c FCEEE77A 		vcvt.u32.f32	s15, s15
+ 166              	.LVL14:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 167              		.loc 2 23 13 discriminator 6 view .LVU31
+ 168 0070 C3ED107A 		vstr.32	s15, [r3, #64]	@ int
+ 169              		.loc 2 24 7 discriminator 6 view .LVU32
+ 170 0074 F3E7     		b	.L3
+ 171              	.LVL15:
+ 172              	.L13:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 173              		.loc 2 23 13 discriminator 3 view .LVU33
+ 174 0076 2368     		ldr	r3, [r4]
+ 175 0078 1B68     		ldr	r3, [r3]
+ 176 007a FCEEE77A 		vcvt.u32.f32	s15, s15
+ 177              	.LVL16:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 178              		.loc 2 23 13 discriminator 3 view .LVU34
+ 179 007e C3ED0E7A 		vstr.32	s15, [r3, #56]	@ int
+ 180 0082 ECE7     		b	.L3
+ 181              	.LVL17:
+ 182              	.L14:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 183              		.loc 2 23 13 discriminator 5 view .LVU35
+ 184 0084 2368     		ldr	r3, [r4]
+ 185 0086 1B68     		ldr	r3, [r3]
+ 186 0088 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 187              	.LVL18:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 188              		.loc 2 23 13 discriminator 5 view .LVU36
+ 189 008c C3ED0F7A 		vstr.32	s15, [r3, #60]	@ int
+ 190 0090 E5E7     		b	.L3
+ 191              	.L16:
+ 192 0092 00BF     		.align	2
+ 193              	.L15:
+ 194 0094 0000F03F 		.word	1072693248
+ 195              		.cfi_endproc
+ 196              	.LFE246:
+ 197              		.cantunwind
+ 198              		.fnend
+ 200              		.section	.text._ZN10MotorDriveC2EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_,"ax",%progbits
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 5
+
+
+ 201              		.align	1
+ 202              		.global	_ZN10MotorDriveC2EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_
+ 203              		.syntax unified
+ 204              		.thumb
+ 205              		.thumb_func
+ 207              	_ZN10MotorDriveC2EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_:
+ 208              		.fnstart
+ 209              	.LVL19:
+ 210              	.LFB253:
+   1:src/unit/motor_drive/motor_drive.cpp **** #include "motor_drive.hpp"
+   2:src/unit/motor_drive/motor_drive.cpp **** 
+   3:src/unit/motor_drive/motor_drive.cpp **** MotorDrive::MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
+ 211              		.loc 1 3 1 is_stmt 1 view -0
+ 212              		.cfi_startproc
+ 213              		@ args = 20, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		.loc 1 3 1 is_stmt 0 view .LVU38
+ 216 0000 10B5     		push	{r4, lr}
+ 217              		.save {r4, lr}
+ 218              	.LCFI2:
+ 219              		.cfi_def_cfa_offset 8
+ 220              		.cfi_offset 4, -8
+ 221              		.cfi_offset 14, -4
+ 222 0002 0446     		mov	r4, r0
+ 223              	.LBB15:
+   4:src/unit/motor_drive/motor_drive.cpp ****                        PwmSingleOut *motor2a, PwmSingleOut *motor2b,
+   5:src/unit/motor_drive/motor_drive.cpp ****                        PwmSingleOut *motor3a, PwmSingleOut *motor3b,
+   6:src/unit/motor_drive/motor_drive.cpp ****                        PwmSingleOut *motor4a, PwmSingleOut *motor4b)
+   7:src/unit/motor_drive/motor_drive.cpp ****     : motor1a_(motor1a), motor1b_(motor1b), motor2a_(motor2a), motor2b_(motor2b), motor3a_(motor3a)
+ 224              		.loc 1 7 7 view .LVU39
+ 225 0004 0160     		str	r1, [r0]
+ 226              		.loc 1 7 26 view .LVU40
+ 227 0006 4260     		str	r2, [r0, #4]
+ 228              		.loc 1 7 45 view .LVU41
+ 229 0008 8360     		str	r3, [r0, #8]
+ 230              		.loc 1 7 64 view .LVU42
+ 231 000a 029B     		ldr	r3, [sp, #8]
+ 232              	.LVL20:
+ 233              		.loc 1 7 64 view .LVU43
+ 234 000c C360     		str	r3, [r0, #12]
+ 235              		.loc 1 7 83 view .LVU44
+ 236 000e 039B     		ldr	r3, [sp, #12]
+ 237 0010 0361     		str	r3, [r0, #16]
+ 238              		.loc 1 7 102 view .LVU45
+ 239 0012 049B     		ldr	r3, [sp, #16]
+ 240 0014 4361     		str	r3, [r0, #20]
+ 241              		.loc 1 7 121 view .LVU46
+ 242 0016 059B     		ldr	r3, [sp, #20]
+ 243 0018 8361     		str	r3, [r0, #24]
+ 244              		.loc 1 7 140 view .LVU47
+ 245 001a 069B     		ldr	r3, [sp, #24]
+ 246 001c C361     		str	r3, [r0, #28]
+ 247              	.LVL21:
+ 248              	.LBB16:
+ 249              	.LBI16:
+ 250              		.file 3 "Lib/MovingAve/MovingAve.hpp"
+   1:Lib/MovingAve/MovingAve.hpp **** #ifndef __MOVING_AVE__
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 6
+
+
+   2:Lib/MovingAve/MovingAve.hpp **** #define __MOVING_AVE__
+   3:Lib/MovingAve/MovingAve.hpp **** 
+   4:Lib/MovingAve/MovingAve.hpp **** #include "main.h"
+   5:Lib/MovingAve/MovingAve.hpp **** 
+   6:Lib/MovingAve/MovingAve.hpp **** class MovingAve {
+ 251              		.loc 3 6 7 is_stmt 1 view .LVU48
+ 252              	.LBB17:
+ 253 001e 0A23     		movs	r3, #10
+ 254 0020 80F84133 		strb	r3, [r0, #833]
+ 255              	.LVL22:
+ 256              		.loc 3 6 7 is_stmt 0 view .LVU49
+ 257              	.LBE17:
+ 258              	.LBE16:
+ 259              	.LBB18:
+ 260              	.LBI18:
+ 261              		.loc 3 6 7 is_stmt 1 view .LVU50
+ 262              	.LBB19:
+ 263 0024 80F86936 		strb	r3, [r0, #1641]
+ 264              	.LVL23:
+ 265              		.loc 3 6 7 is_stmt 0 view .LVU51
+ 266              	.LBE19:
+ 267              	.LBE18:
+ 268              	.LBB20:
+ 269              	.LBI20:
+ 270              		.loc 3 6 7 is_stmt 1 view .LVU52
+ 271              	.LBB21:
+ 272 0028 80F89139 		strb	r3, [r0, #2449]
+ 273              	.LVL24:
+ 274              		.loc 3 6 7 is_stmt 0 view .LVU53
+ 275              	.LBE21:
+ 276              	.LBE20:
+ 277              	.LBB22:
+ 278              	.LBI22:
+ 279              		.loc 3 6 7 is_stmt 1 view .LVU54
+ 280              	.LBB23:
+ 281 002c 80F8B93C 		strb	r3, [r0, #3257]
+ 282              	.LVL25:
+ 283              		.loc 3 6 7 is_stmt 0 view .LVU55
+ 284              	.LBE23:
+ 285              	.LBE22:
+ 286              		.loc 1 7 156 view .LVU56
+ 287 0030 00F54C60 		add	r0, r0, #3264
+ 288              	.LVL26:
+ 289              		.loc 1 7 156 view .LVU57
+ 290 0034 FFF7FEFF 		bl	_ZN5TimerC1Ev
+ 291              	.LVL27:
+   8:src/unit/motor_drive/motor_drive.cpp ****       motor1_ave.SetLength(MOVING_AVE_NUM);
+ 292              		.loc 1 8 7 is_stmt 1 view .LVU58
+ 293              		.loc 1 8 27 is_stmt 0 view .LVU59
+ 294 0038 0521     		movs	r1, #5
+ 295 003a 04F12000 		add	r0, r4, #32
+ 296 003e FFF7FEFF 		bl	_ZN9MovingAve9SetLengthEh
+ 297              	.LVL28:
+   9:src/unit/motor_drive/motor_drive.cpp ****       motor2_ave.SetLength(MOVING_AVE_NUM);
+ 298              		.loc 1 9 7 is_stmt 1 view .LVU60
+ 299              		.loc 1 9 27 is_stmt 0 view .LVU61
+ 300 0042 0521     		movs	r1, #5
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 7
+
+
+ 301 0044 04F55270 		add	r0, r4, #840
+ 302 0048 FFF7FEFF 		bl	_ZN9MovingAve9SetLengthEh
+ 303              	.LVL29:
+  10:src/unit/motor_drive/motor_drive.cpp ****       motor3_ave.SetLength(MOVING_AVE_NUM);
+ 304              		.loc 1 10 7 is_stmt 1 view .LVU62
+ 305              		.loc 1 10 27 is_stmt 0 view .LVU63
+ 306 004c 0521     		movs	r1, #5
+ 307 004e 04F5CE60 		add	r0, r4, #1648
+ 308 0052 FFF7FEFF 		bl	_ZN9MovingAve9SetLengthEh
+ 309              	.LVL30:
+  11:src/unit/motor_drive/motor_drive.cpp ****       motor4_ave.SetLength(MOVING_AVE_NUM);
+ 310              		.loc 1 11 7 is_stmt 1 view .LVU64
+ 311              		.loc 1 11 27 is_stmt 0 view .LVU65
+ 312 0056 0521     		movs	r1, #5
+ 313 0058 04F69810 		addw	r0, r4, #2456
+ 314 005c FFF7FEFF 		bl	_ZN9MovingAve9SetLengthEh
+ 315              	.LVL31:
+ 316              	.LBE15:
+  12:src/unit/motor_drive/motor_drive.cpp **** }
+ 317              		.loc 1 12 1 view .LVU66
+ 318 0060 2046     		mov	r0, r4
+ 319 0062 10BD     		pop	{r4, pc}
+ 320              		.loc 1 12 1 view .LVU67
+ 321              		.cfi_endproc
+ 322              	.LFE253:
+ 323              		.fnend
+ 325              		.global	_ZN10MotorDriveC1EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_
+ 326              		.thumb_set _ZN10MotorDriveC1EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_,_ZN10MotorDriveC2EP12PwmSingleOu
+ 327              		.section	.text._ZN10MotorDrive4InitEv,"ax",%progbits
+ 328              		.align	1
+ 329              		.global	_ZN10MotorDrive4InitEv
+ 330              		.syntax unified
+ 331              		.thumb
+ 332              		.thumb_func
+ 334              	_ZN10MotorDrive4InitEv:
+ 335              		.fnstart
+ 336              	.LVL32:
+ 337              	.LFB255:
+  13:src/unit/motor_drive/motor_drive.cpp **** 
+  14:src/unit/motor_drive/motor_drive.cpp **** void MotorDrive::Init() {
+ 338              		.loc 1 14 25 is_stmt 1 view -0
+ 339              		.cfi_startproc
+ 340              		@ args = 0, pretend = 0, frame = 0
+ 341              		@ frame_needed = 0, uses_anonymous_args = 0
+ 342              		.loc 1 14 25 is_stmt 0 view .LVU69
+ 343 0000 10B5     		push	{r4, lr}
+ 344              		.save {r4, lr}
+ 345              	.LCFI3:
+ 346              		.cfi_def_cfa_offset 8
+ 347              		.cfi_offset 4, -8
+ 348              		.cfi_offset 14, -4
+ 349 0002 0446     		mov	r4, r0
+  15:src/unit/motor_drive/motor_drive.cpp ****       motor1a_->init();
+ 350              		.loc 1 15 7 is_stmt 1 view .LVU70
+ 351              		.loc 1 15 21 is_stmt 0 view .LVU71
+ 352 0004 0068     		ldr	r0, [r0]
+ 353              	.LVL33:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 8
+
+
+ 354              		.loc 1 15 21 view .LVU72
+ 355 0006 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 356              	.LVL34:
+  16:src/unit/motor_drive/motor_drive.cpp ****       motor1b_->init();
+ 357              		.loc 1 16 7 is_stmt 1 view .LVU73
+ 358              		.loc 1 16 21 is_stmt 0 view .LVU74
+ 359 000a 6068     		ldr	r0, [r4, #4]
+ 360 000c FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 361              	.LVL35:
+  17:src/unit/motor_drive/motor_drive.cpp ****       motor2a_->init();
+ 362              		.loc 1 17 7 is_stmt 1 view .LVU75
+ 363              		.loc 1 17 21 is_stmt 0 view .LVU76
+ 364 0010 A068     		ldr	r0, [r4, #8]
+ 365 0012 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 366              	.LVL36:
+  18:src/unit/motor_drive/motor_drive.cpp ****       motor2b_->init();
+ 367              		.loc 1 18 7 is_stmt 1 view .LVU77
+ 368              		.loc 1 18 21 is_stmt 0 view .LVU78
+ 369 0016 E068     		ldr	r0, [r4, #12]
+ 370 0018 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 371              	.LVL37:
+  19:src/unit/motor_drive/motor_drive.cpp ****       motor3a_->init();
+ 372              		.loc 1 19 7 is_stmt 1 view .LVU79
+ 373              		.loc 1 19 21 is_stmt 0 view .LVU80
+ 374 001c 2069     		ldr	r0, [r4, #16]
+ 375 001e FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 376              	.LVL38:
+  20:src/unit/motor_drive/motor_drive.cpp ****       motor3b_->init();
+ 377              		.loc 1 20 7 is_stmt 1 view .LVU81
+ 378              		.loc 1 20 21 is_stmt 0 view .LVU82
+ 379 0022 6069     		ldr	r0, [r4, #20]
+ 380 0024 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 381              	.LVL39:
+  21:src/unit/motor_drive/motor_drive.cpp ****       motor4a_->init();
+ 382              		.loc 1 21 7 is_stmt 1 view .LVU83
+ 383              		.loc 1 21 21 is_stmt 0 view .LVU84
+ 384 0028 A069     		ldr	r0, [r4, #24]
+ 385 002a FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 386              	.LVL40:
+  22:src/unit/motor_drive/motor_drive.cpp ****       motor4b_->init();
+ 387              		.loc 1 22 7 is_stmt 1 view .LVU85
+ 388              		.loc 1 22 21 is_stmt 0 view .LVU86
+ 389 002e E069     		ldr	r0, [r4, #28]
+ 390 0030 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 391              	.LVL41:
+  23:src/unit/motor_drive/motor_drive.cpp **** }
+ 392              		.loc 1 23 1 view .LVU87
+ 393 0034 10BD     		pop	{r4, pc}
+ 394              		.loc 1 23 1 view .LVU88
+ 395              		.cfi_endproc
+ 396              	.LFE255:
+ 397              		.fnend
+ 399              		.section	.text._ZN10MotorDrive3RunEaaaa,"ax",%progbits
+ 400              		.align	1
+ 401              		.global	_ZN10MotorDrive3RunEaaaa
+ 402              		.syntax unified
+ 403              		.thumb
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 9
+
+
+ 404              		.thumb_func
+ 406              	_ZN10MotorDrive3RunEaaaa:
+ 407              		.fnstart
+ 408              	.LVL42:
+ 409              	.LFB257:
+  24:src/unit/motor_drive/motor_drive.cpp **** 
+  25:src/unit/motor_drive/motor_drive.cpp **** void MotorDrive::Drive(int16_t deg, uint8_t speed) {
+  26:src/unit/motor_drive/motor_drive.cpp ****       int8_t power[MOTOR_QTY];
+  27:src/unit/motor_drive/motor_drive.cpp **** 
+  28:src/unit/motor_drive/motor_drive.cpp ****       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+  29:src/unit/motor_drive/motor_drive.cpp ****             power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
+  30:src/unit/motor_drive/motor_drive.cpp ****       }
+  31:src/unit/motor_drive/motor_drive.cpp ****       Run(power[0], power[1], power[2], power[3]);
+  32:src/unit/motor_drive/motor_drive.cpp **** }
+  33:src/unit/motor_drive/motor_drive.cpp **** 
+  34:src/unit/motor_drive/motor_drive.cpp **** void MotorDrive::Run(int8_t motor1, int8_t motor2, int8_t motor3, int8_t motor4) {
+ 410              		.loc 1 34 82 is_stmt 1 view -0
+ 411              		.cfi_startproc
+ 412              		@ args = 4, pretend = 0, frame = 0
+ 413              		@ frame_needed = 0, uses_anonymous_args = 0
+ 414              		.loc 1 34 82 is_stmt 0 view .LVU90
+ 415 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 416              		.save {r4, r5, r6, r7, r8, lr}
+ 417              	.LCFI4:
+ 418              		.cfi_def_cfa_offset 24
+ 419              		.cfi_offset 4, -24
+ 420              		.cfi_offset 5, -20
+ 421              		.cfi_offset 6, -16
+ 422              		.cfi_offset 7, -12
+ 423              		.cfi_offset 8, -8
+ 424              		.cfi_offset 14, -4
+ 425 0004 0446     		mov	r4, r0
+ 426 0006 0F46     		mov	r7, r1
+ 427 0008 1646     		mov	r6, r2
+ 428 000a 1D46     		mov	r5, r3
+ 429 000c 9DF91880 		ldrsb	r8, [sp, #24]
+  35:src/unit/motor_drive/motor_drive.cpp ****       Init();
+ 430              		.loc 1 35 7 is_stmt 1 view .LVU91
+ 431              		.loc 1 35 11 is_stmt 0 view .LVU92
+ 432 0010 FFF7FEFF 		bl	_ZN10MotorDrive4InitEv
+ 433              	.LVL43:
+  36:src/unit/motor_drive/motor_drive.cpp ****       if (abs(motor1) > 100) motor1 = motor1 * (abs(motor1) / motor1);
+ 434              		.loc 1 36 7 is_stmt 1 view .LVU93
+ 435              		.loc 1 36 11 is_stmt 0 view .LVU94
+ 436 0014 87EAE773 		eor	r3, r7, r7, asr #31
+ 437 0018 A3EBE773 		sub	r3, r3, r7, asr #31
+ 438 001c DBB2     		uxtb	r3, r3
+ 439              		.loc 1 36 7 view .LVU95
+ 440 001e 642B     		cmp	r3, #100
+ 441 0020 04D9     		bls	.L22
+ 442              		.loc 1 36 30 is_stmt 1 discriminator 1 view .LVU96
+ 443              		.loc 1 36 61 is_stmt 0 discriminator 1 view .LVU97
+ 444 0022 93FBF7F3 		sdiv	r3, r3, r7
+ 445              		.loc 1 36 37 discriminator 1 view .LVU98
+ 446 0026 13FB07F3 		smulbb	r3, r3, r7
+ 447 002a 5FB2     		sxtb	r7, r3
+ 448              	.LVL44:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 10
+
+
+ 449              	.L22:
+  37:src/unit/motor_drive/motor_drive.cpp ****       if (abs(motor2) > 100) motor2 = motor2 * (abs(motor2) / motor2);
+ 450              		.loc 1 37 7 is_stmt 1 view .LVU99
+ 451              		.loc 1 37 11 is_stmt 0 view .LVU100
+ 452 002c 86EAE673 		eor	r3, r6, r6, asr #31
+ 453 0030 A3EBE673 		sub	r3, r3, r6, asr #31
+ 454 0034 DBB2     		uxtb	r3, r3
+ 455              		.loc 1 37 7 view .LVU101
+ 456 0036 642B     		cmp	r3, #100
+ 457 0038 04D9     		bls	.L23
+ 458              		.loc 1 37 30 is_stmt 1 discriminator 1 view .LVU102
+ 459              		.loc 1 37 61 is_stmt 0 discriminator 1 view .LVU103
+ 460 003a 93FBF6F3 		sdiv	r3, r3, r6
+ 461              		.loc 1 37 37 discriminator 1 view .LVU104
+ 462 003e 13FB06F3 		smulbb	r3, r3, r6
+ 463 0042 5EB2     		sxtb	r6, r3
+ 464              	.LVL45:
+ 465              	.L23:
+  38:src/unit/motor_drive/motor_drive.cpp ****       if (abs(motor3) > 100) motor3 = motor3 * (abs(motor3) / motor3);
+ 466              		.loc 1 38 7 is_stmt 1 view .LVU105
+ 467              		.loc 1 38 11 is_stmt 0 view .LVU106
+ 468 0044 85EAE573 		eor	r3, r5, r5, asr #31
+ 469 0048 A3EBE573 		sub	r3, r3, r5, asr #31
+ 470 004c DBB2     		uxtb	r3, r3
+ 471              		.loc 1 38 7 view .LVU107
+ 472 004e 642B     		cmp	r3, #100
+ 473 0050 04D9     		bls	.L24
+ 474              		.loc 1 38 30 is_stmt 1 discriminator 1 view .LVU108
+ 475              		.loc 1 38 61 is_stmt 0 discriminator 1 view .LVU109
+ 476 0052 93FBF5F3 		sdiv	r3, r3, r5
+ 477              		.loc 1 38 37 discriminator 1 view .LVU110
+ 478 0056 13FB05F3 		smulbb	r3, r3, r5
+ 479 005a 5DB2     		sxtb	r5, r3
+ 480              	.LVL46:
+ 481              	.L24:
+  39:src/unit/motor_drive/motor_drive.cpp ****       if (abs(motor4) > 100) motor4 = motor4 * (abs(motor4) / motor4);
+ 482              		.loc 1 39 7 is_stmt 1 view .LVU111
+ 483              		.loc 1 39 11 is_stmt 0 view .LVU112
+ 484 005c 88EAE873 		eor	r3, r8, r8, asr #31
+ 485 0060 A3EBE873 		sub	r3, r3, r8, asr #31
+ 486 0064 DBB2     		uxtb	r3, r3
+ 487              		.loc 1 39 7 view .LVU113
+ 488 0066 642B     		cmp	r3, #100
+ 489 0068 05D9     		bls	.L25
+ 490              		.loc 1 39 30 is_stmt 1 discriminator 1 view .LVU114
+ 491              		.loc 1 39 61 is_stmt 0 discriminator 1 view .LVU115
+ 492 006a 93FBF8F3 		sdiv	r3, r3, r8
+ 493              		.loc 1 39 37 discriminator 1 view .LVU116
+ 494 006e 13FB08F3 		smulbb	r3, r3, r8
+ 495 0072 4FFA83F8 		sxtb	r8, r3
+ 496              	.LVL47:
+ 497              	.L25:
+  40:src/unit/motor_drive/motor_drive.cpp ****       if (motor1 > 0) {
+ 498              		.loc 1 40 7 is_stmt 1 view .LVU117
+ 499 0076 002F     		cmp	r7, #0
+ 500 0078 48DD     		ble	.L26
+  41:src/unit/motor_drive/motor_drive.cpp ****             motor1a_->write(motor1 * 0.01f);
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 11
+
+
+ 501              		.loc 1 41 13 view .LVU118
+ 502              		.loc 1 41 28 is_stmt 0 view .LVU119
+ 503 007a 07EE907A 		vmov	s15, r7	@ int
+ 504 007e B8EEE70A 		vcvt.f32.s32	s0, s15
+ 505 0082 DFED447A 		vldr.32	s15, .L35
+ 506 0086 20EE270A 		vmul.f32	s0, s0, s15
+ 507 008a 2068     		ldr	r0, [r4]
+ 508 008c FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 509              	.LVL48:
+  42:src/unit/motor_drive/motor_drive.cpp ****             motor1b_->write(0);
+ 510              		.loc 1 42 13 is_stmt 1 view .LVU120
+ 511              		.loc 1 42 28 is_stmt 0 view .LVU121
+ 512 0090 9FED410A 		vldr.32	s0, .L35+4
+ 513 0094 6068     		ldr	r0, [r4, #4]
+ 514 0096 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 515              	.LVL49:
+ 516              	.L27:
+  43:src/unit/motor_drive/motor_drive.cpp ****       } else {
+  44:src/unit/motor_drive/motor_drive.cpp ****             motor1a_->write(0);
+  45:src/unit/motor_drive/motor_drive.cpp ****             motor1b_->write(motor1 * -0.01f);
+  46:src/unit/motor_drive/motor_drive.cpp ****       }
+  47:src/unit/motor_drive/motor_drive.cpp ****       if (motor2 > 0) {
+ 517              		.loc 1 47 7 is_stmt 1 view .LVU122
+ 518 009a 002E     		cmp	r6, #0
+ 519 009c 47DD     		ble	.L28
+  48:src/unit/motor_drive/motor_drive.cpp ****             motor2a_->write(motor2 * 0.01f);
+ 520              		.loc 1 48 13 view .LVU123
+ 521              		.loc 1 48 28 is_stmt 0 view .LVU124
+ 522 009e 07EE906A 		vmov	s15, r6	@ int
+ 523 00a2 B8EEE70A 		vcvt.f32.s32	s0, s15
+ 524 00a6 DFED3B7A 		vldr.32	s15, .L35
+ 525 00aa 20EE270A 		vmul.f32	s0, s0, s15
+ 526 00ae A068     		ldr	r0, [r4, #8]
+ 527 00b0 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 528              	.LVL50:
+  49:src/unit/motor_drive/motor_drive.cpp ****             motor2b_->write(0);
+ 529              		.loc 1 49 13 is_stmt 1 view .LVU125
+ 530              		.loc 1 49 28 is_stmt 0 view .LVU126
+ 531 00b4 9FED380A 		vldr.32	s0, .L35+4
+ 532 00b8 E068     		ldr	r0, [r4, #12]
+ 533 00ba FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 534              	.LVL51:
+ 535              	.L29:
+  50:src/unit/motor_drive/motor_drive.cpp ****       } else {
+  51:src/unit/motor_drive/motor_drive.cpp ****             motor2a_->write(0);
+  52:src/unit/motor_drive/motor_drive.cpp ****             motor2b_->write(motor2 * -0.01f);
+  53:src/unit/motor_drive/motor_drive.cpp ****       }
+  54:src/unit/motor_drive/motor_drive.cpp ****       if (motor3 > 0) {
+ 536              		.loc 1 54 7 is_stmt 1 view .LVU127
+ 537 00be 002D     		cmp	r5, #0
+ 538 00c0 46DD     		ble	.L30
+  55:src/unit/motor_drive/motor_drive.cpp ****             motor3a_->write(motor3 * 0.01f);
+ 539              		.loc 1 55 13 view .LVU128
+ 540              		.loc 1 55 28 is_stmt 0 view .LVU129
+ 541 00c2 07EE905A 		vmov	s15, r5	@ int
+ 542 00c6 B8EEE70A 		vcvt.f32.s32	s0, s15
+ 543 00ca DFED327A 		vldr.32	s15, .L35
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 12
+
+
+ 544 00ce 20EE270A 		vmul.f32	s0, s0, s15
+ 545 00d2 2069     		ldr	r0, [r4, #16]
+ 546 00d4 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 547              	.LVL52:
+  56:src/unit/motor_drive/motor_drive.cpp ****             motor3b_->write(0);
+ 548              		.loc 1 56 13 is_stmt 1 view .LVU130
+ 549              		.loc 1 56 28 is_stmt 0 view .LVU131
+ 550 00d8 9FED2F0A 		vldr.32	s0, .L35+4
+ 551 00dc 6069     		ldr	r0, [r4, #20]
+ 552 00de FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 553              	.LVL53:
+ 554              	.L31:
+  57:src/unit/motor_drive/motor_drive.cpp ****       } else {
+  58:src/unit/motor_drive/motor_drive.cpp ****             motor3a_->write(0);
+  59:src/unit/motor_drive/motor_drive.cpp ****             motor3b_->write(motor3 * -0.01f);
+  60:src/unit/motor_drive/motor_drive.cpp ****       }
+  61:src/unit/motor_drive/motor_drive.cpp ****       if (motor4 > 0) {
+ 555              		.loc 1 61 7 is_stmt 1 view .LVU132
+ 556 00e2 B8F1000F 		cmp	r8, #0
+ 557 00e6 44DD     		ble	.L32
+  62:src/unit/motor_drive/motor_drive.cpp ****             motor4a_->write(motor4 * 0.01f);
+ 558              		.loc 1 62 13 view .LVU133
+ 559              		.loc 1 62 28 is_stmt 0 view .LVU134
+ 560 00e8 07EE908A 		vmov	s15, r8	@ int
+ 561 00ec B8EEE70A 		vcvt.f32.s32	s0, s15
+ 562 00f0 DFED287A 		vldr.32	s15, .L35
+ 563 00f4 20EE270A 		vmul.f32	s0, s0, s15
+ 564 00f8 A069     		ldr	r0, [r4, #24]
+ 565 00fa FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 566              	.LVL54:
+  63:src/unit/motor_drive/motor_drive.cpp ****             motor4b_->write(0);
+ 567              		.loc 1 63 13 is_stmt 1 view .LVU135
+ 568              		.loc 1 63 28 is_stmt 0 view .LVU136
+ 569 00fe 9FED260A 		vldr.32	s0, .L35+4
+ 570 0102 E069     		ldr	r0, [r4, #28]
+ 571 0104 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 572              	.LVL55:
+ 573              	.L21:
+  64:src/unit/motor_drive/motor_drive.cpp ****       } else {
+  65:src/unit/motor_drive/motor_drive.cpp ****             motor4a_->write(0);
+  66:src/unit/motor_drive/motor_drive.cpp ****             motor4b_->write(motor4 * -0.01f);
+  67:src/unit/motor_drive/motor_drive.cpp ****       }
+  68:src/unit/motor_drive/motor_drive.cpp **** }...
+ 574              		.loc 1 68 1 view .LVU137
+ 575 0108 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 576              	.LVL56:
+ 577              	.L26:
+  44:src/unit/motor_drive/motor_drive.cpp ****             motor1a_->write(0);
+ 578              		.loc 1 44 13 is_stmt 1 view .LVU138
+  44:src/unit/motor_drive/motor_drive.cpp ****             motor1a_->write(0);
+ 579              		.loc 1 44 28 is_stmt 0 view .LVU139
+ 580 010c 9FED220A 		vldr.32	s0, .L35+4
+ 581 0110 2068     		ldr	r0, [r4]
+ 582 0112 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 583              	.LVL57:
+  45:src/unit/motor_drive/motor_drive.cpp ****             motor1b_->write(motor1 * -0.01f);
+ 584              		.loc 1 45 13 is_stmt 1 view .LVU140
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 13
+
+
+  45:src/unit/motor_drive/motor_drive.cpp ****             motor1b_->write(motor1 * -0.01f);
+ 585              		.loc 1 45 28 is_stmt 0 view .LVU141
+ 586 0116 07EE907A 		vmov	s15, r7	@ int
+ 587 011a F8EEE77A 		vcvt.f32.s32	s15, s15
+ 588 011e 9FED1F0A 		vldr.32	s0, .L35+8
+ 589 0122 27EE800A 		vmul.f32	s0, s15, s0
+ 590 0126 6068     		ldr	r0, [r4, #4]
+ 591 0128 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 592              	.LVL58:
+ 593 012c B5E7     		b	.L27
+ 594              	.L28:
+  51:src/unit/motor_drive/motor_drive.cpp ****             motor2a_->write(0);
+ 595              		.loc 1 51 13 is_stmt 1 view .LVU142
+  51:src/unit/motor_drive/motor_drive.cpp ****             motor2a_->write(0);
+ 596              		.loc 1 51 28 is_stmt 0 view .LVU143
+ 597 012e 9FED1A0A 		vldr.32	s0, .L35+4
+ 598 0132 A068     		ldr	r0, [r4, #8]
+ 599 0134 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 600              	.LVL59:
+  52:src/unit/motor_drive/motor_drive.cpp ****             motor2b_->write(motor2 * -0.01f);
+ 601              		.loc 1 52 13 is_stmt 1 view .LVU144
+  52:src/unit/motor_drive/motor_drive.cpp ****             motor2b_->write(motor2 * -0.01f);
+ 602              		.loc 1 52 28 is_stmt 0 view .LVU145
+ 603 0138 07EE906A 		vmov	s15, r6	@ int
+ 604 013c F8EEE77A 		vcvt.f32.s32	s15, s15
+ 605 0140 9FED160A 		vldr.32	s0, .L35+8
+ 606 0144 27EE800A 		vmul.f32	s0, s15, s0
+ 607 0148 E068     		ldr	r0, [r4, #12]
+ 608 014a FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 609              	.LVL60:
+ 610 014e B6E7     		b	.L29
+ 611              	.L30:
+  58:src/unit/motor_drive/motor_drive.cpp ****             motor3a_->write(0);
+ 612              		.loc 1 58 13 is_stmt 1 view .LVU146
+  58:src/unit/motor_drive/motor_drive.cpp ****             motor3a_->write(0);
+ 613              		.loc 1 58 28 is_stmt 0 view .LVU147
+ 614 0150 9FED110A 		vldr.32	s0, .L35+4
+ 615 0154 2069     		ldr	r0, [r4, #16]
+ 616 0156 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 617              	.LVL61:
+  59:src/unit/motor_drive/motor_drive.cpp ****             motor3b_->write(motor3 * -0.01f);
+ 618              		.loc 1 59 13 is_stmt 1 view .LVU148
+  59:src/unit/motor_drive/motor_drive.cpp ****             motor3b_->write(motor3 * -0.01f);
+ 619              		.loc 1 59 28 is_stmt 0 view .LVU149
+ 620 015a 07EE905A 		vmov	s15, r5	@ int
+ 621 015e F8EEE77A 		vcvt.f32.s32	s15, s15
+ 622 0162 9FED0E0A 		vldr.32	s0, .L35+8
+ 623 0166 27EE800A 		vmul.f32	s0, s15, s0
+ 624 016a 6069     		ldr	r0, [r4, #20]
+ 625 016c FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 626              	.LVL62:
+ 627 0170 B7E7     		b	.L31
+ 628              	.L32:
+  65:src/unit/motor_drive/motor_drive.cpp ****             motor4a_->write(0);
+ 629              		.loc 1 65 13 is_stmt 1 view .LVU150
+  65:src/unit/motor_drive/motor_drive.cpp ****             motor4a_->write(0);
+ 630              		.loc 1 65 28 is_stmt 0 view .LVU151
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 14
+
+
+ 631 0172 9FED090A 		vldr.32	s0, .L35+4
+ 632 0176 A069     		ldr	r0, [r4, #24]
+ 633 0178 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 634              	.LVL63:
+  66:src/unit/motor_drive/motor_drive.cpp ****             motor4b_->write(motor4 * -0.01f);
+ 635              		.loc 1 66 13 is_stmt 1 view .LVU152
+  66:src/unit/motor_drive/motor_drive.cpp ****             motor4b_->write(motor4 * -0.01f);
+ 636              		.loc 1 66 28 is_stmt 0 view .LVU153
+ 637 017c 07EE908A 		vmov	s15, r8	@ int
+ 638 0180 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 639 0184 9FED050A 		vldr.32	s0, .L35+8
+ 640 0188 27EE800A 		vmul.f32	s0, s15, s0
+ 641 018c E069     		ldr	r0, [r4, #28]
+ 642 018e FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 643              	.LVL64:
+ 644              		.loc 1 68 1 view .LVU154
+ 645 0192 B9E7     		b	.L21
+ 646              	.L36:
+ 647              		.align	2
+ 648              	.L35:
+ 649 0194 0AD7233C 		.word	1008981770
+ 650 0198 00000000 		.word	0
+ 651 019c 0AD723BC 		.word	-1138501878
+ 652              		.cfi_endproc
+ 653              	.LFE257:
+ 654              		.fnend
+ 656              		.section	.text._ZN10MotorDrive5DriveEsh,"ax",%progbits
+ 657              		.align	1
+ 658              		.global	_ZN10MotorDrive5DriveEsh
+ 659              		.syntax unified
+ 660              		.thumb
+ 661              		.thumb_func
+ 663              	_ZN10MotorDrive5DriveEsh:
+ 664              		.fnstart
+ 665              	.LVL65:
+ 666              	.LFB256:
+  25:src/unit/motor_drive/motor_drive.cpp **** void MotorDrive::Drive(int16_t deg, uint8_t speed) {
+ 667              		.loc 1 25 52 is_stmt 1 view -0
+ 668              		.cfi_startproc
+ 669              		@ args = 0, pretend = 0, frame = 8
+ 670              		@ frame_needed = 0, uses_anonymous_args = 0
+  25:src/unit/motor_drive/motor_drive.cpp **** void MotorDrive::Drive(int16_t deg, uint8_t speed) {
+ 671              		.loc 1 25 52 is_stmt 0 view .LVU156
+ 672 0000 70B5     		push	{r4, r5, r6, lr}
+ 673              		.save {r4, r5, r6, lr}
+ 674              	.LCFI5:
+ 675              		.cfi_def_cfa_offset 16
+ 676              		.cfi_offset 4, -16
+ 677              		.cfi_offset 5, -12
+ 678              		.cfi_offset 6, -8
+ 679              		.cfi_offset 14, -4
+ 680 0002 2DED028B 		vpush.64	{d8}
+ 681              		.vsave {d8}
+ 682              	.LCFI6:
+ 683              		.cfi_def_cfa_offset 24
+ 684              		.cfi_offset 80, -24
+ 685              		.cfi_offset 81, -20
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 15
+
+
+ 686              		.pad #16
+ 687 0006 84B0     		sub	sp, sp, #16
+ 688              	.LCFI7:
+ 689              		.cfi_def_cfa_offset 40
+ 690 0008 0646     		mov	r6, r0
+ 691 000a 0D46     		mov	r5, r1
+ 692 000c 08EE102A 		vmov	s16, r2	@ int
+  26:src/unit/motor_drive/motor_drive.cpp ****       int8_t power[MOTOR_QTY];
+ 693              		.loc 1 26 7 is_stmt 1 view .LVU157
+  28:src/unit/motor_drive/motor_drive.cpp ****       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+ 694              		.loc 1 28 7 view .LVU158
+ 695              	.LVL66:
+ 696              	.LBB24:
+  28:src/unit/motor_drive/motor_drive.cpp ****       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+ 697              		.loc 1 28 20 is_stmt 0 view .LVU159
+ 698 0010 0024     		movs	r4, #0
+  28:src/unit/motor_drive/motor_drive.cpp ****       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+ 699              		.loc 1 28 7 view .LVU160
+ 700 0012 16E0     		b	.L38
+ 701              	.LVL67:
+ 702              	.L39:
+  29:src/unit/motor_drive/motor_drive.cpp ****             power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
+ 703              		.loc 1 29 13 is_stmt 1 view .LVU161
+  29:src/unit/motor_drive/motor_drive.cpp ****             power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
+ 704              		.loc 1 29 55 is_stmt 0 view .LVU162
+ 705 0014 5A20     		movs	r0, #90
+ 706 0016 04FB00F0 		mul	r0, r4, r0
+  29:src/unit/motor_drive/motor_drive.cpp ****             power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
+ 707              		.loc 1 29 49 view .LVU163
+ 708 001a 2D30     		adds	r0, r0, #45
+  29:src/unit/motor_drive/motor_drive.cpp ****             power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
+ 709              		.loc 1 29 38 view .LVU164
+ 710 001c 281A     		subs	r0, r5, r0
+ 711 001e FFF7FEFF 		bl	sinDeg
+ 712              	.LVL68:
+  29:src/unit/motor_drive/motor_drive.cpp ****             power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
+ 713              		.loc 1 29 62 view .LVU165
+ 714 0022 F8EEC87A 		vcvt.f32.s32	s15, s16
+ 715 0026 67EE807A 		vmul.f32	s15, s15, s0
+  29:src/unit/motor_drive/motor_drive.cpp ****             power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
+ 716              		.loc 1 29 22 view .LVU166
+ 717 002a 04F11003 		add	r3, r4, #16
+ 718 002e 0DEB0302 		add	r2, sp, r3
+ 719 0032 FDEEE77A 		vcvt.s32.f32	s15, s15
+ 720 0036 17EE903A 		vmov	r3, s15	@ int
+ 721 003a 02F8043C 		strb	r3, [r2, #-4]
+  28:src/unit/motor_drive/motor_drive.cpp ****       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+ 722              		.loc 1 28 7 is_stmt 1 view .LVU167
+ 723 003e 0134     		adds	r4, r4, #1
+ 724              	.LVL69:
+  28:src/unit/motor_drive/motor_drive.cpp ****       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+ 725              		.loc 1 28 7 is_stmt 0 view .LVU168
+ 726 0040 E4B2     		uxtb	r4, r4
+ 727              	.LVL70:
+ 728              	.L38:
+  28:src/unit/motor_drive/motor_drive.cpp ****       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+ 729              		.loc 1 28 29 is_stmt 1 discriminator 2 view .LVU169
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 16
+
+
+ 730 0042 032C     		cmp	r4, #3
+ 731 0044 E6D9     		bls	.L39
+ 732              	.LBE24:
+  31:src/unit/motor_drive/motor_drive.cpp ****       Run(power[0], power[1], power[2], power[3]);
+ 733              		.loc 1 31 7 view .LVU170
+  31:src/unit/motor_drive/motor_drive.cpp ****       Run(power[0], power[1], power[2], power[3]);
+ 734              		.loc 1 31 10 is_stmt 0 view .LVU171
+ 735 0046 9DF90F30 		ldrsb	r3, [sp, #15]
+ 736 004a 0093     		str	r3, [sp]
+ 737 004c 9DF90E30 		ldrsb	r3, [sp, #14]
+ 738 0050 9DF90D20 		ldrsb	r2, [sp, #13]
+ 739 0054 9DF90C10 		ldrsb	r1, [sp, #12]
+ 740 0058 3046     		mov	r0, r6
+ 741 005a FFF7FEFF 		bl	_ZN10MotorDrive3RunEaaaa
+ 742              	.LVL71:
+  32:src/unit/motor_drive/motor_drive.cpp **** }
+ 743              		.loc 1 32 1 view .LVU172
+ 744 005e 04B0     		add	sp, sp, #16
+ 745              	.LCFI8:
+ 746              		.cfi_def_cfa_offset 24
+ 747              		@ sp needed
+ 748 0060 BDEC028B 		vldm	sp!, {d8}
+ 749              	.LCFI9:
+ 750              		.cfi_restore 80
+ 751              		.cfi_restore 81
+ 752              		.cfi_def_cfa_offset 16
+ 753 0064 70BD     		pop	{r4, r5, r6, pc}
+  32:src/unit/motor_drive/motor_drive.cpp **** }
+ 754              		.loc 1 32 1 view .LVU173
+ 755              		.cfi_endproc
+ 756              	.LFE256:
+ 757              		.fnend
+ 759              		.text
+ 760              	.Letext0:
+ 761              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 762              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 763              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 764              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 765              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 766              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 767              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 768              		.file 11 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 769              		.file 12 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
+ 770              		.file 13 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 771              		.file 14 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ 772              		.file 15 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 773              		.file 16 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 774              		.file 17 "Lib/Timer/Timer.hpp"
+ 775              		.file 18 "src/unit/motor_drive/motor_drive.hpp"
+ 776              		.file 19 "Lib/MyMath/MyMath.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s 			page 17
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 motor_drive.cpp
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:21     .text._ZN12PwmSingleOut4initEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:27     .text._ZN12PwmSingleOut4initEv:00000000 _ZN12PwmSingleOut4initEv
+.ARM.exidx.text._ZN12PwmSingleOut4initEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:71     .text._ZN12PwmSingleOut5writeEf:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:77     .text._ZN12PwmSingleOut5writeEf:00000000 _ZN12PwmSingleOut5writeEf
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:194    .text._ZN12PwmSingleOut5writeEf:00000094 $d
+.ARM.exidx.text._ZN12PwmSingleOut5writeEf:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:201    .text._ZN10MotorDriveC2EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:207    .text._ZN10MotorDriveC2EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_:00000000 _ZN10MotorDriveC2EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_
+.ARM.exidx.text._ZN10MotorDriveC2EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:207    .text._ZN10MotorDriveC2EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_:00000000 _ZN10MotorDriveC1EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:328    .text._ZN10MotorDrive4InitEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:334    .text._ZN10MotorDrive4InitEv:00000000 _ZN10MotorDrive4InitEv
+.ARM.exidx.text._ZN10MotorDrive4InitEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:400    .text._ZN10MotorDrive3RunEaaaa:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:406    .text._ZN10MotorDrive3RunEaaaa:00000000 _ZN10MotorDrive3RunEaaaa
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:649    .text._ZN10MotorDrive3RunEaaaa:00000194 $d
+.ARM.exidx.text._ZN10MotorDrive3RunEaaaa:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:657    .text._ZN10MotorDrive5DriveEsh:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cckDX40T.s:663    .text._ZN10MotorDrive5DriveEsh:00000000 _ZN10MotorDrive5DriveEsh
+.ARM.extab.text._ZN10MotorDrive5DriveEsh:00000000 $d
+.ARM.exidx.text._ZN10MotorDrive5DriveEsh:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_TIM_PWM_Start
+__aeabi_unwind_cpp_pr0
+__aeabi_f2d
+__aeabi_ui2d
+__aeabi_dmul
+__aeabi_d2iz
+_ZN5TimerC1Ev
+_ZN9MovingAve9SetLengthEh
+sinDeg
+__aeabi_unwind_cpp_pr1
