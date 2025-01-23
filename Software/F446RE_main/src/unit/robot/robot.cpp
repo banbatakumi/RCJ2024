@@ -2,6 +2,8 @@
 
 uint16_t adc_get_val[2];
 
+int debug;
+
 Robot::Robot() {
 }
 
@@ -13,7 +15,7 @@ void Robot::HardwareInit() {
       // }
 
       // 諸々の初期化
-      // serial6.init();
+      serial1.init();
       ledh.init();
       motor1a.init();
       motor1b.init();
@@ -28,21 +30,56 @@ void Robot::HardwareInit() {
       dribbler_back_a.init();
       dribbler_back_b.init();
 
-      // 接続チェック
-      motor1a.sound(700, CHECK_SPEED);
-      motor2a.sound(800, CHECK_SPEED);
-      motor3a.sound(900, CHECK_SPEED);
-      motor4a.sound(1000, CHECK_SPEED);
-      motor1b.sound(700, CHECK_SPEED);
-      motor2b.sound(800, CHECK_SPEED);
-      motor3b.sound(900, CHECK_SPEED);
-      motor4b.sound(1000, CHECK_SPEED);
-      HAL_Delay(CHECK_SPEED * 2);
-      dribbler_front_a.sound(1000, CHECK_SPEED);
-      dribbler_front_b.sound(1500, CHECK_SPEED);
-      dribbler_back_a.sound(1000, CHECK_SPEED);
-      dribbler_back_b.sound(1500, CHECK_SPEED);
+      // 接続確認
+      motor.CheckConnection();
+      HAL_Delay(200);
+      dribbler_front.CheckConnection();
+      dribbler_back.CheckConnection();
 }
 
 void Robot::GetSensors() {
+}
+
+void Robot::RecvImuUart() {
+      static const uint8_t HEADER = 0xFF;  // ヘッダ
+      static const uint8_t FOOTER = 0xAA;  // ヘッダ
+      static const uint8_t dataSize = 6;   // データのサイズ
+      static uint8_t index = 0;            // 受信したデータのインデックスカウンター
+      static uint8_t recv_data[dataSize];  // 受信したデータ
+      static uint8_t recv_byte;
+
+      static uint8_t yaw_H;
+      static uint8_t yaw_L;
+      static uint8_t pitch_H;
+      static uint8_t pitch_L;
+      static uint8_t roll_H;
+      static uint8_t roll_L;
+      while (serial1.available()) {
+            recv_byte = serial1.read();
+            if (index == 0) {
+                  if (recv_byte = HEADER) {
+                        index++;
+                  } else {
+                        index = 0;
+                  }
+            } else if (index == (dataSize + 1)) {
+                  if (recv_byte == FOOTER) {
+                        yaw_H = recv_data[0];
+                        yaw_L = recv_data[1];
+                        pitch_H = recv_data[2];
+                        pitch_L = recv_data[3];
+                        roll_H = recv_data[4];
+                        roll_L = recv_data[5];
+                        yaw = ((((uint16_t)yaw_H << 8) & 0xFF00) | ((int16_t)yaw_L & 0x00FF)) * 0.1 - 180;
+                        pitch = ((((uint16_t)pitch_H << 8) & 0xFF00) | ((int16_t)pitch_L & 0x00FF)) * 0.1 - 180;
+                        roll = ((((uint16_t)roll_H << 8) & 0xFF00) | ((int16_t)roll_L & 0x00FF)) * 0.1 - 180;
+                        led1 = 1;
+                  }
+                  index = 0;
+            } else {
+                  recv_data[index - 1] = recv_byte;
+                  index++;
+            }
+            debug = yaw;
+      }
 }

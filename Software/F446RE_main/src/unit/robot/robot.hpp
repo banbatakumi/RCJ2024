@@ -1,22 +1,22 @@
 #ifndef __ROBOT__
 #define __ROBOT__
 
+#include "BufferedSerial.hpp"
 #include "DigitalInOut.hpp"
 #include "MovingAve.hpp"
 #include "PWMSingle.hpp"
 #include "Timer.hpp"
 #include "adc.h"
 #include "config.h"
+#include "dribbler_drive.hpp"
 #include "main.h"
 #include "motor_drive.hpp"
-
-#define CHECK_SPEED 100
 
 class Robot {
      public:
       Robot();
 
-      int yaw;
+      int yaw, pitch, roll;
 
       DigitalOut led1 = DigitalOut(GPIOA, LED1_Pin);
 
@@ -36,12 +36,15 @@ class Robot {
       PwmSingleOut dribbler_back_a = PwmSingleOut(&htim2, TIM_CHANNEL_1);
       PwmSingleOut dribbler_back_b = PwmSingleOut(&htim4, TIM_CHANNEL_4);
 
-      // BufferedSerial serial6 = BufferedSerial(&huart6, 128);
-
       MotorDrive motor = MotorDrive(&motor1a, &motor1b, &motor2a, &motor2b, &motor3a, &motor3b, &motor4a, &motor4b);
+      DribblerDrive dribbler_front = DribblerDrive(&dribbler_front_a, &dribbler_front_b);
+      DribblerDrive dribbler_back = DribblerDrive(&dribbler_back_a, &dribbler_back_b);
+
+      BufferedSerial serial1 = BufferedSerial(&huart1, 128);
 
       void HardwareInit();
       void GetSensors();
+      void RecvImuUart();
 
       inline __attribute__((always_inline)) void heartBeat() {
             static int i = 0;

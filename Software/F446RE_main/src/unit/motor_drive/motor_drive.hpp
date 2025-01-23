@@ -12,6 +12,8 @@
 
 #define MOTOR_QTY 4
 
+#define CHECK_SPEED 100  // ms
+
 class MotorDrive {
      public:
       MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
@@ -21,9 +23,9 @@ class MotorDrive {
 
       void Drive(int16_t deg, uint8_t speed);
       void Run(int8_t motor1, int8_t motor2, int8_t motor3, int8_t motor4);
-      void SpeedControl();
       void Brake();
       void Init();
+      void CheckConnection();
 
      private:
       PwmSingleOut *motor1a_;

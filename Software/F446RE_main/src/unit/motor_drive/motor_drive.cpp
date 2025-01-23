@@ -28,11 +28,20 @@ void MotorDrive::Drive(int16_t deg, uint8_t speed) {
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
       }
+
+      uint8_t max_power = 0;
+      for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+            if (max_power < abs(power[i])) max_power = abs(power[i]);
+      }
+      for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+            power[i] *= float(speed) / max_power;
+      }
+
       Run(power[0], power[1], power[2], power[3]);
 }
 
 void MotorDrive::Run(int8_t motor1, int8_t motor2, int8_t motor3, int8_t motor4) {
-      Init();
+      // Init();
       if (abs(motor1) > 100) motor1 = motor1 * (abs(motor1) / motor1);
       if (abs(motor2) > 100) motor2 = motor2 * (abs(motor2) / motor2);
       if (abs(motor3) > 100) motor3 = motor3 * (abs(motor3) / motor3);
@@ -65,4 +74,27 @@ void MotorDrive::Run(int8_t motor1, int8_t motor2, int8_t motor3, int8_t motor4)
             motor4a_->write(0);
             motor4b_->write(motor4 * -0.01f);
       }
+}
+
+void MotorDrive::Brake() {
+      motor1a_->write(1);
+      motor1b_->write(1);
+      motor2a_->write(1);
+      motor2b_->write(1);
+      motor3a_->write(1);
+      motor3b_->write(1);
+      motor4a_->write(1);
+      motor4b_->write(1);
+}
+
+void MotorDrive::CheckConnection() {
+      // 接続チェック
+      motor1a_->sound(700, CHECK_SPEED);
+      motor2a_->sound(800, CHECK_SPEED);
+      motor3a_->sound(900, CHECK_SPEED);
+      motor4a_->sound(1000, CHECK_SPEED);
+      motor1b_->sound(700, CHECK_SPEED);
+      motor2b_->sound(800, CHECK_SPEED);
+      motor3b_->sound(900, CHECK_SPEED);
+      motor4b_->sound(1000, CHECK_SPEED);
 }

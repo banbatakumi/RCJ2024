@@ -1,0 +1,922 @@
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"dribbler_drive.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "src/unit/dribbler_drive/dribbler_drive.cpp"
+  20              		.section	.text._ZN12PwmSingleOut4initEv,"axG",%progbits,_ZN12PwmSingleOut4initEv,comdat
+  21              		.align	1
+  22              		.weak	_ZN12PwmSingleOut4initEv
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	_ZN12PwmSingleOut4initEv:
+  28              		.fnstart
+  29              	.LVL0:
+  30              	.LFB245:
+  31              		.file 2 "Lib/PWMSingle/PWMSingle.hpp"
+   1:Lib/PWMSingle/PWMSingle.hpp **** #ifndef __PWMSINGLE__
+   2:Lib/PWMSingle/PWMSingle.hpp **** #define __PWMSINGLE__
+   3:Lib/PWMSingle/PWMSingle.hpp **** 
+   4:Lib/PWMSingle/PWMSingle.hpp **** #include "MyMath.hpp"
+   5:Lib/PWMSingle/PWMSingle.hpp **** #include "tim.h"
+   6:Lib/PWMSingle/PWMSingle.hpp **** 
+   7:Lib/PWMSingle/PWMSingle.hpp **** #ifdef __cplusplus
+   8:Lib/PWMSingle/PWMSingle.hpp **** extern "C" {
+   9:Lib/PWMSingle/PWMSingle.hpp **** 
+  10:Lib/PWMSingle/PWMSingle.hpp **** class PwmSingleOut {
+  11:Lib/PWMSingle/PWMSingle.hpp ****      public:
+  12:Lib/PWMSingle/PWMSingle.hpp ****       PwmSingleOut(TIM_HandleTypeDef *htim, uint32_t channel)
+  13:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+  14:Lib/PWMSingle/PWMSingle.hpp ****       }
+  15:Lib/PWMSingle/PWMSingle.hpp **** 
+  16:Lib/PWMSingle/PWMSingle.hpp ****       void init() {
+  32              		.loc 2 16 12 view -0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 0, uses_anonymous_args = 0
+  36              		.loc 2 16 12 is_stmt 0 view .LVU1
+  37 0000 10B5     		push	{r4, lr}
+  38              		.save {r4, lr}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 8
+  41              		.cfi_offset 4, -8
+  42              		.cfi_offset 14, -4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 2
+
+
+  43 0002 0446     		mov	r4, r0
+  17:Lib/PWMSingle/PWMSingle.hpp ****             HAL_TIM_PWM_Start(_htim, _channel);
+  44              		.loc 2 17 13 is_stmt 1 view .LVU2
+  45              		.loc 2 17 30 is_stmt 0 view .LVU3
+  46 0004 4168     		ldr	r1, [r0, #4]
+  47 0006 0068     		ldr	r0, [r0]
+  48              	.LVL1:
+  49              		.loc 2 17 30 view .LVU4
+  50 0008 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+  51              	.LVL2:
+  18:Lib/PWMSingle/PWMSingle.hpp ****             _maxValue = _htim->Init.Period;
+  52              		.loc 2 18 13 is_stmt 1 view .LVU5
+  53              		.loc 2 18 25 is_stmt 0 view .LVU6
+  54 000c 2368     		ldr	r3, [r4]
+  55              		.loc 2 18 37 view .LVU7
+  56 000e DB68     		ldr	r3, [r3, #12]
+  57              		.loc 2 18 23 view .LVU8
+  58 0010 A360     		str	r3, [r4, #8]
+  19:Lib/PWMSingle/PWMSingle.hpp ****       }
+  59              		.loc 2 19 7 view .LVU9
+  60 0012 10BD     		pop	{r4, pc}
+  61              		.loc 2 19 7 view .LVU10
+  62              		.cfi_endproc
+  63              	.LFE245:
+  64              		.fnend
+  66              		.global	__aeabi_f2d
+  67              		.global	__aeabi_ui2d
+  68              		.global	__aeabi_dmul
+  69              		.global	__aeabi_d2iz
+  70              		.section	.text._ZN12PwmSingleOut5writeEf,"axG",%progbits,_ZN12PwmSingleOut5writeEf,comdat
+  71              		.align	1
+  72              		.weak	_ZN12PwmSingleOut5writeEf
+  73              		.syntax unified
+  74              		.thumb
+  75              		.thumb_func
+  77              	_ZN12PwmSingleOut5writeEf:
+  78              		.fnstart
+  79              	.LVL3:
+  80              	.LFB246:
+  20:Lib/PWMSingle/PWMSingle.hpp **** 
+  21:Lib/PWMSingle/PWMSingle.hpp ****       void write(float duty) {
+  81              		.loc 2 21 12 is_stmt 1 view -0
+  82              		.cfi_startproc
+  83              		@ args = 0, pretend = 0, frame = 0
+  84              		@ frame_needed = 0, uses_anonymous_args = 0
+  85              		.loc 2 21 12 is_stmt 0 view .LVU12
+  86 0000 D0B5     		push	{r4, r6, r7, lr}
+  87              	.LCFI1:
+  88              		.cfi_def_cfa_offset 16
+  89              		.cfi_offset 4, -16
+  90              		.cfi_offset 6, -12
+  91              		.cfi_offset 7, -8
+  92              		.cfi_offset 14, -4
+  93 0002 0446     		mov	r4, r0
+  22:Lib/PWMSingle/PWMSingle.hpp ****             duty = (int)(Constrain(duty, 0.0, 1.0) * _maxValue);
+  94              		.loc 2 22 13 is_stmt 1 view .LVU13
+  95              		.loc 2 22 26 is_stmt 0 view .LVU14
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 3
+
+
+  96 0004 B5EEC00A 		vcmpe.f32	s0, #0
+  97 0008 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+  98 000c 10D4     		bmi	.L9
+  99              		.loc 2 22 26 discriminator 2 view .LVU15
+ 100 000e F7EE007A 		vmov.f32	s15, #1.0e+0
+ 101 0012 B4EEE70A 		vcmpe.f32	s0, s15
+ 102 0016 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ 103 001a 02DD     		ble	.L12
+ 104              		.loc 2 22 26 view .LVU16
+ 105 001c 0026     		movs	r6, #0
+ 106 001e 1D4F     		ldr	r7, .L15
+ 107 0020 08E0     		b	.L4
+ 108              	.L12:
+ 109              		.loc 2 22 26 discriminator 5 view .LVU17
+ 110 0022 10EE100A 		vmov	r0, s0
+ 111              	.LVL4:
+ 112              		.loc 2 22 26 discriminator 5 view .LVU18
+ 113 0026 FFF7FEFF 		bl	__aeabi_f2d
+ 114              	.LVL5:
+ 115              		.loc 2 22 26 discriminator 5 view .LVU19
+ 116 002a 0646     		mov	r6, r0
+ 117 002c 0F46     		mov	r7, r1
+ 118 002e 01E0     		b	.L4
+ 119              	.LVL6:
+ 120              	.L9:
+ 121              		.loc 2 22 26 view .LVU20
+ 122 0030 0026     		movs	r6, #0
+ 123 0032 0027     		movs	r7, #0
+ 124              	.LVL7:
+ 125              	.L4:
+ 126              		.loc 2 22 52 discriminator 8 view .LVU21
+ 127 0034 A068     		ldr	r0, [r4, #8]
+ 128 0036 FFF7FEFF 		bl	__aeabi_ui2d
+ 129              	.LVL8:
+ 130 003a 3246     		mov	r2, r6
+ 131 003c 3B46     		mov	r3, r7
+ 132 003e FFF7FEFF 		bl	__aeabi_dmul
+ 133              	.LVL9:
+ 134              		.loc 2 22 20 discriminator 8 view .LVU22
+ 135 0042 FFF7FEFF 		bl	__aeabi_d2iz
+ 136              	.LVL10:
+ 137 0046 07EE900A 		vmov	s15, r0	@ int
+ 138              		.loc 2 22 18 discriminator 8 view .LVU23
+ 139 004a F8EEE77A 		vcvt.f32.s32	s15, s15
+ 140              	.LVL11:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 141              		.loc 2 23 13 is_stmt 1 discriminator 8 view .LVU24
+ 142 004e 6368     		ldr	r3, [r4, #4]
+ 143 0050 33B9     		cbnz	r3, .L5
+ 144              		.loc 2 23 13 is_stmt 0 discriminator 1 view .LVU25
+ 145 0052 2368     		ldr	r3, [r4]
+ 146 0054 1B68     		ldr	r3, [r3]
+ 147 0056 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 148              	.LVL12:
+ 149              		.loc 2 23 13 discriminator 1 view .LVU26
+ 150 005a C3ED0D7A 		vstr.32	s15, [r3, #52]	@ int
+ 151              	.L3:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 4
+
+
+  24:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 152              		.loc 2 24 7 view .LVU27
+ 153 005e D0BD     		pop	{r4, r6, r7, pc}
+ 154              	.LVL13:
+ 155              	.L5:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 156              		.loc 2 23 13 discriminator 2 view .LVU28
+ 157 0060 042B     		cmp	r3, #4
+ 158 0062 08D0     		beq	.L13
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 159              		.loc 2 23 13 discriminator 4 view .LVU29
+ 160 0064 082B     		cmp	r3, #8
+ 161 0066 0DD0     		beq	.L14
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 162              		.loc 2 23 13 discriminator 6 view .LVU30
+ 163 0068 2368     		ldr	r3, [r4]
+ 164 006a 1B68     		ldr	r3, [r3]
+ 165 006c FCEEE77A 		vcvt.u32.f32	s15, s15
+ 166              	.LVL14:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 167              		.loc 2 23 13 discriminator 6 view .LVU31
+ 168 0070 C3ED107A 		vstr.32	s15, [r3, #64]	@ int
+ 169              		.loc 2 24 7 discriminator 6 view .LVU32
+ 170 0074 F3E7     		b	.L3
+ 171              	.LVL15:
+ 172              	.L13:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 173              		.loc 2 23 13 discriminator 3 view .LVU33
+ 174 0076 2368     		ldr	r3, [r4]
+ 175 0078 1B68     		ldr	r3, [r3]
+ 176 007a FCEEE77A 		vcvt.u32.f32	s15, s15
+ 177              	.LVL16:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 178              		.loc 2 23 13 discriminator 3 view .LVU34
+ 179 007e C3ED0E7A 		vstr.32	s15, [r3, #56]	@ int
+ 180 0082 ECE7     		b	.L3
+ 181              	.LVL17:
+ 182              	.L14:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 183              		.loc 2 23 13 discriminator 5 view .LVU35
+ 184 0084 2368     		ldr	r3, [r4]
+ 185 0086 1B68     		ldr	r3, [r3]
+ 186 0088 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 187              	.LVL18:
+  23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 188              		.loc 2 23 13 discriminator 5 view .LVU36
+ 189 008c C3ED0F7A 		vstr.32	s15, [r3, #60]	@ int
+ 190 0090 E5E7     		b	.L3
+ 191              	.L16:
+ 192 0092 00BF     		.align	2
+ 193              	.L15:
+ 194 0094 0000F03F 		.word	1072693248
+ 195              		.cfi_endproc
+ 196              	.LFE246:
+ 197              		.cantunwind
+ 198              		.fnend
+ 200              		.section	.text._ZN12PwmSingleOut5soundEtt,"axG",%progbits,_ZN12PwmSingleOut5soundEtt,comdat
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 5
+
+
+ 201              		.align	1
+ 202              		.weak	_ZN12PwmSingleOut5soundEtt
+ 203              		.syntax unified
+ 204              		.thumb
+ 205              		.thumb_func
+ 207              	_ZN12PwmSingleOut5soundEtt:
+ 208              		.fnstart
+ 209              	.LVL19:
+ 210              	.LFB248:
+  25:Lib/PWMSingle/PWMSingle.hpp **** 
+  26:Lib/PWMSingle/PWMSingle.hpp ****       void operator=(float duty) {
+  27:Lib/PWMSingle/PWMSingle.hpp ****             write(duty);
+  28:Lib/PWMSingle/PWMSingle.hpp ****       }
+  29:Lib/PWMSingle/PWMSingle.hpp **** 
+  30:Lib/PWMSingle/PWMSingle.hpp ****       void sound(uint16_t period, uint16_t time) {
+ 211              		.loc 2 30 12 is_stmt 1 view -0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215              		.loc 2 30 12 is_stmt 0 view .LVU38
+ 216 0000 2DE9F041 		push	{r4, r5, r6, r7, r8, lr}
+ 217              		.save {r4, r5, r6, r7, r8, lr}
+ 218              	.LCFI2:
+ 219              		.cfi_def_cfa_offset 24
+ 220              		.cfi_offset 4, -24
+ 221              		.cfi_offset 5, -20
+ 222              		.cfi_offset 6, -16
+ 223              		.cfi_offset 7, -12
+ 224              		.cfi_offset 8, -8
+ 225              		.cfi_offset 14, -4
+ 226 0004 0446     		mov	r4, r0
+ 227 0006 1546     		mov	r5, r2
+  31:Lib/PWMSingle/PWMSingle.hpp ****             // 周波数変更
+  32:Lib/PWMSingle/PWMSingle.hpp ****             int default_prescaler = _htim->Init.Prescaler;
+ 228              		.loc 2 32 13 is_stmt 1 view .LVU39
+ 229              		.loc 2 32 37 is_stmt 0 view .LVU40
+ 230 0008 0368     		ldr	r3, [r0]
+ 231              		.loc 2 32 49 view .LVU41
+ 232 000a 5F68     		ldr	r7, [r3, #4]
+ 233              	.LVL20:
+  33:Lib/PWMSingle/PWMSingle.hpp ****             int default_period = _htim->Init.Period;
+ 234              		.loc 2 33 13 is_stmt 1 view .LVU42
+ 235              		.loc 2 33 46 is_stmt 0 view .LVU43
+ 236 000c DE68     		ldr	r6, [r3, #12]
+ 237              	.LVL21:
+  34:Lib/PWMSingle/PWMSingle.hpp ****             _htim->Init.Prescaler = 9;
+ 238              		.loc 2 34 13 is_stmt 1 view .LVU44
+ 239              		.loc 2 34 35 is_stmt 0 view .LVU45
+ 240 000e 0922     		movs	r2, #9
+ 241              	.LVL22:
+ 242              		.loc 2 34 35 view .LVU46
+ 243 0010 5A60     		str	r2, [r3, #4]
+  35:Lib/PWMSingle/PWMSingle.hpp ****             _htim->Init.Period = (SystemCoreClock / (period * (_htim->Init.Prescaler + 1))) - 1;
+ 244              		.loc 2 35 13 is_stmt 1 view .LVU47
+ 245              		.loc 2 35 64 is_stmt 0 view .LVU48
+ 246 0012 0268     		ldr	r2, [r0]
+ 247              		.loc 2 35 76 view .LVU49
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 6
+
+
+ 248 0014 5368     		ldr	r3, [r2, #4]
+ 249              		.loc 2 35 61 view .LVU50
+ 250 0016 03FB0111 		mla	r1, r3, r1, r1
+ 251              	.LVL23:
+ 252              		.loc 2 35 51 view .LVU51
+ 253 001a 374B     		ldr	r3, .L35+8
+ 254 001c 1B68     		ldr	r3, [r3]
+ 255 001e B3FBF1F3 		udiv	r3, r3, r1
+ 256              		.loc 2 35 93 view .LVU52
+ 257 0022 013B     		subs	r3, r3, #1
+ 258              		.loc 2 35 32 view .LVU53
+ 259 0024 D360     		str	r3, [r2, #12]
+  36:Lib/PWMSingle/PWMSingle.hpp ****             if (HAL_TIM_Base_Init(_htim) != HAL_OK) {
+ 260              		.loc 2 36 13 is_stmt 1 view .LVU54
+ 261              		.loc 2 36 34 is_stmt 0 view .LVU55
+ 262 0026 0068     		ldr	r0, [r0]
+ 263              	.LVL24:
+ 264              		.loc 2 36 34 view .LVU56
+ 265 0028 FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 266              	.LVL25:
+ 267              		.loc 2 36 13 view .LVU57
+ 268 002c 58BB     		cbnz	r0, .L29
+ 269              	.L18:
+  37:Lib/PWMSingle/PWMSingle.hpp ****                   Error_Handler();
+  38:Lib/PWMSingle/PWMSingle.hpp ****             }
+  39:Lib/PWMSingle/PWMSingle.hpp **** 
+  40:Lib/PWMSingle/PWMSingle.hpp ****             float duty = (int)(0.1 * _htim->Init.Period);  // duty比を0.5にする
+ 270              		.loc 2 40 13 is_stmt 1 view .LVU58
+ 271              		.loc 2 40 38 is_stmt 0 view .LVU59
+ 272 002e D4F80080 		ldr	r8, [r4]
+ 273              		.loc 2 40 36 view .LVU60
+ 274 0032 D8F80C00 		ldr	r0, [r8, #12]
+ 275 0036 FFF7FEFF 		bl	__aeabi_ui2d
+ 276              	.LVL26:
+ 277 003a 2DA3     		adr	r3, .L35
+ 278 003c D3E90023 		ldrd	r2, [r3]
+ 279 0040 FFF7FEFF 		bl	__aeabi_dmul
+ 280              	.LVL27:
+ 281              		.loc 2 40 26 view .LVU61
+ 282 0044 FFF7FEFF 		bl	__aeabi_d2iz
+ 283              	.LVL28:
+ 284 0048 07EE900A 		vmov	s15, r0	@ int
+ 285              		.loc 2 40 19 view .LVU62
+ 286 004c F8EEE77A 		vcvt.f32.s32	s15, s15
+ 287              	.LVL29:
+  41:Lib/PWMSingle/PWMSingle.hpp **** 
+  42:Lib/PWMSingle/PWMSingle.hpp ****             // 出力
+  43:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
+ 288              		.loc 2 43 13 is_stmt 1 view .LVU63
+ 289 0050 6368     		ldr	r3, [r4, #4]
+ 290 0052 DBB9     		cbnz	r3, .L19
+ 291              		.loc 2 43 13 is_stmt 0 discriminator 1 view .LVU64
+ 292 0054 D8F80030 		ldr	r3, [r8]
+ 293 0058 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 294              	.LVL30:
+ 295              		.loc 2 43 13 discriminator 1 view .LVU65
+ 296 005c C3ED0D7A 		vstr.32	s15, [r3, #52]	@ int
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 7
+
+
+ 297              	.L20:
+  44:Lib/PWMSingle/PWMSingle.hpp ****             HAL_Delay(time);
+ 298              		.loc 2 44 13 is_stmt 1 view .LVU66
+ 299              		.loc 2 44 22 is_stmt 0 view .LVU67
+ 300 0060 2846     		mov	r0, r5
+ 301              	.LVL31:
+ 302              		.loc 2 44 22 view .LVU68
+ 303 0062 FFF7FEFF 		bl	HAL_Delay
+ 304              	.LVL32:
+  45:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, 0);
+ 305              		.loc 2 45 13 is_stmt 1 view .LVU69
+ 306 0066 6368     		ldr	r3, [r4, #4]
+ 307 0068 4BBB     		cbnz	r3, .L23
+ 308              		.loc 2 45 13 is_stmt 0 discriminator 1 view .LVU70
+ 309 006a 2368     		ldr	r3, [r4]
+ 310 006c 1B68     		ldr	r3, [r3]
+ 311 006e 0022     		movs	r2, #0
+ 312 0070 5A63     		str	r2, [r3, #52]
+ 313              	.L24:
+  46:Lib/PWMSingle/PWMSingle.hpp ****             _htim->Init.Prescaler = default_prescaler;
+ 314              		.loc 2 46 13 is_stmt 1 view .LVU71
+ 315 0072 2368     		ldr	r3, [r4]
+ 316              		.loc 2 46 35 is_stmt 0 view .LVU72
+ 317 0074 5F60     		str	r7, [r3, #4]
+  47:Lib/PWMSingle/PWMSingle.hpp ****             _htim->Init.Period = default_period;
+ 318              		.loc 2 47 13 is_stmt 1 view .LVU73
+ 319 0076 2368     		ldr	r3, [r4]
+ 320              		.loc 2 47 32 is_stmt 0 view .LVU74
+ 321 0078 DE60     		str	r6, [r3, #12]
+  48:Lib/PWMSingle/PWMSingle.hpp ****             if (HAL_TIM_Base_Init(_htim) != HAL_OK) {
+ 322              		.loc 2 48 13 is_stmt 1 view .LVU75
+ 323              		.loc 2 48 34 is_stmt 0 view .LVU76
+ 324 007a 2068     		ldr	r0, [r4]
+ 325 007c FFF7FEFF 		bl	HAL_TIM_Base_Init
+ 326              	.LVL33:
+ 327              		.loc 2 48 13 view .LVU77
+ 328 0080 80BB     		cbnz	r0, .L30
+ 329              	.L17:
+  49:Lib/PWMSingle/PWMSingle.hpp ****                   Error_Handler();
+  50:Lib/PWMSingle/PWMSingle.hpp ****             }
+  51:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 330              		.loc 2 51 7 view .LVU78
+ 331 0082 BDE8F081 		pop	{r4, r5, r6, r7, r8, pc}
+ 332              	.LVL34:
+ 333              	.L29:
+  37:Lib/PWMSingle/PWMSingle.hpp ****             }
+ 334              		.loc 2 37 19 is_stmt 1 view .LVU79
+  37:Lib/PWMSingle/PWMSingle.hpp ****             }
+ 335              		.loc 2 37 32 is_stmt 0 view .LVU80
+ 336 0086 FFF7FEFF 		bl	Error_Handler
+ 337              	.LVL35:
+ 338 008a D0E7     		b	.L18
+ 339              	.LVL36:
+ 340              	.L19:
+  43:Lib/PWMSingle/PWMSingle.hpp ****             HAL_Delay(time);
+ 341              		.loc 2 43 13 discriminator 2 view .LVU81
+ 342 008c 042B     		cmp	r3, #4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 8
+
+
+ 343 008e 08D0     		beq	.L31
+  43:Lib/PWMSingle/PWMSingle.hpp ****             HAL_Delay(time);
+ 344              		.loc 2 43 13 discriminator 4 view .LVU82
+ 345 0090 082B     		cmp	r3, #8
+ 346 0092 0DD0     		beq	.L32
+  43:Lib/PWMSingle/PWMSingle.hpp ****             HAL_Delay(time);
+ 347              		.loc 2 43 13 discriminator 6 view .LVU83
+ 348 0094 D8F80030 		ldr	r3, [r8]
+ 349 0098 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 350              	.LVL37:
+  43:Lib/PWMSingle/PWMSingle.hpp ****             HAL_Delay(time);
+ 351              		.loc 2 43 13 discriminator 6 view .LVU84
+ 352 009c C3ED107A 		vstr.32	s15, [r3, #64]	@ int
+ 353 00a0 DEE7     		b	.L20
+ 354              	.LVL38:
+ 355              	.L31:
+  43:Lib/PWMSingle/PWMSingle.hpp ****             HAL_Delay(time);
+ 356              		.loc 2 43 13 discriminator 3 view .LVU85
+ 357 00a2 D8F80030 		ldr	r3, [r8]
+ 358 00a6 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 359              	.LVL39:
+  43:Lib/PWMSingle/PWMSingle.hpp ****             HAL_Delay(time);
+ 360              		.loc 2 43 13 discriminator 3 view .LVU86
+ 361 00aa C3ED0E7A 		vstr.32	s15, [r3, #56]	@ int
+ 362 00ae D7E7     		b	.L20
+ 363              	.LVL40:
+ 364              	.L32:
+  43:Lib/PWMSingle/PWMSingle.hpp ****             HAL_Delay(time);
+ 365              		.loc 2 43 13 discriminator 5 view .LVU87
+ 366 00b0 D8F80030 		ldr	r3, [r8]
+ 367 00b4 FCEEE77A 		vcvt.u32.f32	s15, s15
+ 368              	.LVL41:
+  43:Lib/PWMSingle/PWMSingle.hpp ****             HAL_Delay(time);
+ 369              		.loc 2 43 13 discriminator 5 view .LVU88
+ 370 00b8 C3ED0F7A 		vstr.32	s15, [r3, #60]	@ int
+ 371 00bc D0E7     		b	.L20
+ 372              	.LVL42:
+ 373              	.L23:
+  45:Lib/PWMSingle/PWMSingle.hpp ****             _htim->Init.Prescaler = default_prescaler;
+ 374              		.loc 2 45 13 discriminator 2 view .LVU89
+ 375 00be 042B     		cmp	r3, #4
+ 376 00c0 06D0     		beq	.L33
+  45:Lib/PWMSingle/PWMSingle.hpp ****             _htim->Init.Prescaler = default_prescaler;
+ 377              		.loc 2 45 13 discriminator 4 view .LVU90
+ 378 00c2 082B     		cmp	r3, #8
+ 379 00c4 09D0     		beq	.L34
+  45:Lib/PWMSingle/PWMSingle.hpp ****             _htim->Init.Prescaler = default_prescaler;
+ 380              		.loc 2 45 13 discriminator 6 view .LVU91
+ 381 00c6 2368     		ldr	r3, [r4]
+ 382 00c8 1B68     		ldr	r3, [r3]
+ 383 00ca 0022     		movs	r2, #0
+ 384 00cc 1A64     		str	r2, [r3, #64]
+ 385 00ce D0E7     		b	.L24
+ 386              	.L33:
+  45:Lib/PWMSingle/PWMSingle.hpp ****             _htim->Init.Prescaler = default_prescaler;
+ 387              		.loc 2 45 13 discriminator 3 view .LVU92
+ 388 00d0 2368     		ldr	r3, [r4]
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 9
+
+
+ 389 00d2 1B68     		ldr	r3, [r3]
+ 390 00d4 0022     		movs	r2, #0
+ 391 00d6 9A63     		str	r2, [r3, #56]
+ 392 00d8 CBE7     		b	.L24
+ 393              	.L34:
+  45:Lib/PWMSingle/PWMSingle.hpp ****             _htim->Init.Prescaler = default_prescaler;
+ 394              		.loc 2 45 13 discriminator 5 view .LVU93
+ 395 00da 2368     		ldr	r3, [r4]
+ 396 00dc 1B68     		ldr	r3, [r3]
+ 397 00de 0022     		movs	r2, #0
+ 398 00e0 DA63     		str	r2, [r3, #60]
+ 399 00e2 C6E7     		b	.L24
+ 400              	.L30:
+  49:Lib/PWMSingle/PWMSingle.hpp ****             }
+ 401              		.loc 2 49 19 is_stmt 1 view .LVU94
+  49:Lib/PWMSingle/PWMSingle.hpp ****             }
+ 402              		.loc 2 49 32 is_stmt 0 view .LVU95
+ 403 00e4 FFF7FEFF 		bl	Error_Handler
+ 404              	.LVL43:
+ 405              		.loc 2 51 7 view .LVU96
+ 406 00e8 CBE7     		b	.L17
+ 407              	.L36:
+ 408 00ea 00BFAFF3 		.align	3
+ 408      0080
+ 409              	.L35:
+ 410 00f0 9A999999 		.word	-1717986918
+ 411 00f4 9999B93F 		.word	1069128089
+ 412 00f8 00000000 		.word	SystemCoreClock
+ 413              		.cfi_endproc
+ 414              	.LFE248:
+ 415              		.fnend
+ 417              		.section	.text._ZN13DribblerDriveC2EP12PwmSingleOutS1_,"ax",%progbits
+ 418              		.align	1
+ 419              		.global	_ZN13DribblerDriveC2EP12PwmSingleOutS1_
+ 420              		.syntax unified
+ 421              		.thumb
+ 422              		.thumb_func
+ 424              	_ZN13DribblerDriveC2EP12PwmSingleOutS1_:
+ 425              		.fnstart
+ 426              	.LVL44:
+ 427              	.LFB253:
+   1:src/unit/dribbler_drive/dribbler_drive.cpp **** #include "dribbler_drive.hpp"
+   2:src/unit/dribbler_drive/dribbler_drive.cpp **** 
+   3:src/unit/dribbler_drive/dribbler_drive.cpp **** DribblerDrive::DribblerDrive(PwmSingleOut *motor_a, PwmSingleOut *motor_b)
+ 428              		.loc 1 3 1 is_stmt 1 view -0
+ 429              		.cfi_startproc
+ 430              		@ args = 0, pretend = 0, frame = 0
+ 431              		@ frame_needed = 0, uses_anonymous_args = 0
+ 432              		.loc 1 3 1 is_stmt 0 view .LVU98
+ 433 0000 10B5     		push	{r4, lr}
+ 434              		.save {r4, lr}
+ 435              	.LCFI3:
+ 436              		.cfi_def_cfa_offset 8
+ 437              		.cfi_offset 4, -8
+ 438              		.cfi_offset 14, -4
+ 439 0002 0446     		mov	r4, r0
+ 440              	.LBB6:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 10
+
+
+   4:src/unit/dribbler_drive/dribbler_drive.cpp ****     : motor_a_(motor_a), motor_b_(motor_b) {
+ 441              		.loc 1 4 7 view .LVU99
+ 442 0004 0160     		str	r1, [r0]
+ 443              		.loc 1 4 26 view .LVU100
+ 444 0006 4260     		str	r2, [r0, #4]
+ 445              	.LVL45:
+ 446              	.LBB7:
+ 447              	.LBI7:
+ 448              		.file 3 "Lib/MovingAve/MovingAve.hpp"
+   1:Lib/MovingAve/MovingAve.hpp **** #ifndef __MOVING_AVE__
+   2:Lib/MovingAve/MovingAve.hpp **** #define __MOVING_AVE__
+   3:Lib/MovingAve/MovingAve.hpp **** 
+   4:Lib/MovingAve/MovingAve.hpp **** #include "main.h"
+   5:Lib/MovingAve/MovingAve.hpp **** 
+   6:Lib/MovingAve/MovingAve.hpp **** class MovingAve {
+ 449              		.loc 3 6 7 is_stmt 1 view .LVU101
+ 450              	.LBB8:
+ 451 0008 0A21     		movs	r1, #10
+ 452              	.LVL46:
+ 453              		.loc 3 6 7 is_stmt 0 view .LVU102
+ 454 000a 80F82913 		strb	r1, [r0, #809]
+ 455              	.LVL47:
+ 456              		.loc 3 6 7 view .LVU103
+ 457              	.LBE8:
+ 458              	.LBE7:
+   5:src/unit/dribbler_drive/dribbler_drive.cpp ****       ave.SetLength(MOVING_AVE_NUM);
+ 459              		.loc 1 5 7 is_stmt 1 view .LVU104
+ 460              		.loc 1 5 20 is_stmt 0 view .LVU105
+ 461 000e 0830     		adds	r0, r0, #8
+ 462              	.LVL48:
+ 463              		.loc 1 5 20 view .LVU106
+ 464 0010 FFF7FEFF 		bl	_ZN9MovingAve9SetLengthEh
+ 465              	.LVL49:
+ 466              		.loc 1 5 20 view .LVU107
+ 467              	.LBE6:
+   6:src/unit/dribbler_drive/dribbler_drive.cpp **** }
+ 468              		.loc 1 6 1 view .LVU108
+ 469 0014 2046     		mov	r0, r4
+ 470 0016 10BD     		pop	{r4, pc}
+ 471              		.loc 1 6 1 view .LVU109
+ 472              		.cfi_endproc
+ 473              	.LFE253:
+ 474              		.fnend
+ 476              		.global	_ZN13DribblerDriveC1EP12PwmSingleOutS1_
+ 477              		.thumb_set _ZN13DribblerDriveC1EP12PwmSingleOutS1_,_ZN13DribblerDriveC2EP12PwmSingleOutS1_
+ 478              		.section	.text._ZN13DribblerDrive4InitEv,"ax",%progbits
+ 479              		.align	1
+ 480              		.global	_ZN13DribblerDrive4InitEv
+ 481              		.syntax unified
+ 482              		.thumb
+ 483              		.thumb_func
+ 485              	_ZN13DribblerDrive4InitEv:
+ 486              		.fnstart
+ 487              	.LVL50:
+ 488              	.LFB255:
+   7:src/unit/dribbler_drive/dribbler_drive.cpp **** 
+   8:src/unit/dribbler_drive/dribbler_drive.cpp **** void DribblerDrive::Init() {
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 11
+
+
+ 489              		.loc 1 8 28 is_stmt 1 view -0
+ 490              		.cfi_startproc
+ 491              		@ args = 0, pretend = 0, frame = 0
+ 492              		@ frame_needed = 0, uses_anonymous_args = 0
+ 493              		.loc 1 8 28 is_stmt 0 view .LVU111
+ 494 0000 10B5     		push	{r4, lr}
+ 495              		.save {r4, lr}
+ 496              	.LCFI4:
+ 497              		.cfi_def_cfa_offset 8
+ 498              		.cfi_offset 4, -8
+ 499              		.cfi_offset 14, -4
+ 500 0002 0446     		mov	r4, r0
+   9:src/unit/dribbler_drive/dribbler_drive.cpp ****       motor_a_->init();
+ 501              		.loc 1 9 7 is_stmt 1 view .LVU112
+ 502              		.loc 1 9 21 is_stmt 0 view .LVU113
+ 503 0004 0068     		ldr	r0, [r0]
+ 504              	.LVL51:
+ 505              		.loc 1 9 21 view .LVU114
+ 506 0006 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 507              	.LVL52:
+  10:src/unit/dribbler_drive/dribbler_drive.cpp ****       motor_b_->init();
+ 508              		.loc 1 10 7 is_stmt 1 view .LVU115
+ 509              		.loc 1 10 21 is_stmt 0 view .LVU116
+ 510 000a 6068     		ldr	r0, [r4, #4]
+ 511 000c FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 512              	.LVL53:
+  11:src/unit/dribbler_drive/dribbler_drive.cpp **** }
+ 513              		.loc 1 11 1 view .LVU117
+ 514 0010 10BD     		pop	{r4, pc}
+ 515              		.loc 1 11 1 view .LVU118
+ 516              		.cfi_endproc
+ 517              	.LFE255:
+ 518              		.fnend
+ 520              		.section	.text._ZN13DribblerDrive4HoldEh,"ax",%progbits
+ 521              		.align	1
+ 522              		.global	_ZN13DribblerDrive4HoldEh
+ 523              		.syntax unified
+ 524              		.thumb
+ 525              		.thumb_func
+ 527              	_ZN13DribblerDrive4HoldEh:
+ 528              		.fnstart
+ 529              	.LVL54:
+ 530              	.LFB256:
+  12:src/unit/dribbler_drive/dribbler_drive.cpp **** 
+  13:src/unit/dribbler_drive/dribbler_drive.cpp **** void DribblerDrive::Hold(uint8_t power) {
+ 531              		.loc 1 13 41 is_stmt 1 view -0
+ 532              		.cfi_startproc
+ 533              		@ args = 0, pretend = 0, frame = 0
+ 534              		@ frame_needed = 0, uses_anonymous_args = 0
+ 535              		.loc 1 13 41 is_stmt 0 view .LVU120
+ 536 0000 10B5     		push	{r4, lr}
+ 537              	.LCFI5:
+ 538              		.cfi_def_cfa_offset 8
+ 539              		.cfi_offset 4, -8
+ 540              		.cfi_offset 14, -4
+ 541 0002 0446     		mov	r4, r0
+ 542 0004 07EE901A 		vmov	s15, r1	@ int
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 12
+
+
+  14:src/unit/dribbler_drive/dribbler_drive.cpp ****       motor_a_->write(power * 0.01f);
+ 543              		.loc 1 14 7 is_stmt 1 view .LVU121
+ 544              		.loc 1 14 22 is_stmt 0 view .LVU122
+ 545 0008 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 546 000c 9FED060A 		vldr.32	s0, .L43
+ 547 0010 27EE800A 		vmul.f32	s0, s15, s0
+ 548 0014 0068     		ldr	r0, [r0]
+ 549              	.LVL55:
+ 550              		.loc 1 14 22 view .LVU123
+ 551 0016 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 552              	.LVL56:
+  15:src/unit/dribbler_drive/dribbler_drive.cpp ****       motor_b_->write(0);
+ 553              		.loc 1 15 7 is_stmt 1 view .LVU124
+ 554              		.loc 1 15 22 is_stmt 0 view .LVU125
+ 555 001a 9FED040A 		vldr.32	s0, .L43+4
+ 556 001e 6068     		ldr	r0, [r4, #4]
+ 557 0020 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 558              	.LVL57:
+  16:src/unit/dribbler_drive/dribbler_drive.cpp **** }
+ 559              		.loc 1 16 1 view .LVU126
+ 560 0024 10BD     		pop	{r4, pc}
+ 561              	.LVL58:
+ 562              	.L44:
+ 563              		.loc 1 16 1 view .LVU127
+ 564 0026 00BF     		.align	2
+ 565              	.L43:
+ 566 0028 0AD7233C 		.word	1008981770
+ 567 002c 00000000 		.word	0
+ 568              		.cfi_endproc
+ 569              	.LFE256:
+ 570              		.cantunwind
+ 571              		.fnend
+ 573              		.section	.text._ZN13DribblerDrive4KickEv,"ax",%progbits
+ 574              		.align	1
+ 575              		.global	_ZN13DribblerDrive4KickEv
+ 576              		.syntax unified
+ 577              		.thumb
+ 578              		.thumb_func
+ 580              	_ZN13DribblerDrive4KickEv:
+ 581              		.fnstart
+ 582              	.LVL59:
+ 583              	.LFB257:
+  17:src/unit/dribbler_drive/dribbler_drive.cpp **** 
+  18:src/unit/dribbler_drive/dribbler_drive.cpp **** void DribblerDrive::Kick() {
+ 584              		.loc 1 18 28 is_stmt 1 view -0
+ 585              		.cfi_startproc
+ 586              		@ args = 0, pretend = 0, frame = 0
+ 587              		@ frame_needed = 0, uses_anonymous_args = 0
+ 588              		.loc 1 18 28 is_stmt 0 view .LVU129
+ 589 0000 10B5     		push	{r4, lr}
+ 590              	.LCFI6:
+ 591              		.cfi_def_cfa_offset 8
+ 592              		.cfi_offset 4, -8
+ 593              		.cfi_offset 14, -4
+ 594 0002 0446     		mov	r4, r0
+  19:src/unit/dribbler_drive/dribbler_drive.cpp ****       motor_a_->write(0);
+ 595              		.loc 1 19 7 is_stmt 1 view .LVU130
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 13
+
+
+ 596              		.loc 1 19 22 is_stmt 0 view .LVU131
+ 597 0004 9FED050A 		vldr.32	s0, .L47
+ 598 0008 0068     		ldr	r0, [r0]
+ 599              	.LVL60:
+ 600              		.loc 1 19 22 view .LVU132
+ 601 000a FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 602              	.LVL61:
+  20:src/unit/dribbler_drive/dribbler_drive.cpp ****       motor_b_->write(1);
+ 603              		.loc 1 20 7 is_stmt 1 view .LVU133
+ 604              		.loc 1 20 22 is_stmt 0 view .LVU134
+ 605 000e B7EE000A 		vmov.f32	s0, #1.0e+0
+ 606 0012 6068     		ldr	r0, [r4, #4]
+ 607 0014 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 608              	.LVL62:
+  21:src/unit/dribbler_drive/dribbler_drive.cpp **** }
+ 609              		.loc 1 21 1 view .LVU135
+ 610 0018 10BD     		pop	{r4, pc}
+ 611              	.LVL63:
+ 612              	.L48:
+ 613              		.loc 1 21 1 view .LVU136
+ 614 001a 00BF     		.align	2
+ 615              	.L47:
+ 616 001c 00000000 		.word	0
+ 617              		.cfi_endproc
+ 618              	.LFE257:
+ 619              		.cantunwind
+ 620              		.fnend
+ 622              		.section	.text._ZN13DribblerDrive5BrakeEv,"ax",%progbits
+ 623              		.align	1
+ 624              		.global	_ZN13DribblerDrive5BrakeEv
+ 625              		.syntax unified
+ 626              		.thumb
+ 627              		.thumb_func
+ 629              	_ZN13DribblerDrive5BrakeEv:
+ 630              		.fnstart
+ 631              	.LVL64:
+ 632              	.LFB258:
+  22:src/unit/dribbler_drive/dribbler_drive.cpp **** 
+  23:src/unit/dribbler_drive/dribbler_drive.cpp **** void DribblerDrive::Brake() {
+ 633              		.loc 1 23 29 is_stmt 1 view -0
+ 634              		.cfi_startproc
+ 635              		@ args = 0, pretend = 0, frame = 0
+ 636              		@ frame_needed = 0, uses_anonymous_args = 0
+ 637              		.loc 1 23 29 is_stmt 0 view .LVU138
+ 638 0000 10B5     		push	{r4, lr}
+ 639              	.LCFI7:
+ 640              		.cfi_def_cfa_offset 8
+ 641              		.cfi_offset 4, -8
+ 642              		.cfi_offset 14, -4
+ 643 0002 0446     		mov	r4, r0
+  24:src/unit/dribbler_drive/dribbler_drive.cpp ****       motor_a_->write(1);
+ 644              		.loc 1 24 7 is_stmt 1 view .LVU139
+ 645              		.loc 1 24 22 is_stmt 0 view .LVU140
+ 646 0004 B7EE000A 		vmov.f32	s0, #1.0e+0
+ 647 0008 0068     		ldr	r0, [r0]
+ 648              	.LVL65:
+ 649              		.loc 1 24 22 view .LVU141
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 14
+
+
+ 650 000a FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 651              	.LVL66:
+  25:src/unit/dribbler_drive/dribbler_drive.cpp ****       motor_b_->write(1);
+ 652              		.loc 1 25 7 is_stmt 1 view .LVU142
+ 653              		.loc 1 25 22 is_stmt 0 view .LVU143
+ 654 000e B7EE000A 		vmov.f32	s0, #1.0e+0
+ 655 0012 6068     		ldr	r0, [r4, #4]
+ 656 0014 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 657              	.LVL67:
+  26:src/unit/dribbler_drive/dribbler_drive.cpp **** }
+ 658              		.loc 1 26 1 view .LVU144
+ 659 0018 10BD     		pop	{r4, pc}
+ 660              		.loc 1 26 1 view .LVU145
+ 661              		.cfi_endproc
+ 662              	.LFE258:
+ 663              		.cantunwind
+ 664              		.fnend
+ 666              		.section	.text._ZN13DribblerDrive15CheckConnectionEv,"ax",%progbits
+ 667              		.align	1
+ 668              		.global	_ZN13DribblerDrive15CheckConnectionEv
+ 669              		.syntax unified
+ 670              		.thumb
+ 671              		.thumb_func
+ 673              	_ZN13DribblerDrive15CheckConnectionEv:
+ 674              		.fnstart
+ 675              	.LVL68:
+ 676              	.LFB259:
+  27:src/unit/dribbler_drive/dribbler_drive.cpp **** 
+  28:src/unit/dribbler_drive/dribbler_drive.cpp **** void DribblerDrive::CheckConnection() {
+ 677              		.loc 1 28 39 is_stmt 1 view -0
+ 678              		.cfi_startproc
+ 679              		@ args = 0, pretend = 0, frame = 0
+ 680              		@ frame_needed = 0, uses_anonymous_args = 0
+ 681              		.loc 1 28 39 is_stmt 0 view .LVU147
+ 682 0000 10B5     		push	{r4, lr}
+ 683              		.save {r4, lr}
+ 684              	.LCFI8:
+ 685              		.cfi_def_cfa_offset 8
+ 686              		.cfi_offset 4, -8
+ 687              		.cfi_offset 14, -4
+ 688 0002 0446     		mov	r4, r0
+  29:src/unit/dribbler_drive/dribbler_drive.cpp ****       // 接続チェック
+  30:src/unit/dribbler_drive/dribbler_drive.cpp ****       motor_a_->sound(1000, CHECK_SPEED);
+ 689              		.loc 1 30 7 is_stmt 1 view .LVU148
+ 690              		.loc 1 30 22 is_stmt 0 view .LVU149
+ 691 0004 6422     		movs	r2, #100
+ 692 0006 4FF47A71 		mov	r1, #1000
+ 693 000a 0068     		ldr	r0, [r0]
+ 694              	.LVL69:
+ 695              		.loc 1 30 22 view .LVU150
+ 696 000c FFF7FEFF 		bl	_ZN12PwmSingleOut5soundEtt
+ 697              	.LVL70:
+  31:src/unit/dribbler_drive/dribbler_drive.cpp ****       motor_b_->sound(1500, CHECK_SPEED);
+ 698              		.loc 1 31 7 is_stmt 1 view .LVU151
+ 699              		.loc 1 31 22 is_stmt 0 view .LVU152
+ 700 0010 6422     		movs	r2, #100
+ 701 0012 40F2DC51 		movw	r1, #1500
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 15
+
+
+ 702 0016 6068     		ldr	r0, [r4, #4]
+ 703 0018 FFF7FEFF 		bl	_ZN12PwmSingleOut5soundEtt
+ 704              	.LVL71:
+  32:src/unit/dribbler_drive/dribbler_drive.cpp **** }...
+ 705              		.loc 1 32 1 view .LVU153
+ 706 001c 10BD     		pop	{r4, pc}
+ 707              		.loc 1 32 1 view .LVU154
+ 708              		.cfi_endproc
+ 709              	.LFE259:
+ 710              		.fnend
+ 712              		.text
+ 713              	.Letext0:
+ 714              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 715              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 716              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 717              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 718              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 719              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 720              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 721              		.file 11 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 722              		.file 12 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
+ 723              		.file 13 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 724              		.file 14 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ 725              		.file 15 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 726              		.file 16 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 727              		.file 17 "src/unit/dribbler_drive/dribbler_drive.hpp"
+ 728              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 729              		.file 19 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 730              		.file 20 "Core/Inc/main.h"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 dribbler_drive.cpp
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:21     .text._ZN12PwmSingleOut4initEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:27     .text._ZN12PwmSingleOut4initEv:00000000 _ZN12PwmSingleOut4initEv
+.ARM.exidx.text._ZN12PwmSingleOut4initEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:71     .text._ZN12PwmSingleOut5writeEf:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:77     .text._ZN12PwmSingleOut5writeEf:00000000 _ZN12PwmSingleOut5writeEf
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:194    .text._ZN12PwmSingleOut5writeEf:00000094 $d
+.ARM.exidx.text._ZN12PwmSingleOut5writeEf:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:201    .text._ZN12PwmSingleOut5soundEtt:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:207    .text._ZN12PwmSingleOut5soundEtt:00000000 _ZN12PwmSingleOut5soundEtt
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:410    .text._ZN12PwmSingleOut5soundEtt:000000f0 $d
+.ARM.exidx.text._ZN12PwmSingleOut5soundEtt:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:418    .text._ZN13DribblerDriveC2EP12PwmSingleOutS1_:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:424    .text._ZN13DribblerDriveC2EP12PwmSingleOutS1_:00000000 _ZN13DribblerDriveC2EP12PwmSingleOutS1_
+.ARM.exidx.text._ZN13DribblerDriveC2EP12PwmSingleOutS1_:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:424    .text._ZN13DribblerDriveC2EP12PwmSingleOutS1_:00000000 _ZN13DribblerDriveC1EP12PwmSingleOutS1_
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:479    .text._ZN13DribblerDrive4InitEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:485    .text._ZN13DribblerDrive4InitEv:00000000 _ZN13DribblerDrive4InitEv
+.ARM.exidx.text._ZN13DribblerDrive4InitEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:521    .text._ZN13DribblerDrive4HoldEh:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:527    .text._ZN13DribblerDrive4HoldEh:00000000 _ZN13DribblerDrive4HoldEh
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:566    .text._ZN13DribblerDrive4HoldEh:00000028 $d
+.ARM.exidx.text._ZN13DribblerDrive4HoldEh:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:574    .text._ZN13DribblerDrive4KickEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:580    .text._ZN13DribblerDrive4KickEv:00000000 _ZN13DribblerDrive4KickEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:616    .text._ZN13DribblerDrive4KickEv:0000001c $d
+.ARM.exidx.text._ZN13DribblerDrive4KickEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:623    .text._ZN13DribblerDrive5BrakeEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:629    .text._ZN13DribblerDrive5BrakeEv:00000000 _ZN13DribblerDrive5BrakeEv
+.ARM.exidx.text._ZN13DribblerDrive5BrakeEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:667    .text._ZN13DribblerDrive15CheckConnectionEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccXWtmMN.s:673    .text._ZN13DribblerDrive15CheckConnectionEv:00000000 _ZN13DribblerDrive15CheckConnectionEv
+.ARM.exidx.text._ZN13DribblerDrive15CheckConnectionEv:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_TIM_PWM_Start
+__aeabi_unwind_cpp_pr0
+__aeabi_f2d
+__aeabi_ui2d
+__aeabi_dmul
+__aeabi_d2iz
+HAL_TIM_Base_Init
+HAL_Delay
+Error_Handler
+SystemCoreClock
+_ZN9MovingAve9SetLengthEh
