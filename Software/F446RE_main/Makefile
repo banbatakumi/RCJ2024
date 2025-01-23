@@ -143,6 +143,7 @@ C_INCLUDES =  \
 -Isrc/unit/robot \
 -Isrc/unit/motor_drive \
 -Isrc/unit/dribbler_drive \
+-Isrc/unit/kicker \
 -Isrc/ \
 -Ilib/
 

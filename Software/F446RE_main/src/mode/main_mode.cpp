@@ -13,6 +13,12 @@ void Mode::MainMode() {
       robot->GetSensors();
       robot->info.Line.on_led = 1;
 
+      if (robot->info.encoder_val[0] > 0) {
+            robot->kicker.Kick(0.3);
+      } else {
+            robot->kicker.Charge();
+      }
+
       // cortex-debug
       yaw = robot->info.Imu.yaw;
       voltage = robot->info.voltage;

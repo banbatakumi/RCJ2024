@@ -8,6 +8,7 @@ Mode mode(&robot);
 
 void TimInterrupt1khz() {
       robot.heartBeat();
+      robot.kicker.Control();
 }
 
 void setup() {

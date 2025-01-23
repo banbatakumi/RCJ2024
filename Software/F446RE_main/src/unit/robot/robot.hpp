@@ -9,6 +9,7 @@
 #include "adc.h"
 #include "config.h"
 #include "dribbler_drive.hpp"
+#include "kicker.hpp"
 #include "main.h"
 #include "motor_drive.hpp"
 
@@ -48,7 +49,7 @@ class Robot {
       // values
       RobotInfo info;
 
-      DigitalOut led1 = DigitalOut(GPIOA, LED1_Pin);
+      DigitalOut led1 = DigitalOut(LED1_GPIO_Port, LED1_Pin);
       PwmSingleOut ledh = PwmSingleOut(&htim13, TIM_CHANNEL_1);
 
       PwmSingleOut motor1a = PwmSingleOut(&htim12, TIM_CHANNEL_2);
@@ -65,9 +66,13 @@ class Robot {
       PwmSingleOut dribbler_back_a = PwmSingleOut(&htim2, TIM_CHANNEL_1);
       PwmSingleOut dribbler_back_b = PwmSingleOut(&htim4, TIM_CHANNEL_4);
 
-      MotorDrive motor = MotorDrive(&motor1a, &motor1b, &motor2a, &motor2b, &motor3a, &motor3b, &motor4a, &motor4b, &info.Imu.yaw);
+      DigitalOut kicker_charge = DigitalOut(KICKER_CHARGE_GPIO_Port, KICKER_CHARGE_Pin);
+      DigitalOut kicker_kick = DigitalOut(KICKER_KICK_GPIO_Port, KICKER_KICK_Pin);
+
+      MotorDrive motor = MotorDrive(&motor1a, &motor1b, &motor2a, &motor2b, &motor3a, &motor3b, &motor4a, &motor4b, &info.Imu.yaw, info.encoder_val);
       DribblerDrive dribbler_front = DribblerDrive(&dribbler_front_a, &dribbler_front_b);
       DribblerDrive dribbler_back = DribblerDrive(&dribbler_back_a, &dribbler_back_b);
+      Kicker kicker = Kicker(&kicker_charge, &kicker_kick);
 
       BufferedSerial serial1 = BufferedSerial(&huart1, 128);
       BufferedSerial serial2 = BufferedSerial(&huart2, 256);

@@ -3,9 +3,11 @@
 MotorDrive::MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
                        PwmSingleOut *motor2a, PwmSingleOut *motor2b,
                        PwmSingleOut *motor3a, PwmSingleOut *motor3b,
-                       PwmSingleOut *motor4a, PwmSingleOut *motor4b, int16_t *yaw)
+                       PwmSingleOut *motor4a, PwmSingleOut *motor4b,
+                       int16_t *yaw, uint8_t *encoder_val)
     : motor1a_(motor1a), motor1b_(motor1b), motor2a_(motor2a), motor2b_(motor2b), motor3a_(motor3a), motor3b_(motor3b), motor4a_(motor4a), motor4b_(motor4b) {
       this->yaw_ = yaw;
+      this->encoder_val_ = encoder_val;
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             motor_ave[i].SetLength(MOVING_AVE_NUM);
       }
