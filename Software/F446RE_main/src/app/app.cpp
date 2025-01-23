@@ -18,6 +18,7 @@ void main_app() {
       while (1) {
             // mode.MainMode();
             robot.RecvImuUart();
+            robot.motor.Drive(0, 0);
             // robot.dribbler_front.Hold(abs(robot.yaw));
       }
 }

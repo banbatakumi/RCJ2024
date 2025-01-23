@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
   26:lib/MyMath/MyMath.cpp ****     SIN22,
   27:lib/MyMath/MyMath.cpp ****     SIN23,
   28:lib/MyMath/MyMath.cpp ****     SIN24,
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 2
 
 
   29:lib/MyMath/MyMath.cpp ****     SIN25,
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
   83:lib/MyMath/MyMath.cpp ****     SIN79,
   84:lib/MyMath/MyMath.cpp ****     SIN80,
   85:lib/MyMath/MyMath.cpp ****     SIN81,
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 3
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 3
 
 
   86:lib/MyMath/MyMath.cpp ****     SIN82,
@@ -132,58 +132,58 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
   94:lib/MyMath/MyMath.cpp ****     SIN90};
   95:lib/MyMath/MyMath.cpp **** 
   96:lib/MyMath/MyMath.cpp **** float MyMath::sinDeg(int deg) {
-  97:lib/MyMath/MyMath.cpp ****     // 0~360の値に変換
-  98:lib/MyMath/MyMath.cpp ****     deg = normalizeDegrees(deg);
-  99:lib/MyMath/MyMath.cpp ****     int theta_cal = deg % 90;
- 100:lib/MyMath/MyMath.cpp ****     if (deg >= 90 && deg < 180) {
- 101:lib/MyMath/MyMath.cpp ****         theta_cal = 90 - theta_cal;
- 102:lib/MyMath/MyMath.cpp ****     }
- 103:lib/MyMath/MyMath.cpp ****     if (deg >= 270 && deg < 360) {
- 104:lib/MyMath/MyMath.cpp ****         theta_cal = 90 - theta_cal;
- 105:lib/MyMath/MyMath.cpp ****     }
+  97:lib/MyMath/MyMath.cpp ****       // 0~360の値に変換
+  98:lib/MyMath/MyMath.cpp ****       deg = normalizeDegrees(deg);
+  99:lib/MyMath/MyMath.cpp ****       int theta_cal = deg % 90;
+ 100:lib/MyMath/MyMath.cpp ****       if (deg >= 90 && deg < 180) {
+ 101:lib/MyMath/MyMath.cpp ****             theta_cal = 90 - theta_cal;
+ 102:lib/MyMath/MyMath.cpp ****       }
+ 103:lib/MyMath/MyMath.cpp ****       if (deg >= 270 && deg < 360) {
+ 104:lib/MyMath/MyMath.cpp ****             theta_cal = 90 - theta_cal;
+ 105:lib/MyMath/MyMath.cpp ****       }
  106:lib/MyMath/MyMath.cpp **** 
- 107:lib/MyMath/MyMath.cpp ****     if (deg >= 0 && deg <= 90) {
- 108:lib/MyMath/MyMath.cpp ****         // 0~90 第一象限
- 109:lib/MyMath/MyMath.cpp ****         return _sin[theta_cal];
- 110:lib/MyMath/MyMath.cpp ****     } else if (deg > 90 && deg <= 180) {
- 111:lib/MyMath/MyMath.cpp ****         // 91~180 第二象限
- 112:lib/MyMath/MyMath.cpp ****         return _sin[theta_cal];
- 113:lib/MyMath/MyMath.cpp ****     } else if (deg > 180 && deg <= 270) {
- 114:lib/MyMath/MyMath.cpp ****         // 181~270 第三象限
- 115:lib/MyMath/MyMath.cpp ****         return -_sin[theta_cal];
- 116:lib/MyMath/MyMath.cpp ****     } else if (deg > 270 && deg < 360) {
- 117:lib/MyMath/MyMath.cpp ****         // 271~360 第四象限
- 118:lib/MyMath/MyMath.cpp ****         return -_sin[theta_cal];
- 119:lib/MyMath/MyMath.cpp ****     } else {
- 120:lib/MyMath/MyMath.cpp ****         return 0;
- 121:lib/MyMath/MyMath.cpp ****     }
+ 107:lib/MyMath/MyMath.cpp ****       if (deg >= 0 && deg <= 90) {
+ 108:lib/MyMath/MyMath.cpp ****             // 0~90 第一象限
+ 109:lib/MyMath/MyMath.cpp ****             return _sin[theta_cal];
+ 110:lib/MyMath/MyMath.cpp ****       } else if (deg > 90 && deg <= 180) {
+ 111:lib/MyMath/MyMath.cpp ****             // 91~180 第二象限
+ 112:lib/MyMath/MyMath.cpp ****             return _sin[theta_cal];
+ 113:lib/MyMath/MyMath.cpp ****       } else if (deg > 180 && deg <= 270) {
+ 114:lib/MyMath/MyMath.cpp ****             // 181~270 第三象限
+ 115:lib/MyMath/MyMath.cpp ****             return -_sin[theta_cal];
+ 116:lib/MyMath/MyMath.cpp ****       } else if (deg > 270 && deg < 360) {
+ 117:lib/MyMath/MyMath.cpp ****             // 271~360 第四象限
+ 118:lib/MyMath/MyMath.cpp ****             return -_sin[theta_cal];
+ 119:lib/MyMath/MyMath.cpp ****       } else {
+ 120:lib/MyMath/MyMath.cpp ****             return 0;
+ 121:lib/MyMath/MyMath.cpp ****       }
  122:lib/MyMath/MyMath.cpp **** }
  123:lib/MyMath/MyMath.cpp **** 
  124:lib/MyMath/MyMath.cpp **** float MyMath::cosDeg(int deg) {
- 125:lib/MyMath/MyMath.cpp ****     return sinDeg(deg + 90);
+ 125:lib/MyMath/MyMath.cpp ****       return sinDeg(deg + 90);
  126:lib/MyMath/MyMath.cpp **** }
  127:lib/MyMath/MyMath.cpp **** 
  128:lib/MyMath/MyMath.cpp **** float MyMath::tanDeg(int deg) {
- 129:lib/MyMath/MyMath.cpp ****     float rad = Radians(deg);
- 130:lib/MyMath/MyMath.cpp ****     if (cosDeg(rad) == 0)
- 131:lib/MyMath/MyMath.cpp ****         return 0;
- 132:lib/MyMath/MyMath.cpp ****     else
- 133:lib/MyMath/MyMath.cpp ****         return sinDeg(rad) / cosDeg(rad);
+ 129:lib/MyMath/MyMath.cpp ****       float rad = Radians(deg);
+ 130:lib/MyMath/MyMath.cpp ****       if (cosDeg(rad) == 0)
+ 131:lib/MyMath/MyMath.cpp ****             return 0;
+ 132:lib/MyMath/MyMath.cpp ****       else
+ 133:lib/MyMath/MyMath.cpp ****             return sinDeg(rad) / cosDeg(rad);
  134:lib/MyMath/MyMath.cpp **** }
  135:lib/MyMath/MyMath.cpp **** 
  136:lib/MyMath/MyMath.cpp **** float MyMath::sin(float rad) {
- 137:lib/MyMath/MyMath.cpp ****     return sinDeg(Degrees(rad));
+ 137:lib/MyMath/MyMath.cpp ****       return sinDeg(Degrees(rad));
  138:lib/MyMath/MyMath.cpp **** }
  139:lib/MyMath/MyMath.cpp **** 
  140:lib/MyMath/MyMath.cpp **** float MyMath::cos(float rad) {
- 141:lib/MyMath/MyMath.cpp ****     return cosDeg(Degrees(rad));
+ 141:lib/MyMath/MyMath.cpp ****       return cosDeg(Degrees(rad));
  142:lib/MyMath/MyMath.cpp **** }
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 4
 
 
  143:lib/MyMath/MyMath.cpp **** 
  144:lib/MyMath/MyMath.cpp **** float MyMath::tan(float rad) {
- 145:lib/MyMath/MyMath.cpp ****     return tanDeg(Degrees(rad));
+ 145:lib/MyMath/MyMath.cpp ****       return tanDeg(Degrees(rad));
  146:lib/MyMath/MyMath.cpp **** }
  147:lib/MyMath/MyMath.cpp **** 
  148:lib/MyMath/MyMath.cpp **** /// 2018/03 imo lab.
@@ -197,262 +197,262 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
   35              		@ link register save eliminated.
   36              		.loc 1 151 35 is_stmt 0 view .LVU1
   37 0000 0346     		mov	r3, r0
- 152:lib/MyMath/MyMath.cpp ****     int x = abs(_x);
-  38              		.loc 1 152 5 is_stmt 1 view .LVU2
-  39              		.loc 1 152 9 is_stmt 0 view .LVU3
+ 152:lib/MyMath/MyMath.cpp ****       int x = abs(_x);
+  38              		.loc 1 152 7 is_stmt 1 view .LVU2
+  39              		.loc 1 152 11 is_stmt 0 view .LVU3
   40 0002 81EAE17C 		eor	ip, r1, r1, asr #31
   41 0006 ACEBE17C 		sub	ip, ip, r1, asr #31
   42              	.LVL1:
- 153:lib/MyMath/MyMath.cpp ****     int y = abs(_y);
-  43              		.loc 1 153 5 is_stmt 1 view .LVU4
-  44              		.loc 1 153 9 is_stmt 0 view .LVU5
+ 153:lib/MyMath/MyMath.cpp ****       int y = abs(_y);
+  43              		.loc 1 153 7 is_stmt 1 view .LVU4
+  44              		.loc 1 153 11 is_stmt 0 view .LVU5
   45 000a 80EAE072 		eor	r2, r0, r0, asr #31
   46 000e A2EBE072 		sub	r2, r2, r0, asr #31
   47              	.LVL2:
- 154:lib/MyMath/MyMath.cpp ****     float z;
-  48              		.loc 1 154 5 is_stmt 1 view .LVU6
- 155:lib/MyMath/MyMath.cpp ****     bool c;
-  49              		.loc 1 155 5 view .LVU7
+ 154:lib/MyMath/MyMath.cpp ****       float z;
+  48              		.loc 1 154 7 is_stmt 1 view .LVU6
+ 155:lib/MyMath/MyMath.cpp ****       bool c;
+  49              		.loc 1 155 7 view .LVU7
  156:lib/MyMath/MyMath.cpp **** 
- 157:lib/MyMath/MyMath.cpp ****     c = y < x;
-  50              		.loc 1 157 5 view .LVU8
- 158:lib/MyMath/MyMath.cpp ****     if (c)
-  51              		.loc 1 158 5 view .LVU9
+ 157:lib/MyMath/MyMath.cpp ****       c = y < x;
+  50              		.loc 1 157 7 view .LVU8
+ 158:lib/MyMath/MyMath.cpp ****       if (c)
+  51              		.loc 1 158 7 view .LVU9
   52 0012 9445     		cmp	ip, r2
   53 0014 39DD     		ble	.L2
- 159:lib/MyMath/MyMath.cpp ****         z = (float)y / x;
-  54              		.loc 1 159 9 view .LVU10
-  55              		.loc 1 159 13 is_stmt 0 view .LVU11
+ 159:lib/MyMath/MyMath.cpp ****             z = (float)y / x;
+  54              		.loc 1 159 13 view .LVU10
+  55              		.loc 1 159 17 is_stmt 0 view .LVU11
   56 0016 07EE902A 		vmov	s15, r2	@ int
   57 001a F8EEE77A 		vcvt.f32.s32	s15, s15
-  58              		.loc 1 159 22 view .LVU12
+  58              		.loc 1 159 26 view .LVU12
   59 001e 07EE10CA 		vmov	s14, ip	@ int
   60 0022 F8EEC76A 		vcvt.f32.s32	s13, s14
-  61              		.loc 1 159 11 view .LVU13
+  61              		.loc 1 159 15 view .LVU13
   62 0026 87EEA67A 		vdiv.f32	s14, s15, s13
   63              	.LVL3:
   64              	.L3:
- 160:lib/MyMath/MyMath.cpp ****     else
- 161:lib/MyMath/MyMath.cpp ****         z = (float)x / y;
+ 160:lib/MyMath/MyMath.cpp ****       else
+ 161:lib/MyMath/MyMath.cpp ****             z = (float)x / y;
  162:lib/MyMath/MyMath.cpp **** 
- 163:lib/MyMath/MyMath.cpp ****     int a;
-  65              		.loc 1 163 5 is_stmt 1 view .LVU14
- 164:lib/MyMath/MyMath.cpp ****     // a = z * (-1556 * z + 6072);                     //2次曲線近似
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 5
+ 163:lib/MyMath/MyMath.cpp ****       int a;
+  65              		.loc 1 163 7 is_stmt 1 view .LVU14
+ 164:lib/MyMath/MyMath.cpp ****       // a = z * (-1556 * z + 6072);                     //2次曲線近似
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 5
 
 
- 165:lib/MyMath/MyMath.cpp ****     // a = z * (z * (-448 * z - 954) + 5894);          //3次曲線近似
- 166:lib/MyMath/MyMath.cpp ****     a = z * (z * (z * (829 * z - 2011) - 58) + 5741); // 4次曲線近似
-  66              		.loc 1 166 5 view .LVU15
-  67              		.loc 1 166 28 is_stmt 0 view .LVU16
+ 165:lib/MyMath/MyMath.cpp ****       // a = z * (z * (-448 * z - 954) + 5894);          //3次曲線近似
+ 166:lib/MyMath/MyMath.cpp ****       a = z * (z * (z * (829 * z - 2011) - 58) + 5741);  // 4次曲線近似
+  66              		.loc 1 166 7 view .LVU15
+  67              		.loc 1 166 30 is_stmt 0 view .LVU16
   68 002a DFED2D7A 		vldr.32	s15, .L15
   69 002e 67EE277A 		vmul.f32	s15, s14, s15
-  70              		.loc 1 166 32 view .LVU17
+  70              		.loc 1 166 34 view .LVU17
   71 0032 DFED2C6A 		vldr.32	s13, .L15+4
   72 0036 77EEE67A 		vsub.f32	s15, s15, s13
-  73              		.loc 1 166 21 view .LVU18
+  73              		.loc 1 166 23 view .LVU18
   74 003a 67EE877A 		vmul.f32	s15, s15, s14
-  75              		.loc 1 166 40 view .LVU19
+  75              		.loc 1 166 42 view .LVU19
   76 003e DFED2A6A 		vldr.32	s13, .L15+8
   77 0042 77EEE67A 		vsub.f32	s15, s15, s13
-  78              		.loc 1 166 16 view .LVU20
+  78              		.loc 1 166 18 view .LVU20
   79 0046 67EE877A 		vmul.f32	s15, s15, s14
-  80              		.loc 1 166 46 view .LVU21
+  80              		.loc 1 166 48 view .LVU21
   81 004a DFED286A 		vldr.32	s13, .L15+12
   82 004e 77EEA67A 		vadd.f32	s15, s15, s13
-  83              		.loc 1 166 11 view .LVU22
+  83              		.loc 1 166 13 view .LVU22
   84 0052 67EE877A 		vmul.f32	s15, s15, s14
-  85              		.loc 1 166 7 view .LVU23
+  85              		.loc 1 166 9 view .LVU23
   86 0056 FDEEE77A 		vcvt.s32.f32	s15, s15
   87 005a 17EE900A 		vmov	r0, s15	@ int
   88              	.LVL4:
  167:lib/MyMath/MyMath.cpp **** 
- 168:lib/MyMath/MyMath.cpp ****     if (c) {
-  89              		.loc 1 168 5 is_stmt 1 view .LVU24
+ 168:lib/MyMath/MyMath.cpp ****       if (c) {
+  89              		.loc 1 168 7 is_stmt 1 view .LVU24
   90 005e 9445     		cmp	ip, r2
   91 0060 05DD     		ble	.L4
- 169:lib/MyMath/MyMath.cpp ****         if (_x > 0) {
-  92              		.loc 1 169 9 view .LVU25
+ 169:lib/MyMath/MyMath.cpp ****             if (_x > 0) {
+  92              		.loc 1 169 13 view .LVU25
   93 0062 0029     		cmp	r1, #0
   94 0064 01DD     		ble	.L5
- 170:lib/MyMath/MyMath.cpp ****             if (_y < 0) a *= -1;
-  95              		.loc 1 170 13 view .LVU26
+ 170:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a *= -1;
+  95              		.loc 1 170 19 view .LVU26
   96 0066 002B     		cmp	r3, #0
   97 0068 1ADB     		blt	.L11
   98              	.L5:
- 171:lib/MyMath/MyMath.cpp ****         }
- 172:lib/MyMath/MyMath.cpp ****         if (_x < 0) {
-  99              		.loc 1 172 9 view .LVU27
+ 171:lib/MyMath/MyMath.cpp ****             }
+ 172:lib/MyMath/MyMath.cpp ****             if (_x < 0) {
+  99              		.loc 1 172 13 view .LVU27
  100 006a 0029     		cmp	r1, #0
  101 006c 1ADB     		blt	.L12
  102              	.L4:
- 173:lib/MyMath/MyMath.cpp ****             if (_y > 0) a = 18000 - a;
- 174:lib/MyMath/MyMath.cpp ****             if (_y < 0) a = a - 18000;
- 175:lib/MyMath/MyMath.cpp ****         }
- 176:lib/MyMath/MyMath.cpp ****     }
+ 173:lib/MyMath/MyMath.cpp ****                   if (_y > 0) a = 18000 - a;
+ 174:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a = a - 18000;
+ 175:lib/MyMath/MyMath.cpp ****             }
+ 176:lib/MyMath/MyMath.cpp ****       }
  177:lib/MyMath/MyMath.cpp **** 
- 178:lib/MyMath/MyMath.cpp ****     if (!c) {
- 103              		.loc 1 178 5 view .LVU28
+ 178:lib/MyMath/MyMath.cpp ****       if (!c) {
+ 103              		.loc 1 178 7 view .LVU28
  104 006e 9445     		cmp	ip, r2
  105 0070 0ADC     		bgt	.L1
- 179:lib/MyMath/MyMath.cpp ****         if (_x > 0) {
- 106              		.loc 1 179 9 view .LVU29
+ 179:lib/MyMath/MyMath.cpp ****             if (_x > 0) {
+ 106              		.loc 1 179 13 view .LVU29
  107 0072 0029     		cmp	r1, #0
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 6
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 6
 
 
  108 0074 06DD     		ble	.L8
- 180:lib/MyMath/MyMath.cpp ****             if (_y > 0) a = 9000 - a;
- 109              		.loc 1 180 13 view .LVU30
+ 180:lib/MyMath/MyMath.cpp ****                   if (_y > 0) a = 9000 - a;
+ 109              		.loc 1 180 19 view .LVU30
  110 0076 002B     		cmp	r3, #0
  111 0078 02DD     		ble	.L9
- 112              		.loc 1 180 25 discriminator 1 view .LVU31
- 113              		.loc 1 180 27 is_stmt 0 discriminator 1 view .LVU32
+ 112              		.loc 1 180 31 discriminator 1 view .LVU31
+ 113              		.loc 1 180 33 is_stmt 0 discriminator 1 view .LVU32
  114 007a C0F50C50 		rsb	r0, r0, #8960
  115              	.LVL5:
- 116              		.loc 1 180 27 discriminator 1 view .LVU33
+ 116              		.loc 1 180 33 discriminator 1 view .LVU33
  117 007e 2830     		adds	r0, r0, #40
  118              	.LVL6:
  119              	.L9:
- 181:lib/MyMath/MyMath.cpp ****             if (_y < 0) a = a - 9000;
- 120              		.loc 1 181 13 is_stmt 1 view .LVU34
+ 181:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a = a - 9000;
+ 120              		.loc 1 181 19 is_stmt 1 view .LVU34
  121 0080 002B     		cmp	r3, #0
  122 0082 1ADB     		blt	.L13
  123              	.L8:
- 182:lib/MyMath/MyMath.cpp ****         }
- 183:lib/MyMath/MyMath.cpp ****         if (_x < 0) {
- 124              		.loc 1 183 9 view .LVU35
+ 182:lib/MyMath/MyMath.cpp ****             }
+ 183:lib/MyMath/MyMath.cpp ****             if (_x < 0) {
+ 124              		.loc 1 183 13 view .LVU35
  125 0084 0029     		cmp	r1, #0
  126 0086 1CDB     		blt	.L14
  127              	.L1:
- 184:lib/MyMath/MyMath.cpp ****             if (_y > 0) a = a + 9000;
- 185:lib/MyMath/MyMath.cpp ****             if (_y < 0) a = -a - 9000;
- 186:lib/MyMath/MyMath.cpp ****         }
- 187:lib/MyMath/MyMath.cpp ****     }
+ 184:lib/MyMath/MyMath.cpp ****                   if (_y > 0) a = a + 9000;
+ 185:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a = -a - 9000;
+ 186:lib/MyMath/MyMath.cpp ****             }
+ 187:lib/MyMath/MyMath.cpp ****       }
  188:lib/MyMath/MyMath.cpp **** 
- 189:lib/MyMath/MyMath.cpp ****     return a;
+ 189:lib/MyMath/MyMath.cpp ****       return a;
  190:lib/MyMath/MyMath.cpp **** }
  128              		.loc 1 190 1 is_stmt 0 view .LVU36
  129 0088 7047     		bx	lr
  130              	.LVL7:
  131              	.L2:
  161:lib/MyMath/MyMath.cpp **** 
- 132              		.loc 1 161 9 is_stmt 1 view .LVU37
+ 132              		.loc 1 161 13 is_stmt 1 view .LVU37
  161:lib/MyMath/MyMath.cpp **** 
- 133              		.loc 1 161 13 is_stmt 0 view .LVU38
+ 133              		.loc 1 161 17 is_stmt 0 view .LVU38
  134 008a 07EE90CA 		vmov	s15, ip	@ int
  135 008e F8EEE77A 		vcvt.f32.s32	s15, s15
  161:lib/MyMath/MyMath.cpp **** 
- 136              		.loc 1 161 22 view .LVU39
+ 136              		.loc 1 161 26 view .LVU39
  137 0092 07EE102A 		vmov	s14, r2	@ int
  138 0096 F8EEC76A 		vcvt.f32.s32	s13, s14
  161:lib/MyMath/MyMath.cpp **** 
- 139              		.loc 1 161 11 view .LVU40
+ 139              		.loc 1 161 15 view .LVU40
  140 009a 87EEA67A 		vdiv.f32	s14, s15, s13
  141              	.LVL8:
  161:lib/MyMath/MyMath.cpp **** 
- 142              		.loc 1 161 11 view .LVU41
+ 142              		.loc 1 161 15 view .LVU41
  143 009e C4E7     		b	.L3
  144              	.LVL9:
  145              	.L11:
- 170:lib/MyMath/MyMath.cpp ****         }
- 146              		.loc 1 170 25 is_stmt 1 discriminator 1 view .LVU42
- 170:lib/MyMath/MyMath.cpp ****         }
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 7
+ 170:lib/MyMath/MyMath.cpp ****             }
+ 146              		.loc 1 170 31 is_stmt 1 discriminator 1 view .LVU42
+ 170:lib/MyMath/MyMath.cpp ****             }
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 7
 
 
- 147              		.loc 1 170 27 is_stmt 0 discriminator 1 view .LVU43
+ 147              		.loc 1 170 33 is_stmt 0 discriminator 1 view .LVU43
  148 00a0 4042     		rsbs	r0, r0, #0
  149              	.LVL10:
- 170:lib/MyMath/MyMath.cpp ****         }
- 150              		.loc 1 170 27 discriminator 1 view .LVU44
+ 170:lib/MyMath/MyMath.cpp ****             }
+ 150              		.loc 1 170 33 discriminator 1 view .LVU44
  151 00a2 E2E7     		b	.L5
  152              	.L12:
- 173:lib/MyMath/MyMath.cpp ****             if (_y < 0) a = a - 18000;
- 153              		.loc 1 173 13 is_stmt 1 view .LVU45
+ 173:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a = a - 18000;
+ 153              		.loc 1 173 19 is_stmt 1 view .LVU45
  154 00a4 002B     		cmp	r3, #0
  155 00a6 02DD     		ble	.L6
- 173:lib/MyMath/MyMath.cpp ****             if (_y < 0) a = a - 18000;
- 156              		.loc 1 173 25 discriminator 1 view .LVU46
- 173:lib/MyMath/MyMath.cpp ****             if (_y < 0) a = a - 18000;
- 157              		.loc 1 173 27 is_stmt 0 discriminator 1 view .LVU47
+ 173:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a = a - 18000;
+ 156              		.loc 1 173 31 discriminator 1 view .LVU46
+ 173:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a = a - 18000;
+ 157              		.loc 1 173 33 is_stmt 0 discriminator 1 view .LVU47
  158 00a8 C0F58C40 		rsb	r0, r0, #17920
  159              	.LVL11:
- 173:lib/MyMath/MyMath.cpp ****             if (_y < 0) a = a - 18000;
- 160              		.loc 1 173 27 discriminator 1 view .LVU48
+ 173:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a = a - 18000;
+ 160              		.loc 1 173 33 discriminator 1 view .LVU48
  161 00ac 5030     		adds	r0, r0, #80
  162              	.LVL12:
  163              	.L6:
- 174:lib/MyMath/MyMath.cpp ****         }
- 164              		.loc 1 174 13 is_stmt 1 view .LVU49
+ 174:lib/MyMath/MyMath.cpp ****             }
+ 164              		.loc 1 174 19 is_stmt 1 view .LVU49
  165 00ae 002B     		cmp	r3, #0
  166 00b0 DDDA     		bge	.L4
- 174:lib/MyMath/MyMath.cpp ****         }
- 167              		.loc 1 174 25 discriminator 1 view .LVU50
- 174:lib/MyMath/MyMath.cpp ****         }
- 168              		.loc 1 174 27 is_stmt 0 discriminator 1 view .LVU51
+ 174:lib/MyMath/MyMath.cpp ****             }
+ 167              		.loc 1 174 31 discriminator 1 view .LVU50
+ 174:lib/MyMath/MyMath.cpp ****             }
+ 168              		.loc 1 174 33 is_stmt 0 discriminator 1 view .LVU51
  169 00b2 A0F58C40 		sub	r0, r0, #17920
  170              	.LVL13:
- 174:lib/MyMath/MyMath.cpp ****         }
- 171              		.loc 1 174 27 discriminator 1 view .LVU52
+ 174:lib/MyMath/MyMath.cpp ****             }
+ 171              		.loc 1 174 33 discriminator 1 view .LVU52
  172 00b6 5038     		subs	r0, r0, #80
  173              	.LVL14:
- 174:lib/MyMath/MyMath.cpp ****         }
- 174              		.loc 1 174 27 discriminator 1 view .LVU53
+ 174:lib/MyMath/MyMath.cpp ****             }
+ 174              		.loc 1 174 33 discriminator 1 view .LVU53
  175 00b8 D9E7     		b	.L4
  176              	.L13:
- 181:lib/MyMath/MyMath.cpp ****         }
- 177              		.loc 1 181 25 is_stmt 1 discriminator 1 view .LVU54
- 181:lib/MyMath/MyMath.cpp ****         }
- 178              		.loc 1 181 27 is_stmt 0 discriminator 1 view .LVU55
+ 181:lib/MyMath/MyMath.cpp ****             }
+ 177              		.loc 1 181 31 is_stmt 1 discriminator 1 view .LVU54
+ 181:lib/MyMath/MyMath.cpp ****             }
+ 178              		.loc 1 181 33 is_stmt 0 discriminator 1 view .LVU55
  179 00ba A0F50C50 		sub	r0, r0, #8960
  180              	.LVL15:
- 181:lib/MyMath/MyMath.cpp ****         }
- 181              		.loc 1 181 27 discriminator 1 view .LVU56
+ 181:lib/MyMath/MyMath.cpp ****             }
+ 181              		.loc 1 181 33 discriminator 1 view .LVU56
  182 00be 2838     		subs	r0, r0, #40
  183              	.LVL16:
- 181:lib/MyMath/MyMath.cpp ****         }
- 184              		.loc 1 181 27 discriminator 1 view .LVU57
+ 181:lib/MyMath/MyMath.cpp ****             }
+ 184              		.loc 1 181 33 discriminator 1 view .LVU57
  185 00c0 E0E7     		b	.L8
  186              	.L14:
- 184:lib/MyMath/MyMath.cpp ****             if (_y < 0) a = -a - 9000;
- 187              		.loc 1 184 13 is_stmt 1 view .LVU58
+ 184:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a = -a - 9000;
+ 187              		.loc 1 184 19 is_stmt 1 view .LVU58
  188 00c2 002B     		cmp	r3, #0
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 8
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 8
 
 
  189 00c4 02DD     		ble	.L10
- 184:lib/MyMath/MyMath.cpp ****             if (_y < 0) a = -a - 9000;
- 190              		.loc 1 184 25 discriminator 1 view .LVU59
- 184:lib/MyMath/MyMath.cpp ****             if (_y < 0) a = -a - 9000;
- 191              		.loc 1 184 27 is_stmt 0 discriminator 1 view .LVU60
+ 184:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a = -a - 9000;
+ 190              		.loc 1 184 31 discriminator 1 view .LVU59
+ 184:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a = -a - 9000;
+ 191              		.loc 1 184 33 is_stmt 0 discriminator 1 view .LVU60
  192 00c6 00F50C50 		add	r0, r0, #8960
  193              	.LVL17:
- 184:lib/MyMath/MyMath.cpp ****             if (_y < 0) a = -a - 9000;
- 194              		.loc 1 184 27 discriminator 1 view .LVU61
+ 184:lib/MyMath/MyMath.cpp ****                   if (_y < 0) a = -a - 9000;
+ 194              		.loc 1 184 33 discriminator 1 view .LVU61
  195 00ca 2830     		adds	r0, r0, #40
  196              	.LVL18:
  197              	.L10:
- 185:lib/MyMath/MyMath.cpp ****         }
- 198              		.loc 1 185 13 is_stmt 1 view .LVU62
+ 185:lib/MyMath/MyMath.cpp ****             }
+ 198              		.loc 1 185 19 is_stmt 1 view .LVU62
  199 00cc 002B     		cmp	r3, #0
  200 00ce DBDA     		bge	.L1
- 185:lib/MyMath/MyMath.cpp ****         }
- 201              		.loc 1 185 25 discriminator 1 view .LVU63
- 185:lib/MyMath/MyMath.cpp ****         }
- 202              		.loc 1 185 27 is_stmt 0 discriminator 1 view .LVU64
+ 185:lib/MyMath/MyMath.cpp ****             }
+ 201              		.loc 1 185 31 discriminator 1 view .LVU63
+ 185:lib/MyMath/MyMath.cpp ****             }
+ 202              		.loc 1 185 33 is_stmt 0 discriminator 1 view .LVU64
  203 00d0 C0F17F40 		rsb	r0, r0, #-16777216
  204              	.LVL19:
- 185:lib/MyMath/MyMath.cpp ****         }
- 205              		.loc 1 185 27 discriminator 1 view .LVU65
+ 185:lib/MyMath/MyMath.cpp ****             }
+ 205              		.loc 1 185 33 discriminator 1 view .LVU65
  206 00d4 00F57F00 		add	r0, r0, #16711680
  207 00d8 00F55C40 		add	r0, r0, #56320
  208 00dc D830     		adds	r0, r0, #216
  209              	.LVL20:
  189:lib/MyMath/MyMath.cpp **** }
- 210              		.loc 1 189 5 is_stmt 1 discriminator 1 view .LVU66
+ 210              		.loc 1 189 7 is_stmt 1 discriminator 1 view .LVU66
  189:lib/MyMath/MyMath.cpp **** }
- 211              		.loc 1 189 12 is_stmt 0 discriminator 1 view .LVU67
+ 211              		.loc 1 189 14 is_stmt 0 discriminator 1 view .LVU67
  212 00de D3E7     		b	.L1
  213              	.L16:
  214              		.align	2
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  191:lib/MyMath/MyMath.cpp **** 
  192:lib/MyMath/MyMath.cpp **** int MyMath::normalizeDegrees(int theta) {
  236              		.loc 1 192 41 is_stmt 1 view -0
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 9
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 9
 
 
  237              		.cfi_startproc
@@ -487,40 +487,40 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  240              		@ link register save eliminated.
  241              		.loc 1 192 41 is_stmt 0 view .LVU69
  242 0000 0246     		mov	r2, r0
- 193:lib/MyMath/MyMath.cpp ****     theta %= 360;
- 243              		.loc 1 193 5 is_stmt 1 view .LVU70
- 244              		.loc 1 193 11 is_stmt 0 view .LVU71
+ 193:lib/MyMath/MyMath.cpp ****       theta %= 360;
+ 243              		.loc 1 193 7 is_stmt 1 view .LVU70
+ 244              		.loc 1 193 13 is_stmt 0 view .LVU71
  245 0002 0849     		ldr	r1, .L20
  246 0004 81FB0031 		smull	r3, r1, r1, r0
  247 0008 0144     		add	r1, r1, r0
  248 000a C317     		asrs	r3, r0, #31
  249 000c C3EB2120 		rsb	r0, r3, r1, asr #8
  250              	.LVL22:
- 251              		.loc 1 193 11 view .LVU72
+ 251              		.loc 1 193 13 view .LVU72
  252 0010 4FF4B473 		mov	r3, #360
  253 0014 03FB1020 		mls	r0, r3, r0, r2
  254              	.LVL23:
- 194:lib/MyMath/MyMath.cpp ****     if (theta < 0)
- 255              		.loc 1 194 5 is_stmt 1 view .LVU73
+ 194:lib/MyMath/MyMath.cpp ****       if (theta < 0)
+ 255              		.loc 1 194 7 is_stmt 1 view .LVU73
  256 0018 0028     		cmp	r0, #0
  257 001a 00DB     		blt	.L19
  258              	.L17:
- 195:lib/MyMath/MyMath.cpp ****         theta += 360;
- 196:lib/MyMath/MyMath.cpp ****     return theta;
+ 195:lib/MyMath/MyMath.cpp ****             theta += 360;
+ 196:lib/MyMath/MyMath.cpp ****       return theta;
  197:lib/MyMath/MyMath.cpp **** }
  259              		.loc 1 197 1 is_stmt 0 view .LVU74
  260 001c 7047     		bx	lr
  261              	.L19:
- 195:lib/MyMath/MyMath.cpp ****         theta += 360;
- 262              		.loc 1 195 9 is_stmt 1 view .LVU75
- 195:lib/MyMath/MyMath.cpp ****         theta += 360;
- 263              		.loc 1 195 15 is_stmt 0 view .LVU76
+ 195:lib/MyMath/MyMath.cpp ****             theta += 360;
+ 262              		.loc 1 195 13 is_stmt 1 view .LVU75
+ 195:lib/MyMath/MyMath.cpp ****             theta += 360;
+ 263              		.loc 1 195 19 is_stmt 0 view .LVU76
  264 001e 1844     		add	r0, r0, r3
  265              	.LVL24:
  196:lib/MyMath/MyMath.cpp **** }
- 266              		.loc 1 196 5 is_stmt 1 view .LVU77
+ 266              		.loc 1 196 7 is_stmt 1 view .LVU77
  196:lib/MyMath/MyMath.cpp **** }
- 267              		.loc 1 196 12 is_stmt 0 view .LVU78
+ 267              		.loc 1 196 14 is_stmt 0 view .LVU78
  268 0020 FCE7     		b	.L17
  269              	.L21:
  270 0022 00BF     		.align	2
@@ -538,33 +538,33 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  283              		.thumb_func
  285              	sinDeg:
  286              		.fnstart
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 10
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 10
 
 
  287              	.LVL25:
  288              	.LFB3:
-  96:lib/MyMath/MyMath.cpp ****     // 0~360の値に変換
+  96:lib/MyMath/MyMath.cpp ****       // 0~360の値に変換
  289              		.loc 1 96 31 is_stmt 1 view -0
  290              		.cfi_startproc
  291              		@ args = 0, pretend = 0, frame = 0
  292              		@ frame_needed = 0, uses_anonymous_args = 0
-  96:lib/MyMath/MyMath.cpp ****     // 0~360の値に変換
+  96:lib/MyMath/MyMath.cpp ****       // 0~360の値に変換
  293              		.loc 1 96 31 is_stmt 0 view .LVU80
  294 0000 08B5     		push	{r3, lr}
  295              	.LCFI0:
  296              		.cfi_def_cfa_offset 8
  297              		.cfi_offset 3, -8
  298              		.cfi_offset 14, -4
-  98:lib/MyMath/MyMath.cpp ****     int theta_cal = deg % 90;
- 299              		.loc 1 98 5 is_stmt 1 view .LVU81
-  98:lib/MyMath/MyMath.cpp ****     int theta_cal = deg % 90;
- 300              		.loc 1 98 27 is_stmt 0 view .LVU82
+  98:lib/MyMath/MyMath.cpp ****       int theta_cal = deg % 90;
+ 299              		.loc 1 98 7 is_stmt 1 view .LVU81
+  98:lib/MyMath/MyMath.cpp ****       int theta_cal = deg % 90;
+ 300              		.loc 1 98 29 is_stmt 0 view .LVU82
  301 0002 FFF7FEFF 		bl	normalizeDegrees
  302              	.LVL26:
-  99:lib/MyMath/MyMath.cpp ****     if (deg >= 90 && deg < 180) {
- 303              		.loc 1 99 5 is_stmt 1 view .LVU83
-  99:lib/MyMath/MyMath.cpp ****     if (deg >= 90 && deg < 180) {
- 304              		.loc 1 99 9 is_stmt 0 view .LVU84
+  99:lib/MyMath/MyMath.cpp ****       if (deg >= 90 && deg < 180) {
+ 303              		.loc 1 99 7 is_stmt 1 view .LVU83
+  99:lib/MyMath/MyMath.cpp ****       if (deg >= 90 && deg < 180) {
+ 304              		.loc 1 99 11 is_stmt 0 view .LVU84
  305 0006 214A     		ldr	r2, .L34
  306 0008 82FB0032 		smull	r3, r2, r2, r0
  307 000c 0244     		add	r2, r2, r0
@@ -573,99 +573,99 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  310 0014 5A22     		movs	r2, #90
  311 0016 02FB1303 		mls	r3, r2, r3, r0
  312              	.LVL27:
- 100:lib/MyMath/MyMath.cpp ****         theta_cal = 90 - theta_cal;
- 313              		.loc 1 100 5 is_stmt 1 view .LVU85
- 100:lib/MyMath/MyMath.cpp ****         theta_cal = 90 - theta_cal;
- 314              		.loc 1 100 19 is_stmt 0 view .LVU86
+ 100:lib/MyMath/MyMath.cpp ****             theta_cal = 90 - theta_cal;
+ 313              		.loc 1 100 7 is_stmt 1 view .LVU85
+ 100:lib/MyMath/MyMath.cpp ****             theta_cal = 90 - theta_cal;
+ 314              		.loc 1 100 21 is_stmt 0 view .LVU86
  315 001a A0F15A02 		sub	r2, r0, #90
- 100:lib/MyMath/MyMath.cpp ****         theta_cal = 90 - theta_cal;
- 316              		.loc 1 100 5 view .LVU87
+ 100:lib/MyMath/MyMath.cpp ****             theta_cal = 90 - theta_cal;
+ 316              		.loc 1 100 7 view .LVU87
  317 001e 592A     		cmp	r2, #89
  318 0020 01D8     		bhi	.L23
- 101:lib/MyMath/MyMath.cpp ****     }
- 319              		.loc 1 101 9 is_stmt 1 view .LVU88
- 101:lib/MyMath/MyMath.cpp ****     }
- 320              		.loc 1 101 19 is_stmt 0 view .LVU89
+ 101:lib/MyMath/MyMath.cpp ****       }
+ 319              		.loc 1 101 13 is_stmt 1 view .LVU88
+ 101:lib/MyMath/MyMath.cpp ****       }
+ 320              		.loc 1 101 23 is_stmt 0 view .LVU89
  321 0022 C3F15A03 		rsb	r3, r3, #90
  322              	.LVL28:
  323              	.L23:
- 103:lib/MyMath/MyMath.cpp ****         theta_cal = 90 - theta_cal;
- 324              		.loc 1 103 5 is_stmt 1 view .LVU90
- 103:lib/MyMath/MyMath.cpp ****         theta_cal = 90 - theta_cal;
- 325              		.loc 1 103 20 is_stmt 0 view .LVU91
+ 103:lib/MyMath/MyMath.cpp ****             theta_cal = 90 - theta_cal;
+ 324              		.loc 1 103 7 is_stmt 1 view .LVU90
+ 103:lib/MyMath/MyMath.cpp ****             theta_cal = 90 - theta_cal;
+ 325              		.loc 1 103 22 is_stmt 0 view .LVU91
  326 0026 A0F58772 		sub	r2, r0, #270
- 103:lib/MyMath/MyMath.cpp ****         theta_cal = 90 - theta_cal;
- 327              		.loc 1 103 5 view .LVU92
+ 103:lib/MyMath/MyMath.cpp ****             theta_cal = 90 - theta_cal;
+ 327              		.loc 1 103 7 view .LVU92
  328 002a 592A     		cmp	r2, #89
  329 002c 01D8     		bhi	.L24
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 11
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 11
 
 
- 104:lib/MyMath/MyMath.cpp ****     }
- 330              		.loc 1 104 9 is_stmt 1 view .LVU93
- 104:lib/MyMath/MyMath.cpp ****     }
- 331              		.loc 1 104 19 is_stmt 0 view .LVU94
+ 104:lib/MyMath/MyMath.cpp ****       }
+ 330              		.loc 1 104 13 is_stmt 1 view .LVU93
+ 104:lib/MyMath/MyMath.cpp ****       }
+ 331              		.loc 1 104 23 is_stmt 0 view .LVU94
  332 002e C3F15A03 		rsb	r3, r3, #90
  333              	.LVL29:
  334              	.L24:
- 107:lib/MyMath/MyMath.cpp ****         // 0~90 第一象限
- 335              		.loc 1 107 5 is_stmt 1 view .LVU95
+ 107:lib/MyMath/MyMath.cpp ****             // 0~90 第一象限
+ 335              		.loc 1 107 7 is_stmt 1 view .LVU95
  336 0032 5A28     		cmp	r0, #90
  337 0034 13D9     		bls	.L31
- 110:lib/MyMath/MyMath.cpp ****         // 91~180 第二象限
- 338              		.loc 1 110 12 view .LVU96
- 110:lib/MyMath/MyMath.cpp ****         // 91~180 第二象限
- 339              		.loc 1 110 25 is_stmt 0 view .LVU97
+ 110:lib/MyMath/MyMath.cpp ****             // 91~180 第二象限
+ 338              		.loc 1 110 14 view .LVU96
+ 110:lib/MyMath/MyMath.cpp ****             // 91~180 第二象限
+ 339              		.loc 1 110 27 is_stmt 0 view .LVU97
  340 0036 A0F15B02 		sub	r2, r0, #91
- 110:lib/MyMath/MyMath.cpp ****         // 91~180 第二象限
- 341              		.loc 1 110 12 view .LVU98
+ 110:lib/MyMath/MyMath.cpp ****             // 91~180 第二象限
+ 341              		.loc 1 110 14 view .LVU98
  342 003a 592A     		cmp	r2, #89
  343 003c 15D9     		bls	.L32
- 113:lib/MyMath/MyMath.cpp ****         // 181~270 第三象限
- 344              		.loc 1 113 12 is_stmt 1 view .LVU99
- 113:lib/MyMath/MyMath.cpp ****         // 181~270 第三象限
- 345              		.loc 1 113 26 is_stmt 0 view .LVU100
+ 113:lib/MyMath/MyMath.cpp ****             // 181~270 第三象限
+ 344              		.loc 1 113 14 is_stmt 1 view .LVU99
+ 113:lib/MyMath/MyMath.cpp ****             // 181~270 第三象限
+ 345              		.loc 1 113 28 is_stmt 0 view .LVU100
  346 003e A0F1B502 		sub	r2, r0, #181
- 113:lib/MyMath/MyMath.cpp ****         // 181~270 第三象限
- 347              		.loc 1 113 12 view .LVU101
+ 113:lib/MyMath/MyMath.cpp ****             // 181~270 第三象限
+ 347              		.loc 1 113 14 view .LVU101
  348 0042 592A     		cmp	r2, #89
  349 0044 17D9     		bls	.L33
- 116:lib/MyMath/MyMath.cpp ****         // 271~360 第四象限
- 350              		.loc 1 116 12 is_stmt 1 view .LVU102
- 116:lib/MyMath/MyMath.cpp ****         // 271~360 第四象限
- 351              		.loc 1 116 26 is_stmt 0 view .LVU103
+ 116:lib/MyMath/MyMath.cpp ****             // 271~360 第四象限
+ 350              		.loc 1 116 14 is_stmt 1 view .LVU102
+ 116:lib/MyMath/MyMath.cpp ****             // 271~360 第四象限
+ 351              		.loc 1 116 28 is_stmt 0 view .LVU103
  352 0046 A0F20F10 		subw	r0, r0, #271
  353              	.LVL30:
- 116:lib/MyMath/MyMath.cpp ****         // 271~360 第四象限
- 354              		.loc 1 116 12 view .LVU104
+ 116:lib/MyMath/MyMath.cpp ****             // 271~360 第四象限
+ 354              		.loc 1 116 14 view .LVU104
  355 004a 5828     		cmp	r0, #88
  356 004c 1BD8     		bhi	.L29
- 118:lib/MyMath/MyMath.cpp ****     } else {
- 357              		.loc 1 118 9 is_stmt 1 view .LVU105
- 118:lib/MyMath/MyMath.cpp ****     } else {
- 358              		.loc 1 118 31 is_stmt 0 view .LVU106
+ 118:lib/MyMath/MyMath.cpp ****       } else {
+ 357              		.loc 1 118 13 is_stmt 1 view .LVU105
+ 118:lib/MyMath/MyMath.cpp ****       } else {
+ 358              		.loc 1 118 35 is_stmt 0 view .LVU106
  359 004e 104A     		ldr	r2, .L34+4
  360 0050 02EB8303 		add	r3, r2, r3, lsl #2
  361              	.LVL31:
- 118:lib/MyMath/MyMath.cpp ****     } else {
- 362              		.loc 1 118 31 view .LVU107
+ 118:lib/MyMath/MyMath.cpp ****       } else {
+ 362              		.loc 1 118 35 view .LVU107
  363 0054 93ED000A 		vldr.32	s0, [r3]
  364 0058 B1EE400A 		vneg.f32	s0, s0
  365 005c 04E0     		b	.L22
  366              	.LVL32:
  367              	.L31:
- 109:lib/MyMath/MyMath.cpp ****     } else if (deg > 90 && deg <= 180) {
- 368              		.loc 1 109 9 is_stmt 1 view .LVU108
- 109:lib/MyMath/MyMath.cpp ****     } else if (deg > 90 && deg <= 180) {
- 369              		.loc 1 109 30 is_stmt 0 view .LVU109
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 12
+ 109:lib/MyMath/MyMath.cpp ****       } else if (deg > 90 && deg <= 180) {
+ 368              		.loc 1 109 13 is_stmt 1 view .LVU108
+ 109:lib/MyMath/MyMath.cpp ****       } else if (deg > 90 && deg <= 180) {
+ 369              		.loc 1 109 34 is_stmt 0 view .LVU109
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 12
 
 
  370 005e 0C4A     		ldr	r2, .L34+4
  371 0060 02EB8303 		add	r3, r2, r3, lsl #2
  372              	.LVL33:
- 109:lib/MyMath/MyMath.cpp ****     } else if (deg > 90 && deg <= 180) {
- 373              		.loc 1 109 30 view .LVU110
+ 109:lib/MyMath/MyMath.cpp ****       } else if (deg > 90 && deg <= 180) {
+ 373              		.loc 1 109 34 view .LVU110
  374 0064 93ED000A 		vldr.32	s0, [r3]
  375              	.LVL34:
  376              	.L22:
@@ -674,35 +674,35 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  378 0068 08BD     		pop	{r3, pc}
  379              	.LVL35:
  380              	.L32:
- 112:lib/MyMath/MyMath.cpp ****     } else if (deg > 180 && deg <= 270) {
- 381              		.loc 1 112 9 is_stmt 1 view .LVU112
- 112:lib/MyMath/MyMath.cpp ****     } else if (deg > 180 && deg <= 270) {
- 382              		.loc 1 112 30 is_stmt 0 view .LVU113
+ 112:lib/MyMath/MyMath.cpp ****       } else if (deg > 180 && deg <= 270) {
+ 381              		.loc 1 112 13 is_stmt 1 view .LVU112
+ 112:lib/MyMath/MyMath.cpp ****       } else if (deg > 180 && deg <= 270) {
+ 382              		.loc 1 112 34 is_stmt 0 view .LVU113
  383 006a 094A     		ldr	r2, .L34+4
  384 006c 02EB8303 		add	r3, r2, r3, lsl #2
  385              	.LVL36:
- 112:lib/MyMath/MyMath.cpp ****     } else if (deg > 180 && deg <= 270) {
- 386              		.loc 1 112 30 view .LVU114
+ 112:lib/MyMath/MyMath.cpp ****       } else if (deg > 180 && deg <= 270) {
+ 386              		.loc 1 112 34 view .LVU114
  387 0070 93ED000A 		vldr.32	s0, [r3]
  388 0074 F8E7     		b	.L22
  389              	.LVL37:
  390              	.L33:
- 115:lib/MyMath/MyMath.cpp ****     } else if (deg > 270 && deg < 360) {
- 391              		.loc 1 115 9 is_stmt 1 view .LVU115
- 115:lib/MyMath/MyMath.cpp ****     } else if (deg > 270 && deg < 360) {
- 392              		.loc 1 115 31 is_stmt 0 view .LVU116
+ 115:lib/MyMath/MyMath.cpp ****       } else if (deg > 270 && deg < 360) {
+ 391              		.loc 1 115 13 is_stmt 1 view .LVU115
+ 115:lib/MyMath/MyMath.cpp ****       } else if (deg > 270 && deg < 360) {
+ 392              		.loc 1 115 35 is_stmt 0 view .LVU116
  393 0076 064A     		ldr	r2, .L34+4
  394 0078 02EB8303 		add	r3, r2, r3, lsl #2
  395              	.LVL38:
- 115:lib/MyMath/MyMath.cpp ****     } else if (deg > 270 && deg < 360) {
- 396              		.loc 1 115 31 view .LVU117
+ 115:lib/MyMath/MyMath.cpp ****       } else if (deg > 270 && deg < 360) {
+ 396              		.loc 1 115 35 view .LVU117
  397 007c 93ED000A 		vldr.32	s0, [r3]
  398 0080 B1EE400A 		vneg.f32	s0, s0
  399 0084 F0E7     		b	.L22
  400              	.LVL39:
  401              	.L29:
- 120:lib/MyMath/MyMath.cpp ****     }
- 402              		.loc 1 120 16 view .LVU118
+ 120:lib/MyMath/MyMath.cpp ****       }
+ 402              		.loc 1 120 20 view .LVU118
  403 0086 9FED030A 		vldr.32	s0, .L34+8
  404 008a EDE7     		b	.L22
  405              	.L35:
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  416              		.section	.text.cosDeg,"ax",%progbits
  417              		.align	1
  418              		.global	cosDeg
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 13
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 13
 
 
  419              		.syntax unified
@@ -728,12 +728,12 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  424              		.fnstart
  425              	.LVL40:
  426              	.LFB4:
- 124:lib/MyMath/MyMath.cpp ****     return sinDeg(deg + 90);
+ 124:lib/MyMath/MyMath.cpp ****       return sinDeg(deg + 90);
  427              		.loc 1 124 31 is_stmt 1 view -0
  428              		.cfi_startproc
  429              		@ args = 0, pretend = 0, frame = 0
  430              		@ frame_needed = 0, uses_anonymous_args = 0
- 124:lib/MyMath/MyMath.cpp ****     return sinDeg(deg + 90);
+ 124:lib/MyMath/MyMath.cpp ****       return sinDeg(deg + 90);
  431              		.loc 1 124 31 is_stmt 0 view .LVU120
  432 0000 08B5     		push	{r3, lr}
  433              	.LCFI1:
@@ -741,13 +741,13 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  435              		.cfi_offset 3, -8
  436              		.cfi_offset 14, -4
  125:lib/MyMath/MyMath.cpp **** }
- 437              		.loc 1 125 5 is_stmt 1 view .LVU121
+ 437              		.loc 1 125 7 is_stmt 1 view .LVU121
  125:lib/MyMath/MyMath.cpp **** }
- 438              		.loc 1 125 18 is_stmt 0 view .LVU122
+ 438              		.loc 1 125 20 is_stmt 0 view .LVU122
  439 0002 5A30     		adds	r0, r0, #90
  440              	.LVL41:
  125:lib/MyMath/MyMath.cpp **** }
- 441              		.loc 1 125 18 view .LVU123
+ 441              		.loc 1 125 20 view .LVU123
  442 0004 FFF7FEFF 		bl	sinDeg
  443              	.LVL42:
  126:lib/MyMath/MyMath.cpp **** 
@@ -770,15 +770,15 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  462              		.fnstart
  463              	.LVL43:
  464              	.LFB7:
- 140:lib/MyMath/MyMath.cpp ****     return cosDeg(Degrees(rad));
+ 140:lib/MyMath/MyMath.cpp ****       return cosDeg(Degrees(rad));
  465              		.loc 1 140 30 is_stmt 1 view -0
  466              		.cfi_startproc
  467              		@ args = 0, pretend = 0, frame = 0
  468              		@ frame_needed = 0, uses_anonymous_args = 0
- 140:lib/MyMath/MyMath.cpp ****     return cosDeg(Degrees(rad));
+ 140:lib/MyMath/MyMath.cpp ****       return cosDeg(Degrees(rad));
  469              		.loc 1 140 30 is_stmt 0 view .LVU126
  470 0000 08B5     		push	{r3, lr}
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 14
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 14
 
 
  471              	.LCFI2:
@@ -787,19 +787,19 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  474              		.cfi_offset 14, -4
  475 0002 10EE100A 		vmov	r0, s0
  141:lib/MyMath/MyMath.cpp **** }
- 476              		.loc 1 141 5 is_stmt 1 view .LVU127
+ 476              		.loc 1 141 7 is_stmt 1 view .LVU127
  141:lib/MyMath/MyMath.cpp **** }
- 477              		.loc 1 141 19 is_stmt 0 view .LVU128
+ 477              		.loc 1 141 21 is_stmt 0 view .LVU128
  478 0006 FFF7FEFF 		bl	__aeabi_f2d
  479              	.LVL44:
  141:lib/MyMath/MyMath.cpp **** }
- 480              		.loc 1 141 19 view .LVU129
+ 480              		.loc 1 141 21 view .LVU129
  481 000a 05A3     		adr	r3, .L40
  482 000c D3E90023 		ldrd	r2, [r3]
  483 0010 FFF7FEFF 		bl	__aeabi_dmul
  484              	.LVL45:
  141:lib/MyMath/MyMath.cpp **** }
- 485              		.loc 1 141 18 view .LVU130
+ 485              		.loc 1 141 20 view .LVU130
  486 0014 FFF7FEFF 		bl	__aeabi_d2iz
  487              	.LVL46:
  488 0018 FFF7FEFF 		bl	cosDeg
@@ -828,17 +828,17 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  512              		.fnstart
  513              	.LVL48:
  514              	.LFB5:
- 128:lib/MyMath/MyMath.cpp ****     float rad = Radians(deg);
+ 128:lib/MyMath/MyMath.cpp ****       float rad = Radians(deg);
  515              		.loc 1 128 31 is_stmt 1 view -0
  516              		.cfi_startproc
  517              		@ args = 0, pretend = 0, frame = 0
  518              		@ frame_needed = 0, uses_anonymous_args = 0
- 128:lib/MyMath/MyMath.cpp ****     float rad = Radians(deg);
+ 128:lib/MyMath/MyMath.cpp ****       float rad = Radians(deg);
  519              		.loc 1 128 31 is_stmt 0 view .LVU133
  520 0000 10B5     		push	{r4, lr}
  521              	.LCFI3:
  522              		.cfi_def_cfa_offset 8
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 15
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 15
 
 
  523              		.cfi_offset 4, -8
@@ -848,57 +848,57 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  527              		.cfi_def_cfa_offset 16
  528              		.cfi_offset 80, -16
  529              		.cfi_offset 81, -12
- 129:lib/MyMath/MyMath.cpp ****     if (cosDeg(rad) == 0)
- 530              		.loc 1 129 5 is_stmt 1 view .LVU134
- 129:lib/MyMath/MyMath.cpp ****     if (cosDeg(rad) == 0)
- 531              		.loc 1 129 17 is_stmt 0 view .LVU135
+ 129:lib/MyMath/MyMath.cpp ****       if (cosDeg(rad) == 0)
+ 530              		.loc 1 129 7 is_stmt 1 view .LVU134
+ 129:lib/MyMath/MyMath.cpp ****       if (cosDeg(rad) == 0)
+ 531              		.loc 1 129 19 is_stmt 0 view .LVU135
  532 0006 FFF7FEFF 		bl	__aeabi_i2d
  533              	.LVL49:
- 129:lib/MyMath/MyMath.cpp ****     if (cosDeg(rad) == 0)
- 534              		.loc 1 129 17 view .LVU136
+ 129:lib/MyMath/MyMath.cpp ****       if (cosDeg(rad) == 0)
+ 534              		.loc 1 129 19 view .LVU136
  535 000a 14A3     		adr	r3, .L46+4
  536 000c D3E90023 		ldrd	r2, [r3]
  537 0010 FFF7FEFF 		bl	__aeabi_dmul
  538              	.LVL50:
- 129:lib/MyMath/MyMath.cpp ****     if (cosDeg(rad) == 0)
- 539              		.loc 1 129 11 view .LVU137
+ 129:lib/MyMath/MyMath.cpp ****       if (cosDeg(rad) == 0)
+ 539              		.loc 1 129 13 view .LVU137
  540 0014 FFF7FEFF 		bl	__aeabi_d2f
  541              	.LVL51:
  542 0018 07EE900A 		vmov	s15, r0
  543              	.LVL52:
- 130:lib/MyMath/MyMath.cpp ****         return 0;
- 544              		.loc 1 130 5 is_stmt 1 view .LVU138
- 130:lib/MyMath/MyMath.cpp ****         return 0;
- 545              		.loc 1 130 15 is_stmt 0 view .LVU139
+ 130:lib/MyMath/MyMath.cpp ****             return 0;
+ 544              		.loc 1 130 7 is_stmt 1 view .LVU138
+ 130:lib/MyMath/MyMath.cpp ****             return 0;
+ 545              		.loc 1 130 17 is_stmt 0 view .LVU139
  546 001c FDEEE77A 		vcvt.s32.f32	s15, s15
  547 0020 17EE904A 		vmov	r4, s15	@ int
  548 0024 2046     		mov	r0, r4
  549              	.LVL53:
- 130:lib/MyMath/MyMath.cpp ****         return 0;
- 550              		.loc 1 130 15 view .LVU140
+ 130:lib/MyMath/MyMath.cpp ****             return 0;
+ 550              		.loc 1 130 17 view .LVU140
  551 0026 FFF7FEFF 		bl	cosDeg
  552              	.LVL54:
- 130:lib/MyMath/MyMath.cpp ****         return 0;
- 553              		.loc 1 130 5 view .LVU141
+ 130:lib/MyMath/MyMath.cpp ****             return 0;
+ 553              		.loc 1 130 7 view .LVU141
  554 002a B5EE400A 		vcmp.f32	s0, #0
  555 002e F1EE10FA 		vmrs	APSR_nzcv, FPSCR
  556 0032 0BD0     		beq	.L44
  557 0034 B0EE408A 		vmov.f32	s16, s0
  133:lib/MyMath/MyMath.cpp **** }
- 558              		.loc 1 133 9 is_stmt 1 view .LVU142
+ 558              		.loc 1 133 13 is_stmt 1 view .LVU142
  133:lib/MyMath/MyMath.cpp **** }
- 559              		.loc 1 133 22 is_stmt 0 view .LVU143
+ 559              		.loc 1 133 26 is_stmt 0 view .LVU143
  560 0038 2046     		mov	r0, r4
  561 003a FFF7FEFF 		bl	sinDeg
  562              	.LVL55:
  563 003e F0EE407A 		vmov.f32	s15, s0
  133:lib/MyMath/MyMath.cpp **** }
- 564              		.loc 1 133 40 view .LVU144
+ 564              		.loc 1 133 44 view .LVU144
  565 0042 87EE880A 		vdiv.f32	s0, s15, s16
  566              	.L42:
  134:lib/MyMath/MyMath.cpp **** 
  567              		.loc 1 134 1 view .LVU145
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 16
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 16
 
 
  568 0046 BDEC028B 		vldm	sp!, {d8}
@@ -911,8 +911,8 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  575              	.L44:
  576              	.LCFI6:
  577              		.cfi_restore_state
- 131:lib/MyMath/MyMath.cpp ****     else
- 578              		.loc 1 131 16 view .LVU146
+ 131:lib/MyMath/MyMath.cpp ****       else
+ 578              		.loc 1 131 20 view .LVU146
  579 004c 9FED020A 		vldr.32	s0, .L46
  580 0050 F9E7     		b	.L42
  581              	.L47:
@@ -936,12 +936,12 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  600              		.fnstart
  601              	.LVL56:
  602              	.LFB8:
- 144:lib/MyMath/MyMath.cpp ****     return tanDeg(Degrees(rad));
+ 144:lib/MyMath/MyMath.cpp ****       return tanDeg(Degrees(rad));
  603              		.loc 1 144 30 is_stmt 1 view -0
  604              		.cfi_startproc
  605              		@ args = 0, pretend = 0, frame = 0
  606              		@ frame_needed = 0, uses_anonymous_args = 0
- 144:lib/MyMath/MyMath.cpp ****     return tanDeg(Degrees(rad));
+ 144:lib/MyMath/MyMath.cpp ****       return tanDeg(Degrees(rad));
  607              		.loc 1 144 30 is_stmt 0 view .LVU148
  608 0000 08B5     		push	{r3, lr}
  609              	.LCFI7:
@@ -950,22 +950,22 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  612              		.cfi_offset 14, -4
  613 0002 10EE100A 		vmov	r0, s0
  145:lib/MyMath/MyMath.cpp **** }
- 614              		.loc 1 145 5 is_stmt 1 view .LVU149
+ 614              		.loc 1 145 7 is_stmt 1 view .LVU149
  145:lib/MyMath/MyMath.cpp **** }
- 615              		.loc 1 145 19 is_stmt 0 view .LVU150
+ 615              		.loc 1 145 21 is_stmt 0 view .LVU150
  616 0006 FFF7FEFF 		bl	__aeabi_f2d
  617              	.LVL57:
  145:lib/MyMath/MyMath.cpp **** }
- 618              		.loc 1 145 19 view .LVU151
+ 618              		.loc 1 145 21 view .LVU151
  619 000a 05A3     		adr	r3, .L50
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 17
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 17
 
 
  620 000c D3E90023 		ldrd	r2, [r3]
  621 0010 FFF7FEFF 		bl	__aeabi_dmul
  622              	.LVL58:
  145:lib/MyMath/MyMath.cpp **** }
- 623              		.loc 1 145 18 view .LVU152
+ 623              		.loc 1 145 20 view .LVU152
  624 0014 FFF7FEFF 		bl	__aeabi_d2iz
  625              	.LVL59:
  626 0018 FFF7FEFF 		bl	tanDeg
@@ -992,12 +992,12 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  648              		.fnstart
  649              	.LVL61:
  650              	.LFB6:
- 136:lib/MyMath/MyMath.cpp ****     return sinDeg(Degrees(rad));
+ 136:lib/MyMath/MyMath.cpp ****       return sinDeg(Degrees(rad));
  651              		.loc 1 136 30 is_stmt 1 view -0
  652              		.cfi_startproc
  653              		@ args = 0, pretend = 0, frame = 0
  654              		@ frame_needed = 0, uses_anonymous_args = 0
- 136:lib/MyMath/MyMath.cpp ****     return sinDeg(Degrees(rad));
+ 136:lib/MyMath/MyMath.cpp ****       return sinDeg(Degrees(rad));
  655              		.loc 1 136 30 is_stmt 0 view .LVU155
  656 0000 08B5     		push	{r3, lr}
  657              	.LCFI8:
@@ -1006,22 +1006,22 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  660              		.cfi_offset 14, -4
  661 0002 10EE100A 		vmov	r0, s0
  137:lib/MyMath/MyMath.cpp **** }
- 662              		.loc 1 137 5 is_stmt 1 view .LVU156
+ 662              		.loc 1 137 7 is_stmt 1 view .LVU156
  137:lib/MyMath/MyMath.cpp **** }
- 663              		.loc 1 137 19 is_stmt 0 view .LVU157
+ 663              		.loc 1 137 21 is_stmt 0 view .LVU157
  664 0006 FFF7FEFF 		bl	__aeabi_f2d
  665              	.LVL62:
  137:lib/MyMath/MyMath.cpp **** }
- 666              		.loc 1 137 19 view .LVU158
+ 666              		.loc 1 137 21 view .LVU158
  667 000a 05A3     		adr	r3, .L54
  668 000c D3E90023 		ldrd	r2, [r3]
  669 0010 FFF7FEFF 		bl	__aeabi_dmul
  670              	.LVL63:
  137:lib/MyMath/MyMath.cpp **** }
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 18
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 18
 
 
- 671              		.loc 1 137 18 view .LVU159
+ 671              		.loc 1 137 20 view .LVU159
  672 0014 FFF7FEFF 		bl	__aeabi_d2iz
  673              	.LVL64:
  674 0018 FFF7FEFF 		bl	sinDeg
@@ -1066,19 +1066,19 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  712              		.cfi_offset 7, -8
  713              		.cfi_offset 14, -4
  714 0002 10EE104A 		vmov	r4, s0
- 200:lib/MyMath/MyMath.cpp ****     while (theta < 0) {
- 715              		.loc 1 200 5 is_stmt 1 view .LVU163
+ 200:lib/MyMath/MyMath.cpp ****       while (theta < 0) {
+ 715              		.loc 1 200 7 is_stmt 1 view .LVU163
  716 0006 0AE0     		b	.L57
  717              	.LVL67:
  718              	.L58:
- 201:lib/MyMath/MyMath.cpp ****         theta += TWO_PI;
- 719              		.loc 1 201 9 view .LVU164
- 720              		.loc 1 201 15 is_stmt 0 view .LVU165
+ 201:lib/MyMath/MyMath.cpp ****             theta += TWO_PI;
+ 719              		.loc 1 201 13 view .LVU164
+ 720              		.loc 1 201 19 is_stmt 0 view .LVU165
  721 0008 2046     		mov	r0, r4	@ float
  722 000a FFF7FEFF 		bl	__aeabi_f2d
  723              	.LVL68:
  724 000e 14A3     		adr	r3, .L62
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 19
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 19
 
 
  725 0010 D3E90023 		ldrd	r2, [r3]
@@ -1089,21 +1089,21 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  730 001c 0446     		mov	r4, r0	@ float
  731              	.LVL71:
  732              	.L57:
- 200:lib/MyMath/MyMath.cpp ****     while (theta < 0) {
- 733              		.loc 1 200 18 is_stmt 1 view .LVU166
+ 200:lib/MyMath/MyMath.cpp ****       while (theta < 0) {
+ 733              		.loc 1 200 20 is_stmt 1 view .LVU166
  734 001e 07EE904A 		vmov	s15, r4
  735 0022 F5EEC07A 		vcmpe.f32	s15, #0
  736 0026 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
  737 002a EDD4     		bmi	.L58
- 200:lib/MyMath/MyMath.cpp ****     while (theta < 0) {
- 738              		.loc 1 200 18 is_stmt 0 view .LVU167
+ 200:lib/MyMath/MyMath.cpp ****       while (theta < 0) {
+ 738              		.loc 1 200 20 is_stmt 0 view .LVU167
  739 002c 09E0     		b	.L59
  740              	.L60:
- 202:lib/MyMath/MyMath.cpp ****     }
- 203:lib/MyMath/MyMath.cpp ****     while (theta >= TWO_PI) {
- 204:lib/MyMath/MyMath.cpp ****         theta -= TWO_PI;
- 741              		.loc 1 204 9 is_stmt 1 view .LVU168
- 742              		.loc 1 204 15 is_stmt 0 view .LVU169
+ 202:lib/MyMath/MyMath.cpp ****       }
+ 203:lib/MyMath/MyMath.cpp ****       while (theta >= TWO_PI) {
+ 204:lib/MyMath/MyMath.cpp ****             theta -= TWO_PI;
+ 741              		.loc 1 204 13 is_stmt 1 view .LVU168
+ 742              		.loc 1 204 19 is_stmt 0 view .LVU169
  743 002e 0CA3     		adr	r3, .L62
  744 0030 D3E90023 		ldrd	r2, [r3]
  745 0034 3046     		mov	r0, r6
@@ -1115,30 +1115,30 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  751 0040 0446     		mov	r4, r0	@ float
  752              	.LVL74:
  753              	.L59:
- 203:lib/MyMath/MyMath.cpp ****         theta -= TWO_PI;
- 754              		.loc 1 203 18 is_stmt 1 view .LVU170
- 203:lib/MyMath/MyMath.cpp ****         theta -= TWO_PI;
- 755              		.loc 1 203 12 is_stmt 0 view .LVU171
+ 203:lib/MyMath/MyMath.cpp ****             theta -= TWO_PI;
+ 754              		.loc 1 203 20 is_stmt 1 view .LVU170
+ 203:lib/MyMath/MyMath.cpp ****             theta -= TWO_PI;
+ 755              		.loc 1 203 14 is_stmt 0 view .LVU171
  756 0042 2046     		mov	r0, r4	@ float
  757 0044 FFF7FEFF 		bl	__aeabi_f2d
  758              	.LVL75:
  759 0048 0646     		mov	r6, r0
  760 004a 0F46     		mov	r7, r1
- 203:lib/MyMath/MyMath.cpp ****         theta -= TWO_PI;
- 761              		.loc 1 203 18 view .LVU172
+ 203:lib/MyMath/MyMath.cpp ****             theta -= TWO_PI;
+ 761              		.loc 1 203 20 view .LVU172
  762 004c 04A3     		adr	r3, .L62
  763 004e D3E90023 		ldrd	r2, [r3]
  764 0052 FFF7FEFF 		bl	__aeabi_dcmpge
  765              	.LVL76:
  766 0056 0028     		cmp	r0, #0
  767 0058 E9D1     		bne	.L60
- 205:lib/MyMath/MyMath.cpp ****     }
- 206:lib/MyMath/MyMath.cpp ****     return theta;
- 768              		.loc 1 206 5 is_stmt 1 view .LVU173
+ 205:lib/MyMath/MyMath.cpp ****       }
+ 206:lib/MyMath/MyMath.cpp ****       return theta;
+ 768              		.loc 1 206 7 is_stmt 1 view .LVU173
  207:lib/MyMath/MyMath.cpp **** }
  769              		.loc 1 207 1 is_stmt 0 view .LVU174
  770 005a 00EE104A 		vmov	s0, r4
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 20
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 20
 
 
  771 005e D0BD     		pop	{r4, r6, r7, pc}
@@ -1170,45 +1170,45 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  797              		@ args = 0, pretend = 0, frame = 0
  798              		@ frame_needed = 0, uses_anonymous_args = 0
  799              		@ link register save eliminated.
- 210:lib/MyMath/MyMath.cpp ****     int a = deg1 - deg2;
- 800              		.loc 1 210 5 view .LVU177
- 801              		.loc 1 210 9 is_stmt 0 view .LVU178
+ 210:lib/MyMath/MyMath.cpp ****       int a = deg1 - deg2;
+ 800              		.loc 1 210 7 view .LVU177
+ 801              		.loc 1 210 11 is_stmt 0 view .LVU178
  802 0000 401A     		subs	r0, r0, r1
  803              	.LVL79:
- 211:lib/MyMath/MyMath.cpp ****     while (a < 0)
- 804              		.loc 1 211 5 is_stmt 1 view .LVU179
+ 211:lib/MyMath/MyMath.cpp ****       while (a < 0)
+ 804              		.loc 1 211 7 is_stmt 1 view .LVU179
  805 0002 01E0     		b	.L65
  806              	.L66:
- 212:lib/MyMath/MyMath.cpp ****         a += 360;
- 807              		.loc 1 212 9 view .LVU180
- 808              		.loc 1 212 11 is_stmt 0 view .LVU181
+ 212:lib/MyMath/MyMath.cpp ****             a += 360;
+ 807              		.loc 1 212 13 view .LVU180
+ 808              		.loc 1 212 15 is_stmt 0 view .LVU181
  809 0004 00F5B470 		add	r0, r0, #360
  810              	.LVL80:
  811              	.L65:
- 211:lib/MyMath/MyMath.cpp ****     while (a < 0)
- 812              		.loc 1 211 14 is_stmt 1 view .LVU182
+ 211:lib/MyMath/MyMath.cpp ****       while (a < 0)
+ 812              		.loc 1 211 16 is_stmt 1 view .LVU182
  813 0008 0028     		cmp	r0, #0
  814 000a FBDB     		blt	.L66
- 211:lib/MyMath/MyMath.cpp ****     while (a < 0)
- 815              		.loc 1 211 14 is_stmt 0 view .LVU183
+ 211:lib/MyMath/MyMath.cpp ****       while (a < 0)
+ 815              		.loc 1 211 16 is_stmt 0 view .LVU183
  816 000c 01E0     		b	.L67
  817              	.L68:
- 213:lib/MyMath/MyMath.cpp ****     while (a > 180)
- 214:lib/MyMath/MyMath.cpp ****         a -= 360;
- 818              		.loc 1 214 9 is_stmt 1 view .LVU184
- 819              		.loc 1 214 11 is_stmt 0 view .LVU185
+ 213:lib/MyMath/MyMath.cpp ****       while (a > 180)
+ 214:lib/MyMath/MyMath.cpp ****             a -= 360;
+ 818              		.loc 1 214 13 is_stmt 1 view .LVU184
+ 819              		.loc 1 214 15 is_stmt 0 view .LVU185
  820 000e A0F5B470 		sub	r0, r0, #360
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 21
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 21
 
 
  821              	.LVL81:
  822              	.L67:
- 213:lib/MyMath/MyMath.cpp ****     while (a > 180)
- 823              		.loc 1 213 14 is_stmt 1 view .LVU186
+ 213:lib/MyMath/MyMath.cpp ****       while (a > 180)
+ 823              		.loc 1 213 16 is_stmt 1 view .LVU186
  824 0012 B428     		cmp	r0, #180
  825 0014 FBDC     		bgt	.L68
- 215:lib/MyMath/MyMath.cpp ****     return a;
- 826              		.loc 1 215 5 view .LVU187
+ 215:lib/MyMath/MyMath.cpp ****       return a;
+ 826              		.loc 1 215 7 view .LVU187
  216:lib/MyMath/MyMath.cpp **** }
  827              		.loc 1 216 1 is_stmt 0 view .LVU188
  828 0016 7047     		bx	lr
@@ -1241,39 +1241,39 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  855              		.cfi_offset 5, -8
  856              		.cfi_offset 14, -4
  857 0002 0D46     		mov	r5, r1
- 219:lib/MyMath/MyMath.cpp ****     int a = normalizeDegrees(deg1) - normalizeDegrees(deg2);
- 858              		.loc 1 219 5 is_stmt 1 view .LVU191
- 859              		.loc 1 219 29 is_stmt 0 view .LVU192
+ 219:lib/MyMath/MyMath.cpp ****       int a = normalizeDegrees(deg1) - normalizeDegrees(deg2);
+ 858              		.loc 1 219 7 is_stmt 1 view .LVU191
+ 859              		.loc 1 219 31 is_stmt 0 view .LVU192
  860 0004 FFF7FEFF 		bl	normalizeDegrees
  861              	.LVL83:
- 862              		.loc 1 219 29 view .LVU193
+ 862              		.loc 1 219 31 view .LVU193
  863 0008 0446     		mov	r4, r0
- 864              		.loc 1 219 54 view .LVU194
+ 864              		.loc 1 219 56 view .LVU194
  865 000a 2846     		mov	r0, r5
  866 000c FFF7FEFF 		bl	normalizeDegrees
  867              	.LVL84:
- 868              		.loc 1 219 59 view .LVU195
+ 868              		.loc 1 219 61 view .LVU195
  869 0010 201A     		subs	r0, r4, r0
  870              	.LVL85:
- 220:lib/MyMath/MyMath.cpp ****     while (a < 0)
- 871              		.loc 1 220 5 is_stmt 1 view .LVU196
+ 220:lib/MyMath/MyMath.cpp ****       while (a < 0)
+ 871              		.loc 1 220 7 is_stmt 1 view .LVU196
  872 0012 01E0     		b	.L70
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 22
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 22
 
 
  873              	.L71:
- 221:lib/MyMath/MyMath.cpp ****         a += 360;
- 874              		.loc 1 221 9 view .LVU197
- 875              		.loc 1 221 11 is_stmt 0 view .LVU198
+ 221:lib/MyMath/MyMath.cpp ****             a += 360;
+ 874              		.loc 1 221 13 view .LVU197
+ 875              		.loc 1 221 15 is_stmt 0 view .LVU198
  876 0014 00F5B470 		add	r0, r0, #360
  877              	.LVL86:
  878              	.L70:
- 220:lib/MyMath/MyMath.cpp ****     while (a < 0)
- 879              		.loc 1 220 14 is_stmt 1 view .LVU199
+ 220:lib/MyMath/MyMath.cpp ****       while (a < 0)
+ 879              		.loc 1 220 16 is_stmt 1 view .LVU199
  880 0018 0028     		cmp	r0, #0
  881 001a FBDB     		blt	.L71
- 222:lib/MyMath/MyMath.cpp ****     return a;
- 882              		.loc 1 222 5 view .LVU200
+ 222:lib/MyMath/MyMath.cpp ****       return a;
+ 882              		.loc 1 222 7 view .LVU200
  223:lib/MyMath/MyMath.cpp **** }
  883              		.loc 1 223 1 is_stmt 0 view .LVU201
  884 001c 38BD     		pop	{r3, r4, r5, pc}
@@ -1307,23 +1307,23 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  912              		.cfi_offset 6, -12
  913              		.cfi_offset 7, -8
  914              		.cfi_offset 14, -4
- 226:lib/MyMath/MyMath.cpp ****     float a = rad1 - rad2;
- 915              		.loc 1 226 5 is_stmt 1 view .LVU205
- 916              		.loc 1 226 11 is_stmt 0 view .LVU206
+ 226:lib/MyMath/MyMath.cpp ****       float a = rad1 - rad2;
+ 915              		.loc 1 226 7 is_stmt 1 view .LVU205
+ 916              		.loc 1 226 13 is_stmt 0 view .LVU206
  917 0002 70EE607A 		vsub.f32	s15, s0, s1
  918 0006 17EE904A 		vmov	r4, s15
  919              	.LVL88:
- 227:lib/MyMath/MyMath.cpp ****     while (a < 0)
- 920              		.loc 1 227 5 is_stmt 1 view .LVU207
+ 227:lib/MyMath/MyMath.cpp ****       while (a < 0)
+ 920              		.loc 1 227 7 is_stmt 1 view .LVU207
  921 000a 0AE0     		b	.L74
  922              	.LVL89:
  923              	.L75:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 23
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 23
 
 
- 228:lib/MyMath/MyMath.cpp ****         a += TWO_PI;
- 924              		.loc 1 228 9 view .LVU208
- 925              		.loc 1 228 11 is_stmt 0 view .LVU209
+ 228:lib/MyMath/MyMath.cpp ****             a += TWO_PI;
+ 924              		.loc 1 228 13 view .LVU208
+ 925              		.loc 1 228 15 is_stmt 0 view .LVU209
  926 000c 2046     		mov	r0, r4	@ float
  927 000e FFF7FEFF 		bl	__aeabi_f2d
  928              	.LVL90:
@@ -1336,20 +1336,20 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  935 0020 0446     		mov	r4, r0	@ float
  936              	.LVL93:
  937              	.L74:
- 227:lib/MyMath/MyMath.cpp ****     while (a < 0)
- 938              		.loc 1 227 14 is_stmt 1 view .LVU210
+ 227:lib/MyMath/MyMath.cpp ****       while (a < 0)
+ 938              		.loc 1 227 16 is_stmt 1 view .LVU210
  939 0022 07EE904A 		vmov	s15, r4
  940 0026 F5EEC07A 		vcmpe.f32	s15, #0
  941 002a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
  942 002e EDD4     		bmi	.L75
- 227:lib/MyMath/MyMath.cpp ****     while (a < 0)
- 943              		.loc 1 227 14 is_stmt 0 view .LVU211
+ 227:lib/MyMath/MyMath.cpp ****       while (a < 0)
+ 943              		.loc 1 227 16 is_stmt 0 view .LVU211
  944 0030 09E0     		b	.L76
  945              	.L77:
- 229:lib/MyMath/MyMath.cpp ****     while (a > PI)
- 230:lib/MyMath/MyMath.cpp ****         a -= TWO_PI;
- 946              		.loc 1 230 9 is_stmt 1 view .LVU212
- 947              		.loc 1 230 11 is_stmt 0 view .LVU213
+ 229:lib/MyMath/MyMath.cpp ****       while (a > PI)
+ 230:lib/MyMath/MyMath.cpp ****             a -= TWO_PI;
+ 946              		.loc 1 230 13 is_stmt 1 view .LVU212
+ 947              		.loc 1 230 15 is_stmt 0 view .LVU213
  948 0032 0DA3     		adr	r3, .L79
  949 0034 D3E90023 		ldrd	r2, [r3]
  950 0038 3046     		mov	r0, r6
@@ -1361,28 +1361,28 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  956 0044 0446     		mov	r4, r0	@ float
  957              	.LVL96:
  958              	.L76:
- 229:lib/MyMath/MyMath.cpp ****     while (a > PI)
- 959              		.loc 1 229 14 is_stmt 1 view .LVU214
- 229:lib/MyMath/MyMath.cpp ****     while (a > PI)
- 960              		.loc 1 229 12 is_stmt 0 view .LVU215
+ 229:lib/MyMath/MyMath.cpp ****       while (a > PI)
+ 959              		.loc 1 229 16 is_stmt 1 view .LVU214
+ 229:lib/MyMath/MyMath.cpp ****       while (a > PI)
+ 960              		.loc 1 229 14 is_stmt 0 view .LVU215
  961 0046 2046     		mov	r0, r4	@ float
  962 0048 FFF7FEFF 		bl	__aeabi_f2d
  963              	.LVL97:
  964 004c 0646     		mov	r6, r0
  965 004e 0F46     		mov	r7, r1
- 229:lib/MyMath/MyMath.cpp ****     while (a > PI)
- 966              		.loc 1 229 14 view .LVU216
+ 229:lib/MyMath/MyMath.cpp ****       while (a > PI)
+ 966              		.loc 1 229 16 view .LVU216
  967 0050 07A3     		adr	r3, .L79+8
  968 0052 D3E90023 		ldrd	r2, [r3]
  969 0056 FFF7FEFF 		bl	__aeabi_dcmpgt
  970              	.LVL98:
  971 005a 0028     		cmp	r0, #0
  972 005c E9D1     		bne	.L77
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 24
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 24
 
 
- 231:lib/MyMath/MyMath.cpp ****     return a;
- 973              		.loc 1 231 5 is_stmt 1 view .LVU217
+ 231:lib/MyMath/MyMath.cpp ****       return a;
+ 973              		.loc 1 231 7 is_stmt 1 view .LVU217
  232:lib/MyMath/MyMath.cpp **** }
  974              		.loc 1 232 1 is_stmt 0 view .LVU218
  975 005e 00EE104A 		vmov	s0, r4
@@ -1428,31 +1428,31 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  1015              		.cfi_offset 80, -16
  1016              		.cfi_offset 81, -12
  1017 0006 F0EE608A 		vmov.f32	s17, s1
- 235:lib/MyMath/MyMath.cpp ****     float a = normalizeRadians(rad1) - normalizeRadians(rad2);
- 1018              		.loc 1 235 5 is_stmt 1 view .LVU222
- 1019              		.loc 1 235 31 is_stmt 0 view .LVU223
+ 235:lib/MyMath/MyMath.cpp ****       float a = normalizeRadians(rad1) - normalizeRadians(rad2);
+ 1018              		.loc 1 235 7 is_stmt 1 view .LVU222
+ 1019              		.loc 1 235 33 is_stmt 0 view .LVU223
  1020 000a FFF7FEFF 		bl	normalizeRadians
  1021              	.LVL101:
- 1022              		.loc 1 235 31 view .LVU224
+ 1022              		.loc 1 235 33 view .LVU224
  1023 000e B0EE408A 		vmov.f32	s16, s0
- 1024              		.loc 1 235 56 view .LVU225
+ 1024              		.loc 1 235 58 view .LVU225
  1025 0012 B0EE680A 		vmov.f32	s0, s17
  1026 0016 FFF7FEFF 		bl	normalizeRadians
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 25
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 25
 
 
  1027              	.LVL102:
- 1028              		.loc 1 235 61 view .LVU226
+ 1028              		.loc 1 235 63 view .LVU226
  1029 001a 38EE400A 		vsub.f32	s0, s16, s0
  1030              	.LVL103:
- 236:lib/MyMath/MyMath.cpp ****     if (a < 0)
- 1031              		.loc 1 236 5 is_stmt 1 view .LVU227
+ 236:lib/MyMath/MyMath.cpp ****       if (a < 0)
+ 1031              		.loc 1 236 7 is_stmt 1 view .LVU227
  1032 001e B5EEC00A 		vcmpe.f32	s0, #0
  1033 0022 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
  1034 0026 02D4     		bmi	.L86
  1035              	.L81:
- 237:lib/MyMath/MyMath.cpp ****         a += TWO_PI;
- 238:lib/MyMath/MyMath.cpp ****     return a;
+ 237:lib/MyMath/MyMath.cpp ****             a += TWO_PI;
+ 238:lib/MyMath/MyMath.cpp ****       return a;
  239:lib/MyMath/MyMath.cpp **** }
  1036              		.loc 1 239 1 is_stmt 0 view .LVU228
  1037 0028 BDEC028B 		vldm	sp!, {d8}
@@ -1465,15 +1465,15 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  1044              	.L86:
  1045              	.LCFI15:
  1046              		.cfi_restore_state
- 237:lib/MyMath/MyMath.cpp ****         a += TWO_PI;
- 1047              		.loc 1 237 9 is_stmt 1 view .LVU229
- 237:lib/MyMath/MyMath.cpp ****         a += TWO_PI;
- 1048              		.loc 1 237 11 is_stmt 0 view .LVU230
+ 237:lib/MyMath/MyMath.cpp ****             a += TWO_PI;
+ 1047              		.loc 1 237 13 is_stmt 1 view .LVU229
+ 237:lib/MyMath/MyMath.cpp ****             a += TWO_PI;
+ 1048              		.loc 1 237 15 is_stmt 0 view .LVU230
  1049 002e 10EE100A 		vmov	r0, s0
  1050 0032 FFF7FEFF 		bl	__aeabi_f2d
  1051              	.LVL104:
- 237:lib/MyMath/MyMath.cpp ****         a += TWO_PI;
- 1052              		.loc 1 237 11 view .LVU231
+ 237:lib/MyMath/MyMath.cpp ****             a += TWO_PI;
+ 1052              		.loc 1 237 15 view .LVU231
  1053 0036 06A3     		adr	r3, .L87
  1054 0038 D3E90023 		ldrd	r2, [r3]
  1055 003c FFF7FEFF 		bl	__aeabi_dadd
@@ -1483,9 +1483,9 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  1059 0044 00EE100A 		vmov	s0, r0
  1060              	.LVL107:
  238:lib/MyMath/MyMath.cpp **** }
- 1061              		.loc 1 238 5 is_stmt 1 view .LVU232
+ 1061              		.loc 1 238 7 is_stmt 1 view .LVU232
  238:lib/MyMath/MyMath.cpp **** }
- 1062              		.loc 1 238 12 is_stmt 0 view .LVU233
+ 1062              		.loc 1 238 14 is_stmt 0 view .LVU233
  1063 0048 EEE7     		b	.L81
  1064              	.L88:
  1065 004a 00BFAFF3 		.align	3
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  1071              		.cantunwind
  1072              		.fnend
  1074              		.section	.text.sqrt,"ax",%progbits
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 26
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 26
 
 
  1075              		.align	1
@@ -1519,71 +1519,71 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  1089              		@ link register save eliminated.
  1090              		.loc 1 241 29 is_stmt 0 view .LVU235
  1091 0000 F0EE406A 		vmov.f32	s13, s0
- 242:lib/MyMath/MyMath.cpp ****     float s, last;
- 1092              		.loc 1 242 5 is_stmt 1 view .LVU236
+ 242:lib/MyMath/MyMath.cpp ****       float s, last;
+ 1092              		.loc 1 242 7 is_stmt 1 view .LVU236
  243:lib/MyMath/MyMath.cpp **** 
- 244:lib/MyMath/MyMath.cpp ****     if (x < 0.0) {
- 1093              		.loc 1 244 5 view .LVU237
+ 244:lib/MyMath/MyMath.cpp ****       if (x < 0.0) {
+ 1093              		.loc 1 244 7 view .LVU237
  1094 0004 B5EEC00A 		vcmpe.f32	s0, #0
  1095 0008 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
  1096 000c 1BD4     		bmi	.L94
- 245:lib/MyMath/MyMath.cpp ****         return 0;
- 246:lib/MyMath/MyMath.cpp ****     }
+ 245:lib/MyMath/MyMath.cpp ****             return 0;
+ 246:lib/MyMath/MyMath.cpp ****       }
  247:lib/MyMath/MyMath.cpp **** 
- 248:lib/MyMath/MyMath.cpp ****     if (x > 1.0) {
- 1097              		.loc 1 248 5 view .LVU238
+ 248:lib/MyMath/MyMath.cpp ****       if (x > 1.0) {
+ 1097              		.loc 1 248 7 view .LVU238
  1098 000e F7EE007A 		vmov.f32	s15, #1.0e+0
  1099 0012 B4EEE70A 		vcmpe.f32	s0, s15
  1100 0016 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
  1101 001a 11DD     		ble	.L97
- 249:lib/MyMath/MyMath.cpp ****         s = x;
- 1102              		.loc 1 249 11 is_stmt 0 view .LVU239
+ 249:lib/MyMath/MyMath.cpp ****             s = x;
+ 1102              		.loc 1 249 15 is_stmt 0 view .LVU239
  1103 001c F0EE407A 		vmov.f32	s15, s0
  1104              	.LVL109:
  1105              	.L93:
- 250:lib/MyMath/MyMath.cpp ****     } else {
- 251:lib/MyMath/MyMath.cpp ****         s = 1.0;
- 252:lib/MyMath/MyMath.cpp ****     }
+ 250:lib/MyMath/MyMath.cpp ****       } else {
+ 251:lib/MyMath/MyMath.cpp ****             s = 1.0;
+ 252:lib/MyMath/MyMath.cpp ****       }
  253:lib/MyMath/MyMath.cpp **** 
- 254:lib/MyMath/MyMath.cpp ****     do {
- 1106              		.loc 1 254 5 is_stmt 1 discriminator 1 view .LVU240
- 255:lib/MyMath/MyMath.cpp ****         last = s;
- 1107              		.loc 1 255 9 discriminator 1 view .LVU241
- 256:lib/MyMath/MyMath.cpp ****         s = (x / s + s) / 2.0;
- 1108              		.loc 1 256 9 discriminator 1 view .LVU242
- 1109              		.loc 1 256 16 is_stmt 0 discriminator 1 view .LVU243
+ 254:lib/MyMath/MyMath.cpp ****       do {
+ 1106              		.loc 1 254 7 is_stmt 1 discriminator 1 view .LVU240
+ 255:lib/MyMath/MyMath.cpp ****             last = s;
+ 1107              		.loc 1 255 13 discriminator 1 view .LVU241
+ 256:lib/MyMath/MyMath.cpp ****             s = (x / s + s) / 2.0;
+ 1108              		.loc 1 256 13 discriminator 1 view .LVU242
+ 1109              		.loc 1 256 20 is_stmt 0 discriminator 1 view .LVU243
  1110 0020 86EEA77A 		vdiv.f32	s14, s13, s15
- 1111              		.loc 1 256 20 discriminator 1 view .LVU244
+ 1111              		.loc 1 256 24 discriminator 1 view .LVU244
  1112 0024 37EE277A 		vadd.f32	s14, s14, s15
  1113 0028 B0EE670A 		vmov.f32	s0, s15
- 1114              		.loc 1 256 11 discriminator 1 view .LVU245
+ 1114              		.loc 1 256 15 discriminator 1 view .LVU245
  1115 002c F6EE007A 		vmov.f32	s15, #5.0e-1
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 27
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 27
 
 
  1116              	.LVL110:
- 1117              		.loc 1 256 11 discriminator 1 view .LVU246
+ 1117              		.loc 1 256 15 discriminator 1 view .LVU246
  1118 0030 67EE277A 		vmul.f32	s15, s14, s15
  1119              	.LVL111:
- 257:lib/MyMath/MyMath.cpp ****     } while (s < last);
- 1120              		.loc 1 257 16 is_stmt 1 discriminator 1 view .LVU247
+ 257:lib/MyMath/MyMath.cpp ****       } while (s < last);
+ 1120              		.loc 1 257 18 is_stmt 1 discriminator 1 view .LVU247
  1121 0034 B4EEE70A 		vcmpe.f32	s0, s15
  1122 0038 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
  1123 003c F0DC     		bgt	.L93
  1124 003e 7047     		bx	lr
  1125              	.LVL112:
  1126              	.L97:
- 251:lib/MyMath/MyMath.cpp ****     }
- 1127              		.loc 1 251 11 is_stmt 0 view .LVU248
+ 251:lib/MyMath/MyMath.cpp ****       }
+ 1127              		.loc 1 251 15 is_stmt 0 view .LVU248
  1128 0040 F7EE007A 		vmov.f32	s15, #1.0e+0
  1129 0044 ECE7     		b	.L93
  1130              	.L94:
- 245:lib/MyMath/MyMath.cpp ****     }
- 1131              		.loc 1 245 16 view .LVU249
+ 245:lib/MyMath/MyMath.cpp ****       }
+ 1131              		.loc 1 245 20 view .LVU249
  1132 0046 9FED010A 		vldr.32	s0, .L98
  1133              	.LVL113:
  258:lib/MyMath/MyMath.cpp **** 
- 259:lib/MyMath/MyMath.cpp ****     return last;
+ 259:lib/MyMath/MyMath.cpp ****       return last;
  260:lib/MyMath/MyMath.cpp **** }
  1134              		.loc 1 260 1 view .LVU250
  1135 004a 7047     		bx	lr
@@ -1595,276 +1595,246 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 1
  1141              	.LFE16:
  1142              		.cantunwind
  1143              		.fnend
- 1145              		.section	.rodata.printBit.str1.4,"aMS",%progbits,1
- 1146              		.align	2
- 1147              	.LC0:
- 1148 0000 306200   		.ascii	"0b\000"
- 1149 0003 00       		.align	2
- 1150              	.LC1:
- 1151 0004 256400   		.ascii	"%d\000"
- 1152              		.section	.text.printBit,"ax",%progbits
- 1153              		.align	1
- 1154              		.global	printBit
- 1155              		.syntax unified
- 1156              		.thumb
- 1157              		.thumb_func
- 1159              	printBit:
- 1160              		.fnstart
- 1161              	.LVL114:
- 1162              	.LFB17:
+ 1145              		.section	.text.SimplifyDeg,"ax",%progbits
+ 1146              		.align	1
+ 1147              		.global	SimplifyDeg
+ 1148              		.syntax unified
+ 1149              		.thumb
+ 1150              		.thumb_func
+ 1152              	SimplifyDeg:
+ 1153              		.fnstart
+ 1154              	.LVL114:
+ 1155              	.LFB17:
  261:lib/MyMath/MyMath.cpp **** 
- 262:lib/MyMath/MyMath.cpp **** void MyMath::printBit(char c) {
- 1163              		.loc 1 262 31 is_stmt 1 view -0
- 1164              		.cfi_startproc
- 1165              		@ args = 0, pretend = 0, frame = 0
- 1166              		@ frame_needed = 0, uses_anonymous_args = 0
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 28
+ 262:lib/MyMath/MyMath.cpp **** int MyMath::SimplifyDeg(int deg) {
+ 1156              		.loc 1 262 34 is_stmt 1 view -0
+ 1157              		.cfi_startproc
+ 1158              		@ args = 0, pretend = 0, frame = 0
+ 1159              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1160              		@ link register save eliminated.
+ 263:lib/MyMath/MyMath.cpp ****       int degree = deg;
+ 1161              		.loc 1 263 7 view .LVU252
+ 264:lib/MyMath/MyMath.cpp ****       while (degree > 180) {
+ 1162              		.loc 1 264 7 view .LVU253
+ 1163 0000 01E0     		b	.L101
+ 1164              	.LVL115:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 28
 
 
- 1167              		.loc 1 262 31 is_stmt 0 view .LVU252
- 1168 0000 38B5     		push	{r3, r4, r5, lr}
- 1169              		.save {r3, r4, r5, lr}
- 1170              	.LCFI16:
- 1171              		.cfi_def_cfa_offset 16
- 1172              		.cfi_offset 3, -16
- 1173              		.cfi_offset 4, -12
- 1174              		.cfi_offset 5, -8
- 1175              		.cfi_offset 14, -4
- 1176 0002 0546     		mov	r5, r0
- 263:lib/MyMath/MyMath.cpp ****     printf("0b");
- 1177              		.loc 1 263 5 is_stmt 1 view .LVU253
- 1178              		.loc 1 263 11 is_stmt 0 view .LVU254
- 1179 0004 0948     		ldr	r0, .L104
- 1180              	.LVL115:
- 1181              		.loc 1 263 11 view .LVU255
- 1182 0006 FFF7FEFF 		bl	printf
- 1183              	.LVL116:
- 264:lib/MyMath/MyMath.cpp ****     for (int i = 7; i >= 0; i--) {
- 1184              		.loc 1 264 5 is_stmt 1 view .LVU256
- 1185              	.LBB2:
- 1186              		.loc 1 264 14 is_stmt 0 view .LVU257
- 1187 000a 0724     		movs	r4, #7
- 1188              		.loc 1 264 5 view .LVU258
- 1189 000c 07E0     		b	.L101
- 1190              	.LVL117:
- 1191              	.L102:
- 265:lib/MyMath/MyMath.cpp ****         printf("%d", (c >> i) & 0x01);
- 1192              		.loc 1 265 9 is_stmt 1 discriminator 3 view .LVU259
- 1193              		.loc 1 265 25 is_stmt 0 discriminator 3 view .LVU260
- 1194 000e 45FA04F1 		asr	r1, r5, r4
- 1195              		.loc 1 265 15 discriminator 3 view .LVU261
- 1196 0012 01F00101 		and	r1, r1, #1
- 1197 0016 0648     		ldr	r0, .L104+4
- 1198 0018 FFF7FEFF 		bl	printf
- 1199              	.LVL118:
- 264:lib/MyMath/MyMath.cpp ****     for (int i = 7; i >= 0; i--) {
- 1200              		.loc 1 264 5 is_stmt 1 discriminator 3 view .LVU262
- 1201 001c 013C     		subs	r4, r4, #1
- 1202              	.LVL119:
- 1203              	.L101:
- 264:lib/MyMath/MyMath.cpp ****     for (int i = 7; i >= 0; i--) {
- 1204              		.loc 1 264 23 discriminator 1 view .LVU263
- 1205 001e 002C     		cmp	r4, #0
- 1206 0020 F5DA     		bge	.L102
- 1207              	.LBE2:
- 266:lib/MyMath/MyMath.cpp ****     }
- 267:lib/MyMath/MyMath.cpp ****     printf("\n");
- 1208              		.loc 1 267 5 view .LVU264
- 1209              		.loc 1 267 11 is_stmt 0 view .LVU265
- 1210 0022 0A20     		movs	r0, #10
- 1211 0024 FFF7FEFF 		bl	putchar
- 1212              	.LVL120:
- 268:lib/MyMath/MyMath.cpp **** }...
- 1213              		.loc 1 268 1 view .LVU266
- 1214 0028 38BD     		pop	{r3, r4, r5, pc}
- 1215              	.LVL121:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 29
+ 1165              	.L102:
+ 265:lib/MyMath/MyMath.cpp ****             degree -= 360;
+ 1166              		.loc 1 265 13 view .LVU254
+ 1167              		.loc 1 265 20 is_stmt 0 view .LVU255
+ 1168 0002 A0F5B470 		sub	r0, r0, #360
+ 1169              	.LVL116:
+ 1170              	.L101:
+ 264:lib/MyMath/MyMath.cpp ****       while (degree > 180) {
+ 1171              		.loc 1 264 21 is_stmt 1 view .LVU256
+ 1172 0006 B428     		cmp	r0, #180
+ 1173 0008 FBDC     		bgt	.L102
+ 264:lib/MyMath/MyMath.cpp ****       while (degree > 180) {
+ 1174              		.loc 1 264 21 is_stmt 0 view .LVU257
+ 1175 000a 01E0     		b	.L103
+ 1176              	.L104:
+ 266:lib/MyMath/MyMath.cpp ****       }
+ 267:lib/MyMath/MyMath.cpp ****       while (degree < -180) {
+ 268:lib/MyMath/MyMath.cpp ****             degree += 360;
+ 1177              		.loc 1 268 13 is_stmt 1 view .LVU258
+ 1178              		.loc 1 268 20 is_stmt 0 view .LVU259
+ 1179 000c 00F5B470 		add	r0, r0, #360
+ 1180              	.LVL117:
+ 1181              	.L103:
+ 267:lib/MyMath/MyMath.cpp ****             degree += 360;
+ 1182              		.loc 1 267 21 is_stmt 1 view .LVU260
+ 1183 0010 10F1B40F 		cmn	r0, #180
+ 1184 0014 FADB     		blt	.L104
+ 269:lib/MyMath/MyMath.cpp ****       }
+ 270:lib/MyMath/MyMath.cpp **** 
+ 271:lib/MyMath/MyMath.cpp ****       return degree;
+ 1185              		.loc 1 271 7 view .LVU261
+ 272:lib/MyMath/MyMath.cpp **** }
+ 1186              		.loc 1 272 1 is_stmt 0 view .LVU262
+ 1187 0016 7047     		bx	lr
+ 1188              		.cfi_endproc
+ 1189              	.LFE17:
+ 1190              		.cantunwind
+ 1191              		.fnend
+ 1193              		.section	.rodata._ZL4_sin,"a"
+ 1194              		.align	2
+ 1197              	_ZL4_sin:
+ 1198 0000 00000000 		.word	0
+ 1199 0004 59F88E3C 		.word	1016002649
+ 1200 0008 C6F20E3D 		.word	1024389830
+ 1201 000c 3A5E563D 		.word	1029070394
+ 1202 0010 7BDC8E3D 		.word	1032772731
+ 1203 0014 B67EB23D 		.word	1035108022
+ 1204 0018 0513D63D 		.word	1037439749
+ 1205 001c A296F93D 		.word	1039767202
+ 1206 0020 65830E3E 		.word	1041138533
+ 1207 0024 5B30203E 		.word	1042296923
+ 1208 0028 D4D0313E 		.word	1043452116
+ 1209 002c 6F63433E 		.word	1044603759
+ 1210 0030 CDE6543E 		.word	1045751501
+ 1211 0034 9259663E 		.word	1046894994
+ 1212 0038 60BA773E 		.word	1048033888
+ 1213 003c EE83843E 		.word	1048871918
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 29
 
 
- 1216              	.L105:
- 1217              		.loc 1 268 1 view .LVU267
- 1218 002a 00BF     		.align	2
- 1219              	.L104:
- 1220 002c 00000000 		.word	.LC0
- 1221 0030 04000000 		.word	.LC1
- 1222              		.cfi_endproc
- 1223              	.LFE17:
- 1224              		.fnend
- 1226              		.section	.rodata._ZL4_sin,"a"
- 1227              		.align	2
- 1230              	_ZL4_sin:
- 1231 0000 00000000 		.word	0
- 1232 0004 59F88E3C 		.word	1016002649
- 1233 0008 C6F20E3D 		.word	1024389830
- 1234 000c 3A5E563D 		.word	1029070394
- 1235 0010 7BDC8E3D 		.word	1032772731
- 1236 0014 B67EB23D 		.word	1035108022
- 1237 0018 0513D63D 		.word	1037439749
- 1238 001c A296F93D 		.word	1039767202
- 1239 0020 65830E3E 		.word	1041138533
- 1240 0024 5B30203E 		.word	1042296923
- 1241 0028 D4D0313E 		.word	1043452116
- 1242 002c 6F63433E 		.word	1044603759
- 1243 0030 CDE6543E 		.word	1045751501
- 1244 0034 9259663E 		.word	1046894994
- 1245 0038 60BA773E 		.word	1048033888
- 1246 003c EE83843E 		.word	1048871918
- 1247 0040 57208D3E 		.word	1049436247
- 1248 0044 BEB1953E 		.word	1049997758
- 1249 0048 7A379E3E 		.word	1050556282
- 1250 004c DFB0A63E 		.word	1051111647
- 1251 0050 441DAF3E 		.word	1051663684
- 1252 0054 017CB73E 		.word	1052212225
- 1253 0058 6FCCBF3E 		.word	1052757103
- 1254 005c E90DC83E 		.word	1053298153
- 1255 0060 C93FD03E 		.word	1053835209
- 1256 0064 6C61D83E 		.word	1054368108
- 1257 0068 2F72E03E 		.word	1054896687
- 1258 006c 7171E83E 		.word	1055420785
- 1259 0070 945EF03E 		.word	1055940244
- 1260 0074 F738F83E 		.word	1056454903
- 1261 0078 0000003F 		.word	1056964608
- 1262 007c 89D9033F 		.word	1057216905
- 1263 0080 CAA8073F 		.word	1057466570
- 1264 0084 776D0B3F 		.word	1057713527
- 1265 0088 44270F3F 		.word	1057957700
- 1266 008c E8D5123F 		.word	1058199016
- 1267 0090 1879163F 		.word	1058437400
- 1268 0094 8D101A3F 		.word	1058672781
- 1269 0098 FE9B1D3F 		.word	1058905086
- 1270 009c 241B213F 		.word	1059134244
- 1271 00a0 BB8D243F 		.word	1059360187
- 1272 00a4 7CF3273F 		.word	1059582844
- 1273 00a8 254C2B3F 		.word	1059802149
- 1274 00ac 72972E3F 		.word	1060018034
- 1275 00b0 22D5313F 		.word	1060230434
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 30
+ 1214 0040 57208D3E 		.word	1049436247
+ 1215 0044 BEB1953E 		.word	1049997758
+ 1216 0048 7A379E3E 		.word	1050556282
+ 1217 004c DFB0A63E 		.word	1051111647
+ 1218 0050 441DAF3E 		.word	1051663684
+ 1219 0054 017CB73E 		.word	1052212225
+ 1220 0058 6FCCBF3E 		.word	1052757103
+ 1221 005c E90DC83E 		.word	1053298153
+ 1222 0060 C93FD03E 		.word	1053835209
+ 1223 0064 6C61D83E 		.word	1054368108
+ 1224 0068 2F72E03E 		.word	1054896687
+ 1225 006c 7171E83E 		.word	1055420785
+ 1226 0070 945EF03E 		.word	1055940244
+ 1227 0074 F738F83E 		.word	1056454903
+ 1228 0078 0000003F 		.word	1056964608
+ 1229 007c 89D9033F 		.word	1057216905
+ 1230 0080 CAA8073F 		.word	1057466570
+ 1231 0084 776D0B3F 		.word	1057713527
+ 1232 0088 44270F3F 		.word	1057957700
+ 1233 008c E8D5123F 		.word	1058199016
+ 1234 0090 1879163F 		.word	1058437400
+ 1235 0094 8D101A3F 		.word	1058672781
+ 1236 0098 FE9B1D3F 		.word	1058905086
+ 1237 009c 241B213F 		.word	1059134244
+ 1238 00a0 BB8D243F 		.word	1059360187
+ 1239 00a4 7CF3273F 		.word	1059582844
+ 1240 00a8 254C2B3F 		.word	1059802149
+ 1241 00ac 72972E3F 		.word	1060018034
+ 1242 00b0 22D5313F 		.word	1060230434
+ 1243 00b4 F304353F 		.word	1060439283
+ 1244 00b8 A726383F 		.word	1060644519
+ 1245 00bc FF393B3F 		.word	1060846079
+ 1246 00c0 BD3E3E3F 		.word	1061043901
+ 1247 00c4 A634413F 		.word	1061237926
+ 1248 00c8 7D1B443F 		.word	1061428093
+ 1249 00cc 0AF3463F 		.word	1061614346
+ 1250 00d0 13BB493F 		.word	1061796627
+ 1251 00d4 60734C3F 		.word	1061974880
+ 1252 00d8 BD1B4F3F 		.word	1062149053
+ 1253 00dc F3B3513F 		.word	1062319091
+ 1254 00e0 CE3B543F 		.word	1062484942
+ 1255 00e4 1DB3563F 		.word	1062646557
+ 1256 00e8 AE19593F 		.word	1062803886
+ 1257 00ec 516F5B3F 		.word	1062956881
+ 1258 00f0 D7B35D3F 		.word	1063105495
+ 1259 00f4 14E75F3F 		.word	1063249684
+ 1260 00f8 DA08623F 		.word	1063389402
+ 1261 00fc 0119643F 		.word	1063524609
+ 1262 0100 5E17663F 		.word	1063655262
+ 1263 0104 CA03683F 		.word	1063781322
+ 1264 0108 1DDE693F 		.word	1063902749
+ 1265 010c 35A66B3F 		.word	1064019509
+ 1266 0110 EC5B6D3F 		.word	1064131564
+ 1267 0114 20FF6E3F 		.word	1064238880
+ 1268 0118 B28F703F 		.word	1064341426
+ 1269 011c 810D723F 		.word	1064439169
+ 1270 0120 7178733F 		.word	1064532081
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 30
 
 
- 1276 00b4 F304353F 		.word	1060439283
- 1277 00b8 A726383F 		.word	1060644519
- 1278 00bc FF393B3F 		.word	1060846079
- 1279 00c0 BD3E3E3F 		.word	1061043901
- 1280 00c4 A634413F 		.word	1061237926
- 1281 00c8 7D1B443F 		.word	1061428093
- 1282 00cc 0AF3463F 		.word	1061614346
- 1283 00d0 13BB493F 		.word	1061796627
- 1284 00d4 60734C3F 		.word	1061974880
- 1285 00d8 BD1B4F3F 		.word	1062149053
- 1286 00dc F3B3513F 		.word	1062319091
- 1287 00e0 CE3B543F 		.word	1062484942
- 1288 00e4 1DB3563F 		.word	1062646557
- 1289 00e8 AE19593F 		.word	1062803886
- 1290 00ec 516F5B3F 		.word	1062956881
- 1291 00f0 D7B35D3F 		.word	1063105495
- 1292 00f4 14E75F3F 		.word	1063249684
- 1293 00f8 DA08623F 		.word	1063389402
- 1294 00fc 0119643F 		.word	1063524609
- 1295 0100 5E17663F 		.word	1063655262
- 1296 0104 CA03683F 		.word	1063781322
- 1297 0108 1DDE693F 		.word	1063902749
- 1298 010c 35A66B3F 		.word	1064019509
- 1299 0110 EC5B6D3F 		.word	1064131564
- 1300 0114 20FF6E3F 		.word	1064238880
- 1301 0118 B28F703F 		.word	1064341426
- 1302 011c 810D723F 		.word	1064439169
- 1303 0120 7178733F 		.word	1064532081
- 1304 0124 63D0743F 		.word	1064620131
- 1305 0128 3F15763F 		.word	1064703295
- 1306 012c EA46773F 		.word	1064781546
- 1307 0130 4D65783F 		.word	1064854861
- 1308 0134 5170793F 		.word	1064923217
- 1309 0138 E2677A3F 		.word	1064986594
- 1310 013c EB4B7B3F 		.word	1065044971
- 1311 0140 5C1C7C3F 		.word	1065098332
- 1312 0144 25D97C3F 		.word	1065146661
- 1313 0148 35827D3F 		.word	1065189941
- 1314 014c 81177E3F 		.word	1065228161
- 1315 0150 FD987E3F 		.word	1065261309
- 1316 0154 9E067F3F 		.word	1065289374
- 1317 0158 5C607F3F 		.word	1065312348
- 1318 015c 2FA67F3F 		.word	1065330223
- 1319 0160 14D87F3F 		.word	1065342996
- 1320 0164 05F67F3F 		.word	1065350661
- 1321 0168 0000803F 		.word	1065353216
- 1322              		.text
- 1323              	.Letext0:
- 1324              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
- 1325              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-none
- 1326              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
- 1327              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
- 1328              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
- 1329              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
- 1330              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
- 1331              		.file 9 "lib/MyMath/MyMath.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 31
+ 1271 0124 63D0743F 		.word	1064620131
+ 1272 0128 3F15763F 		.word	1064703295
+ 1273 012c EA46773F 		.word	1064781546
+ 1274 0130 4D65783F 		.word	1064854861
+ 1275 0134 5170793F 		.word	1064923217
+ 1276 0138 E2677A3F 		.word	1064986594
+ 1277 013c EB4B7B3F 		.word	1065044971
+ 1278 0140 5C1C7C3F 		.word	1065098332
+ 1279 0144 25D97C3F 		.word	1065146661
+ 1280 0148 35827D3F 		.word	1065189941
+ 1281 014c 81177E3F 		.word	1065228161
+ 1282 0150 FD987E3F 		.word	1065261309
+ 1283 0154 9E067F3F 		.word	1065289374
+ 1284 0158 5C607F3F 		.word	1065312348
+ 1285 015c 2FA67F3F 		.word	1065330223
+ 1286 0160 14D87F3F 		.word	1065342996
+ 1287 0164 05F67F3F 		.word	1065350661
+ 1288 0168 0000803F 		.word	1065353216
+ 1289              		.text
+ 1290              	.Letext0:
+ 1291              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 1292              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-none
+ 1293              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 1294              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 1295              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ 1296              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 1297              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 1298              		.file 9 "lib/MyMath/MyMath.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 31
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 MyMath.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:21     .text.atan2:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:27     .text.atan2:00000000 atan2
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:216    .text.atan2:000000e0 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:21     .text.atan2:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:27     .text.atan2:00000000 atan2
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:216    .text.atan2:000000e0 $d
             .ARM.exidx.text.atan2:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:226    .text.normalizeDegrees:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:232    .text.normalizeDegrees:00000000 normalizeDegrees
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:272    .text.normalizeDegrees:00000024 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:226    .text.normalizeDegrees:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:232    .text.normalizeDegrees:00000000 normalizeDegrees
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:272    .text.normalizeDegrees:00000024 $d
  .ARM.exidx.text.normalizeDegrees:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:279    .text.sinDeg:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:285    .text.sinDeg:00000000 sinDeg
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:408    .text.sinDeg:0000008c $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:1230   .rodata._ZL4_sin:00000000 _ZL4_sin
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:279    .text.sinDeg:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:285    .text.sinDeg:00000000 sinDeg
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:408    .text.sinDeg:0000008c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:1197   .rodata._ZL4_sin:00000000 _ZL4_sin
            .ARM.exidx.text.sinDeg:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:417    .text.cosDeg:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:423    .text.cosDeg:00000000 cosDeg
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:417    .text.cosDeg:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:423    .text.cosDeg:00000000 cosDeg
            .ARM.exidx.text.cosDeg:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:455    .text.cos:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:461    .text.cos:00000000 cos
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:495    .text.cos:00000020 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:455    .text.cos:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:461    .text.cos:00000000 cos
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:495    .text.cos:00000020 $d
               .ARM.exidx.text.cos:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:505    .text.tanDeg:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:511    .text.tanDeg:00000000 tanDeg
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:584    .text.tanDeg:00000058 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:505    .text.tanDeg:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:511    .text.tanDeg:00000000 tanDeg
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:584    .text.tanDeg:00000058 $d
            .ARM.exidx.text.tanDeg:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:593    .text.tan:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:599    .text.tan:00000000 tan
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:633    .text.tan:00000020 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:593    .text.tan:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:599    .text.tan:00000000 tan
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:633    .text.tan:00000020 $d
               .ARM.exidx.text.tan:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:641    .text.sin:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:647    .text.sin:00000000 sin
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:681    .text.sin:00000020 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:641    .text.sin:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:647    .text.sin:00000000 sin
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:681    .text.sin:00000020 $d
               .ARM.exidx.text.sin:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:692    .text.normalizeRadians:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:698    .text.normalizeRadians:00000000 normalizeRadians
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:777    .text.normalizeRadians:00000060 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:692    .text.normalizeRadians:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:698    .text.normalizeRadians:00000000 normalizeRadians
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:777    .text.normalizeRadians:00000060 $d
  .ARM.exidx.text.normalizeRadians:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:785    .text.gapDegrees180:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:791    .text.gapDegrees180:00000000 gapDegrees180
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:785    .text.gapDegrees180:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:791    .text.gapDegrees180:00000000 gapDegrees180
     .ARM.exidx.text.gapDegrees180:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:835    .text.gapDegrees:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:841    .text.gapDegrees:00000000 gapDegrees
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:835    .text.gapDegrees:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:841    .text.gapDegrees:00000000 gapDegrees
        .ARM.exidx.text.gapDegrees:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:893    .text.gapRadians180:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:899    .text.gapRadians180:00000000 gapRadians180
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:982    .text.gapRadians180:00000068 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:893    .text.gapRadians180:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:899    .text.gapRadians180:00000000 gapRadians180
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:982    .text.gapRadians180:00000068 $d
     .ARM.exidx.text.gapRadians180:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:992    .text.gapRadians:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:998    .text.gapRadians:00000000 gapRadians
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:1067   .text.gapRadians:00000050 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:992    .text.gapRadians:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:998    .text.gapRadians:00000000 gapRadians
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:1067   .text.gapRadians:00000050 $d
        .ARM.exidx.text.gapRadians:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:1075   .text.sqrt:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:1081   .text.sqrt:00000000 sqrt
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:1139   .text.sqrt:0000004c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:1075   .text.sqrt:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:1081   .text.sqrt:00000000 sqrt
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:1139   .text.sqrt:0000004c $d
              .ARM.exidx.text.sqrt:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:1146   .rodata.printBit.str1.4:00000000 $d
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s 			page 32
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:1146   .text.SimplifyDeg:00000000 $t
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s 			page 32
 
 
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:1153   .text.printBit:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:1159   .text.printBit:00000000 printBit
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:1220   .text.printBit:0000002c $d
-         .ARM.exidx.text.printBit:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc2E2ccy.s:1227   .rodata._ZL4_sin:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:1152   .text.SimplifyDeg:00000000 SimplifyDeg
+      .ARM.exidx.text.SimplifyDeg:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccZabnCD.s:1194   .rodata._ZL4_sin:00000000 $d
 
 UNDEFINED SYMBOLS
 __aeabi_f2d
@@ -1876,6 +1846,3 @@ __aeabi_dadd
 __aeabi_dsub
 __aeabi_dcmpge
 __aeabi_dcmpgt
-printf
-putchar
-__aeabi_unwind_cpp_pr0

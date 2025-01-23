@@ -48,12 +48,6 @@ void Robot::RecvImuUart() {
       static uint8_t recv_data[dataSize];  // 受信したデータ
       static uint8_t recv_byte;
 
-      static uint8_t yaw_H;
-      static uint8_t yaw_L;
-      static uint8_t pitch_H;
-      static uint8_t pitch_L;
-      static uint8_t roll_H;
-      static uint8_t roll_L;
       while (serial1.available()) {
             recv_byte = serial1.read();
             if (index == 0) {
@@ -64,22 +58,14 @@ void Robot::RecvImuUart() {
                   }
             } else if (index == (dataSize + 1)) {
                   if (recv_byte == FOOTER) {
-                        yaw_H = recv_data[0];
-                        yaw_L = recv_data[1];
-                        pitch_H = recv_data[2];
-                        pitch_L = recv_data[3];
-                        roll_H = recv_data[4];
-                        roll_L = recv_data[5];
-                        yaw = ((((uint16_t)yaw_H << 8) & 0xFF00) | ((int16_t)yaw_L & 0x00FF)) * 0.1 - 180;
-                        pitch = ((((uint16_t)pitch_H << 8) & 0xFF00) | ((int16_t)pitch_L & 0x00FF)) * 0.1 - 180;
-                        roll = ((((uint16_t)roll_H << 8) & 0xFF00) | ((int16_t)roll_L & 0x00FF)) * 0.1 - 180;
-                        led1 = 1;
+                        info.Imu.yaw = ((((uint16_t)recv_data[0] << 8) & 0xFF00) | ((int16_t)recv_data[1] & 0x00FF)) * 0.1 - 180;
+                        info.Imu.pitch = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv_data[3] & 0x00FF)) * 0.1 - 180;
+                        info.Imu.roll = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_data[5] & 0x00FF)) * 0.1 - 180;
                   }
                   index = 0;
             } else {
                   recv_data[index - 1] = recv_byte;
                   index++;
             }
-            debug = yaw;
       }
 }

@@ -5,6 +5,7 @@
 #include "MyMath.hpp"
 #include "PWMSingle.hpp"
 #include "Timer.hpp"
+#include "pid.hpp"
 
 #define MAX_POWER 100  // MAX:100
 #define MIN_POWER 5
@@ -19,7 +20,7 @@ class MotorDrive {
       MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
                  PwmSingleOut *motor2a, PwmSingleOut *motor2b,
                  PwmSingleOut *motor3a, PwmSingleOut *motor3b,
-                 PwmSingleOut *motor4a, PwmSingleOut *motor4b);
+                 PwmSingleOut *motor4a, PwmSingleOut *motor4b, int16_t *yaw);
 
       void Drive(int16_t deg, uint8_t speed);
       void Run(int8_t motor1, int8_t motor2, int8_t motor3, int8_t motor4);
@@ -41,6 +42,9 @@ class MotorDrive {
       MovingAve motor2_ave;
       MovingAve motor3_ave;
       MovingAve motor4_ave;
+
+      PID pid;
+      int16_t *yaw_;
 
       Timer period_timer;
 };

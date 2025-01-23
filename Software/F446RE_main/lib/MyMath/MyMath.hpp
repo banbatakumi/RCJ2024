@@ -135,7 +135,7 @@ int gapDegrees(int deg1, int deg2);
 float gapRadians180(float rad1, float rad2);
 float gapRadians(float rad1, float rad2);
 float sqrt(float x);
-void printBit(char c);
+int SimplifyDeg(int deg);
 }  // namespace MyMath
 }
 #endif

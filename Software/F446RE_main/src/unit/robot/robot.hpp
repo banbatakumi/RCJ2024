@@ -12,14 +12,22 @@
 #include "main.h"
 #include "motor_drive.hpp"
 
+typedef struct {
+      struct {
+            int16_t yaw;
+            int16_t pitch;
+            int16_t roll;
+      } Imu;
+
+} RobotInfo;
 class Robot {
      public:
       Robot();
 
-      int yaw, pitch, roll;
+      // values
+      RobotInfo info;
 
       DigitalOut led1 = DigitalOut(GPIOA, LED1_Pin);
-
       PwmSingleOut ledh = PwmSingleOut(&htim13, TIM_CHANNEL_1);
 
       PwmSingleOut motor1a = PwmSingleOut(&htim12, TIM_CHANNEL_2);
@@ -36,7 +44,7 @@ class Robot {
       PwmSingleOut dribbler_back_a = PwmSingleOut(&htim2, TIM_CHANNEL_1);
       PwmSingleOut dribbler_back_b = PwmSingleOut(&htim4, TIM_CHANNEL_4);
 
-      MotorDrive motor = MotorDrive(&motor1a, &motor1b, &motor2a, &motor2b, &motor3a, &motor3b, &motor4a, &motor4b);
+      MotorDrive motor = MotorDrive(&motor1a, &motor1b, &motor2a, &motor2b, &motor3a, &motor3b, &motor4a, &motor4b, &info.Imu.yaw);
       DribblerDrive dribbler_front = DribblerDrive(&dribbler_front_a, &dribbler_front_b);
       DribblerDrive dribbler_back = DribblerDrive(&dribbler_back_a, &dribbler_back_b);
 

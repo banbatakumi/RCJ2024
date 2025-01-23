@@ -3,12 +3,17 @@
 MotorDrive::MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
                        PwmSingleOut *motor2a, PwmSingleOut *motor2b,
                        PwmSingleOut *motor3a, PwmSingleOut *motor3b,
-                       PwmSingleOut *motor4a, PwmSingleOut *motor4b)
+                       PwmSingleOut *motor4a, PwmSingleOut *motor4b, int16_t *yaw)
     : motor1a_(motor1a), motor1b_(motor1b), motor2a_(motor2a), motor2b_(motor2b), motor3a_(motor3a), motor3b_(motor3b), motor4a_(motor4a), motor4b_(motor4b) {
+      this->yaw_ = yaw;
       motor1_ave.SetLength(MOVING_AVE_NUM);
       motor2_ave.SetLength(MOVING_AVE_NUM);
       motor3_ave.SetLength(MOVING_AVE_NUM);
       motor4_ave.SetLength(MOVING_AVE_NUM);
+
+      pid.SetGain(2, 0.5, 0.1);
+      pid.SetLimit(100);
+      pid.SetSamplingFreq(100);
 }
 
 void MotorDrive::Init() {
@@ -35,6 +40,11 @@ void MotorDrive::Drive(int16_t deg, uint8_t speed) {
       }
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             power[i] *= float(speed) / max_power;
+      }
+
+      pid.Compute(0, *yaw_);
+      for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+            power[i] -= pid.Get();
       }
 
       Run(power[0], power[1], power[2], power[3]);
