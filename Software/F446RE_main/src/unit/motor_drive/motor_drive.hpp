@@ -38,10 +38,7 @@ class MotorDrive {
       PwmSingleOut *motor4a_;
       PwmSingleOut *motor4b_;
 
-      MovingAve motor1_ave;
-      MovingAve motor2_ave;
-      MovingAve motor3_ave;
-      MovingAve motor4_ave;
+      MovingAve motor_ave[MOTOR_QTY];
 
       PID pid;
       int16_t *yaw_;

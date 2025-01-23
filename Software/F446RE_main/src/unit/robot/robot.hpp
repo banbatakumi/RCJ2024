@@ -13,6 +13,27 @@
 #include "motor_drive.hpp"
 
 typedef struct {
+      float voltage;
+      uint8_t encoder_val[4];
+
+      struct {
+            uint8_t interval;
+            bool is_on_line;
+            bool is_leftside;
+            bool is_rightside;
+            int16_t dir;
+            int16_t inside_dir;
+
+            bool on_led;
+      } Line;
+      struct {
+            uint16_t front_val;
+            uint16_t front_th;
+            bool is_front;
+            uint16_t back_val;
+            uint16_t back_th;
+            bool back_front;
+      } Catch;
       struct {
             int16_t yaw;
             int16_t pitch;
@@ -49,10 +70,13 @@ class Robot {
       DribblerDrive dribbler_back = DribblerDrive(&dribbler_back_a, &dribbler_back_b);
 
       BufferedSerial serial1 = BufferedSerial(&huart1, 128);
+      BufferedSerial serial2 = BufferedSerial(&huart2, 256);
 
       void HardwareInit();
       void GetSensors();
+
       void RecvImuUart();
+      void RecvLineUart();
 
       inline __attribute__((always_inline)) void heartBeat() {
             static int i = 0;

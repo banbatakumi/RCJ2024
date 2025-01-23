@@ -5,12 +5,15 @@
 
 class MovingAve {
      public:
-      void Compute(double* input_);
+      void Compute(float input);
       void SetLength(uint8_t length_ = 10);
+      float Get();
       void Reset();
 
-      double data[100];
-      uint8_t cnt;
-      uint8_t length = 10;
+     private:
+      float data_[100];
+      float result_;
+      uint8_t cnt_;
+      uint8_t length_;
 };
 #endif

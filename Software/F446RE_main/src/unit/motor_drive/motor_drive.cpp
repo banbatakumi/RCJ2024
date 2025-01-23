@@ -6,10 +6,9 @@ MotorDrive::MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
                        PwmSingleOut *motor4a, PwmSingleOut *motor4b, int16_t *yaw)
     : motor1a_(motor1a), motor1b_(motor1b), motor2a_(motor2a), motor2b_(motor2b), motor3a_(motor3a), motor3b_(motor3b), motor4a_(motor4a), motor4b_(motor4b) {
       this->yaw_ = yaw;
-      motor1_ave.SetLength(MOVING_AVE_NUM);
-      motor2_ave.SetLength(MOVING_AVE_NUM);
-      motor3_ave.SetLength(MOVING_AVE_NUM);
-      motor4_ave.SetLength(MOVING_AVE_NUM);
+      for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+            motor_ave[i].SetLength(MOVING_AVE_NUM);
+      }
 
       pid.SetGain(2, 0.5, 0.1);
       pid.SetLimit(100);
@@ -34,6 +33,7 @@ void MotorDrive::Drive(int16_t deg, uint8_t speed) {
             power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
       }
 
+      // 補正
       uint8_t max_power = 0;
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             if (max_power < abs(power[i])) max_power = abs(power[i]);
@@ -42,9 +42,16 @@ void MotorDrive::Drive(int16_t deg, uint8_t speed) {
             power[i] *= float(speed) / max_power;
       }
 
+      // PIDで姿勢制御
       pid.Compute(0, *yaw_);
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             power[i] -= pid.Get();
+      }
+
+      // 移動平均
+      for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+            motor_ave[i].Compute(power[i]);
+            power[i] = motor_ave[0].Get();
       }
 
       Run(power[0], power[1], power[2], power[3]);
