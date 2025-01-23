@@ -6,24 +6,30 @@
 Robot robot;
 // Mode mode(&robot);
 
-// void TimInterrupt1khz() {
-//       robot.heartBeat();
-// }
+void TimInterrupt1khz() {
+      robot.heartBeat();
+}
 
 void setup() {
-      robot.hardwareInit();
+      robot.HardwareInit();
+      robot.Motor1A.sound(700, 100);
+      robot.Motor2A.sound(800, 100);
+      robot.Motor3A.sound(900, 100);
+      robot.Motor4A.sound(1000, 100);
+      robot.Motor1B.sound(700, 100);
+      robot.Motor2B.sound(800, 100);
+      robot.Motor3B.sound(900, 100);
+      robot.Motor4B.sound(1000, 100);
 }
 
 void main_app() {
       while (1) {
             // mode.MainMode();
-            robot.led1.write(1);
-            robot.motor1a.write(0.5);
-            robot.motor1b.write(0);
-            HAL_Delay(1000);
-            robot.led1.write(0);
-            robot.motor1a.write(0);
-            robot.motor1b.write(0.5);
-            HAL_Delay(1000);
+            robot.Motor1A = 0.2;
+            robot.Motor1B = 0;
+            HAL_Delay(200);
+            robot.Motor1A = 0;
+            robot.Motor1B = 0.2;
+            HAL_Delay(200);
       }
 }
