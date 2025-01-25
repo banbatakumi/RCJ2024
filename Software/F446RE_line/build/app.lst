@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 1
   27:src/app/app.cpp **** 
   28:src/app/app.cpp ****             //  定周期処理
   29:src/app/app.cpp ****             process_time_ = process_timer.read_us();
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s 			page 2
 
 
   30:src/app/app.cpp ****             if (process_time_ < PERIOD_US) {
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 1
   75              		.fnend
   77              		.section	.text.setup,"ax",%progbits
   78              		.align	1
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 3
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s 			page 3
 
 
   79              		.global	setup
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 1
  131              		.cfi_offset 4, -12
  132              		.cfi_offset 5, -8
  133              		.cfi_offset 14, -4
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s 			page 4
 
 
  134 0002 13E0     		b	.L18
@@ -230,7 +230,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 1
  168              		.loc 1 24 13 is_stmt 1 view .LVU25
   24:src/app/app.cpp **** 
  169              		.loc 1 24 34 is_stmt 0 view .LVU26
- 170 003c 05F16C00 		add	r0, r5, #108
+ 170 003c 05F17000 		add	r0, r5, #112
  171 0040 FFF7FEFF 		bl	_ZN7Encoder4ReadEv
  172              	.LVL10:
   29:src/app/app.cpp ****             if (process_time_ < PERIOD_US) {
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 1
   29:src/app/app.cpp ****             if (process_time_ < PERIOD_US) {
  174              		.loc 1 29 50 is_stmt 0 view .LVU28
  175 0044 2046     		mov	r0, r4
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 5
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s 			page 5
 
 
  176 0046 FFF7FEFF 		bl	_ZN5Timer7read_usEv
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 1
  227 0006 0120     		movs	r0, #1
  228 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
  229              	.LVL13:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 6
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s 			page 6
 
 
  230 000c 08BD     		pop	{r3, pc}
@@ -326,9 +326,9 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 1
  259 0000 00000000 		.space	4
  260              		.global	hardware
  261              		.section	.bss.hardware,"aw",%nobits
- 262              		.align	2
+ 262              		.align	3
  265              	hardware:
- 266 0000 00000000 		.space	1828
+ 266 0000 00000000 		.space	3488
  266      00000000 
  266      00000000 
  266      00000000 
@@ -356,36 +356,36 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 1
  287              		.file 20 "Lib/MovingAve/MovingAve.hpp"
  288              		.file 21 "src/unit/encoder/encoder.hpp"
  289              		.file 22 "src/unit/hardware/hardware.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s 			page 7
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 app.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:21     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:26     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:70     .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:265    .bss.hardware:00000000 hardware
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:258    .bss.process_timer:00000000 process_timer
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:21     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:26     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:70     .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:265    .bss.hardware:00000000 hardware
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:258    .bss.process_timer:00000000 process_timer
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:78     .text.setup:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:84     .text.setup:00000000 setup
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:107    .text.setup:0000000c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:78     .text.setup:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:84     .text.setup:00000000 setup
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:107    .text.setup:0000000c $d
             .ARM.extab.text.setup:00000000 $d
             .ARM.exidx.text.setup:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:113    .text.main_app:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:119    .text.main_app:00000000 main_app
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:198    .text.main_app:00000060 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:244    .bss.process_freq:00000000 process_freq
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:251    .bss.process_time_:00000000 process_time_
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:113    .text.main_app:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:119    .text.main_app:00000000 main_app
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:198    .text.main_app:00000060 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:244    .bss.process_freq:00000000 process_freq
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:251    .bss.process_time_:00000000 process_time_
          .ARM.exidx.text.main_app:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:208    .text._GLOBAL__sub_I_hardware:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:213    .text._GLOBAL__sub_I_hardware:00000000 _GLOBAL__sub_I_hardware
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:208    .text._GLOBAL__sub_I_hardware:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:213    .text._GLOBAL__sub_I_hardware:00000000 _GLOBAL__sub_I_hardware
 .ARM.exidx.text._GLOBAL__sub_I_hardware:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:237    .init_array:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:241    .bss.process_freq:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:248    .bss.process_time_:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:255    .bss.process_timer:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQXKuxb.s:262    .bss.hardware:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:237    .init_array:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:241    .bss.process_freq:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:248    .bss.process_time_:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:255    .bss.process_timer:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKIVcBm.s:262    .bss.hardware:00000000 $d
 
 UNDEFINED SYMBOLS
 _ZN8HardwareC1Ev

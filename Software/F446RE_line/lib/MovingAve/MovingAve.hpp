@@ -7,12 +7,12 @@ class MovingAve {
      public:
       void Compute(float input);
       void SetLength(uint8_t length_ = 10);
-      float Get();
+      double Get();
       void Reset();
 
      private:
-      float data_[100];
-      float result_;
+      double data_[100];
+      double result_;
       uint8_t cnt_;
       uint8_t length_;
 };

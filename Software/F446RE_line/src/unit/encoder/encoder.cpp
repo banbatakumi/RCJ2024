@@ -27,10 +27,12 @@ void Encoder::Read() {
                   interval_time_us_[i] = interval_timer[i].read_us();
                   interval_timer[i].reset();
             }
-            if (interval_timer[i].read_ms() > 100) interval_time_us_[i] = 0;
-            ave[i].Compute(interval_time_us_[i]);
-            interval_time_s_[i] = ave[i].Get() * 0.000001;
-            rps_[i] = 1.0f / (interval_time_s_[i] * 4);
+            if (interval_timer[i].read_ms() > MIN_RPS) interval_time_us_[i] = 0;
+            interval_time_s_[i] = interval_time_us_[i] * 0.000001;
+            ave[i].Compute(interval_time_s_[i]);
+            interval_time_s_[i] = ave[i].Get();
+            if (rps_[i] > MAX_RPS) rps_[i] = 1.0f / (interval_time_s_[i] * 4);
+            if (interval_time_s_[i] == 0) rps_[i] = 0;
 
             pre_is_white_[i] = is_white_[i];
       }

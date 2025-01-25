@@ -7,7 +7,8 @@
 #include "Timer.hpp"
 
 #define SENSOR_QTY 4
-
+#define MAX_RPS 200  // 10000[rpm] / 60[s]
+#define MIN_RPS 2.5  // 1 / (0.1[ms] * 4)
 class Encoder {
      public:
       Encoder(DigitalOut *led_line, uint8_t *photo_val);
@@ -22,12 +23,11 @@ class Encoder {
 
       uint16_t speed_[SENSOR_QTY];
       uint16_t rps_[SENSOR_QTY];
-      float interval_time_s_[SENSOR_QTY];
-      uint16_t interval_time_us_[SENSOR_QTY];
+      double interval_time_s_[SENSOR_QTY];
+      uint32_t interval_time_us_[SENSOR_QTY];
       uint8_t threshold_[SENSOR_QTY];
       uint8_t min_val_[SENSOR_QTY] = {255, 255, 255, 255};
       uint8_t max_val_[SENSOR_QTY];
-      uint8_t count_[SENSOR_QTY];
       bool is_white_[SENSOR_QTY];
       bool pre_is_white_[SENSOR_QTY];
 

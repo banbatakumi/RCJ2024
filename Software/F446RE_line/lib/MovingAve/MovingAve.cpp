@@ -15,7 +15,7 @@ void MovingAve::Compute(float input) {
       cnt_++;
 }
 
-float MovingAve::Get() {
+double MovingAve::Get() {
       return result_;
 }
 
