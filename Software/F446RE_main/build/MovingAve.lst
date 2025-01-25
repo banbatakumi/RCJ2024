@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -20,252 +20,307 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s 			page 1
   17              	.Ltext0:
   18              		.cfi_sections	.debug_frame
   19              		.file 1 "lib/MovingAve/MovingAve.cpp"
-  20              		.section	.text._ZN9MovingAve9SetLengthEh,"ax",%progbits
-  21              		.align	1
-  22              		.global	_ZN9MovingAve9SetLengthEh
-  23              		.syntax unified
-  24              		.thumb
-  25              		.thumb_func
-  27              	_ZN9MovingAve9SetLengthEh:
-  28              		.fnstart
-  29              	.LVL0:
-  30              	.LFB239:
+  20              		.global	__aeabi_f2d
+  21              		.section	.text._ZN9MovingAve9SetLengthEh,"ax",%progbits
+  22              		.align	1
+  23              		.global	_ZN9MovingAve9SetLengthEh
+  24              		.syntax unified
+  25              		.thumb
+  26              		.thumb_func
+  28              	_ZN9MovingAve9SetLengthEh:
+  29              		.fnstart
+  30              	.LVL0:
+  31              	.LFB239:
    1:lib/MovingAve/MovingAve.cpp **** #include "MovingAve.hpp"
    2:lib/MovingAve/MovingAve.cpp **** 
    3:lib/MovingAve/MovingAve.cpp **** void MovingAve::SetLength(uint8_t length) {
-  31              		.loc 1 3 43 view -0
-  32              		.cfi_startproc
-  33              		@ args = 0, pretend = 0, frame = 0
-  34              		@ frame_needed = 0, uses_anonymous_args = 0
-  35              		@ link register save eliminated.
+  32              		.loc 1 3 43 view -0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 0, uses_anonymous_args = 0
+  36              		.loc 1 3 43 is_stmt 0 view .LVU1
+  37 0000 10B5     		push	{r4, lr}
+  38              	.LCFI0:
+  39              		.cfi_def_cfa_offset 8
+  40              		.cfi_offset 4, -8
+  41              		.cfi_offset 14, -4
+  42 0002 0446     		mov	r4, r0
    4:lib/MovingAve/MovingAve.cpp ****       this->length_ = length;
-  36              		.loc 1 4 7 view .LVU1
-  37              		.loc 1 4 21 is_stmt 0 view .LVU2
-  38 0000 80F89511 		strb	r1, [r0, #405]
-   5:lib/MovingAve/MovingAve.cpp **** }
-  39              		.loc 1 5 1 view .LVU3
-  40 0004 7047     		bx	lr
-  41              		.cfi_endproc
-  42              	.LFE239:
-  43              		.cantunwind
-  44              		.fnend
-  46              		.section	.text._ZN9MovingAve7ComputeEf,"ax",%progbits
-  47              		.align	1
-  48              		.global	_ZN9MovingAve7ComputeEf
-  49              		.syntax unified
-  50              		.thumb
-  51              		.thumb_func
-  53              	_ZN9MovingAve7ComputeEf:
-  54              		.fnstart
-  55              	.LVL1:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s 			page 2
+  43              		.loc 1 4 7 is_stmt 1 view .LVU2
+  44              		.loc 1 4 21 is_stmt 0 view .LVU3
+  45 0004 80F89511 		strb	r1, [r0, #405]
+   5:lib/MovingAve/MovingAve.cpp ****       length_product_ = 1.0f / length_;
+  46              		.loc 1 5 7 is_stmt 1 view .LVU4
+  47              		.loc 1 5 30 is_stmt 0 view .LVU5
+  48 0008 07EE901A 		vmov	s15, r1	@ int
+  49 000c F8EEE77A 		vcvt.f32.s32	s15, s15
+  50 0010 B7EE007A 		vmov.f32	s14, #1.0e+0
+  51 0014 C7EE277A 		vdiv.f32	s15, s14, s15
+  52 0018 17EE900A 		vmov	r0, s15
+  53              	.LVL1:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s 			page 2
 
 
-  56              	.LFB240:
-   6:lib/MovingAve/MovingAve.cpp **** 
-   7:lib/MovingAve/MovingAve.cpp **** void MovingAve::Compute(float input) {
-  57              		.loc 1 7 38 is_stmt 1 view -0
-  58              		.cfi_startproc
-  59              		@ args = 0, pretend = 0, frame = 0
-  60              		@ frame_needed = 0, uses_anonymous_args = 0
-  61              		@ link register save eliminated.
-   8:lib/MovingAve/MovingAve.cpp ****       if (cnt_ >= length_) cnt_ = 0;
-  62              		.loc 1 8 7 view .LVU5
-  63              		.loc 1 8 11 is_stmt 0 view .LVU6
-  64 0000 90F89431 		ldrb	r3, [r0, #404]	@ zero_extendqisi2
-  65              		.loc 1 8 19 view .LVU7
-  66 0004 90F89511 		ldrb	r1, [r0, #405]	@ zero_extendqisi2
-  67              		.loc 1 8 7 view .LVU8
-  68 0008 8B42     		cmp	r3, r1
-  69 000a 02D3     		bcc	.L3
-  70              		.loc 1 8 28 is_stmt 1 discriminator 1 view .LVU9
-  71              		.loc 1 8 33 is_stmt 0 discriminator 1 view .LVU10
-  72 000c 0023     		movs	r3, #0
-  73 000e 80F89431 		strb	r3, [r0, #404]
-  74              	.L3:
-   9:lib/MovingAve/MovingAve.cpp ****       data_[cnt_] = input;
-  75              		.loc 1 9 7 is_stmt 1 view .LVU11
-  76              		.loc 1 9 13 is_stmt 0 view .LVU12
-  77 0012 90F894C1 		ldrb	ip, [r0, #404]	@ zero_extendqisi2
-  78              		.loc 1 9 19 view .LVU13
-  79 0016 00EB8C03 		add	r3, r0, ip, lsl #2
-  80 001a 83ED000A 		vstr.32	s0, [r3]
-  10:lib/MovingAve/MovingAve.cpp ****       result_ = 0;
-  81              		.loc 1 10 7 is_stmt 1 view .LVU14
-  82              		.loc 1 10 15 is_stmt 0 view .LVU15
-  83 001e 0023     		movs	r3, #0
-  84 0020 C0F89031 		str	r3, [r0, #400]	@ float
-  11:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
-  85              		.loc 1 11 7 is_stmt 1 view .LVU16
-  86              	.LVL2:
-  87              	.LBB2:
-  88              		.loc 1 11 20 is_stmt 0 view .LVU17
-  89 0024 0023     		movs	r3, #0
-  90              		.loc 1 11 7 view .LVU18
-  91 0026 0BE0     		b	.L4
-  92              	.LVL3:
-  93              	.L5:
-  12:lib/MovingAve/MovingAve.cpp ****             result_ += data_[i];
-  94              		.loc 1 12 13 is_stmt 1 discriminator 3 view .LVU19
-  95 0028 D0ED647A 		vldr.32	s15, [r0, #400]
-  96              		.loc 1 12 31 is_stmt 0 discriminator 3 view .LVU20
-  97 002c 00EB8302 		add	r2, r0, r3, lsl #2
-  98 0030 92ED007A 		vldr.32	s14, [r2]
-  99              		.loc 1 12 21 discriminator 3 view .LVU21
- 100 0034 77EE877A 		vadd.f32	s15, s15, s14
- 101 0038 C0ED647A 		vstr.32	s15, [r0, #400]
-  11:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
- 102              		.loc 1 11 7 is_stmt 1 discriminator 3 view .LVU22
- 103 003c 0133     		adds	r3, r3, #1
- 104              	.LVL4:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s 			page 3
+  54              		.loc 1 5 30 view .LVU6
+  55 001c FFF7FEFF 		bl	__aeabi_f2d
+  56              	.LVL2:
+  57              		.loc 1 5 23 view .LVU7
+  58 0020 C4E96601 		strd	r0, [r4, #408]
+   6:lib/MovingAve/MovingAve.cpp **** }
+  59              		.loc 1 6 1 view .LVU8
+  60 0024 10BD     		pop	{r4, pc}
+  61              		.loc 1 6 1 view .LVU9
+  62              		.cfi_endproc
+  63              	.LFE239:
+  64              		.cantunwind
+  65              		.fnend
+  67              		.global	__aeabi_dmul
+  68              		.global	__aeabi_d2f
+  69              		.section	.text._ZN9MovingAve7ComputeEf,"ax",%progbits
+  70              		.align	1
+  71              		.global	_ZN9MovingAve7ComputeEf
+  72              		.syntax unified
+  73              		.thumb
+  74              		.thumb_func
+  76              	_ZN9MovingAve7ComputeEf:
+  77              		.fnstart
+  78              	.LVL3:
+  79              	.LFB240:
+   7:lib/MovingAve/MovingAve.cpp **** 
+   8:lib/MovingAve/MovingAve.cpp **** void MovingAve::Compute(float input) {
+  80              		.loc 1 8 38 is_stmt 1 view -0
+  81              		.cfi_startproc
+  82              		@ args = 0, pretend = 0, frame = 0
+  83              		@ frame_needed = 0, uses_anonymous_args = 0
+  84              		.loc 1 8 38 is_stmt 0 view .LVU11
+  85 0000 38B5     		push	{r3, r4, r5, lr}
+  86              	.LCFI1:
+  87              		.cfi_def_cfa_offset 16
+  88              		.cfi_offset 3, -16
+  89              		.cfi_offset 4, -12
+  90              		.cfi_offset 5, -8
+  91              		.cfi_offset 14, -4
+  92 0002 0446     		mov	r4, r0
+   9:lib/MovingAve/MovingAve.cpp ****       if (cnt_ >= length_) cnt_ = 0;
+  93              		.loc 1 9 7 is_stmt 1 view .LVU12
+  94              		.loc 1 9 11 is_stmt 0 view .LVU13
+  95 0004 90F89431 		ldrb	r3, [r0, #404]	@ zero_extendqisi2
+  96              		.loc 1 9 19 view .LVU14
+  97 0008 90F89511 		ldrb	r1, [r0, #405]	@ zero_extendqisi2
+  98              		.loc 1 9 7 view .LVU15
+  99 000c 8B42     		cmp	r3, r1
+ 100 000e 02D3     		bcc	.L4
+ 101              		.loc 1 9 28 is_stmt 1 discriminator 1 view .LVU16
+ 102              		.loc 1 9 33 is_stmt 0 discriminator 1 view .LVU17
+ 103 0010 0023     		movs	r3, #0
+ 104 0012 80F89431 		strb	r3, [r0, #404]
+ 105              	.L4:
+  10:lib/MovingAve/MovingAve.cpp ****       data_[cnt_] = input;
+ 106              		.loc 1 10 7 is_stmt 1 view .LVU18
+ 107              		.loc 1 10 13 is_stmt 0 view .LVU19
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s 			page 3
 
 
-  11:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
- 105              		.loc 1 11 7 is_stmt 0 discriminator 3 view .LVU23
- 106 003e DBB2     		uxtb	r3, r3
- 107              	.LVL5:
- 108              	.L4:
-  11:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
- 109              		.loc 1 11 29 is_stmt 1 discriminator 1 view .LVU24
- 110 0040 9942     		cmp	r1, r3
- 111 0042 F1D8     		bhi	.L5
- 112              	.LBE2:
-  13:lib/MovingAve/MovingAve.cpp ****       }
-  14:lib/MovingAve/MovingAve.cpp ****       result_ /= (float)length_;
- 113              		.loc 1 14 7 view .LVU25
- 114 0044 D0ED646A 		vldr.32	s13, [r0, #400]
- 115              		.loc 1 14 18 is_stmt 0 view .LVU26
- 116 0048 07EE901A 		vmov	s15, r1	@ int
- 117 004c F8EE677A 		vcvt.f32.u32	s15, s15
- 118              		.loc 1 14 15 view .LVU27
- 119 0050 86EEA77A 		vdiv.f32	s14, s13, s15
- 120 0054 80ED647A 		vstr.32	s14, [r0, #400]
-  15:lib/MovingAve/MovingAve.cpp ****       cnt_++;
- 121              		.loc 1 15 7 is_stmt 1 view .LVU28
- 122              		.loc 1 15 11 is_stmt 0 view .LVU29
- 123 0058 0CF1010C 		add	ip, ip, #1
- 124 005c 80F894C1 		strb	ip, [r0, #404]
-  16:lib/MovingAve/MovingAve.cpp **** }
- 125              		.loc 1 16 1 view .LVU30
- 126 0060 7047     		bx	lr
- 127              		.cfi_endproc
- 128              	.LFE240:
- 129              		.cantunwind
- 130              		.fnend
- 132              		.section	.text._ZN9MovingAve3GetEv,"ax",%progbits
- 133              		.align	1
- 134              		.global	_ZN9MovingAve3GetEv
- 135              		.syntax unified
- 136              		.thumb
- 137              		.thumb_func
- 139              	_ZN9MovingAve3GetEv:
- 140              		.fnstart
- 141              	.LVL6:
- 142              	.LFB241:
-  17:lib/MovingAve/MovingAve.cpp **** 
-  18:lib/MovingAve/MovingAve.cpp **** float MovingAve::Get() {
- 143              		.loc 1 18 24 is_stmt 1 view -0
- 144              		.cfi_startproc
- 145              		@ args = 0, pretend = 0, frame = 0
- 146              		@ frame_needed = 0, uses_anonymous_args = 0
- 147              		@ link register save eliminated.
-  19:lib/MovingAve/MovingAve.cpp ****       return result_;
- 148              		.loc 1 19 7 view .LVU32
-  20:lib/MovingAve/MovingAve.cpp **** }
- 149              		.loc 1 20 1 is_stmt 0 view .LVU33
- 150 0000 90ED640A 		vldr.32	s0, [r0, #400]
- 151 0004 7047     		bx	lr
- 152              		.cfi_endproc
- 153              	.LFE241:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s 			page 4
+ 108 0016 94F89451 		ldrb	r5, [r4, #404]	@ zero_extendqisi2
+ 109              		.loc 1 10 19 view .LVU20
+ 110 001a 04EB8503 		add	r3, r4, r5, lsl #2
+ 111 001e 83ED000A 		vstr.32	s0, [r3]
+  11:lib/MovingAve/MovingAve.cpp ****       result_ = 0;
+ 112              		.loc 1 11 7 is_stmt 1 view .LVU21
+ 113              		.loc 1 11 15 is_stmt 0 view .LVU22
+ 114 0022 0023     		movs	r3, #0
+ 115 0024 C4F89031 		str	r3, [r4, #400]	@ float
+  12:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
+ 116              		.loc 1 12 7 is_stmt 1 view .LVU23
+ 117              	.LVL4:
+ 118              	.LBB2:
+ 119              		.loc 1 12 20 is_stmt 0 view .LVU24
+ 120 0028 0023     		movs	r3, #0
+ 121              		.loc 1 12 7 view .LVU25
+ 122 002a 0BE0     		b	.L5
+ 123              	.LVL5:
+ 124              	.L6:
+  13:lib/MovingAve/MovingAve.cpp ****             result_ += data_[i];
+ 125              		.loc 1 13 13 is_stmt 1 discriminator 3 view .LVU26
+ 126 002c D4ED647A 		vldr.32	s15, [r4, #400]
+ 127              		.loc 1 13 31 is_stmt 0 discriminator 3 view .LVU27
+ 128 0030 04EB8302 		add	r2, r4, r3, lsl #2
+ 129 0034 92ED007A 		vldr.32	s14, [r2]
+ 130              		.loc 1 13 21 discriminator 3 view .LVU28
+ 131 0038 77EE877A 		vadd.f32	s15, s15, s14
+ 132 003c C4ED647A 		vstr.32	s15, [r4, #400]
+  12:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
+ 133              		.loc 1 12 7 is_stmt 1 discriminator 3 view .LVU29
+ 134 0040 0133     		adds	r3, r3, #1
+ 135              	.LVL6:
+  12:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
+ 136              		.loc 1 12 7 is_stmt 0 discriminator 3 view .LVU30
+ 137 0042 DBB2     		uxtb	r3, r3
+ 138              	.LVL7:
+ 139              	.L5:
+  12:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
+ 140              		.loc 1 12 29 is_stmt 1 discriminator 1 view .LVU31
+ 141 0044 9942     		cmp	r1, r3
+ 142 0046 F1D8     		bhi	.L6
+ 143              	.LBE2:
+  14:lib/MovingAve/MovingAve.cpp ****       }
+  15:lib/MovingAve/MovingAve.cpp ****       result_ *= (double)length_product_;
+ 144              		.loc 1 15 7 view .LVU32
+ 145 0048 D4F89001 		ldr	r0, [r4, #400]	@ float
+ 146              	.LVL8:
+ 147              		.loc 1 15 7 is_stmt 0 view .LVU33
+ 148 004c FFF7FEFF 		bl	__aeabi_f2d
+ 149              	.LVL9:
+ 150              		.loc 1 15 15 view .LVU34
+ 151 0050 D4E96623 		ldrd	r2, [r4, #408]
+ 152 0054 FFF7FEFF 		bl	__aeabi_dmul
+ 153              	.LVL10:
+ 154 0058 FFF7FEFF 		bl	__aeabi_d2f
+ 155              	.LVL11:
+ 156 005c C4F89001 		str	r0, [r4, #400]	@ float
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s 			page 4
 
 
- 154              		.cantunwind
- 155              		.fnend
- 157              		.section	.text._ZN9MovingAve5ResetEv,"ax",%progbits
- 158              		.align	1
- 159              		.global	_ZN9MovingAve5ResetEv
- 160              		.syntax unified
- 161              		.thumb
- 162              		.thumb_func
- 164              	_ZN9MovingAve5ResetEv:
- 165              		.fnstart
- 166              	.LVL7:
- 167              	.LFB242:
-  21:lib/MovingAve/MovingAve.cpp **** 
-  22:lib/MovingAve/MovingAve.cpp **** void MovingAve::Reset() {
- 168              		.loc 1 22 25 is_stmt 1 view -0
- 169              		.cfi_startproc
- 170              		@ args = 0, pretend = 0, frame = 0
- 171              		@ frame_needed = 0, uses_anonymous_args = 0
- 172              		@ link register save eliminated.
-  23:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
- 173              		.loc 1 23 7 view .LVU35
- 174              	.LBB3:
- 175              		.loc 1 23 20 is_stmt 0 view .LVU36
- 176 0000 0023     		movs	r3, #0
- 177              		.loc 1 23 7 view .LVU37
- 178 0002 05E0     		b	.L8
- 179              	.LVL8:
- 180              	.L9:
-  24:lib/MovingAve/MovingAve.cpp ****             data_[i] = 0;
- 181              		.loc 1 24 13 is_stmt 1 discriminator 3 view .LVU38
- 182              		.loc 1 24 22 is_stmt 0 discriminator 3 view .LVU39
- 183 0004 00EB8302 		add	r2, r0, r3, lsl #2
- 184 0008 0021     		movs	r1, #0
- 185 000a 1160     		str	r1, [r2]	@ float
-  23:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
- 186              		.loc 1 23 7 is_stmt 1 discriminator 3 view .LVU40
- 187 000c 0133     		adds	r3, r3, #1
- 188              	.LVL9:
-  23:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
- 189              		.loc 1 23 7 is_stmt 0 discriminator 3 view .LVU41
- 190 000e DBB2     		uxtb	r3, r3
- 191              	.LVL10:
- 192              	.L8:
-  23:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
- 193              		.loc 1 23 29 is_stmt 1 discriminator 1 view .LVU42
-  23:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
- 194              		.loc 1 23 31 is_stmt 0 discriminator 1 view .LVU43
- 195 0010 90F89521 		ldrb	r2, [r0, #405]	@ zero_extendqisi2
-  23:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
- 196              		.loc 1 23 29 discriminator 1 view .LVU44
- 197 0014 9A42     		cmp	r2, r3
- 198 0016 F5D8     		bhi	.L9
- 199              	.LBE3:
-  25:lib/MovingAve/MovingAve.cpp ****       }
-  26:lib/MovingAve/MovingAve.cpp **** }...
- 200              		.loc 1 26 1 view .LVU45
- 201 0018 7047     		bx	lr
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s 			page 5
+  16:lib/MovingAve/MovingAve.cpp ****       cnt_++;
+ 157              		.loc 1 16 7 is_stmt 1 view .LVU35
+ 158              		.loc 1 16 11 is_stmt 0 view .LVU36
+ 159 0060 0135     		adds	r5, r5, #1
+ 160 0062 84F89451 		strb	r5, [r4, #404]
+  17:lib/MovingAve/MovingAve.cpp **** }
+ 161              		.loc 1 17 1 view .LVU37
+ 162 0066 38BD     		pop	{r3, r4, r5, pc}
+ 163              		.loc 1 17 1 view .LVU38
+ 164              		.cfi_endproc
+ 165              	.LFE240:
+ 166              		.cantunwind
+ 167              		.fnend
+ 169              		.section	.text._ZN9MovingAve3GetEv,"ax",%progbits
+ 170              		.align	1
+ 171              		.global	_ZN9MovingAve3GetEv
+ 172              		.syntax unified
+ 173              		.thumb
+ 174              		.thumb_func
+ 176              	_ZN9MovingAve3GetEv:
+ 177              		.fnstart
+ 178              	.LVL12:
+ 179              	.LFB241:
+  18:lib/MovingAve/MovingAve.cpp **** 
+  19:lib/MovingAve/MovingAve.cpp **** double MovingAve::Get() {
+ 180              		.loc 1 19 25 is_stmt 1 view -0
+ 181              		.cfi_startproc
+ 182              		@ args = 0, pretend = 0, frame = 0
+ 183              		@ frame_needed = 0, uses_anonymous_args = 0
+ 184              		.loc 1 19 25 is_stmt 0 view .LVU40
+ 185 0000 08B5     		push	{r3, lr}
+ 186              	.LCFI2:
+ 187              		.cfi_def_cfa_offset 8
+ 188              		.cfi_offset 3, -8
+ 189              		.cfi_offset 14, -4
+  20:lib/MovingAve/MovingAve.cpp ****       return result_;
+ 190              		.loc 1 20 7 is_stmt 1 view .LVU41
+ 191              		.loc 1 20 14 is_stmt 0 view .LVU42
+ 192 0002 D0F89001 		ldr	r0, [r0, #400]	@ float
+ 193              	.LVL13:
+ 194              		.loc 1 20 14 view .LVU43
+ 195 0006 FFF7FEFF 		bl	__aeabi_f2d
+ 196              	.LVL14:
+  21:lib/MovingAve/MovingAve.cpp **** }
+ 197              		.loc 1 21 1 view .LVU44
+ 198 000a 41EC100B 		vmov	d0, r0, r1
+ 199 000e 08BD     		pop	{r3, pc}
+ 200              		.cfi_endproc
+ 201              	.LFE241:
+ 202              		.cantunwind
+ 203              		.fnend
+ 205              		.section	.text._ZN9MovingAve5ResetEv,"ax",%progbits
+ 206              		.align	1
+ 207              		.global	_ZN9MovingAve5ResetEv
+ 208              		.syntax unified
+ 209              		.thumb
+ 210              		.thumb_func
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s 			page 5
 
 
- 202              		.cfi_endproc
- 203              	.LFE242:
- 204              		.cantunwind
- 205              		.fnend
- 207              		.text
- 208              	.Letext0:
- 209              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
- 210              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
- 211              		.file 4 "lib/MovingAve/MovingAve.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s 			page 6
+ 212              	_ZN9MovingAve5ResetEv:
+ 213              		.fnstart
+ 214              	.LVL15:
+ 215              	.LFB242:
+  22:lib/MovingAve/MovingAve.cpp **** 
+  23:lib/MovingAve/MovingAve.cpp **** void MovingAve::Reset() {
+ 216              		.loc 1 23 25 is_stmt 1 view -0
+ 217              		.cfi_startproc
+ 218              		@ args = 0, pretend = 0, frame = 0
+ 219              		@ frame_needed = 0, uses_anonymous_args = 0
+ 220              		@ link register save eliminated.
+  24:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
+ 221              		.loc 1 24 7 view .LVU46
+ 222              	.LBB3:
+ 223              		.loc 1 24 20 is_stmt 0 view .LVU47
+ 224 0000 0023     		movs	r3, #0
+ 225              		.loc 1 24 7 view .LVU48
+ 226 0002 05E0     		b	.L11
+ 227              	.LVL16:
+ 228              	.L12:
+  25:lib/MovingAve/MovingAve.cpp ****             data_[i] = 0;
+ 229              		.loc 1 25 13 is_stmt 1 discriminator 3 view .LVU49
+ 230              		.loc 1 25 22 is_stmt 0 discriminator 3 view .LVU50
+ 231 0004 00EB8302 		add	r2, r0, r3, lsl #2
+ 232 0008 0021     		movs	r1, #0
+ 233 000a 1160     		str	r1, [r2]	@ float
+  24:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
+ 234              		.loc 1 24 7 is_stmt 1 discriminator 3 view .LVU51
+ 235 000c 0133     		adds	r3, r3, #1
+ 236              	.LVL17:
+  24:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
+ 237              		.loc 1 24 7 is_stmt 0 discriminator 3 view .LVU52
+ 238 000e DBB2     		uxtb	r3, r3
+ 239              	.LVL18:
+ 240              	.L11:
+  24:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
+ 241              		.loc 1 24 29 is_stmt 1 discriminator 1 view .LVU53
+  24:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
+ 242              		.loc 1 24 31 is_stmt 0 discriminator 1 view .LVU54
+ 243 0010 90F89521 		ldrb	r2, [r0, #405]	@ zero_extendqisi2
+  24:lib/MovingAve/MovingAve.cpp ****       for (uint8_t i = 0; i < length_; i++) {
+ 244              		.loc 1 24 29 discriminator 1 view .LVU55
+ 245 0014 9A42     		cmp	r2, r3
+ 246 0016 F5D8     		bhi	.L12
+ 247              	.LBE3:
+  26:lib/MovingAve/MovingAve.cpp ****       }
+  27:lib/MovingAve/MovingAve.cpp **** }...
+ 248              		.loc 1 27 1 view .LVU56
+ 249 0018 7047     		bx	lr
+ 250              		.cfi_endproc
+ 251              	.LFE242:
+ 252              		.cantunwind
+ 253              		.fnend
+ 255              		.text
+ 256              	.Letext0:
+ 257              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 258              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s 			page 6
+
+
+ 259              		.file 4 "lib/MovingAve/MovingAve.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s 			page 7
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 MovingAve.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s:21     .text._ZN9MovingAve9SetLengthEh:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s:27     .text._ZN9MovingAve9SetLengthEh:00000000 _ZN9MovingAve9SetLengthEh
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s:22     .text._ZN9MovingAve9SetLengthEh:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s:28     .text._ZN9MovingAve9SetLengthEh:00000000 _ZN9MovingAve9SetLengthEh
 .ARM.exidx.text._ZN9MovingAve9SetLengthEh:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s:47     .text._ZN9MovingAve7ComputeEf:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s:53     .text._ZN9MovingAve7ComputeEf:00000000 _ZN9MovingAve7ComputeEf
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s:70     .text._ZN9MovingAve7ComputeEf:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s:76     .text._ZN9MovingAve7ComputeEf:00000000 _ZN9MovingAve7ComputeEf
 .ARM.exidx.text._ZN9MovingAve7ComputeEf:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s:133    .text._ZN9MovingAve3GetEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s:139    .text._ZN9MovingAve3GetEv:00000000 _ZN9MovingAve3GetEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s:170    .text._ZN9MovingAve3GetEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s:176    .text._ZN9MovingAve3GetEv:00000000 _ZN9MovingAve3GetEv
 .ARM.exidx.text._ZN9MovingAve3GetEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s:158    .text._ZN9MovingAve5ResetEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccQTNMQj.s:164    .text._ZN9MovingAve5ResetEv:00000000 _ZN9MovingAve5ResetEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s:206    .text._ZN9MovingAve5ResetEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOTPAtx.s:212    .text._ZN9MovingAve5ResetEv:00000000 _ZN9MovingAve5ResetEv
 .ARM.exidx.text._ZN9MovingAve5ResetEv:00000000 $d
 
-NO UNDEFINED SYMBOLS
+UNDEFINED SYMBOLS
+__aeabi_f2d
+__aeabi_dmul
+__aeabi_d2f

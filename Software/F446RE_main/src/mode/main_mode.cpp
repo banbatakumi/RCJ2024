@@ -5,6 +5,7 @@ int yaw;
 float voltage;
 int process_freq;
 int line_dir;
+int encoder[4];
 
 void Mode::MainMode() {
       process_timer.reset();
@@ -13,16 +14,14 @@ void Mode::MainMode() {
       robot->GetSensors();
       robot->info.Line.on_led = 1;
 
-      if (robot->info.encoder_val[0] > 0) {
-            robot->kicker.Kick(0.3);
-      } else {
-            robot->kicker.Charge();
-      }
-
       // cortex-debug
       yaw = robot->info.Imu.yaw;
       voltage = robot->info.voltage;
       line_dir = robot->info.Line.dir;
+      encoder[0] = robot->info.motor_rps[0];
+      encoder[1] = robot->info.motor_rps[1];
+      encoder[2] = robot->info.motor_rps[2];
+      encoder[3] = robot->info.motor_rps[3];
 
       //  定周期処理
       process_time_ = process_timer.read_us();

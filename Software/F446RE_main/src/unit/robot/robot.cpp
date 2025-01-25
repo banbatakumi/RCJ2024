@@ -72,11 +72,11 @@ void Robot::RecvImuUart() {
 }
 
 void Robot::RecvLineUart() {
-      static const uint8_t HEADER = 0xFF;  // ヘッダ
-      static const uint8_t FOOTER = 0xAA;  // ヘッダ
-      static const uint8_t dataSize = 6;   // データのサイズ
-      static uint8_t index = 0;            // 受信したデータのインデックスカウンター
-      static uint8_t recv_data[dataSize];  // 受信したデータ
+      static const uint8_t HEADER = 0xFF;   // ヘッダ
+      static const uint8_t FOOTER = 0xAA;   // ヘッダ
+      static const uint8_t data_size = 4;   // データのサイズ
+      static uint8_t index = 0;             // 受信したデータのインデックスカウンター
+      static uint8_t recv_data[data_size];  // 受信したデータ
       static uint8_t recv_byte;
       serial2.write(info.Line.on_led);
 
@@ -88,25 +88,24 @@ void Robot::RecvLineUart() {
                   } else {
                         index = 0;
                   }
-            } else if (index == (dataSize + 1)) {
+            } else if (index == (data_size + 1)) {
                   if (recv_byte == FOOTER) {
-                        info.encoder_val[0] = recv_data[0] >> 4;
-                        info.encoder_val[1] = recv_data[0] & 0b00001111;
-                        info.encoder_val[2] = recv_data[1] >> 4;
-                        info.encoder_val[3] = recv_data[1] & 0b00001111;
-                        info.Line.interval = recv_data[2];
-                        info.Line.is_on_line = (recv_data[3] >> 2) & 1;
-                        info.Line.is_leftside = (recv_data[3] >> 1) & 1;
-                        info.Line.is_rightside = recv_data[3] & 1;
-                        info.Line.dir = recv_data[4] * 2 - 180;
-                        info.Line.inside_dir = recv_data[5] * 2 - 180;
-
-                        led1 = 1;
+                        info.motor_rps[0] = recv_data[0];
+                        info.motor_rps[1] = recv_data[1];
+                        info.motor_rps[2] = recv_data[2];
+                        info.motor_rps[3] = recv_data[3];
+                        // info.Line.interval = recv_data[2];
+                        // info.Line.is_on_line = (recv_data[3] >> 2) & 1;
+                        // info.Line.is_leftside = (recv_data[3] >> 1) & 1;
+                        // info.Line.is_rightside = recv_data[3] & 1;
+                        // info.Line.dir = recv_data[4] * 2 - 180;
+                        // info.Line.inside_dir = recv_data[5] * 2 - 180;
                   }
                   index = 0;
             } else {
                   recv_data[index - 1] = recv_byte;
                   index++;
             }
+            led1 = 1;
       }
 }

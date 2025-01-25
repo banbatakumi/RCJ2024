@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 1
   51              	.LBE2:
    6:lib/Timer/Timer.cpp **** }
   52              		.loc 1 6 1 view .LVU7
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 2
 
 
   53 001a 7047     		bx	lr
@@ -107,586 +107,588 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 1
   94              	.LFE242:
   95              		.cantunwind
   96              		.fnend
-  98              		.section	.text._ZN5Timer4readEv,"ax",%progbits
-  99              		.align	1
- 100              		.global	_ZN5Timer4readEv
- 101              		.syntax unified
- 102              		.thumb
- 103              		.thumb_func
- 105              	_ZN5Timer4readEv:
- 106              		.fnstart
- 107              	.LVL2:
- 108              	.LFB243:
+  98              		.global	__aeabi_ui2d
+  99              		.global	__aeabi_ddiv
+ 100              		.section	.text._ZN5Timer4readEv,"ax",%progbits
+ 101              		.align	1
+ 102              		.global	_ZN5Timer4readEv
+ 103              		.syntax unified
+ 104              		.thumb
+ 105              		.thumb_func
+ 107              	_ZN5Timer4readEv:
+ 108              		.fnstart
+ 109              	.LVL2:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 3
+
+
+ 110              	.LFB243:
   11:lib/Timer/Timer.cpp **** 
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 3
-
-
-  12:lib/Timer/Timer.cpp **** float Timer::read() {
- 109              		.loc 1 12 21 is_stmt 1 view -0
- 110              		.cfi_startproc
- 111              		@ args = 0, pretend = 0, frame = 0
- 112              		@ frame_needed = 0, uses_anonymous_args = 0
- 113              		.loc 1 12 21 is_stmt 0 view .LVU14
- 114 0000 08B5     		push	{r3, lr}
- 115              		.save {r3, lr}
- 116              	.LCFI0:
- 117              		.cfi_def_cfa_offset 8
- 118              		.cfi_offset 3, -8
- 119              		.cfi_offset 14, -4
- 120 0002 2DED028B 		vpush.64	{d8}
- 121              		.vsave {d8}
- 122              	.LCFI1:
- 123              		.cfi_def_cfa_offset 16
- 124              		.cfi_offset 80, -16
- 125              		.cfi_offset 81, -12
-  13:lib/Timer/Timer.cpp ****       return (float)(DWT->CYCCNT - startTime) / HAL_RCC_GetSysClockFreq();
- 126              		.loc 1 13 7 is_stmt 1 view .LVU15
- 127              		.loc 1 13 27 is_stmt 0 view .LVU16
- 128 0006 094B     		ldr	r3, .L9
- 129 0008 5B68     		ldr	r3, [r3, #4]
- 130              		.loc 1 13 36 view .LVU17
- 131 000a 0268     		ldr	r2, [r0]
- 132              		.loc 1 13 34 view .LVU18
- 133 000c 9B1A     		subs	r3, r3, r2
- 134              		.loc 1 13 14 view .LVU19
- 135 000e 07EE903A 		vmov	s15, r3	@ int
- 136 0012 B8EE678A 		vcvt.f32.u32	s16, s15
- 137              		.loc 1 13 72 view .LVU20
- 138 0016 FFF7FEFF 		bl	HAL_RCC_GetSysClockFreq
- 139              	.LVL3:
- 140              		.loc 1 13 72 view .LVU21
- 141 001a 00EE100A 		vmov	s0, r0	@ int
- 142              		.loc 1 13 47 view .LVU22
- 143 001e B8EE400A 		vcvt.f32.u32	s0, s0
+  12:lib/Timer/Timer.cpp **** double Timer::read() {
+ 111              		.loc 1 12 22 is_stmt 1 view -0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 0
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+ 115              		.loc 1 12 22 is_stmt 0 view .LVU14
+ 116 0000 38B5     		push	{r3, r4, r5, lr}
+ 117              		.save {r3, r4, r5, lr}
+ 118              	.LCFI0:
+ 119              		.cfi_def_cfa_offset 16
+ 120              		.cfi_offset 3, -16
+ 121              		.cfi_offset 4, -12
+ 122              		.cfi_offset 5, -8
+ 123              		.cfi_offset 14, -4
+  13:lib/Timer/Timer.cpp ****       return (double)(DWT->CYCCNT - startTime) / HAL_RCC_GetSysClockFreq();
+ 124              		.loc 1 13 7 is_stmt 1 view .LVU15
+ 125              		.loc 1 13 28 is_stmt 0 view .LVU16
+ 126 0002 0A4B     		ldr	r3, .L9
+ 127 0004 5A68     		ldr	r2, [r3, #4]
+ 128              		.loc 1 13 37 view .LVU17
+ 129 0006 0068     		ldr	r0, [r0]
+ 130              	.LVL3:
+ 131              		.loc 1 13 14 view .LVU18
+ 132 0008 101A     		subs	r0, r2, r0
+ 133 000a FFF7FEFF 		bl	__aeabi_ui2d
+ 134              	.LVL4:
+ 135 000e 0446     		mov	r4, r0
+ 136 0010 0D46     		mov	r5, r1
+ 137              		.loc 1 13 73 view .LVU19
+ 138 0012 FFF7FEFF 		bl	HAL_RCC_GetSysClockFreq
+ 139              	.LVL5:
+ 140              		.loc 1 13 48 view .LVU20
+ 141 0016 FFF7FEFF 		bl	__aeabi_ui2d
+ 142              	.LVL6:
+ 143 001a 0246     		mov	r2, r0
+ 144 001c 0B46     		mov	r3, r1
+ 145              		.loc 1 13 74 view .LVU21
+ 146 001e 2046     		mov	r0, r4
+ 147 0020 2946     		mov	r1, r5
+ 148 0022 FFF7FEFF 		bl	__aeabi_ddiv
+ 149              	.LVL7:
   14:lib/Timer/Timer.cpp **** }
- 144              		.loc 1 14 1 view .LVU23
- 145 0022 88EE000A 		vdiv.f32	s0, s16, s0
- 146 0026 BDEC028B 		vldm	sp!, {d8}
- 147              	.LCFI2:
- 148              		.cfi_restore 80
- 149              		.cfi_restore 81
- 150              		.cfi_def_cfa_offset 8
- 151 002a 08BD     		pop	{r3, pc}
- 152              	.L10:
- 153              		.align	2
- 154              	.L9:
- 155 002c 001000E0 		.word	-536866816
- 156              		.cfi_endproc
- 157              	.LFE243:
- 158              		.fnend
- 160              		.section	.text._ZN5Timer7read_msEv,"ax",%progbits
- 161              		.align	1
- 162              		.global	_ZN5Timer7read_msEv
- 163              		.syntax unified
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 4
+ 150              		.loc 1 14 1 view .LVU22
+ 151 0026 41EC100B 		vmov	d0, r0, r1
+ 152 002a 38BD     		pop	{r3, r4, r5, pc}
+ 153              	.L10:
+ 154              		.align	2
+ 155              	.L9:
+ 156 002c 001000E0 		.word	-536866816
+ 157              		.cfi_endproc
+ 158              	.LFE243:
+ 159              		.fnend
+ 161              		.section	.text._ZN5Timer7read_msEv,"ax",%progbits
+ 162              		.align	1
+ 163              		.global	_ZN5Timer7read_msEv
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 4
 
 
- 164              		.thumb
- 165              		.thumb_func
- 167              	_ZN5Timer7read_msEv:
- 168              		.fnstart
- 169              	.LVL4:
- 170              	.LFB244:
+ 164              		.syntax unified
+ 165              		.thumb
+ 166              		.thumb_func
+ 168              	_ZN5Timer7read_msEv:
+ 169              		.fnstart
+ 170              	.LVL8:
+ 171              	.LFB244:
   15:lib/Timer/Timer.cpp **** 
   16:lib/Timer/Timer.cpp **** uint32_t Timer::read_ms() {
- 171              		.loc 1 16 27 is_stmt 1 view -0
- 172              		.cfi_startproc
- 173              		@ args = 0, pretend = 0, frame = 0
- 174              		@ frame_needed = 0, uses_anonymous_args = 0
- 175              		.loc 1 16 27 is_stmt 0 view .LVU25
- 176 0000 08B5     		push	{r3, lr}
- 177              		.save {r3, lr}
- 178              	.LCFI3:
- 179              		.cfi_def_cfa_offset 8
- 180              		.cfi_offset 3, -8
- 181              		.cfi_offset 14, -4
- 182 0002 2DED028B 		vpush.64	{d8}
- 183              		.vsave {d8}
- 184              	.LCFI4:
- 185              		.cfi_def_cfa_offset 16
- 186              		.cfi_offset 80, -16
- 187              		.cfi_offset 81, -12
+ 172              		.loc 1 16 27 is_stmt 1 view -0
+ 173              		.cfi_startproc
+ 174              		@ args = 0, pretend = 0, frame = 0
+ 175              		@ frame_needed = 0, uses_anonymous_args = 0
+ 176              		.loc 1 16 27 is_stmt 0 view .LVU24
+ 177 0000 08B5     		push	{r3, lr}
+ 178              		.save {r3, lr}
+ 179              	.LCFI1:
+ 180              		.cfi_def_cfa_offset 8
+ 181              		.cfi_offset 3, -8
+ 182              		.cfi_offset 14, -4
+ 183 0002 2DED028B 		vpush.64	{d8}
+ 184              		.vsave {d8}
+ 185              	.LCFI2:
+ 186              		.cfi_def_cfa_offset 16
+ 187              		.cfi_offset 80, -16
+ 188              		.cfi_offset 81, -12
   17:lib/Timer/Timer.cpp ****       return (uint32_t)((float)(DWT->CYCCNT - startTime) / HAL_RCC_GetSysClockFreq() * 1000);
- 188              		.loc 1 17 7 is_stmt 1 view .LVU26
- 189              		.loc 1 17 38 is_stmt 0 view .LVU27
- 190 0006 0D4B     		ldr	r3, .L13
- 191 0008 5B68     		ldr	r3, [r3, #4]
- 192              		.loc 1 17 47 view .LVU28
- 193 000a 0268     		ldr	r2, [r0]
- 194              		.loc 1 17 45 view .LVU29
- 195 000c 9B1A     		subs	r3, r3, r2
- 196              		.loc 1 17 25 view .LVU30
- 197 000e 07EE903A 		vmov	s15, r3	@ int
- 198 0012 B8EE678A 		vcvt.f32.u32	s16, s15
- 199              		.loc 1 17 83 view .LVU31
- 200 0016 FFF7FEFF 		bl	HAL_RCC_GetSysClockFreq
- 201              	.LVL5:
- 202              		.loc 1 17 83 view .LVU32
- 203 001a 07EE100A 		vmov	s14, r0	@ int
- 204              		.loc 1 17 58 view .LVU33
- 205 001e B8EE477A 		vcvt.f32.u32	s14, s14
- 206 0022 C8EE077A 		vdiv.f32	s15, s16, s14
- 207              		.loc 1 17 86 view .LVU34
- 208 0026 9FED067A 		vldr.32	s14, .L13+4
- 209 002a 67EE877A 		vmul.f32	s15, s15, s14
+ 189              		.loc 1 17 7 is_stmt 1 view .LVU25
+ 190              		.loc 1 17 38 is_stmt 0 view .LVU26
+ 191 0006 0D4B     		ldr	r3, .L13
+ 192 0008 5B68     		ldr	r3, [r3, #4]
+ 193              		.loc 1 17 47 view .LVU27
+ 194 000a 0268     		ldr	r2, [r0]
+ 195              		.loc 1 17 45 view .LVU28
+ 196 000c 9B1A     		subs	r3, r3, r2
+ 197              		.loc 1 17 25 view .LVU29
+ 198 000e 07EE903A 		vmov	s15, r3	@ int
+ 199 0012 B8EE678A 		vcvt.f32.u32	s16, s15
+ 200              		.loc 1 17 83 view .LVU30
+ 201 0016 FFF7FEFF 		bl	HAL_RCC_GetSysClockFreq
+ 202              	.LVL9:
+ 203              		.loc 1 17 83 view .LVU31
+ 204 001a 07EE100A 		vmov	s14, r0	@ int
+ 205              		.loc 1 17 58 view .LVU32
+ 206 001e B8EE477A 		vcvt.f32.u32	s14, s14
+ 207 0022 C8EE077A 		vdiv.f32	s15, s16, s14
+ 208              		.loc 1 17 86 view .LVU33
+ 209 0026 9FED067A 		vldr.32	s14, .L13+4
+ 210 002a 67EE877A 		vmul.f32	s15, s15, s14
   18:lib/Timer/Timer.cpp **** }
- 210              		.loc 1 18 1 view .LVU35
- 211 002e FCEEE77A 		vcvt.u32.f32	s15, s15
- 212 0032 17EE900A 		vmov	r0, s15	@ int
- 213 0036 BDEC028B 		vldm	sp!, {d8}
- 214              	.LCFI5:
- 215              		.cfi_restore 80
- 216              		.cfi_restore 81
- 217              		.cfi_def_cfa_offset 8
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 5
+ 211              		.loc 1 18 1 view .LVU34
+ 212 002e FCEEE77A 		vcvt.u32.f32	s15, s15
+ 213 0032 17EE900A 		vmov	r0, s15	@ int
+ 214 0036 BDEC028B 		vldm	sp!, {d8}
+ 215              	.LCFI3:
+ 216              		.cfi_restore 80
+ 217              		.cfi_restore 81
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 5
 
 
- 218 003a 08BD     		pop	{r3, pc}
- 219              	.L14:
- 220              		.align	2
- 221              	.L13:
- 222 003c 001000E0 		.word	-536866816
- 223 0040 00007A44 		.word	1148846080
- 224              		.cfi_endproc
- 225              	.LFE244:
- 226              		.fnend
- 228              		.section	.text._ZN5Timer7read_usEv,"ax",%progbits
- 229              		.align	1
- 230              		.global	_ZN5Timer7read_usEv
- 231              		.syntax unified
- 232              		.thumb
- 233              		.thumb_func
- 235              	_ZN5Timer7read_usEv:
- 236              		.fnstart
- 237              	.LVL6:
- 238              	.LFB245:
+ 218              		.cfi_def_cfa_offset 8
+ 219 003a 08BD     		pop	{r3, pc}
+ 220              	.L14:
+ 221              		.align	2
+ 222              	.L13:
+ 223 003c 001000E0 		.word	-536866816
+ 224 0040 00007A44 		.word	1148846080
+ 225              		.cfi_endproc
+ 226              	.LFE244:
+ 227              		.fnend
+ 229              		.section	.text._ZN5Timer7read_usEv,"ax",%progbits
+ 230              		.align	1
+ 231              		.global	_ZN5Timer7read_usEv
+ 232              		.syntax unified
+ 233              		.thumb
+ 234              		.thumb_func
+ 236              	_ZN5Timer7read_usEv:
+ 237              		.fnstart
+ 238              	.LVL10:
+ 239              	.LFB245:
   19:lib/Timer/Timer.cpp **** 
   20:lib/Timer/Timer.cpp **** uint32_t Timer::read_us() {
- 239              		.loc 1 20 27 is_stmt 1 view -0
- 240              		.cfi_startproc
- 241              		@ args = 0, pretend = 0, frame = 0
- 242              		@ frame_needed = 0, uses_anonymous_args = 0
- 243              		.loc 1 20 27 is_stmt 0 view .LVU37
- 244 0000 08B5     		push	{r3, lr}
- 245              		.save {r3, lr}
- 246              	.LCFI6:
- 247              		.cfi_def_cfa_offset 8
- 248              		.cfi_offset 3, -8
- 249              		.cfi_offset 14, -4
- 250 0002 2DED028B 		vpush.64	{d8}
- 251              		.vsave {d8}
- 252              	.LCFI7:
- 253              		.cfi_def_cfa_offset 16
- 254              		.cfi_offset 80, -16
- 255              		.cfi_offset 81, -12
+ 240              		.loc 1 20 27 is_stmt 1 view -0
+ 241              		.cfi_startproc
+ 242              		@ args = 0, pretend = 0, frame = 0
+ 243              		@ frame_needed = 0, uses_anonymous_args = 0
+ 244              		.loc 1 20 27 is_stmt 0 view .LVU36
+ 245 0000 08B5     		push	{r3, lr}
+ 246              		.save {r3, lr}
+ 247              	.LCFI4:
+ 248              		.cfi_def_cfa_offset 8
+ 249              		.cfi_offset 3, -8
+ 250              		.cfi_offset 14, -4
+ 251 0002 2DED028B 		vpush.64	{d8}
+ 252              		.vsave {d8}
+ 253              	.LCFI5:
+ 254              		.cfi_def_cfa_offset 16
+ 255              		.cfi_offset 80, -16
+ 256              		.cfi_offset 81, -12
   21:lib/Timer/Timer.cpp ****       return (uint32_t)((float)(DWT->CYCCNT - startTime) / HAL_RCC_GetSysClockFreq() * 1000000);
- 256              		.loc 1 21 7 is_stmt 1 view .LVU38
- 257              		.loc 1 21 38 is_stmt 0 view .LVU39
- 258 0006 0D4B     		ldr	r3, .L17
- 259 0008 5B68     		ldr	r3, [r3, #4]
- 260              		.loc 1 21 47 view .LVU40
- 261 000a 0268     		ldr	r2, [r0]
- 262              		.loc 1 21 45 view .LVU41
- 263 000c 9B1A     		subs	r3, r3, r2
- 264              		.loc 1 21 25 view .LVU42
- 265 000e 07EE903A 		vmov	s15, r3	@ int
- 266 0012 B8EE678A 		vcvt.f32.u32	s16, s15
- 267              		.loc 1 21 83 view .LVU43
- 268 0016 FFF7FEFF 		bl	HAL_RCC_GetSysClockFreq
- 269              	.LVL7:
- 270              		.loc 1 21 83 view .LVU44
- 271 001a 07EE100A 		vmov	s14, r0	@ int
- 272              		.loc 1 21 58 view .LVU45
- 273 001e B8EE477A 		vcvt.f32.u32	s14, s14
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 6
+ 257              		.loc 1 21 7 is_stmt 1 view .LVU37
+ 258              		.loc 1 21 38 is_stmt 0 view .LVU38
+ 259 0006 0D4B     		ldr	r3, .L17
+ 260 0008 5B68     		ldr	r3, [r3, #4]
+ 261              		.loc 1 21 47 view .LVU39
+ 262 000a 0268     		ldr	r2, [r0]
+ 263              		.loc 1 21 45 view .LVU40
+ 264 000c 9B1A     		subs	r3, r3, r2
+ 265              		.loc 1 21 25 view .LVU41
+ 266 000e 07EE903A 		vmov	s15, r3	@ int
+ 267 0012 B8EE678A 		vcvt.f32.u32	s16, s15
+ 268              		.loc 1 21 83 view .LVU42
+ 269 0016 FFF7FEFF 		bl	HAL_RCC_GetSysClockFreq
+ 270              	.LVL11:
+ 271              		.loc 1 21 83 view .LVU43
+ 272 001a 07EE100A 		vmov	s14, r0	@ int
+ 273              		.loc 1 21 58 view .LVU44
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 6
 
 
- 274 0022 C8EE077A 		vdiv.f32	s15, s16, s14
- 275              		.loc 1 21 86 view .LVU46
- 276 0026 9FED067A 		vldr.32	s14, .L17+4
- 277 002a 67EE877A 		vmul.f32	s15, s15, s14
+ 274 001e B8EE477A 		vcvt.f32.u32	s14, s14
+ 275 0022 C8EE077A 		vdiv.f32	s15, s16, s14
+ 276              		.loc 1 21 86 view .LVU45
+ 277 0026 9FED067A 		vldr.32	s14, .L17+4
+ 278 002a 67EE877A 		vmul.f32	s15, s15, s14
   22:lib/Timer/Timer.cpp **** }
- 278              		.loc 1 22 1 view .LVU47
- 279 002e FCEEE77A 		vcvt.u32.f32	s15, s15
- 280 0032 17EE900A 		vmov	r0, s15	@ int
- 281 0036 BDEC028B 		vldm	sp!, {d8}
- 282              	.LCFI8:
- 283              		.cfi_restore 80
- 284              		.cfi_restore 81
- 285              		.cfi_def_cfa_offset 8
- 286 003a 08BD     		pop	{r3, pc}
- 287              	.L18:
- 288              		.align	2
- 289              	.L17:
- 290 003c 001000E0 		.word	-536866816
- 291 0040 00247449 		.word	1232348160
- 292              		.cfi_endproc
- 293              	.LFE245:
- 294              		.fnend
- 296              		.section	.text._ZN5Timer10read_countEv,"ax",%progbits
- 297              		.align	1
- 298              		.global	_ZN5Timer10read_countEv
- 299              		.syntax unified
- 300              		.thumb
- 301              		.thumb_func
- 303              	_ZN5Timer10read_countEv:
- 304              		.fnstart
- 305              	.LVL8:
- 306              	.LFB246:
+ 279              		.loc 1 22 1 view .LVU46
+ 280 002e FCEEE77A 		vcvt.u32.f32	s15, s15
+ 281 0032 17EE900A 		vmov	r0, s15	@ int
+ 282 0036 BDEC028B 		vldm	sp!, {d8}
+ 283              	.LCFI6:
+ 284              		.cfi_restore 80
+ 285              		.cfi_restore 81
+ 286              		.cfi_def_cfa_offset 8
+ 287 003a 08BD     		pop	{r3, pc}
+ 288              	.L18:
+ 289              		.align	2
+ 290              	.L17:
+ 291 003c 001000E0 		.word	-536866816
+ 292 0040 00247449 		.word	1232348160
+ 293              		.cfi_endproc
+ 294              	.LFE245:
+ 295              		.fnend
+ 297              		.section	.text._ZN5Timer10read_countEv,"ax",%progbits
+ 298              		.align	1
+ 299              		.global	_ZN5Timer10read_countEv
+ 300              		.syntax unified
+ 301              		.thumb
+ 302              		.thumb_func
+ 304              	_ZN5Timer10read_countEv:
+ 305              		.fnstart
+ 306              	.LVL12:
+ 307              	.LFB246:
   23:lib/Timer/Timer.cpp **** 
   24:lib/Timer/Timer.cpp **** uint32_t Timer::read_count() {
- 307              		.loc 1 24 30 is_stmt 1 view -0
- 308              		.cfi_startproc
- 309              		@ args = 0, pretend = 0, frame = 0
- 310              		@ frame_needed = 0, uses_anonymous_args = 0
- 311              		@ link register save eliminated.
+ 308              		.loc 1 24 30 is_stmt 1 view -0
+ 309              		.cfi_startproc
+ 310              		@ args = 0, pretend = 0, frame = 0
+ 311              		@ frame_needed = 0, uses_anonymous_args = 0
+ 312              		@ link register save eliminated.
   25:lib/Timer/Timer.cpp ****       return DWT->CYCCNT - startTime;
- 312              		.loc 1 25 7 view .LVU49
- 313              		.loc 1 25 19 is_stmt 0 view .LVU50
- 314 0000 024B     		ldr	r3, .L20
- 315 0002 5A68     		ldr	r2, [r3, #4]
- 316              		.loc 1 25 28 view .LVU51
- 317 0004 0068     		ldr	r0, [r0]
- 318              	.LVL9:
+ 313              		.loc 1 25 7 view .LVU48
+ 314              		.loc 1 25 19 is_stmt 0 view .LVU49
+ 315 0000 024B     		ldr	r3, .L20
+ 316 0002 5A68     		ldr	r2, [r3, #4]
+ 317              		.loc 1 25 28 view .LVU50
+ 318 0004 0068     		ldr	r0, [r0]
+ 319              	.LVL13:
   26:lib/Timer/Timer.cpp **** }
- 319              		.loc 1 26 1 view .LVU52
- 320 0006 101A     		subs	r0, r2, r0
- 321 0008 7047     		bx	lr
- 322              	.L21:
- 323 000a 00BF     		.align	2
- 324              	.L20:
- 325 000c 001000E0 		.word	-536866816
- 326              		.cfi_endproc
- 327              	.LFE246:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 7
+ 320              		.loc 1 26 1 view .LVU51
+ 321 0006 101A     		subs	r0, r2, r0
+ 322 0008 7047     		bx	lr
+ 323              	.L21:
+ 324 000a 00BF     		.align	2
+ 325              	.L20:
+ 326 000c 001000E0 		.word	-536866816
+ 327              		.cfi_endproc
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 7
 
 
- 328              		.cantunwind
- 329              		.fnend
- 331              		.section	.text._ZN5Timer6set_msEm,"ax",%progbits
- 332              		.align	1
- 333              		.global	_ZN5Timer6set_msEm
- 334              		.syntax unified
- 335              		.thumb
- 336              		.thumb_func
- 338              	_ZN5Timer6set_msEm:
- 339              		.fnstart
- 340              	.LVL10:
- 341              	.LFB247:
+ 328              	.LFE246:
+ 329              		.cantunwind
+ 330              		.fnend
+ 332              		.section	.text._ZN5Timer6set_msEm,"ax",%progbits
+ 333              		.align	1
+ 334              		.global	_ZN5Timer6set_msEm
+ 335              		.syntax unified
+ 336              		.thumb
+ 337              		.thumb_func
+ 339              	_ZN5Timer6set_msEm:
+ 340              		.fnstart
+ 341              	.LVL14:
+ 342              	.LFB247:
   27:lib/Timer/Timer.cpp **** 
   28:lib/Timer/Timer.cpp **** void Timer::set_ms(uint32_t ms) {
- 342              		.loc 1 28 33 is_stmt 1 view -0
- 343              		.cfi_startproc
- 344              		@ args = 0, pretend = 0, frame = 0
- 345              		@ frame_needed = 0, uses_anonymous_args = 0
- 346              		.loc 1 28 33 is_stmt 0 view .LVU54
- 347 0000 70B5     		push	{r4, r5, r6, lr}
- 348              		.save {r4, r5, r6, lr}
- 349              	.LCFI9:
- 350              		.cfi_def_cfa_offset 16
- 351              		.cfi_offset 4, -16
- 352              		.cfi_offset 5, -12
- 353              		.cfi_offset 6, -8
- 354              		.cfi_offset 14, -4
- 355 0002 0446     		mov	r4, r0
- 356 0004 0E46     		mov	r6, r1
+ 343              		.loc 1 28 33 is_stmt 1 view -0
+ 344              		.cfi_startproc
+ 345              		@ args = 0, pretend = 0, frame = 0
+ 346              		@ frame_needed = 0, uses_anonymous_args = 0
+ 347              		.loc 1 28 33 is_stmt 0 view .LVU53
+ 348 0000 70B5     		push	{r4, r5, r6, lr}
+ 349              		.save {r4, r5, r6, lr}
+ 350              	.LCFI7:
+ 351              		.cfi_def_cfa_offset 16
+ 352              		.cfi_offset 4, -16
+ 353              		.cfi_offset 5, -12
+ 354              		.cfi_offset 6, -8
+ 355              		.cfi_offset 14, -4
+ 356 0002 0446     		mov	r4, r0
+ 357 0004 0E46     		mov	r6, r1
   29:lib/Timer/Timer.cpp ****       uint32_t current_count = DWT->CYCCNT;
- 357              		.loc 1 29 7 is_stmt 1 view .LVU55
- 358              		.loc 1 29 37 is_stmt 0 view .LVU56
- 359 0006 064B     		ldr	r3, .L24
- 360 0008 5D68     		ldr	r5, [r3, #4]
- 361              	.LVL11:
+ 358              		.loc 1 29 7 is_stmt 1 view .LVU54
+ 359              		.loc 1 29 37 is_stmt 0 view .LVU55
+ 360 0006 064B     		ldr	r3, .L24
+ 361 0008 5D68     		ldr	r5, [r3, #4]
+ 362              	.LVL15:
   30:lib/Timer/Timer.cpp ****       uint32_t sys_clk_freq = HAL_RCC_GetSysClockFreq();
- 362              		.loc 1 30 7 is_stmt 1 view .LVU57
- 363              		.loc 1 30 54 is_stmt 0 view .LVU58
- 364 000a FFF7FEFF 		bl	HAL_RCC_GetSysClockFreq
- 365              	.LVL12:
+ 363              		.loc 1 30 7 is_stmt 1 view .LVU56
+ 364              		.loc 1 30 54 is_stmt 0 view .LVU57
+ 365 000a FFF7FEFF 		bl	HAL_RCC_GetSysClockFreq
+ 366              	.LVL16:
   31:lib/Timer/Timer.cpp ****       uint32_t count_offset = (ms * (sys_clk_freq / 1000));
- 366              		.loc 1 31 7 is_stmt 1 view .LVU59
- 367              		.loc 1 31 51 is_stmt 0 view .LVU60
- 368 000e 054A     		ldr	r2, .L24+4
- 369 0010 A2FB0023 		umull	r2, r3, r2, r0
- 370 0014 9B09     		lsrs	r3, r3, #6
- 371              	.LVL13:
+ 367              		.loc 1 31 7 is_stmt 1 view .LVU58
+ 368              		.loc 1 31 51 is_stmt 0 view .LVU59
+ 369 000e 054A     		ldr	r2, .L24+4
+ 370 0010 A2FB0023 		umull	r2, r3, r2, r0
+ 371 0014 9B09     		lsrs	r3, r3, #6
+ 372              	.LVL17:
   32:lib/Timer/Timer.cpp ****       startTime = current_count - count_offset;
- 372              		.loc 1 32 7 is_stmt 1 view .LVU61
- 373              		.loc 1 32 33 is_stmt 0 view .LVU62
- 374 0016 06FB1355 		mls	r5, r6, r3, r5
- 375              	.LVL14:
- 376              		.loc 1 32 17 view .LVU63
- 377 001a 2560     		str	r5, [r4]
+ 373              		.loc 1 32 7 is_stmt 1 view .LVU60
+ 374              		.loc 1 32 33 is_stmt 0 view .LVU61
+ 375 0016 06FB1355 		mls	r5, r6, r3, r5
+ 376              	.LVL18:
+ 377              		.loc 1 32 17 view .LVU62
+ 378 001a 2560     		str	r5, [r4]
   33:lib/Timer/Timer.cpp **** }
- 378              		.loc 1 33 1 view .LVU64
- 379 001c 70BD     		pop	{r4, r5, r6, pc}
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 8
+ 379              		.loc 1 33 1 view .LVU63
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 8
 
 
- 380              	.LVL15:
- 381              	.L25:
- 382              		.loc 1 33 1 view .LVU65
- 383 001e 00BF     		.align	2
- 384              	.L24:
- 385 0020 001000E0 		.word	-536866816
- 386 0024 D34D6210 		.word	274877907
- 387              		.cfi_endproc
- 388              	.LFE247:
- 389              		.fnend
- 391              		.section	.text.wait_ns,"ax",%progbits
- 392              		.align	1
- 393              		.global	wait_ns
- 394              		.syntax unified
- 395              		.thumb
- 396              		.thumb_func
- 398              	wait_ns:
- 399              		.fnstart
- 400              	.LVL16:
- 401              	.LFB248:
+ 380 001c 70BD     		pop	{r4, r5, r6, pc}
+ 381              	.LVL19:
+ 382              	.L25:
+ 383              		.loc 1 33 1 view .LVU64
+ 384 001e 00BF     		.align	2
+ 385              	.L24:
+ 386 0020 001000E0 		.word	-536866816
+ 387 0024 D34D6210 		.word	274877907
+ 388              		.cfi_endproc
+ 389              	.LFE247:
+ 390              		.fnend
+ 392              		.section	.text.wait_ns,"ax",%progbits
+ 393              		.align	1
+ 394              		.global	wait_ns
+ 395              		.syntax unified
+ 396              		.thumb
+ 397              		.thumb_func
+ 399              	wait_ns:
+ 400              		.fnstart
+ 401              	.LVL20:
+ 402              	.LFB248:
   34:lib/Timer/Timer.cpp **** 
   35:lib/Timer/Timer.cpp **** void wait_ns(uint32_t micros) {
- 402              		.loc 1 35 31 is_stmt 1 view -0
- 403              		.cfi_startproc
- 404              		@ args = 0, pretend = 0, frame = 0
- 405              		@ frame_needed = 0, uses_anonymous_args = 0
- 406              		@ link register save eliminated.
+ 403              		.loc 1 35 31 is_stmt 1 view -0
+ 404              		.cfi_startproc
+ 405              		@ args = 0, pretend = 0, frame = 0
+ 406              		@ frame_needed = 0, uses_anonymous_args = 0
+ 407              		@ link register save eliminated.
   36:lib/Timer/Timer.cpp ****       uint32_t startTick = DWT->CYCCNT;
- 407              		.loc 1 36 7 view .LVU67
- 408              		.loc 1 36 33 is_stmt 0 view .LVU68
- 409 0000 084B     		ldr	r3, .L28
- 410 0002 5A68     		ldr	r2, [r3, #4]
- 411              	.LVL17:
+ 408              		.loc 1 36 7 view .LVU66
+ 409              		.loc 1 36 33 is_stmt 0 view .LVU67
+ 410 0000 084B     		ldr	r3, .L28
+ 411 0002 5A68     		ldr	r2, [r3, #4]
+ 412              	.LVL21:
   37:lib/Timer/Timer.cpp ****       uint32_t requiredTicks = micros * (SystemCoreClock / 1000000000);
- 412              		.loc 1 37 7 is_stmt 1 view .LVU69
- 413              		.loc 1 37 58 is_stmt 0 view .LVU70
- 414 0004 084B     		ldr	r3, .L28+4
- 415 0006 1B68     		ldr	r3, [r3]
- 416 0008 5B0A     		lsrs	r3, r3, #9
- 417 000a 0849     		ldr	r1, .L28+8
- 418 000c A1FB0313 		umull	r1, r3, r1, r3
- 419 0010 DB09     		lsrs	r3, r3, #7
- 420              		.loc 1 37 16 view .LVU71
- 421 0012 03FB00F0 		mul	r0, r3, r0
- 422              	.LVL18:
+ 413              		.loc 1 37 7 is_stmt 1 view .LVU68
+ 414              		.loc 1 37 58 is_stmt 0 view .LVU69
+ 415 0004 084B     		ldr	r3, .L28+4
+ 416 0006 1B68     		ldr	r3, [r3]
+ 417 0008 5B0A     		lsrs	r3, r3, #9
+ 418 000a 0849     		ldr	r1, .L28+8
+ 419 000c A1FB0313 		umull	r1, r3, r1, r3
+ 420 0010 DB09     		lsrs	r3, r3, #7
+ 421              		.loc 1 37 16 view .LVU70
+ 422 0012 03FB00F0 		mul	r0, r3, r0
+ 423              	.LVL22:
   38:lib/Timer/Timer.cpp **** 
   39:lib/Timer/Timer.cpp ****       while ((DWT->CYCCNT - startTick) < requiredTicks) {
- 423              		.loc 1 39 7 is_stmt 1 view .LVU72
- 424              	.L27:
- 425              		.loc 1 39 40 discriminator 1 view .LVU73
- 426              		.loc 1 39 20 is_stmt 0 discriminator 1 view .LVU74
- 427 0016 034B     		ldr	r3, .L28
- 428 0018 5B68     		ldr	r3, [r3, #4]
- 429              		.loc 1 39 27 discriminator 1 view .LVU75
- 430 001a 9B1A     		subs	r3, r3, r2
- 431              		.loc 1 39 40 discriminator 1 view .LVU76
- 432 001c 8342     		cmp	r3, r0
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 9
+ 424              		.loc 1 39 7 is_stmt 1 view .LVU71
+ 425              	.L27:
+ 426              		.loc 1 39 40 discriminator 1 view .LVU72
+ 427              		.loc 1 39 20 is_stmt 0 discriminator 1 view .LVU73
+ 428 0016 034B     		ldr	r3, .L28
+ 429 0018 5B68     		ldr	r3, [r3, #4]
+ 430              		.loc 1 39 27 discriminator 1 view .LVU74
+ 431 001a 9B1A     		subs	r3, r3, r2
+ 432              		.loc 1 39 40 discriminator 1 view .LVU75
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 9
 
 
- 433 001e FAD3     		bcc	.L27
+ 433 001c 8342     		cmp	r3, r0
+ 434 001e FAD3     		bcc	.L27
   40:lib/Timer/Timer.cpp ****             // Wait until the required number of ticks has elapsed
   41:lib/Timer/Timer.cpp ****       }
   42:lib/Timer/Timer.cpp **** }
- 434              		.loc 1 42 1 view .LVU77
- 435 0020 7047     		bx	lr
- 436              	.L29:
- 437 0022 00BF     		.align	2
- 438              	.L28:
- 439 0024 001000E0 		.word	-536866816
- 440 0028 00000000 		.word	SystemCoreClock
- 441 002c 834B0400 		.word	281475
- 442              		.cfi_endproc
- 443              	.LFE248:
- 444              		.cantunwind
- 445              		.fnend
- 447              		.section	.text.wait_us,"ax",%progbits
- 448              		.align	1
- 449              		.global	wait_us
- 450              		.syntax unified
- 451              		.thumb
- 452              		.thumb_func
- 454              	wait_us:
- 455              		.fnstart
- 456              	.LVL19:
- 457              	.LFB249:
+ 435              		.loc 1 42 1 view .LVU76
+ 436 0020 7047     		bx	lr
+ 437              	.L29:
+ 438 0022 00BF     		.align	2
+ 439              	.L28:
+ 440 0024 001000E0 		.word	-536866816
+ 441 0028 00000000 		.word	SystemCoreClock
+ 442 002c 834B0400 		.word	281475
+ 443              		.cfi_endproc
+ 444              	.LFE248:
+ 445              		.cantunwind
+ 446              		.fnend
+ 448              		.section	.text.wait_us,"ax",%progbits
+ 449              		.align	1
+ 450              		.global	wait_us
+ 451              		.syntax unified
+ 452              		.thumb
+ 453              		.thumb_func
+ 455              	wait_us:
+ 456              		.fnstart
+ 457              	.LVL23:
+ 458              	.LFB249:
   43:lib/Timer/Timer.cpp **** 
   44:lib/Timer/Timer.cpp **** void wait_us(uint32_t micros) {
- 458              		.loc 1 44 31 is_stmt 1 view -0
- 459              		.cfi_startproc
- 460              		@ args = 0, pretend = 0, frame = 0
- 461              		@ frame_needed = 0, uses_anonymous_args = 0
- 462              		@ link register save eliminated.
+ 459              		.loc 1 44 31 is_stmt 1 view -0
+ 460              		.cfi_startproc
+ 461              		@ args = 0, pretend = 0, frame = 0
+ 462              		@ frame_needed = 0, uses_anonymous_args = 0
+ 463              		@ link register save eliminated.
   45:lib/Timer/Timer.cpp ****       uint32_t startTick = DWT->CYCCNT;
- 463              		.loc 1 45 7 view .LVU79
- 464              		.loc 1 45 33 is_stmt 0 view .LVU80
- 465 0000 074B     		ldr	r3, .L32
- 466 0002 5A68     		ldr	r2, [r3, #4]
- 467              	.LVL20:
+ 464              		.loc 1 45 7 view .LVU78
+ 465              		.loc 1 45 33 is_stmt 0 view .LVU79
+ 466 0000 074B     		ldr	r3, .L32
+ 467 0002 5A68     		ldr	r2, [r3, #4]
+ 468              	.LVL24:
   46:lib/Timer/Timer.cpp ****       uint32_t requiredTicks = micros * (SystemCoreClock / 1000000);
- 468              		.loc 1 46 7 is_stmt 1 view .LVU81
- 469              		.loc 1 46 58 is_stmt 0 view .LVU82
- 470 0004 074B     		ldr	r3, .L32+4
- 471 0006 1B68     		ldr	r3, [r3]
- 472 0008 0749     		ldr	r1, .L32+8
- 473 000a A1FB0313 		umull	r1, r3, r1, r3
- 474 000e 9B0C     		lsrs	r3, r3, #18
- 475              		.loc 1 46 16 view .LVU83
- 476 0010 03FB00F0 		mul	r0, r3, r0
- 477              	.LVL21:
+ 469              		.loc 1 46 7 is_stmt 1 view .LVU80
+ 470              		.loc 1 46 58 is_stmt 0 view .LVU81
+ 471 0004 074B     		ldr	r3, .L32+4
+ 472 0006 1B68     		ldr	r3, [r3]
+ 473 0008 0749     		ldr	r1, .L32+8
+ 474 000a A1FB0313 		umull	r1, r3, r1, r3
+ 475 000e 9B0C     		lsrs	r3, r3, #18
+ 476              		.loc 1 46 16 view .LVU82
+ 477 0010 03FB00F0 		mul	r0, r3, r0
+ 478              	.LVL25:
   47:lib/Timer/Timer.cpp **** 
   48:lib/Timer/Timer.cpp ****       while ((DWT->CYCCNT - startTick) < requiredTicks) {
- 478              		.loc 1 48 7 is_stmt 1 view .LVU84
- 479              	.L31:
- 480              		.loc 1 48 40 discriminator 1 view .LVU85
- 481              		.loc 1 48 20 is_stmt 0 discriminator 1 view .LVU86
- 482 0014 024B     		ldr	r3, .L32
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 10
+ 479              		.loc 1 48 7 is_stmt 1 view .LVU83
+ 480              	.L31:
+ 481              		.loc 1 48 40 discriminator 1 view .LVU84
+ 482              		.loc 1 48 20 is_stmt 0 discriminator 1 view .LVU85
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 10
 
 
- 483 0016 5B68     		ldr	r3, [r3, #4]
- 484              		.loc 1 48 27 discriminator 1 view .LVU87
- 485 0018 9B1A     		subs	r3, r3, r2
- 486              		.loc 1 48 40 discriminator 1 view .LVU88
- 487 001a 8342     		cmp	r3, r0
- 488 001c FAD3     		bcc	.L31
+ 483 0014 024B     		ldr	r3, .L32
+ 484 0016 5B68     		ldr	r3, [r3, #4]
+ 485              		.loc 1 48 27 discriminator 1 view .LVU86
+ 486 0018 9B1A     		subs	r3, r3, r2
+ 487              		.loc 1 48 40 discriminator 1 view .LVU87
+ 488 001a 8342     		cmp	r3, r0
+ 489 001c FAD3     		bcc	.L31
   49:lib/Timer/Timer.cpp ****             // Wait until the required number of ticks has elapsed
   50:lib/Timer/Timer.cpp ****       }
   51:lib/Timer/Timer.cpp **** }
- 489              		.loc 1 51 1 view .LVU89
- 490 001e 7047     		bx	lr
- 491              	.L33:
- 492              		.align	2
- 493              	.L32:
- 494 0020 001000E0 		.word	-536866816
- 495 0024 00000000 		.word	SystemCoreClock
- 496 0028 83DE1B43 		.word	1125899907
- 497              		.cfi_endproc
- 498              	.LFE249:
- 499              		.cantunwind
- 500              		.fnend
- 502              		.section	.text.wait_ms,"ax",%progbits
- 503              		.align	1
- 504              		.global	wait_ms
- 505              		.syntax unified
- 506              		.thumb
- 507              		.thumb_func
- 509              	wait_ms:
- 510              		.fnstart
- 511              	.LVL22:
- 512              	.LFB250:
+ 490              		.loc 1 51 1 view .LVU88
+ 491 001e 7047     		bx	lr
+ 492              	.L33:
+ 493              		.align	2
+ 494              	.L32:
+ 495 0020 001000E0 		.word	-536866816
+ 496 0024 00000000 		.word	SystemCoreClock
+ 497 0028 83DE1B43 		.word	1125899907
+ 498              		.cfi_endproc
+ 499              	.LFE249:
+ 500              		.cantunwind
+ 501              		.fnend
+ 503              		.section	.text.wait_ms,"ax",%progbits
+ 504              		.align	1
+ 505              		.global	wait_ms
+ 506              		.syntax unified
+ 507              		.thumb
+ 508              		.thumb_func
+ 510              	wait_ms:
+ 511              		.fnstart
+ 512              	.LVL26:
+ 513              	.LFB250:
   52:lib/Timer/Timer.cpp **** 
   53:lib/Timer/Timer.cpp **** void wait_ms(uint32_t micros) {
- 513              		.loc 1 53 31 is_stmt 1 view -0
- 514              		.cfi_startproc
- 515              		@ args = 0, pretend = 0, frame = 0
- 516              		@ frame_needed = 0, uses_anonymous_args = 0
- 517              		@ link register save eliminated.
+ 514              		.loc 1 53 31 is_stmt 1 view -0
+ 515              		.cfi_startproc
+ 516              		@ args = 0, pretend = 0, frame = 0
+ 517              		@ frame_needed = 0, uses_anonymous_args = 0
+ 518              		@ link register save eliminated.
   54:lib/Timer/Timer.cpp ****       uint32_t startTick = DWT->CYCCNT;
- 518              		.loc 1 54 7 view .LVU91
- 519              		.loc 1 54 33 is_stmt 0 view .LVU92
- 520 0000 074B     		ldr	r3, .L36
- 521 0002 5A68     		ldr	r2, [r3, #4]
- 522              	.LVL23:
+ 519              		.loc 1 54 7 view .LVU90
+ 520              		.loc 1 54 33 is_stmt 0 view .LVU91
+ 521 0000 074B     		ldr	r3, .L36
+ 522 0002 5A68     		ldr	r2, [r3, #4]
+ 523              	.LVL27:
   55:lib/Timer/Timer.cpp ****       uint32_t requiredTicks = micros * (SystemCoreClock / 1000);
- 523              		.loc 1 55 7 is_stmt 1 view .LVU93
- 524              		.loc 1 55 58 is_stmt 0 view .LVU94
- 525 0004 074B     		ldr	r3, .L36+4
- 526 0006 1B68     		ldr	r3, [r3]
- 527 0008 0749     		ldr	r1, .L36+8
- 528 000a A1FB0313 		umull	r1, r3, r1, r3
- 529 000e 9B09     		lsrs	r3, r3, #6
- 530              		.loc 1 55 16 view .LVU95
- 531 0010 03FB00F0 		mul	r0, r3, r0
- 532              	.LVL24:
+ 524              		.loc 1 55 7 is_stmt 1 view .LVU92
+ 525              		.loc 1 55 58 is_stmt 0 view .LVU93
+ 526 0004 074B     		ldr	r3, .L36+4
+ 527 0006 1B68     		ldr	r3, [r3]
+ 528 0008 0749     		ldr	r1, .L36+8
+ 529 000a A1FB0313 		umull	r1, r3, r1, r3
+ 530 000e 9B09     		lsrs	r3, r3, #6
+ 531              		.loc 1 55 16 view .LVU94
+ 532 0010 03FB00F0 		mul	r0, r3, r0
+ 533              	.LVL28:
   56:lib/Timer/Timer.cpp **** 
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 11
+
+
   57:lib/Timer/Timer.cpp ****       while ((DWT->CYCCNT - startTick) < requiredTicks) {
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 11
-
-
- 533              		.loc 1 57 7 is_stmt 1 view .LVU96
- 534              	.L35:
- 535              		.loc 1 57 40 discriminator 1 view .LVU97
- 536              		.loc 1 57 20 is_stmt 0 discriminator 1 view .LVU98
- 537 0014 024B     		ldr	r3, .L36
- 538 0016 5B68     		ldr	r3, [r3, #4]
- 539              		.loc 1 57 27 discriminator 1 view .LVU99
- 540 0018 9B1A     		subs	r3, r3, r2
- 541              		.loc 1 57 40 discriminator 1 view .LVU100
- 542 001a 8342     		cmp	r3, r0
- 543 001c FAD3     		bcc	.L35
+ 534              		.loc 1 57 7 is_stmt 1 view .LVU95
+ 535              	.L35:
+ 536              		.loc 1 57 40 discriminator 1 view .LVU96
+ 537              		.loc 1 57 20 is_stmt 0 discriminator 1 view .LVU97
+ 538 0014 024B     		ldr	r3, .L36
+ 539 0016 5B68     		ldr	r3, [r3, #4]
+ 540              		.loc 1 57 27 discriminator 1 view .LVU98
+ 541 0018 9B1A     		subs	r3, r3, r2
+ 542              		.loc 1 57 40 discriminator 1 view .LVU99
+ 543 001a 8342     		cmp	r3, r0
+ 544 001c FAD3     		bcc	.L35
   58:lib/Timer/Timer.cpp ****             // Wait until the required number of ticks has elapsed
   59:lib/Timer/Timer.cpp ****       }
   60:lib/Timer/Timer.cpp **** }...
- 544              		.loc 1 60 1 view .LVU101
- 545 001e 7047     		bx	lr
- 546              	.L37:
- 547              		.align	2
- 548              	.L36:
- 549 0020 001000E0 		.word	-536866816
- 550 0024 00000000 		.word	SystemCoreClock
- 551 0028 D34D6210 		.word	274877907
- 552              		.cfi_endproc
- 553              	.LFE250:
- 554              		.cantunwind
- 555              		.fnend
- 557              		.text
- 558              	.Letext0:
- 559              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
- 560              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
- 561              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
- 562              		.file 5 "lib/Timer/Timer.hpp"
- 563              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
- 564              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s 			page 12
+ 545              		.loc 1 60 1 view .LVU100
+ 546 001e 7047     		bx	lr
+ 547              	.L37:
+ 548              		.align	2
+ 549              	.L36:
+ 550 0020 001000E0 		.word	-536866816
+ 551 0024 00000000 		.word	SystemCoreClock
+ 552 0028 D34D6210 		.word	274877907
+ 553              		.cfi_endproc
+ 554              	.LFE250:
+ 555              		.cantunwind
+ 556              		.fnend
+ 558              		.text
+ 559              	.Letext0:
+ 560              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 561              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 562              		.file 4 "Drivers/CMSIS/Include/core_cm4.h"
+ 563              		.file 5 "lib/Timer/Timer.hpp"
+ 564              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/system_stm32f4xx.h"
+ 565              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc.h"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s 			page 12
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 Timer.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:21     .text._ZN5TimerC2Ev:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:27     .text._ZN5TimerC2Ev:00000000 _ZN5TimerC2Ev
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:57     .text._ZN5TimerC2Ev:0000001c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:21     .text._ZN5TimerC2Ev:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:27     .text._ZN5TimerC2Ev:00000000 _ZN5TimerC2Ev
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:57     .text._ZN5TimerC2Ev:0000001c $d
     .ARM.exidx.text._ZN5TimerC2Ev:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:27     .text._ZN5TimerC2Ev:00000000 _ZN5TimerC1Ev
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:66     .text._ZN5Timer5resetEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:72     .text._ZN5Timer5resetEv:00000000 _ZN5Timer5resetEv
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:92     .text._ZN5Timer5resetEv:00000008 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:27     .text._ZN5TimerC2Ev:00000000 _ZN5TimerC1Ev
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:66     .text._ZN5Timer5resetEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:72     .text._ZN5Timer5resetEv:00000000 _ZN5Timer5resetEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:92     .text._ZN5Timer5resetEv:00000008 $d
 .ARM.exidx.text._ZN5Timer5resetEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:99     .text._ZN5Timer4readEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:105    .text._ZN5Timer4readEv:00000000 _ZN5Timer4readEv
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:155    .text._ZN5Timer4readEv:0000002c $d
- .ARM.extab.text._ZN5Timer4readEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:101    .text._ZN5Timer4readEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:107    .text._ZN5Timer4readEv:00000000 _ZN5Timer4readEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:156    .text._ZN5Timer4readEv:0000002c $d
  .ARM.exidx.text._ZN5Timer4readEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:161    .text._ZN5Timer7read_msEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:167    .text._ZN5Timer7read_msEv:00000000 _ZN5Timer7read_msEv
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:222    .text._ZN5Timer7read_msEv:0000003c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:162    .text._ZN5Timer7read_msEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:168    .text._ZN5Timer7read_msEv:00000000 _ZN5Timer7read_msEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:223    .text._ZN5Timer7read_msEv:0000003c $d
 .ARM.extab.text._ZN5Timer7read_msEv:00000000 $d
 .ARM.exidx.text._ZN5Timer7read_msEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:229    .text._ZN5Timer7read_usEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:235    .text._ZN5Timer7read_usEv:00000000 _ZN5Timer7read_usEv
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:290    .text._ZN5Timer7read_usEv:0000003c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:230    .text._ZN5Timer7read_usEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:236    .text._ZN5Timer7read_usEv:00000000 _ZN5Timer7read_usEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:291    .text._ZN5Timer7read_usEv:0000003c $d
 .ARM.extab.text._ZN5Timer7read_usEv:00000000 $d
 .ARM.exidx.text._ZN5Timer7read_usEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:297    .text._ZN5Timer10read_countEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:303    .text._ZN5Timer10read_countEv:00000000 _ZN5Timer10read_countEv
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:325    .text._ZN5Timer10read_countEv:0000000c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:298    .text._ZN5Timer10read_countEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:304    .text._ZN5Timer10read_countEv:00000000 _ZN5Timer10read_countEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:326    .text._ZN5Timer10read_countEv:0000000c $d
 .ARM.exidx.text._ZN5Timer10read_countEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:332    .text._ZN5Timer6set_msEm:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:338    .text._ZN5Timer6set_msEm:00000000 _ZN5Timer6set_msEm
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:385    .text._ZN5Timer6set_msEm:00000020 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:333    .text._ZN5Timer6set_msEm:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:339    .text._ZN5Timer6set_msEm:00000000 _ZN5Timer6set_msEm
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:386    .text._ZN5Timer6set_msEm:00000020 $d
 .ARM.exidx.text._ZN5Timer6set_msEm:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:392    .text.wait_ns:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:398    .text.wait_ns:00000000 wait_ns
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:439    .text.wait_ns:00000024 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:393    .text.wait_ns:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:399    .text.wait_ns:00000000 wait_ns
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:440    .text.wait_ns:00000024 $d
           .ARM.exidx.text.wait_ns:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:448    .text.wait_us:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:454    .text.wait_us:00000000 wait_us
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:494    .text.wait_us:00000020 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:449    .text.wait_us:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:455    .text.wait_us:00000000 wait_us
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:495    .text.wait_us:00000020 $d
           .ARM.exidx.text.wait_us:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:503    .text.wait_ms:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:509    .text.wait_ms:00000000 wait_ms
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc97jS6e.s:549    .text.wait_ms:00000020 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:504    .text.wait_ms:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:510    .text.wait_ms:00000000 wait_ms
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccqcaKN5.s:550    .text.wait_ms:00000020 $d
           .ARM.exidx.text.wait_ms:00000000 $d
 
 UNDEFINED SYMBOLS
+__aeabi_ui2d
+__aeabi_ddiv
 HAL_RCC_GetSysClockFreq
-__aeabi_unwind_cpp_pr1
 __aeabi_unwind_cpp_pr0
+__aeabi_unwind_cpp_pr1
 SystemCoreClock

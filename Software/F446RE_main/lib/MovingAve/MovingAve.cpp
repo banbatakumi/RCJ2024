@@ -2,6 +2,7 @@
 
 void MovingAve::SetLength(uint8_t length) {
       this->length_ = length;
+      length_product_ = 1.0f / length_;
 }
 
 void MovingAve::Compute(float input) {
@@ -11,11 +12,11 @@ void MovingAve::Compute(float input) {
       for (uint8_t i = 0; i < length_; i++) {
             result_ += data_[i];
       }
-      result_ /= (float)length_;
+      result_ *= (double)length_product_;
       cnt_++;
 }
 
-float MovingAve::Get() {
+double MovingAve::Get() {
       return result_;
 }
 

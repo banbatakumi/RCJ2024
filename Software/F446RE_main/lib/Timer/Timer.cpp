@@ -9,8 +9,8 @@ void Timer::reset() {
       startTime = DWT->CYCCNT;
 }
 
-float Timer::read() {
-      return (float)(DWT->CYCCNT - startTime) / HAL_RCC_GetSysClockFreq();
+double Timer::read() {
+      return (double)(DWT->CYCCNT - startTime) / HAL_RCC_GetSysClockFreq();
 }
 
 uint32_t Timer::read_ms() {

@@ -15,7 +15,7 @@
 
 typedef struct {
       float voltage;
-      uint8_t encoder_val[4];
+      uint8_t motor_rps[4];
 
       struct {
             uint8_t interval;
@@ -69,7 +69,7 @@ class Robot {
       DigitalOut kicker_charge = DigitalOut(KICKER_CHARGE_GPIO_Port, KICKER_CHARGE_Pin);
       DigitalOut kicker_kick = DigitalOut(KICKER_KICK_GPIO_Port, KICKER_KICK_Pin);
 
-      MotorDrive motor = MotorDrive(&motor1a, &motor1b, &motor2a, &motor2b, &motor3a, &motor3b, &motor4a, &motor4b, &info.Imu.yaw, info.encoder_val);
+      MotorDrive motor = MotorDrive(&motor1a, &motor1b, &motor2a, &motor2b, &motor3a, &motor3b, &motor4a, &motor4b, &info.Imu.yaw, info.motor_rps);
       DribblerDrive dribbler_front = DribblerDrive(&dribbler_front_a, &dribbler_front_b);
       DribblerDrive dribbler_back = DribblerDrive(&dribbler_back_a, &dribbler_back_b);
       Kicker kicker = Kicker(&kicker_charge, &kicker_kick);
