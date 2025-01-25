@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -31,62 +31,60 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s 			page 1
   29              	.LFB264:
    1:src/app/app.cpp **** #include "app.h"
    2:src/app/app.cpp **** 
-   3:src/app/app.cpp **** #include "maneger.hpp"
+   3:src/app/app.cpp **** #include "hardware.hpp"
    4:src/app/app.cpp **** 
-   5:src/app/app.cpp **** Maneger maneger;
+   5:src/app/app.cpp **** Hardware hardware;
    6:src/app/app.cpp **** 
-   7:src/app/app.cpp **** uint16_t adc_get_val[12];
-   8:src/app/app.cpp **** 
-   9:src/app/app.cpp **** void setup() {
-  10:src/app/app.cpp ****       maneger.HardwareInit();
-  11:src/app/app.cpp **** }
-  12:src/app/app.cpp **** 
-  13:src/app/app.cpp **** void main_app() {
-  14:src/app/app.cpp ****       while (1) {
-  15:src/app/app.cpp ****       }
-  16:src/app/app.cpp **** }
-  30              		.loc 1 16 1 view -0
+   7:src/app/app.cpp **** void setup() {
+   8:src/app/app.cpp ****       hardware.Init();
+   9:src/app/app.cpp **** }
+  10:src/app/app.cpp **** 
+  11:src/app/app.cpp **** void main_app() {
+  12:src/app/app.cpp ****       while (1) {
+  13:src/app/app.cpp ****       }
+  14:src/app/app.cpp **** }
+  30              		.loc 1 14 1 view -0
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		.loc 1 16 1 is_stmt 0 view .LVU1
+  34              		.loc 1 14 1 is_stmt 0 view .LVU1
   35 0000 0128     		cmp	r0, #1
   36 0002 00D0     		beq	.L7
   37 0004 7047     		bx	lr
   38              	.L7:
-  39              		.loc 1 16 1 discriminator 1 view .LVU2
+  39              		.loc 1 14 1 discriminator 1 view .LVU2
   40 0006 08B5     		push	{r3, lr}
   41              	.LCFI0:
   42              		.cfi_def_cfa_offset 8
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s 			page 2
-
-
   43              		.cfi_offset 3, -8
   44              		.cfi_offset 14, -4
-  45              		.loc 1 16 1 discriminator 1 view .LVU3
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s 			page 2
+
+
+  45              		.loc 1 14 1 discriminator 1 view .LVU3
   46 0008 4FF6FF73 		movw	r3, #65535
   47 000c 9942     		cmp	r1, r3
   48 000e 00D0     		beq	.L8
   49              	.LVL1:
   50              	.L1:
-  51              		.loc 1 16 1 view .LVU4
+  51              		.loc 1 14 1 view .LVU4
   52 0010 08BD     		pop	{r3, pc}
   53              	.LVL2:
   54              	.L8:
    5:src/app/app.cpp **** 
-  55              		.loc 1 5 9 view .LVU5
+  55              		.loc 1 5 10 view .LVU5
   56 0012 0248     		ldr	r0, .L9
   57              	.LVL3:
    5:src/app/app.cpp **** 
-  58              		.loc 1 5 9 view .LVU6
-  59 0014 FFF7FEFF 		bl	_ZN7ManegerC1Ev
+  58              		.loc 1 5 10 view .LVU6
+  59 0014 FFF7FEFF 		bl	_ZN8HardwareC1Ev
   60              	.LVL4:
-  61              		.loc 1 16 1 view .LVU7
+  61              		.loc 1 14 1 view .LVU7
   62 0018 FAE7     		b	.L1
   63              	.L10:
   64 001a 00BF     		.align	2
   65              	.L9:
-  66 001c 00000000 		.word	maneger
+  66 001c 00000000 		.word	hardware
   67              		.cfi_endproc
   68              	.LFE264:
   69              		.cantunwind
@@ -100,8 +98,8 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s 			page 1
   79              	setup:
   80              		.fnstart
   81              	.LFB262:
-   9:src/app/app.cpp ****       maneger.HardwareInit();
-  82              		.loc 1 9 14 is_stmt 1 view -0
+   7:src/app/app.cpp ****       hardware.Init();
+  82              		.loc 1 7 14 is_stmt 1 view -0
   83              		.cfi_startproc
   84              		@ args = 0, pretend = 0, frame = 0
   85              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -111,23 +109,23 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s 			page 1
   89              		.cfi_def_cfa_offset 8
   90              		.cfi_offset 3, -8
   91              		.cfi_offset 14, -4
-  10:src/app/app.cpp **** }
-  92              		.loc 1 10 7 view .LVU9
-  10:src/app/app.cpp **** }
-  93              		.loc 1 10 27 is_stmt 0 view .LVU10
+   8:src/app/app.cpp **** }
+  92              		.loc 1 8 7 view .LVU9
+   8:src/app/app.cpp **** }
+  93              		.loc 1 8 20 is_stmt 0 view .LVU10
   94 0002 0248     		ldr	r0, .L13
-  95 0004 FFF7FEFF 		bl	_ZN7Maneger12HardwareInitEv
+  95 0004 FFF7FEFF 		bl	_ZN8Hardware4InitEv
   96              	.LVL5:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s 			page 3
+   9:src/app/app.cpp **** 
+  97              		.loc 1 9 1 view .LVU11
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s 			page 3
 
 
-  11:src/app/app.cpp **** 
-  97              		.loc 1 11 1 view .LVU11
   98 0008 08BD     		pop	{r3, pc}
   99              	.L14:
  100 000a 00BF     		.align	2
  101              	.L13:
- 102 000c 00000000 		.word	maneger
+ 102 000c 00000000 		.word	hardware
  103              		.cfi_endproc
  104              	.LFE262:
  105              		.fnend
@@ -140,32 +138,32 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s 			page 1
  114              	main_app:
  115              		.fnstart
  116              	.LFB263:
-  13:src/app/app.cpp ****       while (1) {
- 117              		.loc 1 13 17 is_stmt 1 view -0
+  11:src/app/app.cpp ****       while (1) {
+ 117              		.loc 1 11 17 is_stmt 1 view -0
  118              		.cfi_startproc
  119              		@ Volatile: function does not return.
  120              		@ args = 0, pretend = 0, frame = 0
  121              		@ frame_needed = 0, uses_anonymous_args = 0
  122              		@ link register save eliminated.
  123              	.L16:
-  14:src/app/app.cpp ****       }
- 124              		.loc 1 14 7 discriminator 1 view .LVU13
-  14:src/app/app.cpp ****       }
- 125              		.loc 1 14 7 discriminator 1 view .LVU14
+  12:src/app/app.cpp ****       }
+ 124              		.loc 1 12 7 discriminator 1 view .LVU13
+  12:src/app/app.cpp ****       }
+ 125              		.loc 1 12 7 discriminator 1 view .LVU14
  126 0000 FEE7     		b	.L16
  127              		.cfi_endproc
  128              	.LFE263:
  129              		.cantunwind
  130              		.fnend
- 132              		.section	.text._GLOBAL__sub_I_maneger,"ax",%progbits
+ 132              		.section	.text._GLOBAL__sub_I_hardware,"ax",%progbits
  133              		.align	1
  134              		.syntax unified
  135              		.thumb
  136              		.thumb_func
- 138              	_GLOBAL__sub_I_maneger:
+ 138              	_GLOBAL__sub_I_hardware:
  139              		.fnstart
  140              	.LFB265:
- 141              		.loc 1 16 1 view -0
+ 141              		.loc 1 14 1 view -0
  142              		.cfi_startproc
  143              		@ args = 0, pretend = 0, frame = 0
  144              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -174,87 +172,78 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s 			page 1
  147              		.cfi_def_cfa_offset 8
  148              		.cfi_offset 3, -8
  149              		.cfi_offset 14, -4
- 150              		.loc 1 16 1 is_stmt 0 view .LVU16
+ 150              		.loc 1 14 1 is_stmt 0 view .LVU16
  151 0002 4FF6FF71 		movw	r1, #65535
  152 0006 0120     		movs	r0, #1
  153 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s 			page 4
-
-
  154              	.LVL6:
  155 000c 08BD     		pop	{r3, pc}
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s 			page 4
+
+
  156              		.cfi_endproc
  157              	.LFE265:
  158              		.cantunwind
  159              		.fnend
  161              		.section	.init_array,"aw",%init_array
  162              		.align	2
- 163 0000 00000000 		.word	_GLOBAL__sub_I_maneger(target1)
- 164              		.global	adc_get_val
- 165              		.section	.bss.adc_get_val,"aw",%nobits
+ 163 0000 00000000 		.word	_GLOBAL__sub_I_hardware(target1)
+ 164              		.global	hardware
+ 165              		.section	.bss.hardware,"aw",%nobits
  166              		.align	2
- 169              	adc_get_val:
- 170 0000 00000000 		.space	24
+ 169              	hardware:
+ 170 0000 00000000 		.space	200
  170      00000000 
  170      00000000 
  170      00000000 
  170      00000000 
- 171              		.global	maneger
- 172              		.section	.bss.maneger,"aw",%nobits
- 173              		.align	2
- 176              	maneger:
- 177 0000 00000000 		.space	92
- 177      00000000 
- 177      00000000 
- 177      00000000 
- 177      00000000 
- 178              		.text
- 179              	.Letext0:
- 180              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
- 181              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
- 182              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
- 183              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 184              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
- 185              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 186              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 187              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 188              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 189              		.file 11 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
- 190              		.file 12 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
- 191              		.file 13 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
- 192              		.file 14 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
- 193              		.file 15 "Lib/BufferedSerial/BufferedSerial.hpp"
- 194              		.file 16 "Lib/DigitalInOut/DigitalInOut.hpp"
- 195              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
- 196              		.file 18 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
- 197              		.file 19 "src/unit/manager/maneger.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s 			page 5
+ 171              		.text
+ 172              	.Letext0:
+ 173              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 174              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 175              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 176              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 177              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 178              		.file 7 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 179              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 180              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 181              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 182              		.file 11 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 183              		.file 12 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ 184              		.file 13 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 185              		.file 14 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 186              		.file 15 "Lib/BufferedSerial/BufferedSerial.hpp"
+ 187              		.file 16 "Lib/DigitalInOut/DigitalInOut.hpp"
+ 188              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 189              		.file 18 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
+ 190              		.file 19 "src/unit/encoder/encoder.hpp"
+ 191              		.file 20 "src/unit/line_sensor/line_sensor.hpp"
+ 192              		.file 21 "src/unit/hardware/hardware.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s 			page 5
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 app.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:21     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:26     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:66     .text._Z41__static_initialization_and_destruction_0ii:0000001c $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:176    .bss.maneger:00000000 maneger
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:21     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:26     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:66     .text._Z41__static_initialization_and_destruction_0ii:0000001c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:169    .bss.hardware:00000000 hardware
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:73     .text.setup:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:79     .text.setup:00000000 setup
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:102    .text.setup:0000000c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:73     .text.setup:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:79     .text.setup:00000000 setup
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:102    .text.setup:0000000c $d
             .ARM.extab.text.setup:00000000 $d
             .ARM.exidx.text.setup:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:108    .text.main_app:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:114    .text.main_app:00000000 main_app
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:108    .text.main_app:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:114    .text.main_app:00000000 main_app
          .ARM.exidx.text.main_app:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:133    .text._GLOBAL__sub_I_maneger:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:138    .text._GLOBAL__sub_I_maneger:00000000 _GLOBAL__sub_I_maneger
-.ARM.exidx.text._GLOBAL__sub_I_maneger:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:162    .init_array:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:169    .bss.adc_get_val:00000000 adc_get_val
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:166    .bss.adc_get_val:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccOhTlwI.s:173    .bss.maneger:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:133    .text._GLOBAL__sub_I_hardware:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:138    .text._GLOBAL__sub_I_hardware:00000000 _GLOBAL__sub_I_hardware
+.ARM.exidx.text._GLOBAL__sub_I_hardware:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:162    .init_array:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF3bxGb.s:166    .bss.hardware:00000000 $d
 
 UNDEFINED SYMBOLS
-_ZN7ManegerC1Ev
-_ZN7Maneger12HardwareInitEv
+_ZN8HardwareC1Ev
+_ZN8Hardware4InitEv
 __aeabi_unwind_cpp_pr1

@@ -137,9 +137,9 @@ C_INCLUDES =  \
 -IDrivers/CMSIS/Include \
 -Isrc/app \
 -Isrc/unit \
--Isrc/unit/line \
+-Isrc/unit/line_sensor \
 -Isrc/unit/encoder \
--Isrc/unit/manager \
+-Isrc/unit/hardware \
 -Isrc/ \
 -Ilib/
 

@@ -14,10 +14,24 @@ class LineSensor {
       LineSensor(DigitalOut *mux1a, DigitalOut *mux1b,
                  DigitalOut *mux2a, DigitalOut *mux2b,
                  DigitalOut *mux3a, DigitalOut *mux3b,
-                 uint8_t *leftside, uint8_t *rightside,
-                 uint8_t *mux1x, uint8_t *mux1y,
-                 uint8_t *mux2x, uint8_t *mux2y,
-                 uint8_t *mux3x, uint8_t *mux3y);
+                 uint8_t *leftside_val, uint8_t *rightside_val,
+                 uint8_t *mux1x_val, uint8_t *mux1y_val,
+                 uint8_t *mux2x_val, uint8_t *mux2y_val,
+                 uint8_t *mux3x_val, uint8_t *mux3y_val);
+
+      void Read();
+      void Compute();
+      void SetTh();
+      bool IsLeft();
+      bool IsRight();
+      bool IsOnLine();
+
+      bool is_white[LINE_QTY];
+
+      uint8_t white_qty;
+      uint8_t max_interval;
+      int16_t dir;
+      int16_t inside_dir;
 
      private:
       DigitalOut *mux1a_;

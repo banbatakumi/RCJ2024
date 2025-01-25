@@ -1,11 +1,11 @@
 #include "app.h"
 
-#include "maneger.hpp"
+#include "hardware.hpp"
 
-Maneger maneger;
+Hardware hardware;
 
 void setup() {
-      maneger.HardwareInit();
+      hardware.Init();
 }
 
 void main_app() {
