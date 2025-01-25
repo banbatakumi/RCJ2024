@@ -15,5 +15,6 @@ class MovingAve {
       double result_;
       uint8_t cnt_;
       uint8_t length_;
+      double length_product_;
 };
 #endif

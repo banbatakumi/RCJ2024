@@ -8,24 +8,24 @@
 extern "C" {
 
 class Timer {
-  public:
-    // using DWT for timer watching
-    Timer();
+     public:
+      // using DWT for timer watching
+      Timer();
 
-    void reset();
+      void reset();
 
-    float read();
+      double read();
 
-    uint32_t read_ms();
+      uint32_t read_ms();
 
-    uint32_t read_us();
+      uint32_t read_us();
 
-    uint32_t read_count();
+      uint32_t read_count();
 
-    void set_ms(uint32_t ms);
+      void set_ms(uint32_t ms);
 
-  private:
-    uint32_t startTime;
+     private:
+      uint32_t startTime;
 };
 
 void wait_ns(uint32_t micros);

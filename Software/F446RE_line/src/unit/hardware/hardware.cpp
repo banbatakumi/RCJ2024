@@ -30,4 +30,26 @@ void Hardware::GetSensors() {
       info.Line.mux2y_val = adc_get_val[9];
       info.Line.mux3x_val = adc_get_val[10];
       info.Line.mux3y_val = adc_get_val[11];
+
+      info.Encoder.rps[0] = encoder.GetMotorRPS(0);
+      info.Encoder.rps[1] = encoder.GetMotorRPS(1);
+      info.Encoder.rps[2] = encoder.GetMotorRPS(2);
+      info.Encoder.rps[3] = encoder.GetMotorRPS(3);
+}
+
+void Hardware::MainUart() {
+      static const uint8_t HEADER = 0xFF;  // ヘッダ
+      static const uint8_t FOOTER = 0xAA;  // ヘッダ
+      static const uint8_t data_size = 6;
+      uint8_t send_data[data_size];
+      send_data[0] = HEADER;
+      send_data[1] = info.Encoder.rps[0];
+      send_data[2] = info.Encoder.rps[1];
+      send_data[3] = info.Encoder.rps[2];
+      send_data[4] = info.Encoder.rps[3];
+      send_data[5] = FOOTER;
+      serial6.write(send_data, data_size);
+
+      // 受信
+      if (serial6.available()) info.Line.on_led = serial6.read();
 }

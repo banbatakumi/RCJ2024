@@ -11,6 +11,7 @@
 typedef struct {
       struct {
             uint8_t photo_val[4];
+            uint8_t rps[4];
       } Encoder;
 
       struct {
@@ -18,6 +19,8 @@ typedef struct {
             uint8_t mux1x_val, mux1y_val;
             uint8_t mux2x_val, mux2y_val;
             uint8_t mux3x_val, mux3y_val;
+
+            bool on_led;
       } Line;
 } Info;
 
@@ -53,7 +56,7 @@ class Hardware {
 
       void Init();
       void GetSensors();
-      void RecvImuUart();
+      void MainUart();
 
      private:
 };
