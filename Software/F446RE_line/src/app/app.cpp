@@ -13,6 +13,16 @@ uint16_t process_time_;  // us
 int process_freq;
 int encoder[4];
 
+void TimInterrupt1khz() {
+      static uint8_t i = 0;
+      i++;
+      if (i > 100) {
+            hardware.led1 = 1 - hardware.led1;
+            i = 0;
+      }
+      hardware.MainUart();
+}
+
 void setup() {
       hardware.Init();
 }
@@ -20,7 +30,6 @@ void setup() {
 void main_app() {
       while (1) {
             process_timer.reset();
-            hardware.MainUart();
             hardware.GetSensors();
             hardware.encoder.Read();
 
