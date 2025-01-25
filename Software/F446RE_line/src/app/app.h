@@ -9,7 +9,7 @@ extern "C" {
 
 void setup();
 void main_app();
-void TimInterrupt1khz();
+void TimInterrupt5khz();
 
 #ifdef __cplusplus
 }

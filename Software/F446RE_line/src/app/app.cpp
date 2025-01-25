@@ -13,7 +13,7 @@ uint16_t process_time_;  // us
 int process_freq;
 int encoder[4];
 
-void TimInterrupt1khz() {
+void TimInterrupt5khz() {
       static uint8_t i = 0;
       i++;
       if (i > 100) {
