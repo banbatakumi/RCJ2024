@@ -1,5 +1,7 @@
 #include "motor_drive.hpp"
 
+int debug;
+
 MotorDrive::MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
                        PwmSingleOut *motor2a, PwmSingleOut *motor2b,
                        PwmSingleOut *motor3a, PwmSingleOut *motor3b,
@@ -10,13 +12,14 @@ MotorDrive::MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
       this->motor_rps_ = motor_rps;
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             motor_ave[i].SetLength(MOVING_AVE_NUM);
-            motor_pid[i].SetGain(2, 6, 0.02);
-            motor_pid[i].SetLimit(100);
-            motor_pid[i].SetSamplingFreq(500);
+            motor_pid[i].SetGain(10, 20, 0.2);
+            motor_pid[i].SetLimit(1000);
+            motor_pid[i].SetSamplingFreq(1000);
+            motor_pid[i].SetType(1);
       }
 
-      pid.SetGain(5, 0.5, 0.1);
-      pid.SetLimit(100);
+      pid.SetGain(4, 0.5, 0.2);
+      pid.SetLimit(150);
       pid.SetSamplingFreq(100);
 }
 
@@ -49,21 +52,21 @@ void MotorDrive::Drive(int16_t deg, uint8_t speed) {
 
       // PIDで姿勢制御
 
-      for (uint8_t i = 0; i < MOTOR_QTY; i++) {
-            motor_pid[i].Compute(motor_rps_[i], abs(power[i]));
-            if (power[i] > 0) {
-                  power[i] = motor_pid[i].Get();
-                  if (power[i] < 0) power[i] = 0;
-            } else {
-                  power[i] = motor_pid[i].Get() * -1;
-                  if (power[i] > 0) power[i] = 0;
-            }
-      }
       pid.Compute(0, *yaw_);
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             power[i] -= pid.Get();
       }
 
+      for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+            motor_pid[i].Compute(motor_rps_[i], abs(power[i]));
+            if (power[i] > 0) {
+                  power[i] = motor_pid[i].Get();
+                  if (power[i] < MIN_POWER) power[i] = MIN_POWER;
+            } else {
+                  power[i] = motor_pid[i].Get() * -1;
+                  if (power[i] > -1 * MIN_POWER) power[i] = -1 * MIN_POWER;
+            }
+      }
       // 移動平均
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             motor_ave[i].Compute(power[i]);
@@ -73,39 +76,39 @@ void MotorDrive::Drive(int16_t deg, uint8_t speed) {
       Run(power[0], power[1], power[2], power[3]);
 }
 
-void MotorDrive::Run(int8_t motor1, int8_t motor2, int8_t motor3, int8_t motor4) {
+void MotorDrive::Run(int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4) {
       // Init();
-      if (abs(motor1) > 100) motor1 = motor1 * (abs(motor1) / motor1);
-      if (abs(motor2) > 100) motor2 = motor2 * (abs(motor2) / motor2);
-      if (abs(motor3) > 100) motor3 = motor3 * (abs(motor3) / motor3);
-      if (abs(motor4) > 100) motor4 = motor4 * (abs(motor4) / motor4);
+      if (abs(motor1) > 1000) motor1 = motor1 * (abs(motor1) / motor1);
+      if (abs(motor2) > 1000) motor2 = motor2 * (abs(motor2) / motor2);
+      if (abs(motor3) > 1000) motor3 = motor3 * (abs(motor3) / motor3);
+      if (abs(motor4) > 1000) motor4 = motor4 * (abs(motor4) / motor4);
       if (motor1 > 0) {
-            motor1a_->write(motor1 * 0.01f);
+            motor1a_->write(motor1 * 0.001f);
             motor1b_->write(0);
       } else {
             motor1a_->write(0);
-            motor1b_->write(motor1 * -0.01f);
+            motor1b_->write(motor1 * -0.001f);
       }
       if (motor2 > 0) {
-            motor2a_->write(motor2 * 0.01f);
+            motor2a_->write(motor2 * 0.001f);
             motor2b_->write(0);
       } else {
             motor2a_->write(0);
-            motor2b_->write(motor2 * -0.01f);
+            motor2b_->write(motor2 * -0.001f);
       }
       if (motor3 > 0) {
-            motor3a_->write(motor3 * 0.01f);
+            motor3a_->write(motor3 * 0.001f);
             motor3b_->write(0);
       } else {
             motor3a_->write(0);
-            motor3b_->write(motor3 * -0.01f);
+            motor3b_->write(motor3 * -0.001f);
       }
       if (motor4 > 0) {
-            motor4a_->write(motor4 * 0.01f);
+            motor4a_->write(motor4 * 0.001f);
             motor4b_->write(0);
       } else {
             motor4a_->write(0);
-            motor4b_->write(motor4 * -0.01f);
+            motor4b_->write(motor4 * -0.001f);
       }
 }
 

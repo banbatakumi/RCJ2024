@@ -18,14 +18,19 @@ class PID {
       void Compute(float input, float target);
       float Get();
 
-     private:
-      float p_, i_, d_;
-      float pre_p_;
-      float kp_, ki_, kd_;
-      float pid_;
+      void SetType(uint8_t type = 0);
 
-      float sampling_period_;
+     private:
+      double p_, i_, d_;
+      double pre_p_;
+      double kp_, ki_, kd_;
+      double pid_;
+      double pre_input_;
+
+      double sampling_period_;
       uint16_t limit_;
+
+      uint8_t type_;
 
       Timer sampling_timer;
 };

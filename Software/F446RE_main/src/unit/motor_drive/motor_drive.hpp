@@ -8,7 +8,7 @@
 #include "pid.hpp"
 
 #define MAX_POWER 100  // MAX:100
-#define MIN_POWER 5
+#define MIN_POWER 1
 #define MOVING_AVE_NUM 5
 
 #define MOTOR_QTY 4
@@ -24,7 +24,7 @@ class MotorDrive {
                  int16_t *yaw, uint8_t *motor_rps);
 
       void Drive(int16_t deg, uint8_t speed);
-      void Run(int8_t motor1, int8_t motor2, int8_t motor3, int8_t motor4);
+      void Run(int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4);
       void Brake();
       void Init();
       void CheckConnection();
