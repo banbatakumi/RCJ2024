@@ -1,22 +1,26 @@
 #include "MovingAve.hpp"
 
-void MovingAve::SetLength(uint8_t length_) {
-      this->length = length_;
+void MovingAve::SetLength(uint8_t length) {
+      this->length_ = length;
 }
 
-void MovingAve::Compute(double* input_) {
-      if (cnt >= length) cnt = 0;
-      data[cnt] = *input_;
-      *input_ = 0;
-      for (uint8_t i = 0; i < length; i++) {
-            *input_ += data[i];
+void MovingAve::Compute(float input) {
+      if (cnt_ >= length_) cnt_ = 0;
+      data_[cnt_] = input;
+      result_ = 0;
+      for (uint8_t i = 0; i < length_; i++) {
+            result_ += data_[i];
       }
-      *input_ /= (float)length;
-      cnt++;
+      result_ /= (float)length_;
+      cnt_++;
+}
+
+float MovingAve::Get() {
+      return result_;
 }
 
 void MovingAve::Reset() {
-      for (uint8_t i = 0; i < length; i++) {
-            data[i] = 0;
+      for (uint8_t i = 0; i < length_; i++) {
+            data_[i] = 0;
       }
 }

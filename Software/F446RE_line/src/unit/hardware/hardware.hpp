@@ -5,7 +5,7 @@
 #include "DigitalInOut.hpp"
 #include "MyMath.hpp"
 #include "adc.h"
-// #include "encoder.hpp"
+#include "encoder.hpp"
 // #include "line_sensor.hpp"
 
 typedef struct {
@@ -43,7 +43,7 @@ class Hardware {
 
       BufferedSerial serial6 = BufferedSerial(&huart6, 256);
 
-      // Encoder encoder = Encoder(&led_line, info.Encoder.photo_val);
+      Encoder encoder = Encoder(&led_line, info.Encoder.photo_val);
 
       // LineSensor line_sensor = LineSensor(&mux1a, &mux1b, &mux2a, &mux2b, &mux3a, &mux3b,
       //                                     &info.Line.leftside_val, &info.Line.rightside_val,
