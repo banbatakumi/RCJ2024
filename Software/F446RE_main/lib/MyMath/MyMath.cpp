@@ -95,7 +95,7 @@ const float _sin[91] = {
 
 float MyMath::sinDeg(int deg) {
       // 0~360の値に変換
-      deg = normalizeDegrees(deg);
+      deg = NormalizeDeg(deg);
       int theta_cal = deg % 90;
       if (deg >= 90 && deg < 180) {
             theta_cal = 90 - theta_cal;
@@ -145,105 +145,116 @@ float MyMath::tan(float rad) {
       return tanDeg(Degrees(rad));
 }
 
-/// 2018/03 imo lab.
-/// https://garchiving.com
-
-int MyMath::atan2(int _y, int _x) {
-      int x = abs(_x);
-      int y = abs(_y);
+int MyMath::atan2(int y_, int x_) {
+      int x = abs(x_);
+      int y = abs(y_);
       float z;
       bool c;
+      float a;
 
-      c = y < x;
-      if (c)
-            z = (float)y / x;
-      else
-            z = (float)x / y;
-
-      int a;
-      // a = z * (-1556 * z + 6072);                     //2次曲線近似
-      // a = z * (z * (-448 * z - 954) + 5894);          //3次曲線近似
-      a = z * (z * (z * (829 * z - 2011) - 58) + 5741);  // 4次曲線近似
-
-      if (c) {
-            if (_x > 0) {
-                  if (_y < 0) a *= -1;
+      if (x_ == 0 && y_ == 0) {
+            a = 0;
+      } else if (x_ == 0) {
+            if (y_ > 0) {
+                  a = 0;
+            } else {
+                  a = 180;
             }
-            if (_x < 0) {
-                  if (_y > 0) a = 18000 - a;
-                  if (_y < 0) a = a - 18000;
+      } else if (y_ == 0) {
+            if (x_ > 0) {
+                  a = 90;
+            } else {
+                  a = -90;
+            }
+      } else {
+            c = y < x;
+            if (c) {
+                  z = (float)y / x;
+            } else {
+                  z = (float)x / y;
+            }
+
+            // a = z * (-1556 * z + 6072);                     //2次曲線近似
+            a = z * (z * (-448 * z - 954) + 5894) * 0.01;  // 3次曲線近似
+            // a = z * (z * (z * (829 * z - 2011) - 58) + 5741);  // 4次曲線近似
+
+            if (c) {
+                  if (x_ > 0) {
+                        if (y_ < 0) a *= -1;
+                  }
+                  if (x_ < 0) {
+                        if (y_ > 0) a = 180 - a;
+                        if (y_ < 0) a = a - 180;
+                  }
+            }
+
+            if (!c) {
+                  if (x_ > 0) {
+                        if (y_ > 0) a = 90 - a;
+                        if (y_ < 0) a = a - 90;
+                  }
+                  if (x_ < 0) {
+                        if (y_ > 0) a = a + 90;
+                        if (y_ < 0) a = -a - 90;
+                  }
             }
       }
-
-      if (!c) {
-            if (_x > 0) {
-                  if (_y > 0) a = 9000 - a;
-                  if (_y < 0) a = a - 9000;
-            }
-            if (_x < 0) {
-                  if (_y > 0) a = a + 9000;
-                  if (_y < 0) a = -a - 9000;
-            }
-      }
-
       return a;
 }
 
-int MyMath::normalizeDegrees(int theta) {
-      theta %= 360;
-      if (theta < 0)
-            theta += 360;
+int MyMath::NormalizeDeg180(int theta) {
+      while (theta < -180) theta += 360;
+      while (theta > 180) theta -= 360;
       return theta;
 }
 
-float MyMath::normalizeRadians(float theta) {
-      while (theta < 0) {
-            theta += TWO_PI;
-      }
-      while (theta >= TWO_PI) {
-            theta -= TWO_PI;
-      }
+float MyMath::NormalizeRad180(float theta) {
+      while (theta < PI * -1) theta += TWO_PI;
+      while (theta > PI) theta -= TWO_PI;
+}
+
+int MyMath::NormalizeDeg(int theta) {
+      while (theta < 0) theta += 360;
+      while (theta > 360) theta -= 360;
       return theta;
 }
 
-int MyMath::gapDegrees180(int deg1, int deg2) {
+float MyMath::NormalizeRad(float theta) {
+      while (theta < 0) theta += TWO_PI;
+      while (theta >= TWO_PI) theta -= TWO_PI;
+      return theta;
+}
+
+int MyMath::GapDeg180(int deg1, int deg2) {
       int a = deg1 - deg2;
-      while (a < 0)
-            a += 360;
-      while (a > 180)
-            a -= 360;
+      while (a < 0) a += 360;
+      while (a > 180) a -= 360;
       return a;
 }
 
-int MyMath::gapDegrees(int deg1, int deg2) {
-      int a = normalizeDegrees(deg1) - normalizeDegrees(deg2);
-      while (a < 0)
-            a += 360;
+int MyMath::GapDeg(int deg1, int deg2) {
+      int a = NormalizeDeg(deg1) - NormalizeDeg(deg2);
+      while (a < 0) a += 360;
       return a;
 }
 
-float MyMath::gapRadians180(float rad1, float rad2) {
+float MyMath::GapRad180(float rad1, float rad2) {
       float a = rad1 - rad2;
-      while (a < 0)
-            a += TWO_PI;
-      while (a > PI)
-            a -= TWO_PI;
+      while (a < 0) a += TWO_PI;
+      while (a > PI) a -= TWO_PI;
       return a;
 }
 
-float MyMath::gapRadians(float rad1, float rad2) {
-      float a = normalizeRadians(rad1) - normalizeRadians(rad2);
-      if (a < 0)
-            a += TWO_PI;
+float MyMath::GapRad(float rad1, float rad2) {
+      float a = NormalizeRad(rad1) - NormalizeRad(rad2);
+      if (a < 0) a += TWO_PI;
       return a;
 }
 
 float MyMath::sqrt(float x) {
       float s, last;
 
-      if (x < 0.0) {
-            return 0;
-      }
+      if (x < 0.0) return 0;
 
       if (x > 1.0) {
             s = x;
@@ -257,16 +268,4 @@ float MyMath::sqrt(float x) {
       } while (s < last);
 
       return last;
-}
-
-int MyMath::SimplifyDeg(int deg) {
-      int degree = deg;
-      while (degree > 180) {
-            degree -= 360;
-      }
-      while (degree < -180) {
-            degree += 360;
-      }
-
-      return degree;
 }

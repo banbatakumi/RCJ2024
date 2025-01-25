@@ -4,15 +4,18 @@ MotorDrive::MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
                        PwmSingleOut *motor2a, PwmSingleOut *motor2b,
                        PwmSingleOut *motor3a, PwmSingleOut *motor3b,
                        PwmSingleOut *motor4a, PwmSingleOut *motor4b,
-                       int16_t *yaw, uint8_t *encoder_val)
+                       int16_t *yaw, uint8_t *motor_rps)
     : motor1a_(motor1a), motor1b_(motor1b), motor2a_(motor2a), motor2b_(motor2b), motor3a_(motor3a), motor3b_(motor3b), motor4a_(motor4a), motor4b_(motor4b) {
       this->yaw_ = yaw;
-      this->encoder_val_ = encoder_val;
+      this->motor_rps_ = motor_rps;
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             motor_ave[i].SetLength(MOVING_AVE_NUM);
+            motor_pid[i].SetGain(2, 6, 0.02);
+            motor_pid[i].SetLimit(100);
+            motor_pid[i].SetSamplingFreq(500);
       }
 
-      pid.SetGain(2, 0.5, 0.1);
+      pid.SetGain(5, 0.5, 0.1);
       pid.SetLimit(100);
       pid.SetSamplingFreq(100);
 }
@@ -29,7 +32,7 @@ void MotorDrive::Init() {
 }
 
 void MotorDrive::Drive(int16_t deg, uint8_t speed) {
-      int8_t power[MOTOR_QTY];
+      int16_t power[MOTOR_QTY];
 
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
@@ -45,6 +48,17 @@ void MotorDrive::Drive(int16_t deg, uint8_t speed) {
       }
 
       // PIDで姿勢制御
+
+      for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+            motor_pid[i].Compute(motor_rps_[i], abs(power[i]));
+            if (power[i] > 0) {
+                  power[i] = motor_pid[i].Get();
+                  if (power[i] < 0) power[i] = 0;
+            } else {
+                  power[i] = motor_pid[i].Get() * -1;
+                  if (power[i] > 0) power[i] = 0;
+            }
+      }
       pid.Compute(0, *yaw_);
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             power[i] -= pid.Get();
@@ -53,7 +67,7 @@ void MotorDrive::Drive(int16_t deg, uint8_t speed) {
       // 移動平均
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             motor_ave[i].Compute(power[i]);
-            power[i] = motor_ave[0].Get();
+            power[i] = motor_ave[i].Get();
       }
 
       Run(power[0], power[1], power[2], power[3]);

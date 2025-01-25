@@ -23,6 +23,8 @@ void Mode::MainMode() {
       encoder[2] = robot->info.motor_rps[2];
       encoder[3] = robot->info.motor_rps[3];
 
+      robot->motor.Drive(0, 30);
+
       //  定周期処理
       process_time_ = process_timer.read_us();
       if (process_time_ < PERIOD_US) {

@@ -21,7 +21,7 @@ class MotorDrive {
                  PwmSingleOut *motor2a, PwmSingleOut *motor2b,
                  PwmSingleOut *motor3a, PwmSingleOut *motor3b,
                  PwmSingleOut *motor4a, PwmSingleOut *motor4b,
-                 int16_t *yaw, uint8_t *encoder_val);
+                 int16_t *yaw, uint8_t *motor_rps);
 
       void Drive(int16_t deg, uint8_t speed);
       void Run(int8_t motor1, int8_t motor2, int8_t motor3, int8_t motor4);
@@ -41,9 +41,11 @@ class MotorDrive {
 
       MovingAve motor_ave[MOTOR_QTY];
 
+      PID motor_pid[MOTOR_QTY];
+
       PID pid;
       int16_t *yaw_;
-      uint8_t *encoder_val_;
+      uint8_t *motor_rps_;
 
       Timer period_timer;
 };

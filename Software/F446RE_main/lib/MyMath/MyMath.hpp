@@ -128,14 +128,15 @@ float cos(float rad);
 float tan(float rad);
 int atan2(int _y, int _x);
 
-int normalizeDegrees(int theta);
-float normalizeRadians(float theta);
-int gapDegrees180(int deg1, int deg2);
-int gapDegrees(int deg1, int deg2);
-float gapRadians180(float rad1, float rad2);
-float gapRadians(float rad1, float rad2);
+int NormalizeDeg180(int theta);
+float NormalizeRad180(float theta);
+int NormalizeDeg(int theta);
+float NormalizeRad(float theta);
+int GapDeg180(int deg1, int deg2);
+int GapDeg(int deg1, int deg2);
+float GapRad180(float rad1, float rad2);
+float GapRad(float rad1, float rad2);
 float sqrt(float x);
-int SimplifyDeg(int deg);
 }  // namespace MyMath
 }
 #endif
