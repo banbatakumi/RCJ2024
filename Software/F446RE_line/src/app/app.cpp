@@ -36,6 +36,7 @@ void main_app() {
             hardware.encoder.Read();
             hardware.line.Read();
             hardware.line.Compute();
+            // コメント
 
             // cortex-debug
             encoder[0] = hardware.info.Encoder.rps[0];
