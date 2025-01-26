@@ -13,7 +13,7 @@ void Mode::MainMode() {
       robot->RecvImuUart();
       robot->RecvLineUart();
       robot->GetSensors();
-      robot->info.Line.on_led = 1;
+      robot->info.Line.on_led = 1;  // 使えない
 
       // cortex-debug
       yaw = robot->info.Imu.yaw;
