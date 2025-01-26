@@ -34,13 +34,8 @@ void main_app() {
             process_timer.reset();
             hardware.GetSensors();
             hardware.encoder.Read();
-            if (hardware.info.Line.do_read == 1) {
-                  hardware.line.OnLed();
-                  hardware.line.Read();
-                  hardware.line.Compute();
-            } else {
-                  hardware.line.OffLed();
-            }
+            hardware.line.Read();
+            hardware.line.Compute();
 
             // cortex-debug
             encoder[0] = hardware.info.Encoder.rps[0];

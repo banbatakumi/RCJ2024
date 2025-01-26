@@ -17,6 +17,7 @@ void Hardware::Init() {
       serial6.init();
       HAL_Delay(100);
       led3 = 0;
+      line.OnLed();
 }
 
 void Hardware::GetSensors() {
