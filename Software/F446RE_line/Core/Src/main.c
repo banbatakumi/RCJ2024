@@ -60,7 +60,7 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-      if (htim == &htim6) {
+      if (htim == &htim10) {
             TimInterrupt2khz();
       }
 }
@@ -96,10 +96,10 @@ int main(void) {
       MX_DMA_Init();
       MX_ADC1_Init();
       MX_USART6_UART_Init();
-      MX_TIM6_Init();
+      MX_TIM10_Init();
       /* USER CODE BEGIN 2 */
       setup();
-      HAL_TIM_Base_Start_IT(&htim6);
+      HAL_TIM_Base_Start_IT(&htim10);
       /* USER CODE END 2 */
 
       /* Infinite loop */

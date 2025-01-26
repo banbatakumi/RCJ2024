@@ -6,7 +6,7 @@
 #include "MyMath.hpp"
 #include "adc.h"
 #include "encoder.hpp"
-// #include "line_sensor.hpp"
+#include "line.hpp"
 
 typedef struct {
       struct {
@@ -20,7 +20,14 @@ typedef struct {
             uint8_t mux2x_val, mux2y_val;
             uint8_t mux3x_val, mux3y_val;
 
-            bool on_led;
+            bool do_read;
+
+            int16_t dir;
+            uint8_t max_interval;
+            bool is_half_out;
+            bool is_on_line;
+            bool is_leftside_white;
+            bool is_rightside_white;
       } Line;
 } Info;
 
@@ -48,11 +55,11 @@ class Hardware {
 
       Encoder encoder = Encoder(&led_line, info.Encoder.photo_val);
 
-      // LineSensor line_sensor = LineSensor(&mux1a, &mux1b, &mux2a, &mux2b, &mux3a, &mux3b,
-      //                                     &info.Line.leftside_val, &info.Line.rightside_val,
-      //                                     &info.Line.mux1x_val, &info.Line.mux1y_val,
-      //                                     &info.Line.mux2x_val, &info.Line.mux2y_val,
-      //                                     &info.Line.mux3x_val, &info.Line.mux3y_val);
+      Line line = Line(&led_line, &mux1a, &mux1b, &mux2a, &mux2b, &mux3a, &mux3b,
+                       &info.Line.leftside_val, &info.Line.rightside_val,
+                       &info.Line.mux1x_val, &info.Line.mux1y_val,
+                       &info.Line.mux2x_val, &info.Line.mux2y_val,
+                       &info.Line.mux3x_val, &info.Line.mux3y_val);
 
       void Init();
       void GetSensors();
