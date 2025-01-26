@@ -21,12 +21,6 @@ bool is_leftside_white;
 bool is_rightside_white;
 
 void TimInterrupt2khz() {
-      static uint8_t i = 0;
-      i++;
-      if (i > 100) {
-            hardware.led1 = 1 - hardware.led1;
-            i = 0;
-      }
       hardware.MainUart();
 }
 
@@ -64,9 +58,9 @@ void main_app() {
             //  定周期処理
             process_time_ = process_timer.read_us();
             if (process_time_ < PERIOD_US) {
-                  hardware.led2 = 1;
+                  hardware.led1 = 1;
                   while (process_timer.read_us() < PERIOD_US);
-                  hardware.led2 = 0;
+                  hardware.led1 = 0;
             }
             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
       }
