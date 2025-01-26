@@ -37,19 +37,19 @@ void setup() {
       // supply your own gyro offsets here, scaled for min sensitivity
 
       // robot1
-      mpu.setXAccelOffset(-4503);
-      mpu.setYAccelOffset(-4119);
-      mpu.setZAccelOffset(1411);
-      mpu.setXGyroOffset(98);
-      mpu.setYGyroOffset(8);
-      mpu.setZGyroOffset(-3);
+      // mpu.setXAccelOffset(-4503);
+      // mpu.setYAccelOffset(-4119);
+      // mpu.setZAccelOffset(1411);
+      // mpu.setXGyroOffset(98);
+      // mpu.setYGyroOffset(8);
+      // mpu.setZGyroOffset(-3);
       // robot2
-      // mpu.setXAccelOffset(-7817);
-      // mpu.setYAccelOffset(-1307);
-      // mpu.setZAccelOffset(1107);
-      // mpu.setXGyroOffset(1);
-      // mpu.setYGyroOffset(26);
-      // mpu.setZGyroOffset(11);
+      mpu.setXAccelOffset(-7817);
+      mpu.setYAccelOffset(-1307);
+      mpu.setZAccelOffset(1107);
+      mpu.setXGyroOffset(1);
+      mpu.setYGyroOffset(26);
+      mpu.setZGyroOffset(11);
 
       digitalWrite(LED_GREEN, LOW);
       if (devStatus == 0) {
@@ -79,15 +79,15 @@ void loop() {
                   int16_t roll = ypr[1] * CHANGE_TO_DEG * 10 + 1800;
 
                   // UART送信
-                  // Serial.write(0xFF);
-                  // Serial.write((uint8_t)((yaw & 0xFF00) >> 8));
-                  // Serial.write((uint8_t)(yaw & 0x00FF));
-                  // Serial.write((uint8_t)((pitch & 0xFF00) >> 8));
-                  // Serial.write((uint8_t)(pitch & 0x00FF));
-                  // Serial.write((uint8_t)((roll & 0xFF00) >> 8));
-                  // Serial.write((uint8_t)(roll & 0x00FF));
-                  // Serial.write(0xAA);
-                  Serial.println(yaw);
+                  Serial.write(0xFF);
+                  Serial.write((uint8_t)((yaw & 0xFF00) >> 8));
+                  Serial.write((uint8_t)(yaw & 0x00FF));
+                  Serial.write((uint8_t)((pitch & 0xFF00) >> 8));
+                  Serial.write((uint8_t)(pitch & 0x00FF));
+                  Serial.write((uint8_t)((roll & 0xFF00) >> 8));
+                  Serial.write((uint8_t)(roll & 0x00FF));
+                  Serial.write(0xAA);
+                  // Serial.println(yaw - 1800);
             }
       }
 }
