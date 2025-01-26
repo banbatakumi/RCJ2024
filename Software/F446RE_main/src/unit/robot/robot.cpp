@@ -30,10 +30,10 @@ void Robot::HardwareInit() {
       dribbler_back_b.init();
 
       // 接続確認
-      // motor.CheckConnection();
-      // HAL_Delay(200);
-      // dribbler_front.CheckConnection();
-      // dribbler_back.CheckConnection();
+      motor.CheckConnection();
+      HAL_Delay(200);
+      dribbler_front.CheckConnection();
+      dribbler_back.CheckConnection();
 }
 
 void Robot::GetSensors() {
@@ -74,7 +74,7 @@ void Robot::RecvImuUart() {
 void Robot::RecvLineUart() {
       static const uint8_t HEADER = 0xFF;   // ヘッダ
       static const uint8_t FOOTER = 0xAA;   // ヘッダ
-      static const uint8_t data_size = 4;   // データのサイズ
+      static const uint8_t data_size = 6;   // データのサイズ
       static uint8_t index = 0;             // 受信したデータのインデックスカウンター
       static uint8_t recv_data[data_size];  // 受信したデータ
       static uint8_t recv_byte;
@@ -94,12 +94,12 @@ void Robot::RecvLineUart() {
                         info.motor_rps[1] = recv_data[1];
                         info.motor_rps[2] = recv_data[2];
                         info.motor_rps[3] = recv_data[3];
-                        // info.Line.interval = recv_data[2];
-                        // info.Line.is_on_line = (recv_data[3] >> 2) & 1;
-                        // info.Line.is_leftside = (recv_data[3] >> 1) & 1;
-                        // info.Line.is_rightside = recv_data[3] & 1;
-                        // info.Line.dir = recv_data[4] * 2 - 180;
-                        // info.Line.inside_dir = recv_data[5] * 2 - 180;
+                        info.Line.interval = recv_data[4] >> 4;
+                        info.Line.is_on_line = (recv_data[4] >> 3) & 1;
+                        info.Line.is_half_out = (recv_data[4] >> 2) & 1;
+                        info.Line.is_leftside = (recv_data[4] >> 1) & 1;
+                        info.Line.is_rightside = recv_data[4] & 1;
+                        info.Line.dir = recv_data[5] * 2 - 180;
                   }
                   index = 0;
             } else {

@@ -20,6 +20,7 @@ typedef struct {
       struct {
             uint8_t interval;
             bool is_on_line;
+            bool is_half_out;
             bool is_leftside;
             bool is_rightside;
             int16_t dir;
