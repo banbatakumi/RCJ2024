@@ -69,7 +69,7 @@ void setup() {
 
 void loop() {
       while (1) {                                           // 呼び出しのオーバーヘッド節減
-            if (mpu.dmpGetCurrentFIFOPacket(fifoBuffer)) {  // Get the Latest packet
+            if (mpu.dmpGetCurrentFIFOPacket(fifoBuffer)) {  // Get the Latest packet 200Hz
                   mpu.dmpGetQuaternion(&q, fifoBuffer);
                   mpu.dmpGetGravity(&gravity, &q);
                   mpu.dmpGetYawPitchRoll(ypr, &q, &gravity);
