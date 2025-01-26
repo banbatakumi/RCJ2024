@@ -1,0 +1,1875 @@
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"robot.cpp"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.file 1 "src/unit/robot/robot.cpp"
+  20              		.section	.text._ZN14BufferedSerial4readEv,"axG",%progbits,_ZN14BufferedSerial4readEv,comdat
+  21              		.align	1
+  22              		.weak	_ZN14BufferedSerial4readEv
+  23              		.syntax unified
+  24              		.thumb
+  25              		.thumb_func
+  27              	_ZN14BufferedSerial4readEv:
+  28              		.fnstart
+  29              	.LVL0:
+  30              	.LFB245:
+  31              		.file 2 "Lib/BufferedSerial/BufferedSerial.hpp"
+   1:Lib/BufferedSerial/BufferedSerial.hpp **** #ifndef __BUFFERED_SERIAL__
+   2:Lib/BufferedSerial/BufferedSerial.hpp **** #define __BUFFERED_SERIAL__
+   3:Lib/BufferedSerial/BufferedSerial.hpp **** 
+   4:Lib/BufferedSerial/BufferedSerial.hpp **** #include <stdio.h>
+   5:Lib/BufferedSerial/BufferedSerial.hpp **** 
+   6:Lib/BufferedSerial/BufferedSerial.hpp **** #include "usart.h"
+   7:Lib/BufferedSerial/BufferedSerial.hpp **** 
+   8:Lib/BufferedSerial/BufferedSerial.hpp **** #ifdef __cplusplus
+   9:Lib/BufferedSerial/BufferedSerial.hpp **** 
+  10:Lib/BufferedSerial/BufferedSerial.hpp **** /*
+  11:Lib/BufferedSerial/BufferedSerial.hpp ****  Initの順番をDMAが先になるようにする
+  12:Lib/BufferedSerial/BufferedSerial.hpp ****  - MX_DMA_Init();
+  13:Lib/BufferedSerial/BufferedSerial.hpp ****  - MX_USART2_UART_Init();
+  14:Lib/BufferedSerial/BufferedSerial.hpp ****  - DMAはCircularモードにする
+  15:Lib/BufferedSerial/BufferedSerial.hpp **** */
+  16:Lib/BufferedSerial/BufferedSerial.hpp **** 
+  17:Lib/BufferedSerial/BufferedSerial.hpp **** class BufferedSerial {
+  18:Lib/BufferedSerial/BufferedSerial.hpp ****      public:
+  19:Lib/BufferedSerial/BufferedSerial.hpp ****       BufferedSerial(UART_HandleTypeDef *huart, uint16_t rxBufSize)
+  20:Lib/BufferedSerial/BufferedSerial.hpp ****           : _huart(huart),
+  21:Lib/BufferedSerial/BufferedSerial.hpp ****             _rxBuf(new uint8_t[rxBufSize]),
+  22:Lib/BufferedSerial/BufferedSerial.hpp ****             rxTop(0),
+  23:Lib/BufferedSerial/BufferedSerial.hpp ****             rxBtm(0),
+  24:Lib/BufferedSerial/BufferedSerial.hpp ****             _rxBufSize(rxBufSize),
+  25:Lib/BufferedSerial/BufferedSerial.hpp ****             _useDMA(false) {
+  26:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+  27:Lib/BufferedSerial/BufferedSerial.hpp ****       void init(bool dma = false) {
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 2
+
+
+  28:Lib/BufferedSerial/BufferedSerial.hpp ****             _useDMA = dma;
+  29:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
+  30:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
+  31:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+  32:Lib/BufferedSerial/BufferedSerial.hpp **** 
+  33:Lib/BufferedSerial/BufferedSerial.hpp ****       bool available() {
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             uint16_t rxTop = _rxBufSize - _huart->hdmarx->Instance->NDTR;
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+  36:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+  37:Lib/BufferedSerial/BufferedSerial.hpp **** 
+  38:Lib/BufferedSerial/BufferedSerial.hpp ****       uint8_t read() {
+  32              		.loc 2 38 15 view -0
+  33              		.cfi_startproc
+  34              		@ args = 0, pretend = 0, frame = 0
+  35              		@ frame_needed = 0, uses_anonymous_args = 0
+  36              		@ link register save eliminated.
+  37              		.loc 2 38 15 is_stmt 0 view .LVU1
+  38 0000 0246     		mov	r2, r0
+  39:Lib/BufferedSerial/BufferedSerial.hpp ****             uint16_t rxTop = _rxBufSize - _huart->hdmarx->Instance->NDTR;
+  39              		.loc 2 39 13 is_stmt 1 view .LVU2
+  40              		.loc 2 39 30 is_stmt 0 view .LVU3
+  41 0002 B0F80CC0 		ldrh	ip, [r0, #12]
+  42              		.loc 2 39 43 view .LVU4
+  43 0006 0368     		ldr	r3, [r0]
+  44              		.loc 2 39 51 view .LVU5
+  45 0008 DB6B     		ldr	r3, [r3, #60]
+  46              		.loc 2 39 59 view .LVU6
+  47 000a 1B68     		ldr	r3, [r3]
+  48              		.loc 2 39 69 view .LVU7
+  49 000c 5B68     		ldr	r3, [r3, #4]
+  50              		.loc 2 39 41 view .LVU8
+  51 000e 9BB2     		uxth	r3, r3
+  52              		.loc 2 39 69 view .LVU9
+  53 0010 ACEB0303 		sub	r3, ip, r3
+  54 0014 9BB2     		uxth	r3, r3
+  55              	.LVL1:
+  40:Lib/BufferedSerial/BufferedSerial.hpp ****             if (rxTop == rxBtm) {
+  56              		.loc 2 40 13 is_stmt 1 view .LVU10
+  57              		.loc 2 40 26 is_stmt 0 view .LVU11
+  58 0016 4189     		ldrh	r1, [r0, #10]
+  59              		.loc 2 40 13 view .LVU12
+  60 0018 9942     		cmp	r1, r3
+  61 001a 08D0     		beq	.L3
+  41:Lib/BufferedSerial/BufferedSerial.hpp ****                   return 0;
+  42:Lib/BufferedSerial/BufferedSerial.hpp ****             }
+  43:Lib/BufferedSerial/BufferedSerial.hpp ****             uint8_t data = _rxBuf[rxBtm];
+  62              		.loc 2 43 13 is_stmt 1 view .LVU13
+  63              		.loc 2 43 28 is_stmt 0 view .LVU14
+  64 001c 4368     		ldr	r3, [r0, #4]
+  65              	.LVL2:
+  66              		.loc 2 43 21 view .LVU15
+  67 001e 585C     		ldrb	r0, [r3, r1]	@ zero_extendqisi2
+  68              	.LVL3:
+  44:Lib/BufferedSerial/BufferedSerial.hpp ****             rxBtm = (rxBtm + 1) % _rxBufSize;
+  69              		.loc 2 44 13 is_stmt 1 view .LVU16
+  70              		.loc 2 44 28 is_stmt 0 view .LVU17
+  71 0020 0131     		adds	r1, r1, #1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 3
+
+
+  72              		.loc 2 44 33 view .LVU18
+  73 0022 91FBFCF3 		sdiv	r3, r1, ip
+  74 0026 0CFB1311 		mls	r1, ip, r3, r1
+  75              		.loc 2 44 19 view .LVU19
+  76 002a 5181     		strh	r1, [r2, #10]	@ movhi
+  45:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("top:%d btm:%d NDTR:%d data:%d\n", rxTop, rxBtm, _huart->hdmarx->Instance->ND
+  46:Lib/BufferedSerial/BufferedSerial.hpp ****             return data;
+  77              		.loc 2 46 13 is_stmt 1 view .LVU20
+  78              		.loc 2 46 20 is_stmt 0 view .LVU21
+  79 002c 7047     		bx	lr
+  80              	.LVL4:
+  81              	.L3:
+  41:Lib/BufferedSerial/BufferedSerial.hpp ****             }
+  82              		.loc 2 41 26 view .LVU22
+  83 002e 0020     		movs	r0, #0
+  84              	.LVL5:
+  47:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+  85              		.loc 2 47 7 view .LVU23
+  86 0030 7047     		bx	lr
+  87              		.cfi_endproc
+  88              	.LFE245:
+  89              		.cantunwind
+  90              		.fnend
+  92              		.section	.text._ZN12PwmSingleOut4initEv,"axG",%progbits,_ZN12PwmSingleOut4initEv,comdat
+  93              		.align	1
+  94              		.weak	_ZN12PwmSingleOut4initEv
+  95              		.syntax unified
+  96              		.thumb
+  97              		.thumb_func
+  99              	_ZN12PwmSingleOut4initEv:
+ 100              		.fnstart
+ 101              	.LVL6:
+ 102              	.LFB265:
+ 103              		.file 3 "Lib/PWMSingle/PWMSingle.hpp"
+   1:Lib/PWMSingle/PWMSingle.hpp **** #ifndef __PWMSINGLE__
+   2:Lib/PWMSingle/PWMSingle.hpp **** #define __PWMSINGLE__
+   3:Lib/PWMSingle/PWMSingle.hpp **** 
+   4:Lib/PWMSingle/PWMSingle.hpp **** #include "MyMath.hpp"
+   5:Lib/PWMSingle/PWMSingle.hpp **** #include "tim.h"
+   6:Lib/PWMSingle/PWMSingle.hpp **** 
+   7:Lib/PWMSingle/PWMSingle.hpp **** #ifdef __cplusplus
+   8:Lib/PWMSingle/PWMSingle.hpp **** extern "C" {
+   9:Lib/PWMSingle/PWMSingle.hpp **** 
+  10:Lib/PWMSingle/PWMSingle.hpp **** class PwmSingleOut {
+  11:Lib/PWMSingle/PWMSingle.hpp ****      public:
+  12:Lib/PWMSingle/PWMSingle.hpp ****       PwmSingleOut(TIM_HandleTypeDef *htim, uint32_t channel)
+  13:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+  14:Lib/PWMSingle/PWMSingle.hpp ****       }
+  15:Lib/PWMSingle/PWMSingle.hpp **** 
+  16:Lib/PWMSingle/PWMSingle.hpp ****       void init() {
+ 104              		.loc 3 16 12 is_stmt 1 view -0
+ 105              		.cfi_startproc
+ 106              		@ args = 0, pretend = 0, frame = 0
+ 107              		@ frame_needed = 0, uses_anonymous_args = 0
+ 108              		.loc 3 16 12 is_stmt 0 view .LVU25
+ 109 0000 10B5     		push	{r4, lr}
+ 110              		.save {r4, lr}
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 4
+
+
+ 111              	.LCFI0:
+ 112              		.cfi_def_cfa_offset 8
+ 113              		.cfi_offset 4, -8
+ 114              		.cfi_offset 14, -4
+ 115 0002 0446     		mov	r4, r0
+  17:Lib/PWMSingle/PWMSingle.hpp ****             HAL_TIM_PWM_Start(_htim, _channel);
+ 116              		.loc 3 17 13 is_stmt 1 view .LVU26
+ 117              		.loc 3 17 30 is_stmt 0 view .LVU27
+ 118 0004 4168     		ldr	r1, [r0, #4]
+ 119 0006 0068     		ldr	r0, [r0]
+ 120              	.LVL7:
+ 121              		.loc 3 17 30 view .LVU28
+ 122 0008 FFF7FEFF 		bl	HAL_TIM_PWM_Start
+ 123              	.LVL8:
+  18:Lib/PWMSingle/PWMSingle.hpp ****             _maxValue = _htim->Init.Period;
+ 124              		.loc 3 18 13 is_stmt 1 view .LVU29
+ 125              		.loc 3 18 25 is_stmt 0 view .LVU30
+ 126 000c 2368     		ldr	r3, [r4]
+ 127              		.loc 3 18 37 view .LVU31
+ 128 000e DB68     		ldr	r3, [r3, #12]
+ 129              		.loc 3 18 23 view .LVU32
+ 130 0010 A360     		str	r3, [r4, #8]
+  19:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 131              		.loc 3 19 7 view .LVU33
+ 132 0012 10BD     		pop	{r4, pc}
+ 133              		.loc 3 19 7 view .LVU34
+ 134              		.cfi_endproc
+ 135              	.LFE265:
+ 136              		.fnend
+ 138              		.section	.text._ZN5RobotC2Ev,"ax",%progbits
+ 139              		.align	1
+ 140              		.global	_ZN5RobotC2Ev
+ 141              		.syntax unified
+ 142              		.thumb
+ 143              		.thumb_func
+ 145              	_ZN5RobotC2Ev:
+ 146              		.fnstart
+ 147              	.LVL9:
+ 148              	.LFB271:
+   1:src/unit/robot/robot.cpp **** #include "robot.hpp"
+   2:src/unit/robot/robot.cpp **** 
+   3:src/unit/robot/robot.cpp **** uint16_t adc_get_val[3];
+   4:src/unit/robot/robot.cpp **** 
+   5:src/unit/robot/robot.cpp **** Robot::Robot() {
+ 149              		.loc 1 5 1 is_stmt 1 view -0
+ 150              		.cfi_startproc
+ 151              		@ args = 0, pretend = 0, frame = 0
+ 152              		@ frame_needed = 0, uses_anonymous_args = 0
+ 153              		.loc 1 5 1 is_stmt 0 view .LVU36
+ 154 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+ 155              		.save {r4, r5, r6, r7, lr}
+ 156              	.LCFI1:
+ 157              		.cfi_def_cfa_offset 20
+ 158              		.cfi_offset 4, -20
+ 159              		.cfi_offset 5, -16
+ 160              		.cfi_offset 6, -12
+ 161              		.cfi_offset 7, -8
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 5
+
+
+ 162              		.cfi_offset 14, -4
+ 163              		.pad #36
+ 164 0002 89B0     		sub	sp, sp, #36
+ 165              	.LCFI2:
+ 166              		.cfi_def_cfa_offset 56
+ 167 0004 0446     		mov	r4, r0
+ 168              	.LVL10:
+ 169              	.LBB70:
+ 170              	.LBB71:
+ 171              	.LBI71:
+ 172              		.file 4 "Lib/DigitalInOut/DigitalInOut.hpp"
+   1:Lib/DigitalInOut/DigitalInOut.hpp **** #ifndef __DigitalInOut__
+   2:Lib/DigitalInOut/DigitalInOut.hpp **** #define __DigitalInOut__
+   3:Lib/DigitalInOut/DigitalInOut.hpp **** 
+   4:Lib/DigitalInOut/DigitalInOut.hpp **** #include "main.h"
+   5:Lib/DigitalInOut/DigitalInOut.hpp **** 
+   6:Lib/DigitalInOut/DigitalInOut.hpp **** #ifdef __cplusplus
+   7:Lib/DigitalInOut/DigitalInOut.hpp **** 
+   8:Lib/DigitalInOut/DigitalInOut.hpp **** extern "C" {
+   9:Lib/DigitalInOut/DigitalInOut.hpp **** 
+  10:Lib/DigitalInOut/DigitalInOut.hpp **** class DigitalOut {
+  11:Lib/DigitalInOut/DigitalInOut.hpp ****   public:
+  12:Lib/DigitalInOut/DigitalInOut.hpp ****     DigitalOut(GPIO_TypeDef *port, uint16_t pin) : port(port), pin(pin) {
+ 173              		.loc 4 12 5 is_stmt 1 view .LVU37
+ 174              	.LBB72:
+ 175              		.loc 4 12 52 is_stmt 0 view .LVU38
+ 176 0006 6348     		ldr	r0, .L8
+ 177              	.LVL11:
+ 178              		.loc 4 12 52 view .LVU39
+ 179 0008 A062     		str	r0, [r4, #40]
+ 180              		.loc 4 12 64 view .LVU40
+ 181 000a 2021     		movs	r1, #32
+ 182 000c A185     		strh	r1, [r4, #44]	@ movhi
+  13:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
+ 183              		.loc 4 13 9 is_stmt 1 view .LVU41
+ 184              		.loc 4 13 26 is_stmt 0 view .LVU42
+ 185 000e 0022     		movs	r2, #0
+ 186 0010 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 187              	.LVL12:
+ 188              		.loc 4 13 26 view .LVU43
+ 189              	.LBE72:
+ 190              	.LBE71:
+ 191              	.LBB73:
+ 192              	.LBI73:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 193              		.loc 3 12 7 is_stmt 1 view .LVU44
+ 194              	.LBB74:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 195              		.loc 3 13 13 is_stmt 0 view .LVU45
+ 196 0014 604B     		ldr	r3, .L8+4
+ 197 0016 2363     		str	r3, [r4, #48]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 198              		.loc 3 13 26 view .LVU46
+ 199 0018 0025     		movs	r5, #0
+ 200 001a 6563     		str	r5, [r4, #52]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 201              		.loc 3 13 67 view .LVU47
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 6
+
+
+ 202 001c DB68     		ldr	r3, [r3, #12]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 203              		.loc 3 13 45 view .LVU48
+ 204 001e A363     		str	r3, [r4, #56]
+ 205              	.LVL13:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 206              		.loc 3 13 45 view .LVU49
+ 207              	.LBE74:
+ 208              	.LBE73:
+ 209              	.LBB75:
+ 210              	.LBI75:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 211              		.loc 3 12 7 is_stmt 1 view .LVU50
+ 212              	.LBB76:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 213              		.loc 3 13 13 is_stmt 0 view .LVU51
+ 214 0020 5E4B     		ldr	r3, .L8+8
+ 215 0022 2364     		str	r3, [r4, #64]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 216              		.loc 3 13 26 view .LVU52
+ 217 0024 0420     		movs	r0, #4
+ 218 0026 6064     		str	r0, [r4, #68]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 219              		.loc 3 13 67 view .LVU53
+ 220 0028 DA68     		ldr	r2, [r3, #12]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 221              		.loc 3 13 45 view .LVU54
+ 222 002a A264     		str	r2, [r4, #72]
+ 223              	.LVL14:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 224              		.loc 3 13 45 view .LVU55
+ 225              	.LBE76:
+ 226              	.LBE75:
+ 227              	.LBB77:
+ 228              	.LBI77:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 229              		.loc 3 12 7 is_stmt 1 view .LVU56
+ 230              	.LBB78:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 231              		.loc 3 13 13 is_stmt 0 view .LVU57
+ 232 002c 2365     		str	r3, [r4, #80]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 233              		.loc 3 13 26 view .LVU58
+ 234 002e 6565     		str	r5, [r4, #84]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 235              		.loc 3 13 45 view .LVU59
+ 236 0030 A265     		str	r2, [r4, #88]
+ 237              	.LVL15:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 238              		.loc 3 13 45 view .LVU60
+ 239              	.LBE78:
+ 240              	.LBE77:
+ 241              	.LBB79:
+ 242              	.LBI79:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 243              		.loc 3 12 7 is_stmt 1 view .LVU61
+ 244              	.LBB80:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 7
+
+
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 245              		.loc 3 13 13 is_stmt 0 view .LVU62
+ 246 0032 5B4B     		ldr	r3, .L8+12
+ 247 0034 2366     		str	r3, [r4, #96]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 248              		.loc 3 13 26 view .LVU63
+ 249 0036 4FF0080C 		mov	ip, #8
+ 250 003a C4F864C0 		str	ip, [r4, #100]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 251              		.loc 3 13 67 view .LVU64
+ 252 003e D968     		ldr	r1, [r3, #12]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 253              		.loc 3 13 45 view .LVU65
+ 254 0040 A166     		str	r1, [r4, #104]
+ 255              	.LVL16:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 256              		.loc 3 13 45 view .LVU66
+ 257              	.LBE80:
+ 258              	.LBE79:
+ 259              	.LBB81:
+ 260              	.LBI81:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 261              		.loc 3 12 7 is_stmt 1 view .LVU67
+ 262              	.LBB82:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 263              		.loc 3 13 13 is_stmt 0 view .LVU68
+ 264 0042 2367     		str	r3, [r4, #112]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 265              		.loc 3 13 26 view .LVU69
+ 266 0044 0C27     		movs	r7, #12
+ 267 0046 6767     		str	r7, [r4, #116]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 268              		.loc 3 13 45 view .LVU70
+ 269 0048 A167     		str	r1, [r4, #120]
+ 270              	.LVL17:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 271              		.loc 3 13 45 view .LVU71
+ 272              	.LBE82:
+ 273              	.LBE81:
+ 274              	.LBB83:
+ 275              	.LBI83:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 276              		.loc 3 12 7 is_stmt 1 view .LVU72
+ 277              	.LBB84:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 278              		.loc 3 13 13 is_stmt 0 view .LVU73
+ 279 004a 564A     		ldr	r2, .L8+16
+ 280 004c C4F88020 		str	r2, [r4, #128]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 281              		.loc 3 13 26 view .LVU74
+ 282 0050 C4F88400 		str	r0, [r4, #132]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 283              		.loc 3 13 67 view .LVU75
+ 284 0054 D668     		ldr	r6, [r2, #12]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 285              		.loc 3 13 45 view .LVU76
+ 286 0056 C4F88860 		str	r6, [r4, #136]
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 8
+
+
+ 287              	.LVL18:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 288              		.loc 3 13 45 view .LVU77
+ 289              	.LBE84:
+ 290              	.LBE83:
+ 291              	.LBB85:
+ 292              	.LBI85:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 293              		.loc 3 12 7 is_stmt 1 view .LVU78
+ 294              	.LBB86:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 295              		.loc 3 13 13 is_stmt 0 view .LVU79
+ 296 005a C4F89030 		str	r3, [r4, #144]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 297              		.loc 3 13 26 view .LVU80
+ 298 005e C4F89400 		str	r0, [r4, #148]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 299              		.loc 3 13 45 view .LVU81
+ 300 0062 C4F89810 		str	r1, [r4, #152]
+ 301              	.LVL19:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 302              		.loc 3 13 45 view .LVU82
+ 303              	.LBE86:
+ 304              	.LBE85:
+ 305              	.LBB87:
+ 306              	.LBI87:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 307              		.loc 3 12 7 is_stmt 1 view .LVU83
+ 308              	.LBB88:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 309              		.loc 3 13 13 is_stmt 0 view .LVU84
+ 310 0066 C4F8A020 		str	r2, [r4, #160]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 311              		.loc 3 13 26 view .LVU85
+ 312 006a C4F8A450 		str	r5, [r4, #164]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 313              		.loc 3 13 45 view .LVU86
+ 314 006e C4F8A860 		str	r6, [r4, #168]
+ 315              	.LVL20:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 316              		.loc 3 13 45 view .LVU87
+ 317              	.LBE88:
+ 318              	.LBE87:
+ 319              	.LBB89:
+ 320              	.LBI89:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 321              		.loc 3 12 7 is_stmt 1 view .LVU88
+ 322              	.LBB90:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 323              		.loc 3 13 13 is_stmt 0 view .LVU89
+ 324 0072 C4F8B020 		str	r2, [r4, #176]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 325              		.loc 3 13 26 view .LVU90
+ 326 0076 C4F8B4C0 		str	ip, [r4, #180]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 327              		.loc 3 13 45 view .LVU91
+ 328 007a C4F8B860 		str	r6, [r4, #184]
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 9
+
+
+ 329              	.LVL21:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 330              		.loc 3 13 45 view .LVU92
+ 331              	.LBE90:
+ 332              	.LBE89:
+ 333              	.LBB91:
+ 334              	.LBI91:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 335              		.loc 3 12 7 is_stmt 1 view .LVU93
+ 336              	.LBB92:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 337              		.loc 3 13 13 is_stmt 0 view .LVU94
+ 338 007e 4A4A     		ldr	r2, .L8+20
+ 339 0080 C4F8C020 		str	r2, [r4, #192]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 340              		.loc 3 13 26 view .LVU95
+ 341 0084 C4F8C450 		str	r5, [r4, #196]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 342              		.loc 3 13 67 view .LVU96
+ 343 0088 D668     		ldr	r6, [r2, #12]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 344              		.loc 3 13 45 view .LVU97
+ 345 008a C4F8C860 		str	r6, [r4, #200]
+ 346              	.LVL22:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 347              		.loc 3 13 45 view .LVU98
+ 348              	.LBE92:
+ 349              	.LBE91:
+ 350              	.LBB93:
+ 351              	.LBI93:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 352              		.loc 3 12 7 is_stmt 1 view .LVU99
+ 353              	.LBB94:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 354              		.loc 3 13 13 is_stmt 0 view .LVU100
+ 355 008e C4F8D020 		str	r2, [r4, #208]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 356              		.loc 3 13 26 view .LVU101
+ 357 0092 C4F8D400 		str	r0, [r4, #212]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 358              		.loc 3 13 45 view .LVU102
+ 359 0096 C4F8D860 		str	r6, [r4, #216]
+ 360              	.LVL23:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 361              		.loc 3 13 45 view .LVU103
+ 362              	.LBE94:
+ 363              	.LBE93:
+ 364              	.LBB95:
+ 365              	.LBI95:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 366              		.loc 3 12 7 is_stmt 1 view .LVU104
+ 367              	.LBB96:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 368              		.loc 3 13 13 is_stmt 0 view .LVU105
+ 369 009a C4F8E030 		str	r3, [r4, #224]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 370              		.loc 3 13 26 view .LVU106
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 10
+
+
+ 371 009e C4F8E450 		str	r5, [r4, #228]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 372              		.loc 3 13 45 view .LVU107
+ 373 00a2 C4F8E810 		str	r1, [r4, #232]
+ 374              	.LVL24:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 375              		.loc 3 13 45 view .LVU108
+ 376              	.LBE96:
+ 377              	.LBE95:
+ 378              	.LBB97:
+ 379              	.LBI97:
+  12:Lib/PWMSingle/PWMSingle.hpp ****           : _htim(htim), _channel(channel), _maxValue(_htim->Init.Period) {
+ 380              		.loc 3 12 7 is_stmt 1 view .LVU109
+ 381              	.LBB98:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 382              		.loc 3 13 13 is_stmt 0 view .LVU110
+ 383 00a6 C4F8F020 		str	r2, [r4, #240]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 384              		.loc 3 13 26 view .LVU111
+ 385 00aa C4F8F470 		str	r7, [r4, #244]
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 386              		.loc 3 13 45 view .LVU112
+ 387 00ae C4F8F860 		str	r6, [r4, #248]
+ 388              	.LVL25:
+  13:Lib/PWMSingle/PWMSingle.hpp ****       }
+ 389              		.loc 3 13 45 view .LVU113
+ 390              	.LBE98:
+ 391              	.LBE97:
+ 392              	.LBB99:
+ 393              	.LBI99:
+  12:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
+ 394              		.loc 4 12 5 is_stmt 1 view .LVU114
+ 395              	.LBB100:
+  12:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
+ 396              		.loc 4 12 52 is_stmt 0 view .LVU115
+ 397 00b2 3E4E     		ldr	r6, .L8+24
+ 398 00b4 C4F80061 		str	r6, [r4, #256]
+  12:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
+ 399              		.loc 4 12 64 view .LVU116
+ 400 00b8 0121     		movs	r1, #1
+ 401 00ba A4F80411 		strh	r1, [r4, #260]	@ movhi
+ 402              		.loc 4 13 9 is_stmt 1 view .LVU117
+ 403              		.loc 4 13 26 is_stmt 0 view .LVU118
+ 404 00be 2A46     		mov	r2, r5
+ 405 00c0 3046     		mov	r0, r6
+ 406 00c2 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 407              	.LVL26:
+ 408              		.loc 4 13 26 view .LVU119
+ 409              	.LBE100:
+ 410              	.LBE99:
+ 411              	.LBB101:
+ 412              	.LBI101:
+  12:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
+ 413              		.loc 4 12 5 is_stmt 1 view .LVU120
+ 414              	.LBB102:
+  12:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
+ 415              		.loc 4 12 52 is_stmt 0 view .LVU121
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 11
+
+
+ 416 00c6 C4F80861 		str	r6, [r4, #264]
+  12:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
+ 417              		.loc 4 12 64 view .LVU122
+ 418 00ca 0221     		movs	r1, #2
+ 419 00cc A4F80C11 		strh	r1, [r4, #268]	@ movhi
+ 420              		.loc 4 13 9 is_stmt 1 view .LVU123
+ 421              		.loc 4 13 26 is_stmt 0 view .LVU124
+ 422 00d0 2A46     		mov	r2, r5
+ 423 00d2 3046     		mov	r0, r6
+ 424 00d4 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 425              	.LVL27:
+ 426              		.loc 4 13 26 view .LVU125
+ 427              	.LBE102:
+ 428              	.LBE101:
+ 429              		.loc 1 5 14 view .LVU126
+ 430 00d8 231D     		adds	r3, r4, #4
+ 431 00da 0693     		str	r3, [sp, #24]
+ 432 00dc 04F12003 		add	r3, r4, #32
+ 433 00e0 0593     		str	r3, [sp, #20]
+ 434 00e2 04F1B003 		add	r3, r4, #176
+ 435 00e6 0493     		str	r3, [sp, #16]
+ 436 00e8 04F1A003 		add	r3, r4, #160
+ 437 00ec 0393     		str	r3, [sp, #12]
+ 438 00ee 04F19003 		add	r3, r4, #144
+ 439 00f2 0293     		str	r3, [sp, #8]
+ 440 00f4 04F18003 		add	r3, r4, #128
+ 441 00f8 0193     		str	r3, [sp, #4]
+ 442 00fa 04F17003 		add	r3, r4, #112
+ 443 00fe 0093     		str	r3, [sp]
+ 444 0100 04F16003 		add	r3, r4, #96
+ 445 0104 04F15002 		add	r2, r4, #80
+ 446 0108 04F14001 		add	r1, r4, #64
+ 447 010c 04F58870 		add	r0, r4, #272
+ 448 0110 FFF7FEFF 		bl	_ZN10MotorDriveC1EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_PsPh
+ 449              	.LVL28:
+ 450 0114 04F1D002 		add	r2, r4, #208
+ 451 0118 04F1C001 		add	r1, r4, #192
+ 452 011c 04F51A60 		add	r0, r4, #2464
+ 453 0120 FFF7FEFF 		bl	_ZN13DribblerDriveC1EP12PwmSingleOutS1_
+ 454              	.LVL29:
+ 455 0124 04F1F002 		add	r2, r4, #240
+ 456 0128 04F1E001 		add	r1, r4, #224
+ 457 012c 04F64830 		addw	r0, r4, #2888
+ 458 0130 FFF7FEFF 		bl	_ZN13DribblerDriveC1EP12PwmSingleOutS1_
+ 459              	.LVL30:
+ 460 0134 04F58472 		add	r2, r4, #264
+ 461 0138 04F58071 		add	r1, r4, #256
+ 462 013c 04F54F60 		add	r0, r4, #3312
+ 463 0140 FFF7FEFF 		bl	_ZN6KickerC1EP10DigitalOutS1_
+ 464              	.LVL31:
+ 465              	.LBB103:
+ 466              	.LBI103:
+  19:Lib/BufferedSerial/BufferedSerial.hpp ****           : _huart(huart),
+ 467              		.loc 2 19 7 is_stmt 1 view .LVU127
+ 468              	.LBB104:
+  20:Lib/BufferedSerial/BufferedSerial.hpp ****             _rxBuf(new uint8_t[rxBufSize]),
+ 469              		.loc 2 20 13 is_stmt 0 view .LVU128
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 12
+
+
+ 470 0144 1A4B     		ldr	r3, .L8+28
+ 471 0146 C4F8043D 		str	r3, [r4, #3332]
+  21:Lib/BufferedSerial/BufferedSerial.hpp ****             rxTop(0),
+ 472              		.loc 2 21 41 view .LVU129
+ 473 014a 8020     		movs	r0, #128
+ 474 014c FFF7FEFF 		bl	_Znaj
+ 475              	.LVL32:
+  21:Lib/BufferedSerial/BufferedSerial.hpp ****             rxTop(0),
+ 476              		.loc 2 21 13 view .LVU130
+ 477 0150 C4F8080D 		str	r0, [r4, #3336]
+  22:Lib/BufferedSerial/BufferedSerial.hpp ****             rxBtm(0),
+ 478              		.loc 2 22 13 view .LVU131
+ 479 0154 A4F80C5D 		strh	r5, [r4, #3340]	@ movhi
+  23:Lib/BufferedSerial/BufferedSerial.hpp ****             _rxBufSize(rxBufSize),
+ 480              		.loc 2 23 13 view .LVU132
+ 481 0158 A4F80E5D 		strh	r5, [r4, #3342]	@ movhi
+  24:Lib/BufferedSerial/BufferedSerial.hpp ****             _useDMA(false) {
+ 482              		.loc 2 24 13 view .LVU133
+ 483 015c 8023     		movs	r3, #128
+ 484 015e A4F8103D 		strh	r3, [r4, #3344]	@ movhi
+  25:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 485              		.loc 2 25 13 view .LVU134
+ 486 0162 84F8125D 		strb	r5, [r4, #3346]
+ 487              	.LVL33:
+  25:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 488              		.loc 2 25 13 view .LVU135
+ 489              	.LBE104:
+ 490              	.LBE103:
+ 491              	.LBB105:
+ 492              	.LBI105:
+  19:Lib/BufferedSerial/BufferedSerial.hpp ****           : _huart(huart),
+ 493              		.loc 2 19 7 is_stmt 1 view .LVU136
+ 494              	.LBB106:
+  20:Lib/BufferedSerial/BufferedSerial.hpp ****             _rxBuf(new uint8_t[rxBufSize]),
+ 495              		.loc 2 20 13 is_stmt 0 view .LVU137
+ 496 0166 134B     		ldr	r3, .L8+32
+ 497 0168 C4F8143D 		str	r3, [r4, #3348]
+  21:Lib/BufferedSerial/BufferedSerial.hpp ****             rxTop(0),
+ 498              		.loc 2 21 41 view .LVU138
+ 499 016c 4FF48070 		mov	r0, #256
+ 500 0170 FFF7FEFF 		bl	_Znaj
+ 501              	.LVL34:
+  21:Lib/BufferedSerial/BufferedSerial.hpp ****             rxTop(0),
+ 502              		.loc 2 21 13 view .LVU139
+ 503 0174 C4F8180D 		str	r0, [r4, #3352]
+  22:Lib/BufferedSerial/BufferedSerial.hpp ****             rxBtm(0),
+ 504              		.loc 2 22 13 view .LVU140
+ 505 0178 A4F81C5D 		strh	r5, [r4, #3356]	@ movhi
+  23:Lib/BufferedSerial/BufferedSerial.hpp ****             _rxBufSize(rxBufSize),
+ 506              		.loc 2 23 13 view .LVU141
+ 507 017c A4F81E5D 		strh	r5, [r4, #3358]	@ movhi
+  24:Lib/BufferedSerial/BufferedSerial.hpp ****             _useDMA(false) {
+ 508              		.loc 2 24 13 view .LVU142
+ 509 0180 4FF48073 		mov	r3, #256
+ 510 0184 A4F8203D 		strh	r3, [r4, #3360]	@ movhi
+  25:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 511              		.loc 2 25 13 view .LVU143
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 13
+
+
+ 512 0188 84F8225D 		strb	r5, [r4, #3362]
+ 513              	.LVL35:
+  25:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 514              		.loc 2 25 13 view .LVU144
+ 515              	.LBE106:
+ 516              	.LBE105:
+ 517              	.LBE70:
+   6:src/unit/robot/robot.cpp **** }
+ 518              		.loc 1 6 1 view .LVU145
+ 519 018c 2046     		mov	r0, r4
+ 520 018e 09B0     		add	sp, sp, #36
+ 521              	.LCFI3:
+ 522              		.cfi_def_cfa_offset 20
+ 523              		@ sp needed
+ 524 0190 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 525              	.LVL36:
+ 526              	.L9:
+ 527              		.loc 1 6 1 view .LVU146
+ 528 0192 00BF     		.align	2
+ 529              	.L8:
+ 530 0194 00000240 		.word	1073872896
+ 531 0198 00000000 		.word	htim13
+ 532 019c 00000000 		.word	htim12
+ 533 01a0 00000000 		.word	htim2
+ 534 01a4 00000000 		.word	htim3
+ 535 01a8 00000000 		.word	htim4
+ 536 01ac 00080240 		.word	1073874944
+ 537 01b0 00000000 		.word	huart1
+ 538 01b4 00000000 		.word	huart2
+ 539              		.cfi_endproc
+ 540              	.LFE271:
+ 541              		.fnend
+ 543              		.global	_ZN5RobotC1Ev
+ 544              		.thumb_set _ZN5RobotC1Ev,_ZN5RobotC2Ev
+ 545              		.section	.text._ZN5Robot12HardwareInitEv,"ax",%progbits
+ 546              		.align	1
+ 547              		.global	_ZN5Robot12HardwareInitEv
+ 548              		.syntax unified
+ 549              		.thumb
+ 550              		.thumb_func
+ 552              	_ZN5Robot12HardwareInitEv:
+ 553              		.fnstart
+ 554              	.LVL37:
+ 555              	.LFB273:
+   7:src/unit/robot/robot.cpp **** 
+   8:src/unit/robot/robot.cpp **** void Robot::HardwareInit() {
+ 556              		.loc 1 8 28 is_stmt 1 view -0
+ 557              		.cfi_startproc
+ 558              		@ args = 0, pretend = 0, frame = 0
+ 559              		@ frame_needed = 0, uses_anonymous_args = 0
+ 560              		.loc 1 8 28 is_stmt 0 view .LVU148
+ 561 0000 38B5     		push	{r3, r4, r5, lr}
+ 562              		.save {r3, r4, r5, lr}
+ 563              	.LCFI4:
+ 564              		.cfi_def_cfa_offset 16
+ 565              		.cfi_offset 3, -16
+ 566              		.cfi_offset 4, -12
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 14
+
+
+ 567              		.cfi_offset 5, -8
+ 568              		.cfi_offset 14, -4
+ 569 0002 0446     		mov	r4, r0
+   9:src/unit/robot/robot.cpp ****       HAL_ADC_Start(&hadc1);
+ 570              		.loc 1 9 7 is_stmt 1 view .LVU149
+ 571              		.loc 1 9 20 is_stmt 0 view .LVU150
+ 572 0004 364D     		ldr	r5, .L14
+ 573 0006 2846     		mov	r0, r5
+ 574              	.LVL38:
+ 575              		.loc 1 9 20 view .LVU151
+ 576 0008 FFF7FEFF 		bl	HAL_ADC_Start
+ 577              	.LVL39:
+  10:src/unit/robot/robot.cpp ****       HAL_ADC_Start_DMA(&hadc1, (uint32_t *)&adc_get_val, 3);
+ 578              		.loc 1 10 7 is_stmt 1 view .LVU152
+ 579              		.loc 1 10 24 is_stmt 0 view .LVU153
+ 580 000c 0322     		movs	r2, #3
+ 581 000e 3549     		ldr	r1, .L14+4
+ 582 0010 2846     		mov	r0, r5
+ 583 0012 FFF7FEFF 		bl	HAL_ADC_Start_DMA
+ 584              	.LVL40:
+  11:src/unit/robot/robot.cpp ****       for (uint8_t i = 0; i < 3; i++) {
+ 585              		.loc 1 11 7 is_stmt 1 view .LVU154
+ 586              	.LBB107:
+ 587              		.loc 1 11 20 is_stmt 0 view .LVU155
+ 588 0016 0022     		movs	r2, #0
+ 589              		.loc 1 11 7 view .LVU156
+ 590 0018 06E0     		b	.L11
+ 591              	.LVL41:
+ 592              	.L12:
+  12:src/unit/robot/robot.cpp ****             while (!(adc_get_val[i] > 0));
+ 593              		.loc 1 12 20 is_stmt 1 discriminator 1 view .LVU157
+ 594              		.loc 1 12 35 is_stmt 0 discriminator 1 view .LVU158
+ 595 001a 324B     		ldr	r3, .L14+4
+ 596 001c 33F81230 		ldrh	r3, [r3, r2, lsl #1]
+ 597              		.loc 1 12 20 discriminator 1 view .LVU159
+ 598 0020 002B     		cmp	r3, #0
+ 599 0022 FAD0     		beq	.L12
+  11:src/unit/robot/robot.cpp ****       for (uint8_t i = 0; i < 3; i++) {
+ 600              		.loc 1 11 7 is_stmt 1 discriminator 2 view .LVU160
+ 601 0024 0132     		adds	r2, r2, #1
+ 602              	.LVL42:
+  11:src/unit/robot/robot.cpp ****       for (uint8_t i = 0; i < 3; i++) {
+ 603              		.loc 1 11 7 is_stmt 0 discriminator 2 view .LVU161
+ 604 0026 D2B2     		uxtb	r2, r2
+ 605              	.LVL43:
+ 606              	.L11:
+  11:src/unit/robot/robot.cpp ****       for (uint8_t i = 0; i < 3; i++) {
+ 607              		.loc 1 11 29 is_stmt 1 discriminator 1 view .LVU162
+ 608 0028 022A     		cmp	r2, #2
+ 609 002a F6D9     		bls	.L12
+ 610              	.LBE107:
+  13:src/unit/robot/robot.cpp ****       }
+  14:src/unit/robot/robot.cpp **** 
+  15:src/unit/robot/robot.cpp ****       // 諸々の初期化
+  16:src/unit/robot/robot.cpp ****       serial1.init();
+ 611              		.loc 1 16 7 view .LVU163
+ 612              	.LVL44:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 15
+
+
+ 613              	.LBB108:
+ 614              	.LBI108:
+  27:Lib/BufferedSerial/BufferedSerial.hpp ****             _useDMA = dma;
+ 615              		.loc 2 27 12 view .LVU164
+ 616              	.LBB109:
+  28:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
+ 617              		.loc 2 28 13 view .LVU165
+  28:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
+ 618              		.loc 2 28 21 is_stmt 0 view .LVU166
+ 619 002c 0025     		movs	r5, #0
+ 620 002e 84F8125D 		strb	r5, [r4, #3346]
+  29:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
+ 621              		.loc 2 29 13 is_stmt 1 view .LVU167
+  29:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
+ 622              		.loc 2 29 33 is_stmt 0 view .LVU168
+ 623 0032 B4F8102D 		ldrh	r2, [r4, #3344]
+ 624              	.LVL45:
+  29:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
+ 625              		.loc 2 29 33 view .LVU169
+ 626 0036 D4F8081D 		ldr	r1, [r4, #3336]
+ 627 003a D4F8040D 		ldr	r0, [r4, #3332]
+ 628 003e FFF7FEFF 		bl	HAL_UART_Receive_DMA
+ 629              	.LVL46:
+  29:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
+ 630              		.loc 2 29 33 view .LVU170
+ 631              	.LBE109:
+ 632              	.LBE108:
+  17:src/unit/robot/robot.cpp ****       serial2.init();
+ 633              		.loc 1 17 7 is_stmt 1 view .LVU171
+ 634              	.LBB110:
+ 635              	.LBI110:
+  27:Lib/BufferedSerial/BufferedSerial.hpp ****             _useDMA = dma;
+ 636              		.loc 2 27 12 view .LVU172
+ 637              	.LBB111:
+  28:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
+ 638              		.loc 2 28 13 view .LVU173
+  28:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
+ 639              		.loc 2 28 21 is_stmt 0 view .LVU174
+ 640 0042 84F8225D 		strb	r5, [r4, #3362]
+  29:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
+ 641              		.loc 2 29 13 is_stmt 1 view .LVU175
+  29:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
+ 642              		.loc 2 29 33 is_stmt 0 view .LVU176
+ 643 0046 B4F8202D 		ldrh	r2, [r4, #3360]
+ 644 004a D4F8181D 		ldr	r1, [r4, #3352]
+ 645 004e D4F8140D 		ldr	r0, [r4, #3348]
+ 646 0052 FFF7FEFF 		bl	HAL_UART_Receive_DMA
+ 647              	.LVL47:
+  29:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
+ 648              		.loc 2 29 33 view .LVU177
+ 649              	.LBE111:
+ 650              	.LBE110:
+  18:src/unit/robot/robot.cpp ****       ledh.init();
+ 651              		.loc 1 18 7 is_stmt 1 view .LVU178
+ 652              		.loc 1 18 16 is_stmt 0 view .LVU179
+ 653 0056 04F13000 		add	r0, r4, #48
+ 654 005a FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 16
+
+
+ 655              	.LVL48:
+  19:src/unit/robot/robot.cpp ****       motor1a.init();
+ 656              		.loc 1 19 7 is_stmt 1 view .LVU180
+ 657              		.loc 1 19 19 is_stmt 0 view .LVU181
+ 658 005e 04F14000 		add	r0, r4, #64
+ 659 0062 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 660              	.LVL49:
+  20:src/unit/robot/robot.cpp ****       motor1b.init();
+ 661              		.loc 1 20 7 is_stmt 1 view .LVU182
+ 662              		.loc 1 20 19 is_stmt 0 view .LVU183
+ 663 0066 04F15000 		add	r0, r4, #80
+ 664 006a FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 665              	.LVL50:
+  21:src/unit/robot/robot.cpp ****       motor2a.init();
+ 666              		.loc 1 21 7 is_stmt 1 view .LVU184
+ 667              		.loc 1 21 19 is_stmt 0 view .LVU185
+ 668 006e 04F16000 		add	r0, r4, #96
+ 669 0072 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 670              	.LVL51:
+  22:src/unit/robot/robot.cpp ****       motor2b.init();
+ 671              		.loc 1 22 7 is_stmt 1 view .LVU186
+ 672              		.loc 1 22 19 is_stmt 0 view .LVU187
+ 673 0076 04F17000 		add	r0, r4, #112
+ 674 007a FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 675              	.LVL52:
+  23:src/unit/robot/robot.cpp ****       motor3a.init();
+ 676              		.loc 1 23 7 is_stmt 1 view .LVU188
+ 677              		.loc 1 23 19 is_stmt 0 view .LVU189
+ 678 007e 04F18000 		add	r0, r4, #128
+ 679 0082 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 680              	.LVL53:
+  24:src/unit/robot/robot.cpp ****       motor3b.init();
+ 681              		.loc 1 24 7 is_stmt 1 view .LVU190
+ 682              		.loc 1 24 19 is_stmt 0 view .LVU191
+ 683 0086 04F19000 		add	r0, r4, #144
+ 684 008a FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 685              	.LVL54:
+  25:src/unit/robot/robot.cpp ****       motor4a.init();
+ 686              		.loc 1 25 7 is_stmt 1 view .LVU192
+ 687              		.loc 1 25 19 is_stmt 0 view .LVU193
+ 688 008e 04F1A000 		add	r0, r4, #160
+ 689 0092 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 690              	.LVL55:
+  26:src/unit/robot/robot.cpp ****       motor4b.init();
+ 691              		.loc 1 26 7 is_stmt 1 view .LVU194
+ 692              		.loc 1 26 19 is_stmt 0 view .LVU195
+ 693 0096 04F1B000 		add	r0, r4, #176
+ 694 009a FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 695              	.LVL56:
+  27:src/unit/robot/robot.cpp ****       dribbler_front_a.init();
+ 696              		.loc 1 27 7 is_stmt 1 view .LVU196
+ 697              		.loc 1 27 28 is_stmt 0 view .LVU197
+ 698 009e 04F1C000 		add	r0, r4, #192
+ 699 00a2 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 700              	.LVL57:
+  28:src/unit/robot/robot.cpp ****       dribbler_front_b.init();
+ 701              		.loc 1 28 7 is_stmt 1 view .LVU198
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 17
+
+
+ 702              		.loc 1 28 28 is_stmt 0 view .LVU199
+ 703 00a6 04F1D000 		add	r0, r4, #208
+ 704 00aa FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 705              	.LVL58:
+  29:src/unit/robot/robot.cpp ****       dribbler_back_a.init();
+ 706              		.loc 1 29 7 is_stmt 1 view .LVU200
+ 707              		.loc 1 29 27 is_stmt 0 view .LVU201
+ 708 00ae 04F1E000 		add	r0, r4, #224
+ 709 00b2 FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 710              	.LVL59:
+  30:src/unit/robot/robot.cpp ****       dribbler_back_b.init();
+ 711              		.loc 1 30 7 is_stmt 1 view .LVU202
+ 712              		.loc 1 30 27 is_stmt 0 view .LVU203
+ 713 00b6 04F1F000 		add	r0, r4, #240
+ 714 00ba FFF7FEFF 		bl	_ZN12PwmSingleOut4initEv
+ 715              	.LVL60:
+  31:src/unit/robot/robot.cpp **** 
+  32:src/unit/robot/robot.cpp ****       // 接続確認
+  33:src/unit/robot/robot.cpp ****       motor.CheckConnection();
+ 716              		.loc 1 33 7 is_stmt 1 view .LVU204
+ 717              		.loc 1 33 28 is_stmt 0 view .LVU205
+ 718 00be 04F58870 		add	r0, r4, #272
+ 719 00c2 FFF7FEFF 		bl	_ZN10MotorDrive15CheckConnectionEv
+ 720              	.LVL61:
+  34:src/unit/robot/robot.cpp ****       HAL_Delay(200);
+ 721              		.loc 1 34 7 is_stmt 1 view .LVU206
+ 722              		.loc 1 34 16 is_stmt 0 view .LVU207
+ 723 00c6 C820     		movs	r0, #200
+ 724 00c8 FFF7FEFF 		bl	HAL_Delay
+ 725              	.LVL62:
+  35:src/unit/robot/robot.cpp ****       dribbler_front.CheckConnection();
+ 726              		.loc 1 35 7 is_stmt 1 view .LVU208
+ 727              		.loc 1 35 37 is_stmt 0 view .LVU209
+ 728 00cc 04F51A60 		add	r0, r4, #2464
+ 729 00d0 FFF7FEFF 		bl	_ZN13DribblerDrive15CheckConnectionEv
+ 730              	.LVL63:
+  36:src/unit/robot/robot.cpp ****       dribbler_back.CheckConnection();
+ 731              		.loc 1 36 7 is_stmt 1 view .LVU210
+ 732              		.loc 1 36 36 is_stmt 0 view .LVU211
+ 733 00d4 04F64830 		addw	r0, r4, #2888
+ 734 00d8 FFF7FEFF 		bl	_ZN13DribblerDrive15CheckConnectionEv
+ 735              	.LVL64:
+  37:src/unit/robot/robot.cpp **** }
+ 736              		.loc 1 37 1 view .LVU212
+ 737 00dc 38BD     		pop	{r3, r4, r5, pc}
+ 738              	.LVL65:
+ 739              	.L15:
+ 740              		.loc 1 37 1 view .LVU213
+ 741 00de 00BF     		.align	2
+ 742              	.L14:
+ 743 00e0 00000000 		.word	hadc1
+ 744 00e4 00000000 		.word	adc_get_val
+ 745              		.cfi_endproc
+ 746              	.LFE273:
+ 747              		.fnend
+ 749              		.section	.text._ZN5Robot10GetSensorsEv,"ax",%progbits
+ 750              		.align	1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 18
+
+
+ 751              		.global	_ZN5Robot10GetSensorsEv
+ 752              		.syntax unified
+ 753              		.thumb
+ 754              		.thumb_func
+ 756              	_ZN5Robot10GetSensorsEv:
+ 757              		.fnstart
+ 758              	.LVL66:
+ 759              	.LFB274:
+  38:src/unit/robot/robot.cpp **** 
+  39:src/unit/robot/robot.cpp **** void Robot::GetSensors() {
+ 760              		.loc 1 39 26 is_stmt 1 view -0
+ 761              		.cfi_startproc
+ 762              		@ args = 0, pretend = 0, frame = 0
+ 763              		@ frame_needed = 0, uses_anonymous_args = 0
+ 764              		@ link register save eliminated.
+  40:src/unit/robot/robot.cpp ****       const float voltage_conversion = 0.01298828125;
+ 765              		.loc 1 40 7 view .LVU215
+  41:src/unit/robot/robot.cpp ****       info.voltage = adc_get_val[0] * voltage_conversion;
+ 766              		.loc 1 41 7 view .LVU216
+ 767              		.loc 1 41 35 is_stmt 0 view .LVU217
+ 768 0000 064B     		ldr	r3, .L17
+ 769 0002 1B88     		ldrh	r3, [r3]
+ 770 0004 07EE903A 		vmov	s15, r3	@ int
+ 771              		.loc 1 41 37 view .LVU218
+ 772 0008 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 773 000c 9FED047A 		vldr.32	s14, .L17+4
+ 774 0010 67EE877A 		vmul.f32	s15, s15, s14
+ 775              		.loc 1 41 20 view .LVU219
+ 776 0014 C0ED007A 		vstr.32	s15, [r0]
+  42:src/unit/robot/robot.cpp **** }
+ 777              		.loc 1 42 1 view .LVU220
+ 778 0018 7047     		bx	lr
+ 779              	.L18:
+ 780 001a 00BF     		.align	2
+ 781              	.L17:
+ 782 001c 00000000 		.word	adc_get_val
+ 783 0020 CDCC543C 		.word	1012190413
+ 784              		.cfi_endproc
+ 785              	.LFE274:
+ 786              		.cantunwind
+ 787              		.fnend
+ 789              		.global	__aeabi_i2d
+ 790              		.global	__aeabi_dmul
+ 791              		.global	__aeabi_dsub
+ 792              		.global	__aeabi_d2iz
+ 793              		.section	.text._ZN5Robot11RecvImuUartEv,"ax",%progbits
+ 794              		.align	1
+ 795              		.global	_ZN5Robot11RecvImuUartEv
+ 796              		.syntax unified
+ 797              		.thumb
+ 798              		.thumb_func
+ 800              	_ZN5Robot11RecvImuUartEv:
+ 801              		.fnstart
+ 802              	.LVL67:
+ 803              	.LFB275:
+  43:src/unit/robot/robot.cpp **** 
+  44:src/unit/robot/robot.cpp **** void Robot::RecvImuUart() {
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 19
+
+
+ 804              		.loc 1 44 27 is_stmt 1 view -0
+ 805              		.cfi_startproc
+ 806              		@ args = 0, pretend = 0, frame = 0
+ 807              		@ frame_needed = 0, uses_anonymous_args = 0
+ 808              		.loc 1 44 27 is_stmt 0 view .LVU222
+ 809 0000 38B5     		push	{r3, r4, r5, lr}
+ 810              	.LCFI5:
+ 811              		.cfi_def_cfa_offset 16
+ 812              		.cfi_offset 3, -16
+ 813              		.cfi_offset 4, -12
+ 814              		.cfi_offset 5, -8
+ 815              		.cfi_offset 14, -4
+ 816 0002 0446     		mov	r4, r0
+  45:src/unit/robot/robot.cpp ****       static const uint8_t HEADER = 0xFF;  // ヘッダ
+ 817              		.loc 1 45 7 is_stmt 1 view .LVU223
+  46:src/unit/robot/robot.cpp ****       static const uint8_t FOOTER = 0xAA;  // ヘッダ
+ 818              		.loc 1 46 7 view .LVU224
+  47:src/unit/robot/robot.cpp ****       static const uint8_t dataSize = 6;   // データのサイズ
+ 819              		.loc 1 47 7 view .LVU225
+  48:src/unit/robot/robot.cpp ****       static uint8_t index = 0;            // 受信したデータのインデックスカウン�
+ 820              		.loc 1 48 7 view .LVU226
+  49:src/unit/robot/robot.cpp ****       static uint8_t recv_data[dataSize];  // 受信したデータ
+ 821              		.loc 1 49 7 view .LVU227
+  50:src/unit/robot/robot.cpp ****       static uint8_t recv_byte;
+ 822              		.loc 1 50 7 view .LVU228
+  51:src/unit/robot/robot.cpp **** 
+  52:src/unit/robot/robot.cpp ****       while (serial1.available()) {
+ 823              		.loc 1 52 7 view .LVU229
+ 824 0004 0BE0     		b	.L20
+ 825              	.LVL68:
+ 826              	.L30:
+  53:src/unit/robot/robot.cpp ****             recv_byte = serial1.read();
+  54:src/unit/robot/robot.cpp ****             if (index == 0) {
+  55:src/unit/robot/robot.cpp ****                   if (recv_byte == HEADER) {
+  56:src/unit/robot/robot.cpp ****                         index++;
+ 827              		.loc 1 56 25 view .LVU230
+ 828              		.loc 1 56 30 is_stmt 0 view .LVU231
+ 829 0006 0133     		adds	r3, r3, #1
+ 830 0008 354A     		ldr	r2, .L32+8
+ 831 000a 1370     		strb	r3, [r2]
+ 832 000c 07E0     		b	.L20
+ 833              	.L21:
+  57:src/unit/robot/robot.cpp ****                   } else {
+  58:src/unit/robot/robot.cpp ****                         index = 0;
+  59:src/unit/robot/robot.cpp ****                   }
+  60:src/unit/robot/robot.cpp ****             } else if (index == (dataSize + 1)) {
+ 834              		.loc 1 60 20 is_stmt 1 view .LVU232
+ 835 000e 072B     		cmp	r3, #7
+ 836 0010 23D0     		beq	.L28
+  61:src/unit/robot/robot.cpp ****                   if (recv_byte == FOOTER) {
+  62:src/unit/robot/robot.cpp ****                         info.Imu.yaw = ((((uint16_t)recv_data[0] << 8) & 0xFF00) | ((int16_t)recv_d
+  63:src/unit/robot/robot.cpp ****                         info.Imu.pitch = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv
+  64:src/unit/robot/robot.cpp ****                         info.Imu.roll = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_
+  65:src/unit/robot/robot.cpp ****                   }
+  66:src/unit/robot/robot.cpp ****                   index = 0;
+  67:src/unit/robot/robot.cpp ****             } else {
+  68:src/unit/robot/robot.cpp ****                   recv_data[index - 1] = recv_byte;
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 20
+
+
+ 837              		.loc 1 68 19 view .LVU233
+ 838              		.loc 1 68 35 is_stmt 0 view .LVU234
+ 839 0012 5A1E     		subs	r2, r3, #1
+ 840              		.loc 1 68 40 view .LVU235
+ 841 0014 3349     		ldr	r1, .L32+12
+ 842 0016 8854     		strb	r0, [r1, r2]
+  69:src/unit/robot/robot.cpp ****                   index++;
+ 843              		.loc 1 69 19 is_stmt 1 view .LVU236
+ 844              		.loc 1 69 24 is_stmt 0 view .LVU237
+ 845 0018 0133     		adds	r3, r3, #1
+ 846 001a 314A     		ldr	r2, .L32+8
+ 847 001c 1370     		strb	r3, [r2]
+ 848              	.L20:
+  52:src/unit/robot/robot.cpp ****             recv_byte = serial1.read();
+ 849              		.loc 1 52 31 is_stmt 1 view .LVU238
+ 850              	.LVL69:
+ 851              	.LBB112:
+ 852              	.LBI112:
+  33:Lib/BufferedSerial/BufferedSerial.hpp ****             uint16_t rxTop = _rxBufSize - _huart->hdmarx->Instance->NDTR;
+ 853              		.loc 2 33 12 view .LVU239
+ 854              	.LBB113:
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 855              		.loc 2 34 13 view .LVU240
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 856              		.loc 2 34 30 is_stmt 0 view .LVU241
+ 857 001e B4F8103D 		ldrh	r3, [r4, #3344]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 858              		.loc 2 34 43 view .LVU242
+ 859 0022 D4F8042D 		ldr	r2, [r4, #3332]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 860              		.loc 2 34 51 view .LVU243
+ 861 0026 D26B     		ldr	r2, [r2, #60]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 862              		.loc 2 34 59 view .LVU244
+ 863 0028 1268     		ldr	r2, [r2]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 864              		.loc 2 34 69 view .LVU245
+ 865 002a 5268     		ldr	r2, [r2, #4]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 866              		.loc 2 34 41 view .LVU246
+ 867 002c 92B2     		uxth	r2, r2
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 868              		.loc 2 34 69 view .LVU247
+ 869 002e 9B1A     		subs	r3, r3, r2
+ 870 0030 9BB2     		uxth	r3, r3
+ 871              	.LVL70:
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 872              		.loc 2 35 13 is_stmt 1 view .LVU248
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 873              		.loc 2 35 29 is_stmt 0 view .LVU249
+ 874 0032 B4F80E2D 		ldrh	r2, [r4, #3342]
+ 875              	.LVL71:
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 876              		.loc 2 35 29 view .LVU250
+ 877              	.LBE113:
+ 878              	.LBE112:
+  52:src/unit/robot/robot.cpp ****             recv_byte = serial1.read();
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 21
+
+
+ 879              		.loc 1 52 31 view .LVU251
+ 880 0036 9342     		cmp	r3, r2
+ 881 0038 4DD0     		beq	.L29
+  53:src/unit/robot/robot.cpp ****             if (index == 0) {
+ 882              		.loc 1 53 13 is_stmt 1 view .LVU252
+  53:src/unit/robot/robot.cpp ****             if (index == 0) {
+ 883              		.loc 1 53 37 is_stmt 0 view .LVU253
+ 884 003a 04F60450 		addw	r0, r4, #3332
+ 885 003e FFF7FEFF 		bl	_ZN14BufferedSerial4readEv
+ 886              	.LVL72:
+  53:src/unit/robot/robot.cpp ****             if (index == 0) {
+ 887              		.loc 1 53 23 view .LVU254
+ 888 0042 294B     		ldr	r3, .L32+16
+ 889 0044 1870     		strb	r0, [r3]
+  54:src/unit/robot/robot.cpp ****                   if (recv_byte == HEADER) {
+ 890              		.loc 1 54 13 is_stmt 1 view .LVU255
+  54:src/unit/robot/robot.cpp ****                   if (recv_byte == HEADER) {
+ 891              		.loc 1 54 23 is_stmt 0 view .LVU256
+ 892 0046 264B     		ldr	r3, .L32+8
+ 893 0048 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  54:src/unit/robot/robot.cpp ****                   if (recv_byte == HEADER) {
+ 894              		.loc 1 54 13 view .LVU257
+ 895 004a 002B     		cmp	r3, #0
+ 896 004c DFD1     		bne	.L21
+  55:src/unit/robot/robot.cpp ****                         index++;
+ 897              		.loc 1 55 19 is_stmt 1 view .LVU258
+ 898 004e FF28     		cmp	r0, #255
+ 899 0050 D9D0     		beq	.L30
+  58:src/unit/robot/robot.cpp ****                   }
+ 900              		.loc 1 58 25 view .LVU259
+  58:src/unit/robot/robot.cpp ****                   }
+ 901              		.loc 1 58 31 is_stmt 0 view .LVU260
+ 902 0052 234B     		ldr	r3, .L32+8
+ 903 0054 0022     		movs	r2, #0
+ 904 0056 1A70     		strb	r2, [r3]
+ 905 0058 E1E7     		b	.L20
+ 906              	.L28:
+  61:src/unit/robot/robot.cpp ****                         info.Imu.yaw = ((((uint16_t)recv_data[0] << 8) & 0xFF00) | ((int16_t)recv_d
+ 907              		.loc 1 61 19 is_stmt 1 view .LVU261
+ 908 005a AA28     		cmp	r0, #170
+ 909 005c 03D0     		beq	.L31
+ 910              	.L25:
+  66:src/unit/robot/robot.cpp ****             } else {
+ 911              		.loc 1 66 19 view .LVU262
+  66:src/unit/robot/robot.cpp ****             } else {
+ 912              		.loc 1 66 25 is_stmt 0 view .LVU263
+ 913 005e 204B     		ldr	r3, .L32+8
+ 914 0060 0022     		movs	r2, #0
+ 915 0062 1A70     		strb	r2, [r3]
+ 916 0064 DBE7     		b	.L20
+ 917              	.L31:
+  62:src/unit/robot/robot.cpp ****                         info.Imu.pitch = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv
+ 918              		.loc 1 62 25 is_stmt 1 view .LVU264
+  62:src/unit/robot/robot.cpp ****                         info.Imu.pitch = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv
+ 919              		.loc 1 62 64 is_stmt 0 view .LVU265
+ 920 0066 1F4D     		ldr	r5, .L32+12
+ 921 0068 2878     		ldrb	r0, [r5]	@ zero_extendqisi2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 22
+
+
+  62:src/unit/robot/robot.cpp ****                         info.Imu.pitch = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv
+ 922              		.loc 1 62 105 view .LVU266
+ 923 006a 6B78     		ldrb	r3, [r5, #1]	@ zero_extendqisi2
+  62:src/unit/robot/robot.cpp ****                         info.Imu.pitch = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv
+ 924              		.loc 1 62 118 view .LVU267
+ 925 006c 43EA0020 		orr	r0, r3, r0, lsl #8
+ 926 0070 FFF7FEFF 		bl	__aeabi_i2d
+ 927              	.LVL73:
+ 928 0074 18A3     		adr	r3, .L32
+ 929 0076 D3E90023 		ldrd	r2, [r3]
+ 930 007a FFF7FEFF 		bl	__aeabi_dmul
+ 931              	.LVL74:
+  62:src/unit/robot/robot.cpp ****                         info.Imu.pitch = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv
+ 932              		.loc 1 62 124 view .LVU268
+ 933 007e 0022     		movs	r2, #0
+ 934 0080 1A4B     		ldr	r3, .L32+20
+ 935 0082 FFF7FEFF 		bl	__aeabi_dsub
+ 936              	.LVL75:
+  62:src/unit/robot/robot.cpp ****                         info.Imu.pitch = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv
+ 937              		.loc 1 62 38 view .LVU269
+ 938 0086 FFF7FEFF 		bl	__aeabi_d2iz
+ 939              	.LVL76:
+ 940 008a 2084     		strh	r0, [r4, #32]	@ movhi
+  63:src/unit/robot/robot.cpp ****                         info.Imu.roll = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_
+ 941              		.loc 1 63 25 is_stmt 1 view .LVU270
+  63:src/unit/robot/robot.cpp ****                         info.Imu.roll = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_
+ 942              		.loc 1 63 66 is_stmt 0 view .LVU271
+ 943 008c A878     		ldrb	r0, [r5, #2]	@ zero_extendqisi2
+  63:src/unit/robot/robot.cpp ****                         info.Imu.roll = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_
+ 944              		.loc 1 63 107 view .LVU272
+ 945 008e EB78     		ldrb	r3, [r5, #3]	@ zero_extendqisi2
+  63:src/unit/robot/robot.cpp ****                         info.Imu.roll = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_
+ 946              		.loc 1 63 120 view .LVU273
+ 947 0090 43EA0020 		orr	r0, r3, r0, lsl #8
+ 948 0094 FFF7FEFF 		bl	__aeabi_i2d
+ 949              	.LVL77:
+ 950 0098 0FA3     		adr	r3, .L32
+ 951 009a D3E90023 		ldrd	r2, [r3]
+ 952 009e FFF7FEFF 		bl	__aeabi_dmul
+ 953              	.LVL78:
+  63:src/unit/robot/robot.cpp ****                         info.Imu.roll = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_
+ 954              		.loc 1 63 126 view .LVU274
+ 955 00a2 0022     		movs	r2, #0
+ 956 00a4 114B     		ldr	r3, .L32+20
+ 957 00a6 FFF7FEFF 		bl	__aeabi_dsub
+ 958              	.LVL79:
+  63:src/unit/robot/robot.cpp ****                         info.Imu.roll = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_
+ 959              		.loc 1 63 40 view .LVU275
+ 960 00aa FFF7FEFF 		bl	__aeabi_d2iz
+ 961              	.LVL80:
+ 962 00ae 6084     		strh	r0, [r4, #34]	@ movhi
+  64:src/unit/robot/robot.cpp ****                   }
+ 963              		.loc 1 64 25 is_stmt 1 view .LVU276
+  64:src/unit/robot/robot.cpp ****                   }
+ 964              		.loc 1 64 65 is_stmt 0 view .LVU277
+ 965 00b0 2879     		ldrb	r0, [r5, #4]	@ zero_extendqisi2
+  64:src/unit/robot/robot.cpp ****                   }
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 23
+
+
+ 966              		.loc 1 64 106 view .LVU278
+ 967 00b2 6B79     		ldrb	r3, [r5, #5]	@ zero_extendqisi2
+  64:src/unit/robot/robot.cpp ****                   }
+ 968              		.loc 1 64 119 view .LVU279
+ 969 00b4 43EA0020 		orr	r0, r3, r0, lsl #8
+ 970 00b8 FFF7FEFF 		bl	__aeabi_i2d
+ 971              	.LVL81:
+ 972 00bc 06A3     		adr	r3, .L32
+ 973 00be D3E90023 		ldrd	r2, [r3]
+ 974 00c2 FFF7FEFF 		bl	__aeabi_dmul
+ 975              	.LVL82:
+  64:src/unit/robot/robot.cpp ****                   }
+ 976              		.loc 1 64 125 view .LVU280
+ 977 00c6 0022     		movs	r2, #0
+ 978 00c8 084B     		ldr	r3, .L32+20
+ 979 00ca FFF7FEFF 		bl	__aeabi_dsub
+ 980              	.LVL83:
+  64:src/unit/robot/robot.cpp ****                   }
+ 981              		.loc 1 64 39 view .LVU281
+ 982 00ce FFF7FEFF 		bl	__aeabi_d2iz
+ 983              	.LVL84:
+ 984 00d2 A084     		strh	r0, [r4, #36]	@ movhi
+ 985 00d4 C3E7     		b	.L25
+ 986              	.L29:
+  70:src/unit/robot/robot.cpp ****             }
+  71:src/unit/robot/robot.cpp ****       }
+  72:src/unit/robot/robot.cpp **** }
+ 987              		.loc 1 72 1 view .LVU282
+ 988 00d6 38BD     		pop	{r3, r4, r5, pc}
+ 989              	.LVL85:
+ 990              	.L33:
+ 991              		.loc 1 72 1 view .LVU283
+ 992              		.align	3
+ 993              	.L32:
+ 994 00d8 9A999999 		.word	-1717986918
+ 995 00dc 9999B93F 		.word	1069128089
+ 996 00e0 00000000 		.word	_ZZN5Robot11RecvImuUartEvE5index
+ 997 00e4 00000000 		.word	_ZZN5Robot11RecvImuUartEvE9recv_data
+ 998 00e8 00000000 		.word	_ZZN5Robot11RecvImuUartEvE9recv_byte
+ 999 00ec 00806640 		.word	1080459264
+ 1000              		.cfi_endproc
+ 1001              	.LFE275:
+ 1002              		.cantunwind
+ 1003              		.fnend
+ 1005              		.section	.text._ZN5Robot12RecvLineUartEv,"ax",%progbits
+ 1006              		.align	1
+ 1007              		.global	_ZN5Robot12RecvLineUartEv
+ 1008              		.syntax unified
+ 1009              		.thumb
+ 1010              		.thumb_func
+ 1012              	_ZN5Robot12RecvLineUartEv:
+ 1013              		.fnstart
+ 1014              	.LVL86:
+ 1015              	.LFB276:
+  73:src/unit/robot/robot.cpp **** 
+  74:src/unit/robot/robot.cpp **** void Robot::RecvLineUart() {
+ 1016              		.loc 1 74 28 is_stmt 1 view -0
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 24
+
+
+ 1017              		.cfi_startproc
+ 1018              		@ args = 0, pretend = 0, frame = 8
+ 1019              		@ frame_needed = 0, uses_anonymous_args = 0
+ 1020              		.loc 1 74 28 is_stmt 0 view .LVU285
+ 1021 0000 10B5     		push	{r4, lr}
+ 1022              		.save {r4, lr}
+ 1023              	.LCFI6:
+ 1024              		.cfi_def_cfa_offset 8
+ 1025              		.cfi_offset 4, -8
+ 1026              		.cfi_offset 14, -4
+ 1027              		.pad #8
+ 1028 0002 82B0     		sub	sp, sp, #8
+ 1029              	.LCFI7:
+ 1030              		.cfi_def_cfa_offset 16
+ 1031 0004 0446     		mov	r4, r0
+  75:src/unit/robot/robot.cpp ****       static const uint8_t HEADER = 0xFF;   // ヘッダ
+ 1032              		.loc 1 75 7 is_stmt 1 view .LVU286
+  76:src/unit/robot/robot.cpp ****       static const uint8_t FOOTER = 0xAA;   // ヘッダ
+ 1033              		.loc 1 76 7 view .LVU287
+  77:src/unit/robot/robot.cpp ****       static const uint8_t data_size = 6;   // データのサイズ
+ 1034              		.loc 1 77 7 view .LVU288
+  78:src/unit/robot/robot.cpp ****       static uint8_t index = 0;             // 受信したデータのインデックスカウン�
+ 1035              		.loc 1 78 7 view .LVU289
+  79:src/unit/robot/robot.cpp ****       static uint8_t recv_data[data_size];  // 受信したデータ
+ 1036              		.loc 1 79 7 view .LVU290
+  80:src/unit/robot/robot.cpp ****       static uint8_t recv_byte;
+ 1037              		.loc 1 80 7 view .LVU291
+  81:src/unit/robot/robot.cpp ****       serial2.write(info.Line.on_led);
+ 1038              		.loc 1 81 7 view .LVU292
+ 1039              		.loc 1 81 31 is_stmt 0 view .LVU293
+ 1040 0006 837C     		ldrb	r3, [r0, #18]	@ zero_extendqisi2
+ 1041              	.LVL87:
+ 1042              		.loc 1 81 31 view .LVU294
+ 1043 0008 8DF80730 		strb	r3, [sp, #7]
+ 1044              	.LVL88:
+ 1045              	.LBB114:
+ 1046              	.LBI114:
+  48:Lib/BufferedSerial/BufferedSerial.hpp **** 
+  49:Lib/BufferedSerial/BufferedSerial.hpp ****       void write(uint8_t data) {
+ 1047              		.loc 2 49 12 is_stmt 1 view .LVU295
+ 1048              	.LBB115:
+  50:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Transmit(_huart, &data, 1, 100);
+ 1049              		.loc 2 50 13 view .LVU296
+ 1050              		.loc 2 50 30 is_stmt 0 view .LVU297
+ 1051 000c 6423     		movs	r3, #100
+ 1052              	.LVL89:
+ 1053              		.loc 2 50 30 view .LVU298
+ 1054 000e 0122     		movs	r2, #1
+ 1055 0010 0DF10701 		add	r1, sp, #7
+ 1056              	.LVL90:
+ 1057              		.loc 2 50 30 view .LVU299
+ 1058 0014 D0F8140D 		ldr	r0, [r0, #3348]
+ 1059              	.LVL91:
+ 1060              		.loc 2 50 30 view .LVU300
+ 1061 0018 FFF7FEFF 		bl	HAL_UART_Transmit
+ 1062              	.LVL92:
+ 1063              		.loc 2 50 30 view .LVU301
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 25
+
+
+ 1064              	.LBE115:
+ 1065              	.LBE114:
+  82:src/unit/robot/robot.cpp **** 
+  83:src/unit/robot/robot.cpp ****       while (serial2.available()) {
+ 1066              		.loc 1 83 7 is_stmt 1 view .LVU302
+ 1067 001c 10E0     		b	.L35
+ 1068              	.L45:
+  84:src/unit/robot/robot.cpp ****             recv_byte = serial2.read();
+  85:src/unit/robot/robot.cpp ****             if (index == 0) {
+  86:src/unit/robot/robot.cpp ****                   if (recv_byte == HEADER) {
+  87:src/unit/robot/robot.cpp ****                         index++;
+ 1069              		.loc 1 87 25 view .LVU303
+ 1070              		.loc 1 87 30 is_stmt 0 view .LVU304
+ 1071 001e 0133     		adds	r3, r3, #1
+ 1072 0020 294A     		ldr	r2, .L47
+ 1073 0022 1370     		strb	r3, [r2]
+ 1074 0024 07E0     		b	.L38
+ 1075              	.L36:
+  88:src/unit/robot/robot.cpp ****                   } else {
+  89:src/unit/robot/robot.cpp ****                         index = 0;
+  90:src/unit/robot/robot.cpp ****                   }
+  91:src/unit/robot/robot.cpp ****             } else if (index == (data_size + 1)) {
+ 1076              		.loc 1 91 20 is_stmt 1 view .LVU305
+ 1077 0026 072B     		cmp	r3, #7
+ 1078 0028 28D0     		beq	.L43
+  92:src/unit/robot/robot.cpp ****                   if (recv_byte == FOOTER) {
+  93:src/unit/robot/robot.cpp ****                         info.motor_rps[0] = recv_data[0];
+  94:src/unit/robot/robot.cpp ****                         info.motor_rps[1] = recv_data[1];
+  95:src/unit/robot/robot.cpp ****                         info.motor_rps[2] = recv_data[2];
+  96:src/unit/robot/robot.cpp ****                         info.motor_rps[3] = recv_data[3];
+  97:src/unit/robot/robot.cpp ****                         info.Line.interval = recv_data[4] >> 4;
+  98:src/unit/robot/robot.cpp ****                         info.Line.is_on_line = (recv_data[4] >> 3) & 1;
+  99:src/unit/robot/robot.cpp ****                         info.Line.is_half_out = (recv_data[4] >> 2) & 1;
+ 100:src/unit/robot/robot.cpp ****                         info.Line.is_leftside = (recv_data[4] >> 1) & 1;
+ 101:src/unit/robot/robot.cpp ****                         info.Line.is_rightside = recv_data[4] & 1;
+ 102:src/unit/robot/robot.cpp ****                         info.Line.dir = recv_data[5] * 2 - 180;
+ 103:src/unit/robot/robot.cpp ****                   }
+ 104:src/unit/robot/robot.cpp ****                   index = 0;
+ 105:src/unit/robot/robot.cpp ****             } else {
+ 106:src/unit/robot/robot.cpp ****                   recv_data[index - 1] = recv_byte;
+ 1079              		.loc 1 106 19 view .LVU306
+ 1080              		.loc 1 106 35 is_stmt 0 view .LVU307
+ 1081 002a 5A1E     		subs	r2, r3, #1
+ 1082              		.loc 1 106 40 view .LVU308
+ 1083 002c 2749     		ldr	r1, .L47+4
+ 1084 002e 8854     		strb	r0, [r1, r2]
+ 107:src/unit/robot/robot.cpp ****                   index++;
+ 1085              		.loc 1 107 19 is_stmt 1 view .LVU309
+ 1086              		.loc 1 107 24 is_stmt 0 view .LVU310
+ 1087 0030 0133     		adds	r3, r3, #1
+ 1088 0032 254A     		ldr	r2, .L47
+ 1089 0034 1370     		strb	r3, [r2]
+ 1090              	.L38:
+ 108:src/unit/robot/robot.cpp ****             }
+ 109:src/unit/robot/robot.cpp ****             led1 = 1;
+ 1091              		.loc 1 109 13 is_stmt 1 view .LVU311
+ 1092              	.LVL93:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 26
+
+
+ 1093              	.LBB116:
+ 1094              	.LBI116:
+  14:Lib/DigitalInOut/DigitalInOut.hpp ****     }
+  15:Lib/DigitalInOut/DigitalInOut.hpp ****     void write(bool value) {
+  16:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+  17:Lib/DigitalInOut/DigitalInOut.hpp ****     }
+  18:Lib/DigitalInOut/DigitalInOut.hpp **** 
+  19:Lib/DigitalInOut/DigitalInOut.hpp ****     void operator=(bool value) {
+ 1095              		.loc 4 19 10 view .LVU312
+ 1096              	.LBB117:
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 1097              		.loc 4 20 9 view .LVU313
+ 1098              		.loc 4 20 26 is_stmt 0 view .LVU314
+ 1099 0036 0122     		movs	r2, #1
+ 1100 0038 A18D     		ldrh	r1, [r4, #44]
+ 1101 003a A06A     		ldr	r0, [r4, #40]
+ 1102 003c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1103              	.LVL94:
+ 1104              	.L35:
+ 1105              		.loc 4 20 26 view .LVU315
+ 1106              	.LBE117:
+ 1107              	.LBE116:
+  83:src/unit/robot/robot.cpp ****             recv_byte = serial2.read();
+ 1108              		.loc 1 83 31 is_stmt 1 view .LVU316
+ 1109              	.LBB118:
+ 1110              	.LBI118:
+  33:Lib/BufferedSerial/BufferedSerial.hpp ****             uint16_t rxTop = _rxBufSize - _huart->hdmarx->Instance->NDTR;
+ 1111              		.loc 2 33 12 view .LVU317
+ 1112              	.LBB119:
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 1113              		.loc 2 34 13 view .LVU318
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 1114              		.loc 2 34 30 is_stmt 0 view .LVU319
+ 1115 0040 B4F8203D 		ldrh	r3, [r4, #3360]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 1116              		.loc 2 34 43 view .LVU320
+ 1117 0044 D4F8142D 		ldr	r2, [r4, #3348]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 1118              		.loc 2 34 51 view .LVU321
+ 1119 0048 D26B     		ldr	r2, [r2, #60]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 1120              		.loc 2 34 59 view .LVU322
+ 1121 004a 1268     		ldr	r2, [r2]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 1122              		.loc 2 34 69 view .LVU323
+ 1123 004c 5268     		ldr	r2, [r2, #4]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 1124              		.loc 2 34 41 view .LVU324
+ 1125 004e 92B2     		uxth	r2, r2
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 1126              		.loc 2 34 69 view .LVU325
+ 1127 0050 9B1A     		subs	r3, r3, r2
+ 1128 0052 9BB2     		uxth	r3, r3
+ 1129              	.LVL95:
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 1130              		.loc 2 35 13 is_stmt 1 view .LVU326
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 27
+
+
+ 1131              		.loc 2 35 29 is_stmt 0 view .LVU327
+ 1132 0054 B4F81E2D 		ldrh	r2, [r4, #3358]
+ 1133              	.LVL96:
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 1134              		.loc 2 35 29 view .LVU328
+ 1135              	.LBE119:
+ 1136              	.LBE118:
+  83:src/unit/robot/robot.cpp ****             recv_byte = serial2.read();
+ 1137              		.loc 1 83 31 view .LVU329
+ 1138 0058 9342     		cmp	r3, r2
+ 1139 005a 32D0     		beq	.L44
+  84:src/unit/robot/robot.cpp ****             if (index == 0) {
+ 1140              		.loc 1 84 13 is_stmt 1 view .LVU330
+  84:src/unit/robot/robot.cpp ****             if (index == 0) {
+ 1141              		.loc 1 84 37 is_stmt 0 view .LVU331
+ 1142 005c 04F61450 		addw	r0, r4, #3348
+ 1143 0060 FFF7FEFF 		bl	_ZN14BufferedSerial4readEv
+ 1144              	.LVL97:
+  84:src/unit/robot/robot.cpp ****             if (index == 0) {
+ 1145              		.loc 1 84 23 view .LVU332
+ 1146 0064 1A4B     		ldr	r3, .L47+8
+ 1147 0066 1870     		strb	r0, [r3]
+  85:src/unit/robot/robot.cpp ****                   if (recv_byte == HEADER) {
+ 1148              		.loc 1 85 13 is_stmt 1 view .LVU333
+  85:src/unit/robot/robot.cpp ****                   if (recv_byte == HEADER) {
+ 1149              		.loc 1 85 23 is_stmt 0 view .LVU334
+ 1150 0068 174B     		ldr	r3, .L47
+ 1151 006a 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+  85:src/unit/robot/robot.cpp ****                   if (recv_byte == HEADER) {
+ 1152              		.loc 1 85 13 view .LVU335
+ 1153 006c 002B     		cmp	r3, #0
+ 1154 006e DAD1     		bne	.L36
+  86:src/unit/robot/robot.cpp ****                         index++;
+ 1155              		.loc 1 86 19 is_stmt 1 view .LVU336
+ 1156 0070 FF28     		cmp	r0, #255
+ 1157 0072 D4D0     		beq	.L45
+  89:src/unit/robot/robot.cpp ****                   }
+ 1158              		.loc 1 89 25 view .LVU337
+  89:src/unit/robot/robot.cpp ****                   }
+ 1159              		.loc 1 89 31 is_stmt 0 view .LVU338
+ 1160 0074 144B     		ldr	r3, .L47
+ 1161 0076 0022     		movs	r2, #0
+ 1162 0078 1A70     		strb	r2, [r3]
+ 1163 007a DCE7     		b	.L38
+ 1164              	.L43:
+  92:src/unit/robot/robot.cpp ****                         info.motor_rps[0] = recv_data[0];
+ 1165              		.loc 1 92 19 is_stmt 1 view .LVU339
+ 1166 007c AA28     		cmp	r0, #170
+ 1167 007e 03D0     		beq	.L46
+ 1168              	.L40:
+ 104:src/unit/robot/robot.cpp ****             } else {
+ 1169              		.loc 1 104 19 view .LVU340
+ 104:src/unit/robot/robot.cpp ****             } else {
+ 1170              		.loc 1 104 25 is_stmt 0 view .LVU341
+ 1171 0080 114B     		ldr	r3, .L47
+ 1172 0082 0022     		movs	r2, #0
+ 1173 0084 1A70     		strb	r2, [r3]
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 28
+
+
+ 1174 0086 D6E7     		b	.L38
+ 1175              	.L46:
+  93:src/unit/robot/robot.cpp ****                         info.motor_rps[1] = recv_data[1];
+ 1176              		.loc 1 93 25 is_stmt 1 view .LVU342
+  93:src/unit/robot/robot.cpp ****                         info.motor_rps[1] = recv_data[1];
+ 1177              		.loc 1 93 56 is_stmt 0 view .LVU343
+ 1178 0088 104A     		ldr	r2, .L47+4
+ 1179 008a 1378     		ldrb	r3, [r2]	@ zero_extendqisi2
+  93:src/unit/robot/robot.cpp ****                         info.motor_rps[1] = recv_data[1];
+ 1180              		.loc 1 93 43 view .LVU344
+ 1181 008c 2371     		strb	r3, [r4, #4]
+  94:src/unit/robot/robot.cpp ****                         info.motor_rps[2] = recv_data[2];
+ 1182              		.loc 1 94 25 is_stmt 1 view .LVU345
+  94:src/unit/robot/robot.cpp ****                         info.motor_rps[2] = recv_data[2];
+ 1183              		.loc 1 94 56 is_stmt 0 view .LVU346
+ 1184 008e 5378     		ldrb	r3, [r2, #1]	@ zero_extendqisi2
+  94:src/unit/robot/robot.cpp ****                         info.motor_rps[2] = recv_data[2];
+ 1185              		.loc 1 94 43 view .LVU347
+ 1186 0090 6371     		strb	r3, [r4, #5]
+  95:src/unit/robot/robot.cpp ****                         info.motor_rps[3] = recv_data[3];
+ 1187              		.loc 1 95 25 is_stmt 1 view .LVU348
+  95:src/unit/robot/robot.cpp ****                         info.motor_rps[3] = recv_data[3];
+ 1188              		.loc 1 95 56 is_stmt 0 view .LVU349
+ 1189 0092 9378     		ldrb	r3, [r2, #2]	@ zero_extendqisi2
+  95:src/unit/robot/robot.cpp ****                         info.motor_rps[3] = recv_data[3];
+ 1190              		.loc 1 95 43 view .LVU350
+ 1191 0094 A371     		strb	r3, [r4, #6]
+  96:src/unit/robot/robot.cpp ****                         info.Line.interval = recv_data[4] >> 4;
+ 1192              		.loc 1 96 25 is_stmt 1 view .LVU351
+  96:src/unit/robot/robot.cpp ****                         info.Line.interval = recv_data[4] >> 4;
+ 1193              		.loc 1 96 56 is_stmt 0 view .LVU352
+ 1194 0096 D378     		ldrb	r3, [r2, #3]	@ zero_extendqisi2
+  96:src/unit/robot/robot.cpp ****                         info.Line.interval = recv_data[4] >> 4;
+ 1195              		.loc 1 96 43 view .LVU353
+ 1196 0098 E371     		strb	r3, [r4, #7]
+  97:src/unit/robot/robot.cpp ****                         info.Line.is_on_line = (recv_data[4] >> 3) & 1;
+ 1197              		.loc 1 97 25 is_stmt 1 view .LVU354
+  97:src/unit/robot/robot.cpp ****                         info.Line.is_on_line = (recv_data[4] >> 3) & 1;
+ 1198              		.loc 1 97 57 is_stmt 0 view .LVU355
+ 1199 009a 1379     		ldrb	r3, [r2, #4]	@ zero_extendqisi2
+  97:src/unit/robot/robot.cpp ****                         info.Line.is_on_line = (recv_data[4] >> 3) & 1;
+ 1200              		.loc 1 97 59 view .LVU356
+ 1201 009c 1909     		lsrs	r1, r3, #4
+  97:src/unit/robot/robot.cpp ****                         info.Line.is_on_line = (recv_data[4] >> 3) & 1;
+ 1202              		.loc 1 97 44 view .LVU357
+ 1203 009e 2172     		strb	r1, [r4, #8]
+  98:src/unit/robot/robot.cpp ****                         info.Line.is_half_out = (recv_data[4] >> 2) & 1;
+ 1204              		.loc 1 98 25 is_stmt 1 view .LVU358
+  98:src/unit/robot/robot.cpp ****                         info.Line.is_half_out = (recv_data[4] >> 2) & 1;
+ 1205              		.loc 1 98 68 is_stmt 0 view .LVU359
+ 1206 00a0 C3F3C001 		ubfx	r1, r3, #3, #1
+  98:src/unit/robot/robot.cpp ****                         info.Line.is_half_out = (recv_data[4] >> 2) & 1;
+ 1207              		.loc 1 98 46 view .LVU360
+ 1208 00a4 6172     		strb	r1, [r4, #9]
+  99:src/unit/robot/robot.cpp ****                         info.Line.is_leftside = (recv_data[4] >> 1) & 1;
+ 1209              		.loc 1 99 25 is_stmt 1 view .LVU361
+  99:src/unit/robot/robot.cpp ****                         info.Line.is_leftside = (recv_data[4] >> 1) & 1;
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 29
+
+
+ 1210              		.loc 1 99 69 is_stmt 0 view .LVU362
+ 1211 00a6 C3F38001 		ubfx	r1, r3, #2, #1
+  99:src/unit/robot/robot.cpp ****                         info.Line.is_leftside = (recv_data[4] >> 1) & 1;
+ 1212              		.loc 1 99 47 view .LVU363
+ 1213 00aa A172     		strb	r1, [r4, #10]
+ 100:src/unit/robot/robot.cpp ****                         info.Line.is_rightside = recv_data[4] & 1;
+ 1214              		.loc 1 100 25 is_stmt 1 view .LVU364
+ 100:src/unit/robot/robot.cpp ****                         info.Line.is_rightside = recv_data[4] & 1;
+ 1215              		.loc 1 100 69 is_stmt 0 view .LVU365
+ 1216 00ac C3F34001 		ubfx	r1, r3, #1, #1
+ 100:src/unit/robot/robot.cpp ****                         info.Line.is_rightside = recv_data[4] & 1;
+ 1217              		.loc 1 100 47 view .LVU366
+ 1218 00b0 E172     		strb	r1, [r4, #11]
+ 101:src/unit/robot/robot.cpp ****                         info.Line.dir = recv_data[5] * 2 - 180;
+ 1219              		.loc 1 101 25 is_stmt 1 view .LVU367
+ 101:src/unit/robot/robot.cpp ****                         info.Line.dir = recv_data[5] * 2 - 180;
+ 1220              		.loc 1 101 63 is_stmt 0 view .LVU368
+ 1221 00b2 03F00103 		and	r3, r3, #1
+ 101:src/unit/robot/robot.cpp ****                         info.Line.dir = recv_data[5] * 2 - 180;
+ 1222              		.loc 1 101 48 view .LVU369
+ 1223 00b6 2373     		strb	r3, [r4, #12]
+ 102:src/unit/robot/robot.cpp ****                   }
+ 1224              		.loc 1 102 25 is_stmt 1 view .LVU370
+ 102:src/unit/robot/robot.cpp ****                   }
+ 1225              		.loc 1 102 52 is_stmt 0 view .LVU371
+ 1226 00b8 5379     		ldrb	r3, [r2, #5]	@ zero_extendqisi2
+ 102:src/unit/robot/robot.cpp ****                   }
+ 1227              		.loc 1 102 58 view .LVU372
+ 1228 00ba 5A3B     		subs	r3, r3, #90
+ 102:src/unit/robot/robot.cpp ****                   }
+ 1229              		.loc 1 102 39 view .LVU373
+ 1230 00bc 5B00     		lsls	r3, r3, #1
+ 1231 00be E381     		strh	r3, [r4, #14]	@ movhi
+ 1232 00c0 DEE7     		b	.L40
+ 1233              	.L44:
+ 110:src/unit/robot/robot.cpp ****       }
+ 111:src/unit/robot/robot.cpp **** }...
+ 1234              		.loc 1 111 1 view .LVU374
+ 1235 00c2 02B0     		add	sp, sp, #8
+ 1236              	.LCFI8:
+ 1237              		.cfi_def_cfa_offset 8
+ 1238              		@ sp needed
+ 1239 00c4 10BD     		pop	{r4, pc}
+ 1240              	.LVL98:
+ 1241              	.L48:
+ 1242              		.loc 1 111 1 view .LVU375
+ 1243 00c6 00BF     		.align	2
+ 1244              	.L47:
+ 1245 00c8 00000000 		.word	_ZZN5Robot12RecvLineUartEvE5index
+ 1246 00cc 00000000 		.word	_ZZN5Robot12RecvLineUartEvE9recv_data
+ 1247 00d0 00000000 		.word	_ZZN5Robot12RecvLineUartEvE9recv_byte
+ 1248              		.cfi_endproc
+ 1249              	.LFE276:
+ 1250              		.fnend
+ 1252              		.section	.bss._ZZN5Robot12RecvLineUartEvE9recv_byte,"aw",%nobits
+ 1255              	_ZZN5Robot12RecvLineUartEvE9recv_byte:
+ 1256 0000 00       		.space	1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 30
+
+
+ 1257              		.section	.bss._ZZN5Robot12RecvLineUartEvE9recv_data,"aw",%nobits
+ 1258              		.align	2
+ 1261              	_ZZN5Robot12RecvLineUartEvE9recv_data:
+ 1262 0000 00000000 		.space	6
+ 1262      0000
+ 1263              		.section	.bss._ZZN5Robot12RecvLineUartEvE5index,"aw",%nobits
+ 1266              	_ZZN5Robot12RecvLineUartEvE5index:
+ 1267 0000 00       		.space	1
+ 1268              		.section	.bss._ZZN5Robot11RecvImuUartEvE9recv_byte,"aw",%nobits
+ 1271              	_ZZN5Robot11RecvImuUartEvE9recv_byte:
+ 1272 0000 00       		.space	1
+ 1273              		.section	.bss._ZZN5Robot11RecvImuUartEvE9recv_data,"aw",%nobits
+ 1274              		.align	2
+ 1277              	_ZZN5Robot11RecvImuUartEvE9recv_data:
+ 1278 0000 00000000 		.space	6
+ 1278      0000
+ 1279              		.section	.bss._ZZN5Robot11RecvImuUartEvE5index,"aw",%nobits
+ 1282              	_ZZN5Robot11RecvImuUartEvE5index:
+ 1283 0000 00       		.space	1
+ 1284              		.global	adc_get_val
+ 1285              		.section	.bss.adc_get_val,"aw",%nobits
+ 1286              		.align	2
+ 1289              	adc_get_val:
+ 1290 0000 00000000 		.space	6
+ 1290      0000
+ 1291              		.text
+ 1292              	.Letext0:
+ 1293              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 1294              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 1295              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 1296              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ 1297              		.file 9 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 1298              		.file 10 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 1299              		.file 11 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 1300              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 1301              		.file 13 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 1302              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1303              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1304              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1305              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 1306              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 1307              		.file 19 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 1308              		.file 20 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1309              		.file 21 "Core/Inc/usart.h"
+ 1310              		.file 22 "Lib/MovingAve/MovingAve.hpp"
+ 1311              		.file 23 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 1312              		.file 24 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
+ 1313              		.file 25 "Core/Inc/tim.h"
+ 1314              		.file 26 "Lib/Timer/Timer.hpp"
+ 1315              		.file 27 "Core/Inc/adc.h"
+ 1316              		.file 28 "src/unit/dribbler_drive/dribbler_drive.hpp"
+ 1317              		.file 29 "src/unit/kicker/kicker.hpp"
+ 1318              		.file 30 "Lib/pid/pid.hpp"
+ 1319              		.file 31 "src/unit/motor_drive/motor_drive.hpp"
+ 1320              		.file 32 "src/unit/robot/robot.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 31
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 robot.cpp
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:21     .text._ZN14BufferedSerial4readEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:27     .text._ZN14BufferedSerial4readEv:00000000 _ZN14BufferedSerial4readEv
+.ARM.exidx.text._ZN14BufferedSerial4readEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:93     .text._ZN12PwmSingleOut4initEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:99     .text._ZN12PwmSingleOut4initEv:00000000 _ZN12PwmSingleOut4initEv
+.ARM.exidx.text._ZN12PwmSingleOut4initEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:139    .text._ZN5RobotC2Ev:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:145    .text._ZN5RobotC2Ev:00000000 _ZN5RobotC2Ev
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:530    .text._ZN5RobotC2Ev:00000194 $d
+    .ARM.exidx.text._ZN5RobotC2Ev:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:145    .text._ZN5RobotC2Ev:00000000 _ZN5RobotC1Ev
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:546    .text._ZN5Robot12HardwareInitEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:552    .text._ZN5Robot12HardwareInitEv:00000000 _ZN5Robot12HardwareInitEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:743    .text._ZN5Robot12HardwareInitEv:000000e0 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1289   .bss.adc_get_val:00000000 adc_get_val
+.ARM.exidx.text._ZN5Robot12HardwareInitEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:750    .text._ZN5Robot10GetSensorsEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:756    .text._ZN5Robot10GetSensorsEv:00000000 _ZN5Robot10GetSensorsEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:782    .text._ZN5Robot10GetSensorsEv:0000001c $d
+.ARM.exidx.text._ZN5Robot10GetSensorsEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:794    .text._ZN5Robot11RecvImuUartEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:800    .text._ZN5Robot11RecvImuUartEv:00000000 _ZN5Robot11RecvImuUartEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:994    .text._ZN5Robot11RecvImuUartEv:000000d8 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1282   .bss._ZZN5Robot11RecvImuUartEvE5index:00000000 _ZZN5Robot11RecvImuUartEvE5index
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1277   .bss._ZZN5Robot11RecvImuUartEvE9recv_data:00000000 _ZZN5Robot11RecvImuUartEvE9recv_data
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1271   .bss._ZZN5Robot11RecvImuUartEvE9recv_byte:00000000 _ZZN5Robot11RecvImuUartEvE9recv_byte
+.ARM.exidx.text._ZN5Robot11RecvImuUartEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1006   .text._ZN5Robot12RecvLineUartEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1012   .text._ZN5Robot12RecvLineUartEv:00000000 _ZN5Robot12RecvLineUartEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1245   .text._ZN5Robot12RecvLineUartEv:000000c8 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1266   .bss._ZZN5Robot12RecvLineUartEvE5index:00000000 _ZZN5Robot12RecvLineUartEvE5index
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1261   .bss._ZZN5Robot12RecvLineUartEvE9recv_data:00000000 _ZZN5Robot12RecvLineUartEvE9recv_data
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1255   .bss._ZZN5Robot12RecvLineUartEvE9recv_byte:00000000 _ZZN5Robot12RecvLineUartEvE9recv_byte
+.ARM.exidx.text._ZN5Robot12RecvLineUartEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1256   .bss._ZZN5Robot12RecvLineUartEvE9recv_byte:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1258   .bss._ZZN5Robot12RecvLineUartEvE9recv_data:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1267   .bss._ZZN5Robot12RecvLineUartEvE5index:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1272   .bss._ZZN5Robot11RecvImuUartEvE9recv_byte:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1274   .bss._ZZN5Robot11RecvImuUartEvE9recv_data:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1283   .bss._ZZN5Robot11RecvImuUartEvE5index:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s:1286   .bss.adc_get_val:00000000 $d
+
+UNDEFINED SYMBOLS
+HAL_TIM_PWM_Start
+__aeabi_unwind_cpp_pr0
+HAL_GPIO_WritePin
+_ZN10MotorDriveC1EP12PwmSingleOutS1_S1_S1_S1_S1_S1_S1_PsPh
+_ZN13DribblerDriveC1EP12PwmSingleOutS1_
+_ZN6KickerC1EP10DigitalOutS1_
+_Znaj
+htim13
+htim12
+htim2
+htim3
+htim4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccRJD5ip.s 			page 32
+
+
+huart1
+huart2
+HAL_ADC_Start
+HAL_ADC_Start_DMA
+HAL_UART_Receive_DMA
+_ZN10MotorDrive15CheckConnectionEv
+HAL_Delay
+_ZN13DribblerDrive15CheckConnectionEv
+hadc1
+__aeabi_i2d
+__aeabi_dmul
+__aeabi_dsub
+__aeabi_d2iz
+HAL_UART_Transmit
