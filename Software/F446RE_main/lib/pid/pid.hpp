@@ -13,7 +13,7 @@ class PID {
 
       void SetGain(float kp, float ki, float kd);
       void SetSamplingFreq(uint16_t sampling_freq = 100);
-      void SetLimit(uint16_t limit = 100);
+      void SetLimit(int16_t min_limit = -100, int16_t max_limit = 100);
 
       void Compute(float input, float target);
       float Get();
@@ -28,7 +28,8 @@ class PID {
       double pre_input_;
 
       double sampling_period_;
-      uint16_t limit_;
+      int16_t max_limit_;
+      int16_t min_limit_;
 
       uint8_t type_;
 

@@ -7,8 +7,8 @@
 #include "Timer.hpp"
 #include "pid.hpp"
 
-#define MAX_POWER 100  // MAX:100
-#define MIN_POWER 1
+#define MAX_POWER 1000  // MAX:100
+#define MIN_POWER 10
 #define MOVING_AVE_NUM 5
 
 #define MOTOR_QTY 4

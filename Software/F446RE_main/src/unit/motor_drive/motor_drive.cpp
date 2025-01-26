@@ -12,15 +12,16 @@ MotorDrive::MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
       this->motor_rps_ = motor_rps;
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             motor_ave[i].SetLength(MOVING_AVE_NUM);
-            motor_pid[i].SetGain(10, 20, 0.2);
-            motor_pid[i].SetLimit(1000);
+            motor_pid[i].SetGain(10, 10, 0.1);
+            motor_pid[i].SetLimit(MIN_POWER, MAX_POWER);
             motor_pid[i].SetSamplingFreq(1000);
             motor_pid[i].SetType(1);
       }
 
-      pid.SetGain(4, 0.5, 0.2);
-      pid.SetLimit(150);
-      pid.SetSamplingFreq(100);
+      pid.SetGain(3, 0.5, 0.1);
+      pid.SetLimit(-100, 100);
+      pid.SetSamplingFreq(500);
+      pid.SetType(1);
 }
 
 void MotorDrive::Init() {
@@ -53,18 +54,15 @@ void MotorDrive::Drive(int16_t deg, uint8_t speed) {
       // PIDで姿勢制御
 
       pid.Compute(0, *yaw_);
-      for (uint8_t i = 0; i < MOTOR_QTY; i++) {
-            power[i] -= pid.Get();
-      }
 
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
+            power[i] -= pid.Get();
+
             motor_pid[i].Compute(motor_rps_[i], abs(power[i]));
             if (power[i] > 0) {
                   power[i] = motor_pid[i].Get();
-                  if (power[i] < MIN_POWER) power[i] = MIN_POWER;
             } else {
                   power[i] = motor_pid[i].Get() * -1;
-                  if (power[i] > -1 * MIN_POWER) power[i] = -1 * MIN_POWER;
             }
       }
       // 移動平均

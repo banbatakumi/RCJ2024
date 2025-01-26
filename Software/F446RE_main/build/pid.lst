@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -47,7 +47,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 1
   42 0002 0446     		mov	r4, r0
   43              	.LBB2:
   44              		.loc 1 3 10 view .LVU2
-  45 0004 5430     		adds	r0, r0, #84
+  45 0004 5830     		adds	r0, r0, #88
   46              	.LVL1:
   47              		.loc 1 3 10 view .LVU3
   48 0006 FFF7FEFF 		bl	_ZN5TimerC1Ev
@@ -56,9 +56,9 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 1
   50              		.loc 1 4 7 is_stmt 1 view .LVU4
   51              		.loc 1 4 13 is_stmt 0 view .LVU5
   52 000a 0023     		movs	r3, #0
-  53 000c 84F85230 		strb	r3, [r4, #82]
+  53 000c 84F85430 		strb	r3, [r4, #84]
   54              	.LBE2:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 2
 
 
    5:lib/pid/pid.cpp **** }
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 1
  106              		.loc 1 9 17 view .LVU16
  107 001e C4E90A01 		strd	r0, [r4, #40]
   10:lib/pid/pid.cpp ****       this->kd_ = kd;
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 3
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 3
 
 
  108              		.loc 1 10 7 is_stmt 1 view .LVU17
@@ -178,1087 +178,954 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 1
  159 0020 10BD     		pop	{r4, pc}
  160              		.loc 1 15 1 view .LVU29
  161              		.cfi_endproc
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 4
 
 
  162              	.LFE246:
  163              		.cantunwind
  164              		.fnend
- 166              		.section	.text._ZN3PID8SetLimitEt,"ax",%progbits
+ 166              		.section	.text._ZN3PID8SetLimitEss,"ax",%progbits
  167              		.align	1
- 168              		.global	_ZN3PID8SetLimitEt
+ 168              		.global	_ZN3PID8SetLimitEss
  169              		.syntax unified
  170              		.thumb
  171              		.thumb_func
- 173              	_ZN3PID8SetLimitEt:
+ 173              	_ZN3PID8SetLimitEss:
  174              		.fnstart
  175              	.LVL11:
  176              	.LFB247:
   16:lib/pid/pid.cpp **** 
-  17:lib/pid/pid.cpp **** void PID::SetLimit(uint16_t limit) {
- 177              		.loc 1 17 36 is_stmt 1 view -0
+  17:lib/pid/pid.cpp **** void PID::SetLimit(int16_t min_limit, int16_t max_limit) {
+ 177              		.loc 1 17 58 is_stmt 1 view -0
  178              		.cfi_startproc
  179              		@ args = 0, pretend = 0, frame = 0
  180              		@ frame_needed = 0, uses_anonymous_args = 0
  181              		@ link register save eliminated.
-  18:lib/pid/pid.cpp ****       this->limit_ = limit;
+  18:lib/pid/pid.cpp ****       this->min_limit_ = min_limit;
  182              		.loc 1 18 7 view .LVU31
- 183              		.loc 1 18 20 is_stmt 0 view .LVU32
- 184 0000 A0F85010 		strh	r1, [r0, #80]	@ movhi
-  19:lib/pid/pid.cpp **** }
- 185              		.loc 1 19 1 view .LVU33
- 186 0004 7047     		bx	lr
- 187              		.cfi_endproc
- 188              	.LFE247:
- 189              		.cantunwind
- 190              		.fnend
- 192              		.section	.text._ZN3PID7SetTypeEh,"ax",%progbits
- 193              		.align	1
- 194              		.global	_ZN3PID7SetTypeEh
- 195              		.syntax unified
- 196              		.thumb
- 197              		.thumb_func
- 199              	_ZN3PID7SetTypeEh:
- 200              		.fnstart
- 201              	.LVL12:
- 202              	.LFB248:
-  20:lib/pid/pid.cpp **** 
-  21:lib/pid/pid.cpp **** void PID::SetType(uint8_t type) {
- 203              		.loc 1 21 33 is_stmt 1 view -0
- 204              		.cfi_startproc
- 205              		@ args = 0, pretend = 0, frame = 0
- 206              		@ frame_needed = 0, uses_anonymous_args = 0
- 207              		@ link register save eliminated.
-  22:lib/pid/pid.cpp ****       type_ = type;
- 208              		.loc 1 22 7 view .LVU35
- 209              		.loc 1 22 13 is_stmt 0 view .LVU36
- 210 0000 80F85210 		strb	r1, [r0, #82]
-  23:lib/pid/pid.cpp **** }
- 211              		.loc 1 23 1 view .LVU37
- 212 0004 7047     		bx	lr
- 213              		.cfi_endproc
- 214              	.LFE248:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 5
+ 183              		.loc 1 18 24 is_stmt 0 view .LVU32
+ 184 0000 A0F85210 		strh	r1, [r0, #82]	@ movhi
+  19:lib/pid/pid.cpp ****       this->max_limit_ = max_limit;
+ 185              		.loc 1 19 7 is_stmt 1 view .LVU33
+ 186              		.loc 1 19 24 is_stmt 0 view .LVU34
+ 187 0004 A0F85020 		strh	r2, [r0, #80]	@ movhi
+  20:lib/pid/pid.cpp **** }
+ 188              		.loc 1 20 1 view .LVU35
+ 189 0008 7047     		bx	lr
+ 190              		.cfi_endproc
+ 191              	.LFE247:
+ 192              		.cantunwind
+ 193              		.fnend
+ 195              		.section	.text._ZN3PID7SetTypeEh,"ax",%progbits
+ 196              		.align	1
+ 197              		.global	_ZN3PID7SetTypeEh
+ 198              		.syntax unified
+ 199              		.thumb
+ 200              		.thumb_func
+ 202              	_ZN3PID7SetTypeEh:
+ 203              		.fnstart
+ 204              	.LVL12:
+ 205              	.LFB248:
+  21:lib/pid/pid.cpp **** 
+  22:lib/pid/pid.cpp **** void PID::SetType(uint8_t type) {
+ 206              		.loc 1 22 33 is_stmt 1 view -0
+ 207              		.cfi_startproc
+ 208              		@ args = 0, pretend = 0, frame = 0
+ 209              		@ frame_needed = 0, uses_anonymous_args = 0
+ 210              		@ link register save eliminated.
+  23:lib/pid/pid.cpp ****       type_ = type;
+ 211              		.loc 1 23 7 view .LVU37
+ 212              		.loc 1 23 13 is_stmt 0 view .LVU38
+ 213 0000 80F85410 		strb	r1, [r0, #84]
+  24:lib/pid/pid.cpp **** }
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 5
 
 
- 215              		.cantunwind
- 216              		.fnend
- 218              		.global	__aeabi_dcmplt
- 219              		.global	__aeabi_dsub
- 220              		.global	__aeabi_ddiv
- 221              		.global	__aeabi_dadd
- 222              		.global	__aeabi_dmul
- 223              		.global	__aeabi_dcmpgt
- 224              		.global	__aeabi_i2d
- 225              		.section	.text._ZN3PID7ComputeEff,"ax",%progbits
- 226              		.align	1
- 227              		.global	_ZN3PID7ComputeEff
- 228              		.syntax unified
- 229              		.thumb
- 230              		.thumb_func
- 232              	_ZN3PID7ComputeEff:
- 233              		.fnstart
- 234              	.LVL13:
- 235              	.LFB249:
-  24:lib/pid/pid.cpp **** 
-  25:lib/pid/pid.cpp **** void PID::Compute(float input, float target) {
- 236              		.loc 1 25 46 is_stmt 1 view -0
- 237              		.cfi_startproc
- 238              		@ args = 0, pretend = 0, frame = 0
- 239              		@ frame_needed = 0, uses_anonymous_args = 0
- 240              		.loc 1 25 46 is_stmt 0 view .LVU39
- 241 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 242              		.save {r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
- 243              	.LCFI3:
- 244              		.cfi_def_cfa_offset 40
- 245              		.cfi_offset 3, -40
- 246              		.cfi_offset 4, -36
- 247              		.cfi_offset 5, -32
- 248              		.cfi_offset 6, -28
- 249              		.cfi_offset 7, -24
- 250              		.cfi_offset 8, -20
- 251              		.cfi_offset 9, -16
- 252              		.cfi_offset 10, -12
- 253              		.cfi_offset 11, -8
- 254              		.cfi_offset 14, -4
- 255 0004 2DED028B 		vpush.64	{d8}
- 256              		.vsave {d8}
- 257              	.LCFI4:
- 258              		.cfi_def_cfa_offset 48
- 259              		.cfi_offset 80, -48
- 260              		.cfi_offset 81, -44
- 261 0008 0446     		mov	r4, r0
- 262 000a B0EE408A 		vmov.f32	s16, s0
- 263 000e F0EE608A 		vmov.f32	s17, s1
-  26:lib/pid/pid.cpp ****       if (sampling_timer.read() > sampling_period_) {  // 普通のやつ
- 264              		.loc 1 26 7 is_stmt 1 view .LVU40
- 265              		.loc 1 26 30 is_stmt 0 view .LVU41
- 266 0012 00F15405 		add	r5, r0, #84
- 267 0016 2846     		mov	r0, r5
- 268              	.LVL14:
- 269              		.loc 1 26 30 view .LVU42
- 270 0018 FFF7FEFF 		bl	_ZN5Timer4readEv
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 6
+ 214              		.loc 1 24 1 view .LVU39
+ 215 0004 7047     		bx	lr
+ 216              		.cfi_endproc
+ 217              	.LFE248:
+ 218              		.cantunwind
+ 219              		.fnend
+ 221              		.global	__aeabi_dcmplt
+ 222              		.global	__aeabi_dsub
+ 223              		.global	__aeabi_ddiv
+ 224              		.global	__aeabi_dadd
+ 225              		.global	__aeabi_dmul
+ 226              		.global	__aeabi_i2d
+ 227              		.global	__aeabi_dcmpgt
+ 228              		.section	.text._ZN3PID7ComputeEff,"ax",%progbits
+ 229              		.align	1
+ 230              		.global	_ZN3PID7ComputeEff
+ 231              		.syntax unified
+ 232              		.thumb
+ 233              		.thumb_func
+ 235              	_ZN3PID7ComputeEff:
+ 236              		.fnstart
+ 237              	.LVL13:
+ 238              	.LFB249:
+  25:lib/pid/pid.cpp **** 
+  26:lib/pid/pid.cpp **** void PID::Compute(float input, float target) {
+ 239              		.loc 1 26 46 is_stmt 1 view -0
+ 240              		.cfi_startproc
+ 241              		@ args = 0, pretend = 0, frame = 0
+ 242              		@ frame_needed = 0, uses_anonymous_args = 0
+ 243              		.loc 1 26 46 is_stmt 0 view .LVU41
+ 244 0000 2DE9F84F 		push	{r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 245              		.save {r3, r4, r5, r6, r7, r8, r9, r10, fp, lr}
+ 246              	.LCFI3:
+ 247              		.cfi_def_cfa_offset 40
+ 248              		.cfi_offset 3, -40
+ 249              		.cfi_offset 4, -36
+ 250              		.cfi_offset 5, -32
+ 251              		.cfi_offset 6, -28
+ 252              		.cfi_offset 7, -24
+ 253              		.cfi_offset 8, -20
+ 254              		.cfi_offset 9, -16
+ 255              		.cfi_offset 10, -12
+ 256              		.cfi_offset 11, -8
+ 257              		.cfi_offset 14, -4
+ 258 0004 2DED028B 		vpush.64	{d8}
+ 259              		.vsave {d8}
+ 260              	.LCFI4:
+ 261              		.cfi_def_cfa_offset 48
+ 262              		.cfi_offset 80, -48
+ 263              		.cfi_offset 81, -44
+ 264 0008 0446     		mov	r4, r0
+ 265 000a B0EE408A 		vmov.f32	s16, s0
+ 266 000e F0EE608A 		vmov.f32	s17, s1
+  27:lib/pid/pid.cpp ****       if (sampling_timer.read() > sampling_period_) {  // 普通のやつ
+ 267              		.loc 1 27 7 is_stmt 1 view .LVU42
+ 268              		.loc 1 27 30 is_stmt 0 view .LVU43
+ 269 0012 00F15805 		add	r5, r0, #88
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 6
 
 
- 271              	.LVL15:
- 272              		.loc 1 26 30 view .LVU43
- 273 001c 53EC102B 		vmov	r2, r3, d0
- 274              		.loc 1 26 7 view .LVU44
- 275 0020 D4E91201 		ldrd	r0, [r4, #72]
- 276 0024 FFF7FEFF 		bl	__aeabi_dcmplt
- 277              	.LVL16:
- 278 0028 58B1     		cbz	r0, .L9
-  27:lib/pid/pid.cpp ****             if (type_ == 0) {
- 279              		.loc 1 27 13 is_stmt 1 view .LVU45
- 280              		.loc 1 27 17 is_stmt 0 view .LVU46
- 281 002a 94F85230 		ldrb	r3, [r4, #82]	@ zero_extendqisi2
- 282              		.loc 1 27 13 view .LVU47
- 283 002e 63B1     		cbz	r3, .L44
-  28:lib/pid/pid.cpp ****                   p_ = target - input;                                 // 比例
-  29:lib/pid/pid.cpp ****                   d_ = (p_ - pre_p_) / sampling_timer.read();          // 微分
-  30:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
-  31:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
-  32:lib/pid/pid.cpp ****                   pre_p_ = p_;
-  33:lib/pid/pid.cpp **** 
-  34:lib/pid/pid.cpp ****                   pid_ = p_ * kp_ + i_ * ki_ + d_ * kd_;
+ 270 0016 2846     		mov	r0, r5
+ 271              	.LVL14:
+ 272              		.loc 1 27 30 view .LVU44
+ 273 0018 FFF7FEFF 		bl	_ZN5Timer4readEv
+ 274              	.LVL15:
+ 275              		.loc 1 27 30 view .LVU45
+ 276 001c 53EC102B 		vmov	r2, r3, d0
+ 277              		.loc 1 27 7 view .LVU46
+ 278 0020 D4E91201 		ldrd	r0, [r4, #72]
+ 279 0024 FFF7FEFF 		bl	__aeabi_dcmplt
+ 280              	.LVL16:
+ 281 0028 68B3     		cbz	r0, .L9
+  28:lib/pid/pid.cpp ****             if (type_ == 0) {
+ 282              		.loc 1 28 13 is_stmt 1 view .LVU47
+ 283              		.loc 1 28 17 is_stmt 0 view .LVU48
+ 284 002a 94F85430 		ldrb	r3, [r4, #84]	@ zero_extendqisi2
+ 285              		.loc 1 28 13 view .LVU49
+ 286 002e 73B3     		cbz	r3, .L41
+  29:lib/pid/pid.cpp ****                   p_ = target - input;                                 // 比例
+  30:lib/pid/pid.cpp ****                   d_ = (p_ - pre_p_) / sampling_timer.read();          // 微分
+  31:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+  32:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+  33:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+  34:lib/pid/pid.cpp ****                   pre_p_ = p_;
   35:lib/pid/pid.cpp **** 
-  36:lib/pid/pid.cpp ****                   if (abs(pid_) > limit_) pid_ = limit_ * (abs(pid_) / pid_);
+  36:lib/pid/pid.cpp ****                   pid_ = p_ * kp_ + i_ * ki_ + d_ * kd_;
   37:lib/pid/pid.cpp ****             } else if (type_ == 1) {
- 284              		.loc 1 37 20 is_stmt 1 view .LVU48
- 285 0030 012B     		cmp	r3, #1
- 286 0032 00F0B480 		beq	.L45
+ 287              		.loc 1 37 20 is_stmt 1 view .LVU50
+ 288 0030 012B     		cmp	r3, #1
+ 289 0032 00F0AD80 		beq	.L42
   38:lib/pid/pid.cpp ****                   p_ = target - input;                                 // 比例
   39:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
   40:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
-  41:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
-  42:lib/pid/pid.cpp ****                   pre_p_ = p_;
-  43:lib/pid/pid.cpp ****                   pre_input_ = input;
-  44:lib/pid/pid.cpp **** 
-  45:lib/pid/pid.cpp ****                   pid_ = p_ * kp_ + i_ * ki_ - d_ * kd_;
-  46:lib/pid/pid.cpp **** 
-  47:lib/pid/pid.cpp ****                   if (abs(pid_) > limit_) pid_ = limit_ * (abs(pid_) / pid_);
-  48:lib/pid/pid.cpp ****             } else if (type_ == 2) {
- 287              		.loc 1 48 20 view .LVU49
- 288 0036 022B     		cmp	r3, #2
- 289 0038 00F06681 		beq	.L46
- 290              	.LVL17:
- 291              	.L17:
-  49:lib/pid/pid.cpp ****                   p_ = target - input;                                 // 比例
-  50:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
-  51:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
-  52:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
+  41:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+  42:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+  43:lib/pid/pid.cpp ****                   pre_p_ = p_;
+  44:lib/pid/pid.cpp ****                   pre_input_ = input;
+  45:lib/pid/pid.cpp **** 
+  46:lib/pid/pid.cpp ****                   pid_ = p_ * kp_ + i_ * ki_ - d_ * kd_;
+  47:lib/pid/pid.cpp ****             } else if (type_ == 2) {
+ 290              		.loc 1 47 20 view .LVU51
+ 291 0036 022B     		cmp	r3, #2
+ 292 0038 00F03381 		beq	.L43
+ 293              	.LVL17:
+ 294              	.L17:
+  48:lib/pid/pid.cpp ****                   p_ = target - input;                                 // 比例
+  49:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
+  50:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+  51:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+  52:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
   53:lib/pid/pid.cpp ****                   pre_p_ = p_;
   54:lib/pid/pid.cpp ****                   p_ = input - pre_input_;
   55:lib/pid/pid.cpp ****                   pre_input_ = input;
   56:lib/pid/pid.cpp **** 
   57:lib/pid/pid.cpp ****                   pid_ = 0 - p_ * kp_ + i_ * ki_ - d_ * kd_;
-  58:lib/pid/pid.cpp **** 
-  59:lib/pid/pid.cpp ****                   if (abs(pid_) > limit_) pid_ = limit_ * (abs(pid_) / pid_);
-  60:lib/pid/pid.cpp ****             }
+  58:lib/pid/pid.cpp ****             }
+  59:lib/pid/pid.cpp ****             if (pid_ > max_limit_) pid_ = max_limit_;
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 7
+
+
+ 295              		.loc 1 59 13 view .LVU52
+ 296              		.loc 1 59 17 is_stmt 0 view .LVU53
+ 297 003c D4E90E89 		ldrd	r8, [r4, #56]
+ 298              		.loc 1 59 22 view .LVU54
+ 299 0040 B4F95000 		ldrsh	r0, [r4, #80]
+ 300 0044 FFF7FEFF 		bl	__aeabi_i2d
+ 301              	.LVL18:
+ 302 0048 0646     		mov	r6, r0
+ 303 004a 0F46     		mov	r7, r1
+ 304              		.loc 1 59 13 view .LVU55
+ 305 004c 0246     		mov	r2, r0
+ 306 004e 0B46     		mov	r3, r1
+ 307 0050 4046     		mov	r0, r8
+ 308 0052 4946     		mov	r1, r9
+ 309 0054 FFF7FEFF 		bl	__aeabi_dcmpgt
+ 310              	.LVL19:
+ 311 0058 08B1     		cbz	r0, .L27
+ 312              		.loc 1 59 36 is_stmt 1 discriminator 1 view .LVU56
+ 313              		.loc 1 59 41 is_stmt 0 discriminator 1 view .LVU57
+ 314 005a C4E90E67 		strd	r6, [r4, #56]
+ 315              	.L27:
+  60:lib/pid/pid.cpp ****             if (pid_ < min_limit_) pid_ = min_limit_;
+ 316              		.loc 1 60 13 is_stmt 1 view .LVU58
+ 317              		.loc 1 60 17 is_stmt 0 view .LVU59
+ 318 005e D4E90E89 		ldrd	r8, [r4, #56]
+ 319              		.loc 1 60 22 view .LVU60
+ 320 0062 B4F95200 		ldrsh	r0, [r4, #82]
+ 321 0066 FFF7FEFF 		bl	__aeabi_i2d
+ 322              	.LVL20:
+ 323 006a 0646     		mov	r6, r0
+ 324 006c 0F46     		mov	r7, r1
+ 325              		.loc 1 60 13 view .LVU61
+ 326 006e 0246     		mov	r2, r0
+ 327 0070 0B46     		mov	r3, r1
+ 328 0072 4046     		mov	r0, r8
+ 329 0074 4946     		mov	r1, r9
+ 330 0076 FFF7FEFF 		bl	__aeabi_dcmplt
+ 331              	.LVL21:
+ 332 007a 08B1     		cbz	r0, .L29
+ 333              		.loc 1 60 36 is_stmt 1 discriminator 1 view .LVU62
+ 334              		.loc 1 60 41 is_stmt 0 discriminator 1 view .LVU63
+ 335 007c C4E90E67 		strd	r6, [r4, #56]
+ 336              	.L29:
   61:lib/pid/pid.cpp ****             sampling_timer.reset();
- 292              		.loc 1 61 13 view .LVU50
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 7
-
-
- 293              		.loc 1 61 33 is_stmt 0 view .LVU51
- 294 003c 2846     		mov	r0, r5
- 295 003e FFF7FEFF 		bl	_ZN5Timer5resetEv
- 296              	.LVL18:
- 297              	.L9:
+ 337              		.loc 1 61 13 is_stmt 1 view .LVU64
+ 338              		.loc 1 61 33 is_stmt 0 view .LVU65
+ 339 0080 2846     		mov	r0, r5
+ 340 0082 FFF7FEFF 		bl	_ZN5Timer5resetEv
+ 341              	.LVL22:
+ 342              	.L9:
   62:lib/pid/pid.cpp ****       }
   63:lib/pid/pid.cpp **** }
- 298              		.loc 1 63 1 view .LVU52
- 299 0042 BDEC028B 		vldm	sp!, {d8}
- 300              	.LCFI5:
- 301              		.cfi_remember_state
- 302              		.cfi_restore 80
- 303              		.cfi_restore 81
- 304              		.cfi_def_cfa_offset 40
- 305 0046 BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
- 306              	.LVL19:
- 307              	.L44:
- 308              	.LCFI6:
- 309              		.cfi_restore_state
-  28:lib/pid/pid.cpp ****                   d_ = (p_ - pre_p_) / sampling_timer.read();          // 微分
- 310              		.loc 1 28 19 is_stmt 1 view .LVU53
-  28:lib/pid/pid.cpp ****                   d_ = (p_ - pre_p_) / sampling_timer.read();          // 微分
- 311              		.loc 1 28 31 is_stmt 0 view .LVU54
- 312 004a 78EEC87A 		vsub.f32	s15, s17, s16
- 313 004e 17EE900A 		vmov	r0, s15
- 314 0052 FFF7FEFF 		bl	__aeabi_f2d
- 315              	.LVL20:
- 316 0056 0246     		mov	r2, r0
- 317 0058 0B46     		mov	r3, r1
-  28:lib/pid/pid.cpp ****                   d_ = (p_ - pre_p_) / sampling_timer.read();          // 微分
- 318              		.loc 1 28 22 view .LVU55
- 319 005a C4E90023 		strd	r2, [r4]
-  29:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 320              		.loc 1 29 19 is_stmt 1 view .LVU56
-  29:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 321              		.loc 1 29 28 is_stmt 0 view .LVU57
- 322 005e D4E90623 		ldrd	r2, [r4, #24]
- 323 0062 FFF7FEFF 		bl	__aeabi_dsub
- 324              	.LVL21:
- 325 0066 0646     		mov	r6, r0
- 326 0068 0F46     		mov	r7, r1
-  29:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 327              		.loc 1 29 59 view .LVU58
- 328 006a 2846     		mov	r0, r5
- 329 006c FFF7FEFF 		bl	_ZN5Timer4readEv
- 330              	.LVL22:
- 331 0070 53EC102B 		vmov	r2, r3, d0
-  29:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 332              		.loc 1 29 38 view .LVU59
- 333 0074 3046     		mov	r0, r6
- 334 0076 3946     		mov	r1, r7
- 335 0078 FFF7FEFF 		bl	__aeabi_ddiv
- 336              	.LVL23:
-  29:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 337              		.loc 1 29 22 view .LVU60
- 338 007c C4E90401 		strd	r0, [r4, #16]
-  30:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 8
+ 343              		.loc 1 63 1 view .LVU66
+ 344 0086 BDEC028B 		vldm	sp!, {d8}
+ 345              	.LCFI5:
+ 346              		.cfi_remember_state
+ 347              		.cfi_restore 80
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 8
 
 
- 339              		.loc 1 30 19 is_stmt 1 view .LVU61
-  30:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 340              		.loc 1 30 29 is_stmt 0 view .LVU62
- 341 0080 D4E90623 		ldrd	r2, [r4, #24]
- 342 0084 D4E90001 		ldrd	r0, [r4]
- 343 0088 FFF7FEFF 		bl	__aeabi_dadd
- 344              	.LVL24:
- 345 008c 0646     		mov	r6, r0
- 346 008e 0F46     		mov	r7, r1
-  30:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 347              		.loc 1 30 60 view .LVU63
- 348 0090 2846     		mov	r0, r5
- 349 0092 FFF7FEFF 		bl	_ZN5Timer4readEv
- 350              	.LVL25:
- 351 0096 53EC102B 		vmov	r2, r3, d0
-  30:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 352              		.loc 1 30 39 view .LVU64
- 353 009a 3046     		mov	r0, r6
- 354 009c 3946     		mov	r1, r7
- 355 009e FFF7FEFF 		bl	__aeabi_dmul
- 356              	.LVL26:
-  30:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 357              		.loc 1 30 63 view .LVU65
- 358 00a2 0022     		movs	r2, #0
- 359 00a4 974B     		ldr	r3, .L53
- 360 00a6 FFF7FEFF 		bl	__aeabi_dmul
- 361              	.LVL27:
- 362 00aa 0246     		mov	r2, r0
- 363 00ac 0B46     		mov	r3, r1
-  30:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 364              		.loc 1 30 22 view .LVU66
- 365 00ae D4E90201 		ldrd	r0, [r4, #8]
- 366 00b2 FFF7FEFF 		bl	__aeabi_dadd
- 367              	.LVL28:
- 368 00b6 8246     		mov	r10, r0
- 369 00b8 8B46     		mov	fp, r1
- 370 00ba C4E902AB 		strd	r10, [r4, #8]
-  31:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 371              		.loc 1 31 19 is_stmt 1 view .LVU67
-  31:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 372              		.loc 1 31 23 is_stmt 0 view .LVU68
- 373 00be 0022     		movs	r2, #0
- 374 00c0 0023     		movs	r3, #0
- 375 00c2 FFF7FEFF 		bl	__aeabi_dcmpgt
- 376              	.LVL29:
- 377 00c6 0028     		cmp	r0, #0
- 378 00c8 61D0     		beq	.L47
- 379 00ca D046     		mov	r8, r10
- 380 00cc D946     		mov	r9, fp
- 381              	.L13:
-  31:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 382              		.loc 1 31 31 discriminator 4 view .LVU69
- 383 00ce B4F85000 		ldrh	r0, [r4, #80]
- 384 00d2 FFF7FEFF 		bl	__aeabi_i2d
- 385              	.LVL30:
- 386 00d6 0646     		mov	r6, r0
- 387 00d8 0F46     		mov	r7, r1
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 9
+ 348              		.cfi_restore 81
+ 349              		.cfi_def_cfa_offset 40
+ 350 008a BDE8F88F 		pop	{r3, r4, r5, r6, r7, r8, r9, r10, fp, pc}
+ 351              	.LVL23:
+ 352              	.L41:
+ 353              	.LCFI6:
+ 354              		.cfi_restore_state
+  29:lib/pid/pid.cpp ****                   d_ = (p_ - pre_p_) / sampling_timer.read();          // 微分
+ 355              		.loc 1 29 19 is_stmt 1 view .LVU67
+  29:lib/pid/pid.cpp ****                   d_ = (p_ - pre_p_) / sampling_timer.read();          // 微分
+ 356              		.loc 1 29 31 is_stmt 0 view .LVU68
+ 357 008e 78EEC87A 		vsub.f32	s15, s17, s16
+ 358 0092 17EE900A 		vmov	r0, s15
+ 359 0096 FFF7FEFF 		bl	__aeabi_f2d
+ 360              	.LVL24:
+ 361 009a 0246     		mov	r2, r0
+ 362 009c 0B46     		mov	r3, r1
+  29:lib/pid/pid.cpp ****                   d_ = (p_ - pre_p_) / sampling_timer.read();          // 微分
+ 363              		.loc 1 29 22 view .LVU69
+ 364 009e C4E90023 		strd	r2, [r4]
+  30:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 365              		.loc 1 30 19 is_stmt 1 view .LVU70
+  30:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 366              		.loc 1 30 28 is_stmt 0 view .LVU71
+ 367 00a2 D4E90623 		ldrd	r2, [r4, #24]
+ 368 00a6 FFF7FEFF 		bl	__aeabi_dsub
+ 369              	.LVL25:
+ 370 00aa 0646     		mov	r6, r0
+ 371 00ac 0F46     		mov	r7, r1
+  30:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 372              		.loc 1 30 59 view .LVU72
+ 373 00ae 2846     		mov	r0, r5
+ 374 00b0 FFF7FEFF 		bl	_ZN5Timer4readEv
+ 375              	.LVL26:
+ 376 00b4 53EC102B 		vmov	r2, r3, d0
+  30:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 377              		.loc 1 30 38 view .LVU73
+ 378 00b8 3046     		mov	r0, r6
+ 379 00ba 3946     		mov	r1, r7
+ 380 00bc FFF7FEFF 		bl	__aeabi_ddiv
+ 381              	.LVL27:
+  30:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 382              		.loc 1 30 22 view .LVU74
+ 383 00c0 C4E90401 		strd	r0, [r4, #16]
+  31:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 384              		.loc 1 31 19 is_stmt 1 view .LVU75
+  31:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 385              		.loc 1 31 29 is_stmt 0 view .LVU76
+ 386 00c4 D4E90623 		ldrd	r2, [r4, #24]
+ 387 00c8 D4E90001 		ldrd	r0, [r4]
+ 388 00cc FFF7FEFF 		bl	__aeabi_dadd
+ 389              	.LVL28:
+ 390 00d0 0646     		mov	r6, r0
+ 391 00d2 0F46     		mov	r7, r1
+  31:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 392              		.loc 1 31 60 view .LVU77
+ 393 00d4 2846     		mov	r0, r5
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 9
 
 
-  31:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 388              		.loc 1 31 19 discriminator 4 view .LVU70
- 389 00da 4246     		mov	r2, r8
- 390 00dc 4B46     		mov	r3, r9
- 391 00de FFF7FEFF 		bl	__aeabi_dcmplt
- 392              	.LVL31:
- 393 00e2 68B1     		cbz	r0, .L14
-  31:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 394              		.loc 1 31 41 is_stmt 1 discriminator 9 view .LVU71
-  31:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 395              		.loc 1 31 59 is_stmt 0 discriminator 9 view .LVU72
- 396 00e4 4246     		mov	r2, r8
- 397 00e6 4B46     		mov	r3, r9
- 398 00e8 5046     		mov	r0, r10
- 399 00ea 5946     		mov	r1, fp
- 400 00ec FFF7FEFF 		bl	__aeabi_ddiv
- 401              	.LVL32:
- 402 00f0 0246     		mov	r2, r0
- 403 00f2 0B46     		mov	r3, r1
-  31:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 404              		.loc 1 31 53 discriminator 9 view .LVU73
- 405 00f4 3046     		mov	r0, r6
- 406 00f6 3946     		mov	r1, r7
- 407 00f8 FFF7FEFF 		bl	__aeabi_dmul
- 408              	.LVL33:
-  31:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 409              		.loc 1 31 44 discriminator 9 view .LVU74
- 410 00fc C4E90201 		strd	r0, [r4, #8]
- 411              	.L14:
-  32:lib/pid/pid.cpp **** 
- 412              		.loc 1 32 19 is_stmt 1 view .LVU75
-  32:lib/pid/pid.cpp **** 
- 413              		.loc 1 32 28 is_stmt 0 view .LVU76
- 414 0100 D4E90001 		ldrd	r0, [r4]
-  32:lib/pid/pid.cpp **** 
- 415              		.loc 1 32 26 view .LVU77
- 416 0104 C4E90601 		strd	r0, [r4, #24]
+ 394 00d6 FFF7FEFF 		bl	_ZN5Timer4readEv
+ 395              	.LVL29:
+ 396 00da 53EC102B 		vmov	r2, r3, d0
+  31:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 397              		.loc 1 31 39 view .LVU78
+ 398 00de 3046     		mov	r0, r6
+ 399 00e0 3946     		mov	r1, r7
+ 400 00e2 FFF7FEFF 		bl	__aeabi_dmul
+ 401              	.LVL30:
+  31:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 402              		.loc 1 31 63 view .LVU79
+ 403 00e6 0022     		movs	r2, #0
+ 404 00e8 B94B     		ldr	r3, .L44
+ 405 00ea FFF7FEFF 		bl	__aeabi_dmul
+ 406              	.LVL31:
+ 407 00ee 0246     		mov	r2, r0
+ 408 00f0 0B46     		mov	r3, r1
+  31:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 409              		.loc 1 31 22 view .LVU80
+ 410 00f2 D4E90201 		ldrd	r0, [r4, #8]
+ 411 00f6 FFF7FEFF 		bl	__aeabi_dadd
+ 412              	.LVL32:
+ 413 00fa 0646     		mov	r6, r0
+ 414 00fc 0F46     		mov	r7, r1
+ 415 00fe C4E90267 		strd	r6, [r4, #8]
+  32:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 416              		.loc 1 32 19 is_stmt 1 view .LVU81
+  32:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 417              		.loc 1 32 26 is_stmt 0 view .LVU82
+ 418 0102 B4F95000 		ldrsh	r0, [r4, #80]
+ 419 0106 FFF7FEFF 		bl	__aeabi_i2d
+ 420              	.LVL33:
+ 421 010a 8046     		mov	r8, r0
+ 422 010c 8946     		mov	r9, r1
+  32:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 423              		.loc 1 32 19 view .LVU83
+ 424 010e 0246     		mov	r2, r0
+ 425 0110 0B46     		mov	r3, r1
+ 426 0112 3046     		mov	r0, r6
+ 427 0114 3946     		mov	r1, r7
+ 428 0116 FFF7FEFF 		bl	__aeabi_dcmpgt
+ 429              	.LVL34:
+ 430 011a 08B1     		cbz	r0, .L13
+  32:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 431              		.loc 1 32 40 is_stmt 1 discriminator 1 view .LVU84
+  32:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 432              		.loc 1 32 43 is_stmt 0 discriminator 1 view .LVU85
+ 433 011c C4E90289 		strd	r8, [r4, #8]
+ 434              	.L13:
+  33:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 435              		.loc 1 33 19 is_stmt 1 view .LVU86
+  33:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 436              		.loc 1 33 23 is_stmt 0 view .LVU87
+ 437 0120 D4E90289 		ldrd	r8, [r4, #8]
+  33:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 438              		.loc 1 33 26 view .LVU88
+ 439 0124 B4F95200 		ldrsh	r0, [r4, #82]
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 10
+
+
+ 440 0128 FFF7FEFF 		bl	__aeabi_i2d
+ 441              	.LVL35:
+ 442 012c 0646     		mov	r6, r0
+ 443 012e 0F46     		mov	r7, r1
+  33:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 444              		.loc 1 33 19 view .LVU89
+ 445 0130 0246     		mov	r2, r0
+ 446 0132 0B46     		mov	r3, r1
+ 447 0134 4046     		mov	r0, r8
+ 448 0136 4946     		mov	r1, r9
+ 449 0138 FFF7FEFF 		bl	__aeabi_dcmplt
+ 450              	.LVL36:
+ 451 013c 08B1     		cbz	r0, .L15
+  33:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 452              		.loc 1 33 40 is_stmt 1 discriminator 1 view .LVU90
+  33:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 453              		.loc 1 33 43 is_stmt 0 discriminator 1 view .LVU91
+ 454 013e C4E90267 		strd	r6, [r4, #8]
+ 455              	.L15:
   34:lib/pid/pid.cpp **** 
- 417              		.loc 1 34 19 is_stmt 1 view .LVU78
+ 456              		.loc 1 34 19 is_stmt 1 view .LVU92
   34:lib/pid/pid.cpp **** 
- 418              		.loc 1 34 29 is_stmt 0 view .LVU79
- 419 0108 D4E90823 		ldrd	r2, [r4, #32]
- 420 010c FFF7FEFF 		bl	__aeabi_dmul
- 421              	.LVL34:
- 422 0110 8046     		mov	r8, r0
- 423 0112 8946     		mov	r9, r1
+ 457              		.loc 1 34 28 is_stmt 0 view .LVU93
+ 458 0142 D4E90001 		ldrd	r0, [r4]
   34:lib/pid/pid.cpp **** 
- 424              		.loc 1 34 40 view .LVU80
- 425 0114 D4E90A23 		ldrd	r2, [r4, #40]
- 426 0118 D4E90201 		ldrd	r0, [r4, #8]
- 427 011c FFF7FEFF 		bl	__aeabi_dmul
- 428              	.LVL35:
- 429 0120 0246     		mov	r2, r0
- 430 0122 0B46     		mov	r3, r1
-  34:lib/pid/pid.cpp **** 
- 431              		.loc 1 34 35 view .LVU81
- 432 0124 4046     		mov	r0, r8
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 10
+ 459              		.loc 1 34 26 view .LVU94
+ 460 0146 C4E90601 		strd	r0, [r4, #24]
+  36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
+ 461              		.loc 1 36 19 is_stmt 1 view .LVU95
+  36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
+ 462              		.loc 1 36 29 is_stmt 0 view .LVU96
+ 463 014a D4E90823 		ldrd	r2, [r4, #32]
+ 464 014e FFF7FEFF 		bl	__aeabi_dmul
+ 465              	.LVL37:
+ 466 0152 0646     		mov	r6, r0
+ 467 0154 0F46     		mov	r7, r1
+  36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
+ 468              		.loc 1 36 40 view .LVU97
+ 469 0156 D4E90A23 		ldrd	r2, [r4, #40]
+ 470 015a D4E90201 		ldrd	r0, [r4, #8]
+ 471 015e FFF7FEFF 		bl	__aeabi_dmul
+ 472              	.LVL38:
+ 473 0162 0246     		mov	r2, r0
+ 474 0164 0B46     		mov	r3, r1
+  36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
+ 475              		.loc 1 36 35 view .LVU98
+ 476 0166 3046     		mov	r0, r6
+ 477 0168 3946     		mov	r1, r7
+ 478 016a FFF7FEFF 		bl	__aeabi_dadd
+ 479              	.LVL39:
+ 480 016e 0646     		mov	r6, r0
+ 481 0170 0F46     		mov	r7, r1
+  36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
+ 482              		.loc 1 36 51 view .LVU99
+ 483 0172 D4E90C23 		ldrd	r2, [r4, #48]
+ 484 0176 D4E90401 		ldrd	r0, [r4, #16]
+ 485 017a FFF7FEFF 		bl	__aeabi_dmul
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 11
 
 
- 433 0126 4946     		mov	r1, r9
- 434 0128 FFF7FEFF 		bl	__aeabi_dadd
- 435              	.LVL36:
- 436 012c 8046     		mov	r8, r0
- 437 012e 8946     		mov	r9, r1
-  34:lib/pid/pid.cpp **** 
- 438              		.loc 1 34 51 view .LVU82
- 439 0130 D4E90C23 		ldrd	r2, [r4, #48]
- 440 0134 D4E90401 		ldrd	r0, [r4, #16]
- 441 0138 FFF7FEFF 		bl	__aeabi_dmul
- 442              	.LVL37:
- 443 013c 0246     		mov	r2, r0
- 444 013e 0B46     		mov	r3, r1
-  34:lib/pid/pid.cpp **** 
- 445              		.loc 1 34 46 view .LVU83
- 446 0140 4046     		mov	r0, r8
- 447 0142 4946     		mov	r1, r9
- 448 0144 FFF7FEFF 		bl	__aeabi_dadd
- 449              	.LVL38:
- 450 0148 8246     		mov	r10, r0
- 451 014a 8B46     		mov	fp, r1
-  34:lib/pid/pid.cpp **** 
- 452              		.loc 1 34 24 view .LVU84
- 453 014c C4E90EAB 		strd	r10, [r4, #56]
+ 486              	.LVL40:
+ 487 017e 0246     		mov	r2, r0
+ 488 0180 0B46     		mov	r3, r1
   36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
- 454              		.loc 1 36 19 is_stmt 1 view .LVU85
+ 489              		.loc 1 36 46 view .LVU100
+ 490 0182 3046     		mov	r0, r6
+ 491 0184 3946     		mov	r1, r7
+ 492 0186 FFF7FEFF 		bl	__aeabi_dadd
+ 493              	.LVL41:
   36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
- 455              		.loc 1 36 23 is_stmt 0 view .LVU86
- 456 0150 0022     		movs	r2, #0
- 457 0152 0023     		movs	r3, #0
- 458 0154 FFF7FEFF 		bl	__aeabi_dcmpgt
- 459              	.LVL39:
- 460 0158 E8B1     		cbz	r0, .L48
- 461 015a D046     		mov	r8, r10
- 462 015c D946     		mov	r9, fp
- 463              	.L16:
-  36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
- 464              		.loc 1 36 19 discriminator 4 view .LVU87
- 465 015e 4246     		mov	r2, r8
- 466 0160 4B46     		mov	r3, r9
- 467 0162 3046     		mov	r0, r6
- 468 0164 3946     		mov	r1, r7
- 469 0166 FFF7FEFF 		bl	__aeabi_dcmplt
- 470              	.LVL40:
- 471 016a 0028     		cmp	r0, #0
- 472 016c 3FF466AF 		beq	.L17
-  36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
- 473              		.loc 1 36 43 is_stmt 1 discriminator 9 view .LVU88
-  36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
- 474              		.loc 1 36 70 is_stmt 0 discriminator 9 view .LVU89
- 475 0170 5246     		mov	r2, r10
- 476 0172 5B46     		mov	r3, fp
- 477 0174 4046     		mov	r0, r8
- 478 0176 4946     		mov	r1, r9
- 479 0178 FFF7FEFF 		bl	__aeabi_ddiv
- 480              	.LVL41:
- 481 017c 0246     		mov	r2, r0
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 11
-
-
- 482 017e 0B46     		mov	r3, r1
-  36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
- 483              		.loc 1 36 57 discriminator 9 view .LVU90
- 484 0180 3046     		mov	r0, r6
- 485 0182 3946     		mov	r1, r7
- 486 0184 FFF7FEFF 		bl	__aeabi_dmul
- 487              	.LVL42:
-  36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
- 488              		.loc 1 36 48 discriminator 9 view .LVU91
- 489 0188 C4E90E01 		strd	r0, [r4, #56]
- 490 018c 56E7     		b	.L17
- 491              	.L47:
-  31:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 492              		.loc 1 31 23 discriminator 2 view .LVU92
- 493 018e D046     		mov	r8, r10
- 494 0190 0BF10049 		add	r9, fp, #-2147483648
- 495 0194 9BE7     		b	.L13
- 496              	.L48:
-  36:lib/pid/pid.cpp ****             } else if (type_ == 1) {
- 497              		.loc 1 36 23 discriminator 2 view .LVU93
- 498 0196 D046     		mov	r8, r10
- 499 0198 0BF10049 		add	r9, fp, #-2147483648
- 500 019c DFE7     		b	.L16
- 501              	.L45:
+ 494              		.loc 1 36 24 view .LVU101
+ 495 018a C4E90E01 		strd	r0, [r4, #56]
+ 496 018e 55E7     		b	.L17
+ 497              	.L42:
   38:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
- 502              		.loc 1 38 19 is_stmt 1 view .LVU94
+ 498              		.loc 1 38 19 is_stmt 1 view .LVU102
   38:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
- 503              		.loc 1 38 31 is_stmt 0 view .LVU95
- 504 019e 78EEC87A 		vsub.f32	s15, s17, s16
- 505 01a2 17EE900A 		vmov	r0, s15
- 506 01a6 FFF7FEFF 		bl	__aeabi_f2d
- 507              	.LVL43:
+ 499              		.loc 1 38 31 is_stmt 0 view .LVU103
+ 500 0190 78EEC87A 		vsub.f32	s15, s17, s16
+ 501 0194 17EE900A 		vmov	r0, s15
+ 502 0198 FFF7FEFF 		bl	__aeabi_f2d
+ 503              	.LVL42:
   38:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
- 508              		.loc 1 38 22 view .LVU96
- 509 01aa C4E90001 		strd	r0, [r4]
+ 504              		.loc 1 38 22 view .LVU104
+ 505 019c C4E90001 		strd	r0, [r4]
   39:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 510              		.loc 1 39 19 is_stmt 1 view .LVU97
+ 506              		.loc 1 39 19 is_stmt 1 view .LVU105
   39:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 511              		.loc 1 39 25 is_stmt 0 view .LVU98
- 512 01ae 18EE100A 		vmov	r0, s16
- 513 01b2 FFF7FEFF 		bl	__aeabi_f2d
+ 507              		.loc 1 39 25 is_stmt 0 view .LVU106
+ 508 01a0 18EE100A 		vmov	r0, s16
+ 509 01a4 FFF7FEFF 		bl	__aeabi_f2d
+ 510              	.LVL43:
+ 511 01a8 0246     		mov	r2, r0
+ 512 01aa 0B46     		mov	r3, r1
+ 513 01ac 43EC182B 		vmov	d8, r2, r3
  514              	.LVL44:
- 515 01b6 0246     		mov	r2, r0
- 516 01b8 0B46     		mov	r3, r1
- 517 01ba 43EC182B 		vmov	d8, r2, r3
+  39:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 515              		.loc 1 39 31 view .LVU107
+ 516 01b0 D4E91023 		ldrd	r2, [r4, #64]
+ 517 01b4 FFF7FEFF 		bl	__aeabi_dsub
  518              	.LVL45:
+ 519 01b8 0646     		mov	r6, r0
+ 520 01ba 0F46     		mov	r7, r1
   39:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 519              		.loc 1 39 31 view .LVU99
- 520 01be D4E91023 		ldrd	r2, [r4, #64]
- 521 01c2 FFF7FEFF 		bl	__aeabi_dsub
- 522              	.LVL46:
- 523 01c6 0646     		mov	r6, r0
- 524 01c8 0F46     		mov	r7, r1
+ 521              		.loc 1 39 66 view .LVU108
+ 522 01bc 2846     		mov	r0, r5
+ 523 01be FFF7FEFF 		bl	_ZN5Timer4readEv
+ 524              	.LVL46:
+ 525 01c2 53EC102B 		vmov	r2, r3, d0
   39:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 525              		.loc 1 39 66 view .LVU100
- 526 01ca 2846     		mov	r0, r5
- 527 01cc FFF7FEFF 		bl	_ZN5Timer4readEv
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 12
-
-
- 528              	.LVL47:
- 529 01d0 53EC102B 		vmov	r2, r3, d0
+ 526              		.loc 1 39 45 view .LVU109
+ 527 01c6 3046     		mov	r0, r6
+ 528 01c8 3946     		mov	r1, r7
+ 529 01ca FFF7FEFF 		bl	__aeabi_ddiv
+ 530              	.LVL47:
   39:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 530              		.loc 1 39 45 view .LVU101
- 531 01d4 3046     		mov	r0, r6
- 532 01d6 3946     		mov	r1, r7
- 533 01d8 FFF7FEFF 		bl	__aeabi_ddiv
- 534              	.LVL48:
-  39:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 535              		.loc 1 39 22 view .LVU102
- 536 01dc C4E90401 		strd	r0, [r4, #16]
-  40:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 537              		.loc 1 40 19 is_stmt 1 view .LVU103
-  40:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 538              		.loc 1 40 29 is_stmt 0 view .LVU104
- 539 01e0 D4E90623 		ldrd	r2, [r4, #24]
- 540 01e4 D4E90001 		ldrd	r0, [r4]
- 541 01e8 FFF7FEFF 		bl	__aeabi_dadd
- 542              	.LVL49:
- 543 01ec 0646     		mov	r6, r0
- 544 01ee 0F46     		mov	r7, r1
-  40:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 545              		.loc 1 40 60 view .LVU105
- 546 01f0 2846     		mov	r0, r5
- 547 01f2 FFF7FEFF 		bl	_ZN5Timer4readEv
- 548              	.LVL50:
- 549 01f6 53EC102B 		vmov	r2, r3, d0
-  40:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 550              		.loc 1 40 39 view .LVU106
- 551 01fa 3046     		mov	r0, r6
- 552 01fc 3946     		mov	r1, r7
- 553 01fe FFF7FEFF 		bl	__aeabi_dmul
- 554              	.LVL51:
-  40:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 555              		.loc 1 40 63 view .LVU107
- 556 0202 0022     		movs	r2, #0
- 557 0204 3F4B     		ldr	r3, .L53
- 558 0206 FFF7FEFF 		bl	__aeabi_dmul
- 559              	.LVL52:
- 560 020a 0246     		mov	r2, r0
- 561 020c 0B46     		mov	r3, r1
-  40:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 562              		.loc 1 40 22 view .LVU108
- 563 020e D4E90201 		ldrd	r0, [r4, #8]
- 564 0212 FFF7FEFF 		bl	__aeabi_dadd
- 565              	.LVL53:
- 566 0216 8246     		mov	r10, r0
- 567 0218 8B46     		mov	fp, r1
- 568 021a C4E902AB 		strd	r10, [r4, #8]
-  41:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 569              		.loc 1 41 19 is_stmt 1 view .LVU109
-  41:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 570              		.loc 1 41 23 is_stmt 0 view .LVU110
- 571 021e 0022     		movs	r2, #0
- 572 0220 0023     		movs	r3, #0
- 573 0222 FFF7FEFF 		bl	__aeabi_dcmpgt
- 574              	.LVL54:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 13
+ 531              		.loc 1 39 22 view .LVU110
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 12
 
 
- 575 0226 0028     		cmp	r0, #0
- 576 0228 63D0     		beq	.L49
- 577 022a 5646     		mov	r6, r10
- 578 022c 5F46     		mov	r7, fp
- 579              	.L20:
-  41:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 580              		.loc 1 41 31 discriminator 4 view .LVU111
- 581 022e B4F85000 		ldrh	r0, [r4, #80]
- 582 0232 FFF7FEFF 		bl	__aeabi_i2d
- 583              	.LVL55:
- 584 0236 8046     		mov	r8, r0
- 585 0238 8946     		mov	r9, r1
-  41:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 586              		.loc 1 41 19 discriminator 4 view .LVU112
- 587 023a 3246     		mov	r2, r6
- 588 023c 3B46     		mov	r3, r7
- 589 023e FFF7FEFF 		bl	__aeabi_dcmplt
- 590              	.LVL56:
- 591 0242 68B1     		cbz	r0, .L21
-  41:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 592              		.loc 1 41 41 is_stmt 1 discriminator 9 view .LVU113
-  41:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 593              		.loc 1 41 59 is_stmt 0 discriminator 9 view .LVU114
- 594 0244 3246     		mov	r2, r6
- 595 0246 3B46     		mov	r3, r7
- 596 0248 5046     		mov	r0, r10
- 597 024a 5946     		mov	r1, fp
- 598 024c FFF7FEFF 		bl	__aeabi_ddiv
- 599              	.LVL57:
- 600 0250 0246     		mov	r2, r0
- 601 0252 0B46     		mov	r3, r1
-  41:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 602              		.loc 1 41 53 discriminator 9 view .LVU115
- 603 0254 4046     		mov	r0, r8
- 604 0256 4946     		mov	r1, r9
- 605 0258 FFF7FEFF 		bl	__aeabi_dmul
- 606              	.LVL58:
-  41:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 607              		.loc 1 41 44 discriminator 9 view .LVU116
- 608 025c C4E90201 		strd	r0, [r4, #8]
- 609              	.L21:
-  42:lib/pid/pid.cpp ****                   pre_input_ = input;
- 610              		.loc 1 42 19 is_stmt 1 view .LVU117
-  42:lib/pid/pid.cpp ****                   pre_input_ = input;
- 611              		.loc 1 42 28 is_stmt 0 view .LVU118
- 612 0260 D4E90001 		ldrd	r0, [r4]
-  42:lib/pid/pid.cpp ****                   pre_input_ = input;
- 613              		.loc 1 42 26 view .LVU119
- 614 0264 C4E90601 		strd	r0, [r4, #24]
-  43:lib/pid/pid.cpp **** 
- 615              		.loc 1 43 19 is_stmt 1 view .LVU120
-  43:lib/pid/pid.cpp **** 
- 616              		.loc 1 43 30 is_stmt 0 view .LVU121
- 617 0268 84ED108B 		vstr.64	d8, [r4, #64]
-  45:lib/pid/pid.cpp **** 
- 618              		.loc 1 45 19 is_stmt 1 view .LVU122
-  45:lib/pid/pid.cpp **** 
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 14
+ 532 01ce C4E90401 		strd	r0, [r4, #16]
+  40:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 533              		.loc 1 40 19 is_stmt 1 view .LVU111
+  40:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 534              		.loc 1 40 29 is_stmt 0 view .LVU112
+ 535 01d2 D4E90623 		ldrd	r2, [r4, #24]
+ 536 01d6 D4E90001 		ldrd	r0, [r4]
+ 537 01da FFF7FEFF 		bl	__aeabi_dadd
+ 538              	.LVL48:
+ 539 01de 0646     		mov	r6, r0
+ 540 01e0 0F46     		mov	r7, r1
+  40:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 541              		.loc 1 40 60 view .LVU113
+ 542 01e2 2846     		mov	r0, r5
+ 543 01e4 FFF7FEFF 		bl	_ZN5Timer4readEv
+ 544              	.LVL49:
+ 545 01e8 53EC102B 		vmov	r2, r3, d0
+  40:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 546              		.loc 1 40 39 view .LVU114
+ 547 01ec 3046     		mov	r0, r6
+ 548 01ee 3946     		mov	r1, r7
+ 549 01f0 FFF7FEFF 		bl	__aeabi_dmul
+ 550              	.LVL50:
+  40:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 551              		.loc 1 40 63 view .LVU115
+ 552 01f4 0022     		movs	r2, #0
+ 553 01f6 764B     		ldr	r3, .L44
+ 554 01f8 FFF7FEFF 		bl	__aeabi_dmul
+ 555              	.LVL51:
+ 556 01fc 0246     		mov	r2, r0
+ 557 01fe 0B46     		mov	r3, r1
+  40:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 558              		.loc 1 40 22 view .LVU116
+ 559 0200 D4E90201 		ldrd	r0, [r4, #8]
+ 560 0204 FFF7FEFF 		bl	__aeabi_dadd
+ 561              	.LVL52:
+ 562 0208 0646     		mov	r6, r0
+ 563 020a 0F46     		mov	r7, r1
+ 564 020c C4E90267 		strd	r6, [r4, #8]
+  41:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 565              		.loc 1 41 19 is_stmt 1 view .LVU117
+  41:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 566              		.loc 1 41 26 is_stmt 0 view .LVU118
+ 567 0210 B4F95000 		ldrsh	r0, [r4, #80]
+ 568 0214 FFF7FEFF 		bl	__aeabi_i2d
+ 569              	.LVL53:
+ 570 0218 8046     		mov	r8, r0
+ 571 021a 8946     		mov	r9, r1
+  41:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 572              		.loc 1 41 19 view .LVU119
+ 573 021c 0246     		mov	r2, r0
+ 574 021e 0B46     		mov	r3, r1
+ 575 0220 3046     		mov	r0, r6
+ 576 0222 3946     		mov	r1, r7
+ 577 0224 FFF7FEFF 		bl	__aeabi_dcmpgt
+ 578              	.LVL54:
+ 579 0228 08B1     		cbz	r0, .L19
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 13
 
 
- 619              		.loc 1 45 29 is_stmt 0 view .LVU123
- 620 026c D4E90823 		ldrd	r2, [r4, #32]
- 621 0270 FFF7FEFF 		bl	__aeabi_dmul
- 622              	.LVL59:
- 623 0274 0646     		mov	r6, r0
- 624 0276 0F46     		mov	r7, r1
-  45:lib/pid/pid.cpp **** 
- 625              		.loc 1 45 40 view .LVU124
- 626 0278 D4E90A23 		ldrd	r2, [r4, #40]
- 627 027c D4E90201 		ldrd	r0, [r4, #8]
- 628 0280 FFF7FEFF 		bl	__aeabi_dmul
- 629              	.LVL60:
- 630 0284 0246     		mov	r2, r0
- 631 0286 0B46     		mov	r3, r1
-  45:lib/pid/pid.cpp **** 
- 632              		.loc 1 45 35 view .LVU125
- 633 0288 3046     		mov	r0, r6
- 634 028a 3946     		mov	r1, r7
- 635 028c FFF7FEFF 		bl	__aeabi_dadd
- 636              	.LVL61:
- 637 0290 0646     		mov	r6, r0
- 638 0292 0F46     		mov	r7, r1
-  45:lib/pid/pid.cpp **** 
- 639              		.loc 1 45 51 view .LVU126
- 640 0294 D4E90C23 		ldrd	r2, [r4, #48]
- 641 0298 D4E90401 		ldrd	r0, [r4, #16]
- 642 029c FFF7FEFF 		bl	__aeabi_dmul
- 643              	.LVL62:
- 644 02a0 0246     		mov	r2, r0
- 645 02a2 0B46     		mov	r3, r1
-  45:lib/pid/pid.cpp **** 
- 646              		.loc 1 45 46 view .LVU127
- 647 02a4 3046     		mov	r0, r6
- 648 02a6 3946     		mov	r1, r7
- 649 02a8 FFF7FEFF 		bl	__aeabi_dsub
- 650              	.LVL63:
- 651 02ac 8246     		mov	r10, r0
- 652 02ae 8B46     		mov	fp, r1
-  45:lib/pid/pid.cpp **** 
- 653              		.loc 1 45 24 view .LVU128
- 654 02b0 C4E90EAB 		strd	r10, [r4, #56]
-  47:lib/pid/pid.cpp ****             } else if (type_ == 2) {
- 655              		.loc 1 47 19 is_stmt 1 view .LVU129
-  47:lib/pid/pid.cpp ****             } else if (type_ == 2) {
- 656              		.loc 1 47 23 is_stmt 0 view .LVU130
- 657 02b4 0022     		movs	r2, #0
- 658 02b6 0023     		movs	r3, #0
- 659 02b8 FFF7FEFF 		bl	__aeabi_dcmpgt
- 660              	.LVL64:
- 661 02bc E8B1     		cbz	r0, .L50
- 662 02be 5646     		mov	r6, r10
- 663 02c0 5F46     		mov	r7, fp
- 664              	.L23:
-  47:lib/pid/pid.cpp ****             } else if (type_ == 2) {
- 665              		.loc 1 47 19 discriminator 4 view .LVU131
- 666 02c2 3246     		mov	r2, r6
- 667 02c4 3B46     		mov	r3, r7
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 15
+  41:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 580              		.loc 1 41 40 is_stmt 1 discriminator 1 view .LVU120
+  41:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 581              		.loc 1 41 43 is_stmt 0 discriminator 1 view .LVU121
+ 582 022a C4E90289 		strd	r8, [r4, #8]
+ 583              	.L19:
+  42:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 584              		.loc 1 42 19 is_stmt 1 view .LVU122
+  42:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 585              		.loc 1 42 23 is_stmt 0 view .LVU123
+ 586 022e D4E90289 		ldrd	r8, [r4, #8]
+  42:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 587              		.loc 1 42 26 view .LVU124
+ 588 0232 B4F95200 		ldrsh	r0, [r4, #82]
+ 589 0236 FFF7FEFF 		bl	__aeabi_i2d
+ 590              	.LVL55:
+ 591 023a 0646     		mov	r6, r0
+ 592 023c 0F46     		mov	r7, r1
+  42:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 593              		.loc 1 42 19 view .LVU125
+ 594 023e 0246     		mov	r2, r0
+ 595 0240 0B46     		mov	r3, r1
+ 596 0242 4046     		mov	r0, r8
+ 597 0244 4946     		mov	r1, r9
+ 598 0246 FFF7FEFF 		bl	__aeabi_dcmplt
+ 599              	.LVL56:
+ 600 024a 08B1     		cbz	r0, .L21
+  42:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 601              		.loc 1 42 40 is_stmt 1 discriminator 1 view .LVU126
+  42:lib/pid/pid.cpp ****                   pre_p_ = p_;
+ 602              		.loc 1 42 43 is_stmt 0 discriminator 1 view .LVU127
+ 603 024c C4E90267 		strd	r6, [r4, #8]
+ 604              	.L21:
+  43:lib/pid/pid.cpp ****                   pre_input_ = input;
+ 605              		.loc 1 43 19 is_stmt 1 view .LVU128
+  43:lib/pid/pid.cpp ****                   pre_input_ = input;
+ 606              		.loc 1 43 28 is_stmt 0 view .LVU129
+ 607 0250 D4E90001 		ldrd	r0, [r4]
+  43:lib/pid/pid.cpp ****                   pre_input_ = input;
+ 608              		.loc 1 43 26 view .LVU130
+ 609 0254 C4E90601 		strd	r0, [r4, #24]
+  44:lib/pid/pid.cpp **** 
+ 610              		.loc 1 44 19 is_stmt 1 view .LVU131
+  44:lib/pid/pid.cpp **** 
+ 611              		.loc 1 44 30 is_stmt 0 view .LVU132
+ 612 0258 84ED108B 		vstr.64	d8, [r4, #64]
+  46:lib/pid/pid.cpp ****             } else if (type_ == 2) {
+ 613              		.loc 1 46 19 is_stmt 1 view .LVU133
+  46:lib/pid/pid.cpp ****             } else if (type_ == 2) {
+ 614              		.loc 1 46 29 is_stmt 0 view .LVU134
+ 615 025c D4E90823 		ldrd	r2, [r4, #32]
+ 616 0260 FFF7FEFF 		bl	__aeabi_dmul
+ 617              	.LVL57:
+ 618 0264 0646     		mov	r6, r0
+ 619 0266 0F46     		mov	r7, r1
+  46:lib/pid/pid.cpp ****             } else if (type_ == 2) {
+ 620              		.loc 1 46 40 view .LVU135
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 14
 
 
- 668 02c6 4046     		mov	r0, r8
- 669 02c8 4946     		mov	r1, r9
- 670 02ca FFF7FEFF 		bl	__aeabi_dcmplt
- 671              	.LVL65:
- 672 02ce 0028     		cmp	r0, #0
- 673 02d0 3FF4B4AE 		beq	.L17
-  47:lib/pid/pid.cpp ****             } else if (type_ == 2) {
- 674              		.loc 1 47 43 is_stmt 1 discriminator 9 view .LVU132
-  47:lib/pid/pid.cpp ****             } else if (type_ == 2) {
- 675              		.loc 1 47 70 is_stmt 0 discriminator 9 view .LVU133
- 676 02d4 5246     		mov	r2, r10
- 677 02d6 5B46     		mov	r3, fp
- 678 02d8 3046     		mov	r0, r6
- 679 02da 3946     		mov	r1, r7
- 680 02dc FFF7FEFF 		bl	__aeabi_ddiv
- 681              	.LVL66:
- 682 02e0 0246     		mov	r2, r0
- 683 02e2 0B46     		mov	r3, r1
-  47:lib/pid/pid.cpp ****             } else if (type_ == 2) {
- 684              		.loc 1 47 57 discriminator 9 view .LVU134
- 685 02e4 4046     		mov	r0, r8
- 686 02e6 4946     		mov	r1, r9
- 687 02e8 FFF7FEFF 		bl	__aeabi_dmul
- 688              	.LVL67:
-  47:lib/pid/pid.cpp ****             } else if (type_ == 2) {
- 689              		.loc 1 47 48 discriminator 9 view .LVU135
- 690 02ec C4E90E01 		strd	r0, [r4, #56]
- 691 02f0 A4E6     		b	.L17
- 692              	.L49:
-  41:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 693              		.loc 1 41 23 discriminator 2 view .LVU136
- 694 02f2 5646     		mov	r6, r10
- 695 02f4 0BF10047 		add	r7, fp, #-2147483648
- 696 02f8 99E7     		b	.L20
- 697              	.L50:
-  47:lib/pid/pid.cpp ****             } else if (type_ == 2) {
- 698              		.loc 1 47 23 discriminator 2 view .LVU137
- 699 02fa 5646     		mov	r6, r10
- 700 02fc 0BF10047 		add	r7, fp, #-2147483648
- 701 0300 DFE7     		b	.L23
- 702              	.L54:
- 703 0302 00BF     		.align	2
- 704              	.L53:
- 705 0304 0000E03F 		.word	1071644672
- 706              	.LVL68:
- 707              	.L46:
-  49:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
- 708              		.loc 1 49 19 is_stmt 1 view .LVU138
-  49:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
- 709              		.loc 1 49 31 is_stmt 0 view .LVU139
- 710 0308 78EEC87A 		vsub.f32	s15, s17, s16
- 711 030c 17EE900A 		vmov	r0, s15
- 712 0310 FFF7FEFF 		bl	__aeabi_f2d
- 713              	.LVL69:
-  49:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
- 714              		.loc 1 49 22 view .LVU140
- 715 0314 C4E90001 		strd	r0, [r4]
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 16
+ 621 0268 D4E90A23 		ldrd	r2, [r4, #40]
+ 622 026c D4E90201 		ldrd	r0, [r4, #8]
+ 623 0270 FFF7FEFF 		bl	__aeabi_dmul
+ 624              	.LVL58:
+ 625 0274 0246     		mov	r2, r0
+ 626 0276 0B46     		mov	r3, r1
+  46:lib/pid/pid.cpp ****             } else if (type_ == 2) {
+ 627              		.loc 1 46 35 view .LVU136
+ 628 0278 3046     		mov	r0, r6
+ 629 027a 3946     		mov	r1, r7
+ 630 027c FFF7FEFF 		bl	__aeabi_dadd
+ 631              	.LVL59:
+ 632 0280 0646     		mov	r6, r0
+ 633 0282 0F46     		mov	r7, r1
+  46:lib/pid/pid.cpp ****             } else if (type_ == 2) {
+ 634              		.loc 1 46 51 view .LVU137
+ 635 0284 D4E90C23 		ldrd	r2, [r4, #48]
+ 636 0288 D4E90401 		ldrd	r0, [r4, #16]
+ 637 028c FFF7FEFF 		bl	__aeabi_dmul
+ 638              	.LVL60:
+ 639 0290 0246     		mov	r2, r0
+ 640 0292 0B46     		mov	r3, r1
+  46:lib/pid/pid.cpp ****             } else if (type_ == 2) {
+ 641              		.loc 1 46 46 view .LVU138
+ 642 0294 3046     		mov	r0, r6
+ 643 0296 3946     		mov	r1, r7
+ 644 0298 FFF7FEFF 		bl	__aeabi_dsub
+ 645              	.LVL61:
+  46:lib/pid/pid.cpp ****             } else if (type_ == 2) {
+ 646              		.loc 1 46 24 view .LVU139
+ 647 029c C4E90E01 		strd	r0, [r4, #56]
+ 648 02a0 CCE6     		b	.L17
+ 649              	.LVL62:
+ 650              	.L43:
+  48:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
+ 651              		.loc 1 48 19 is_stmt 1 view .LVU140
+  48:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
+ 652              		.loc 1 48 31 is_stmt 0 view .LVU141
+ 653 02a2 78EEC87A 		vsub.f32	s15, s17, s16
+ 654 02a6 17EE900A 		vmov	r0, s15
+ 655 02aa FFF7FEFF 		bl	__aeabi_f2d
+ 656              	.LVL63:
+  48:lib/pid/pid.cpp ****                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
+ 657              		.loc 1 48 22 view .LVU142
+ 658 02ae C4E90001 		strd	r0, [r4]
+  49:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 659              		.loc 1 49 19 is_stmt 1 view .LVU143
+  49:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 660              		.loc 1 49 25 is_stmt 0 view .LVU144
+ 661 02b2 18EE100A 		vmov	r0, s16
+ 662 02b6 FFF7FEFF 		bl	__aeabi_f2d
+ 663              	.LVL64:
+ 664 02ba 8046     		mov	r8, r0
+ 665 02bc 8946     		mov	r9, r1
+  49:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 666              		.loc 1 49 31 view .LVU145
+ 667 02be D4E91023 		ldrd	r2, [r4, #64]
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 15
 
 
-  50:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 716              		.loc 1 50 19 is_stmt 1 view .LVU141
-  50:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 717              		.loc 1 50 25 is_stmt 0 view .LVU142
- 718 0318 18EE100A 		vmov	r0, s16
- 719 031c FFF7FEFF 		bl	__aeabi_f2d
- 720              	.LVL70:
- 721 0320 0246     		mov	r2, r0
- 722 0322 0B46     		mov	r3, r1
- 723 0324 43EC182B 		vmov	d8, r2, r3
- 724              	.LVL71:
-  50:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 725              		.loc 1 50 31 view .LVU143
- 726 0328 D4E91023 		ldrd	r2, [r4, #64]
- 727 032c FFF7FEFF 		bl	__aeabi_dsub
- 728              	.LVL72:
- 729 0330 0646     		mov	r6, r0
- 730 0332 0F46     		mov	r7, r1
-  50:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 731              		.loc 1 50 66 view .LVU144
- 732 0334 2846     		mov	r0, r5
- 733 0336 FFF7FEFF 		bl	_ZN5Timer4readEv
- 734              	.LVL73:
- 735 033a 53EC102B 		vmov	r2, r3, d0
-  50:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 736              		.loc 1 50 45 view .LVU145
- 737 033e 3046     		mov	r0, r6
- 738 0340 3946     		mov	r1, r7
- 739 0342 FFF7FEFF 		bl	__aeabi_ddiv
- 740              	.LVL74:
-  50:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
- 741              		.loc 1 50 22 view .LVU146
- 742 0346 C4E90401 		strd	r0, [r4, #16]
-  51:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 743              		.loc 1 51 19 is_stmt 1 view .LVU147
-  51:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 744              		.loc 1 51 29 is_stmt 0 view .LVU148
- 745 034a D4E90623 		ldrd	r2, [r4, #24]
- 746 034e D4E90001 		ldrd	r0, [r4]
- 747 0352 FFF7FEFF 		bl	__aeabi_dadd
- 748              	.LVL75:
- 749 0356 0646     		mov	r6, r0
- 750 0358 0F46     		mov	r7, r1
-  51:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 751              		.loc 1 51 60 view .LVU149
- 752 035a 2846     		mov	r0, r5
- 753 035c FFF7FEFF 		bl	_ZN5Timer4readEv
- 754              	.LVL76:
- 755 0360 53EC102B 		vmov	r2, r3, d0
-  51:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 756              		.loc 1 51 39 view .LVU150
- 757 0364 3046     		mov	r0, r6
- 758 0366 3946     		mov	r1, r7
- 759 0368 FFF7FEFF 		bl	__aeabi_dmul
- 760              	.LVL77:
-  51:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 761              		.loc 1 51 63 view .LVU151
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 17
+ 668 02c2 FFF7FEFF 		bl	__aeabi_dsub
+ 669              	.LVL65:
+ 670 02c6 0646     		mov	r6, r0
+ 671 02c8 0F46     		mov	r7, r1
+  49:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 672              		.loc 1 49 66 view .LVU146
+ 673 02ca 2846     		mov	r0, r5
+ 674 02cc FFF7FEFF 		bl	_ZN5Timer4readEv
+ 675              	.LVL66:
+ 676 02d0 53EC102B 		vmov	r2, r3, d0
+  49:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 677              		.loc 1 49 45 view .LVU147
+ 678 02d4 3046     		mov	r0, r6
+ 679 02d6 3946     		mov	r1, r7
+ 680 02d8 FFF7FEFF 		bl	__aeabi_ddiv
+ 681              	.LVL67:
+  49:lib/pid/pid.cpp ****                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
+ 682              		.loc 1 49 22 view .LVU148
+ 683 02dc C4E90401 		strd	r0, [r4, #16]
+  50:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 684              		.loc 1 50 19 is_stmt 1 view .LVU149
+  50:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 685              		.loc 1 50 29 is_stmt 0 view .LVU150
+ 686 02e0 D4E90623 		ldrd	r2, [r4, #24]
+ 687 02e4 D4E90001 		ldrd	r0, [r4]
+ 688 02e8 FFF7FEFF 		bl	__aeabi_dadd
+ 689              	.LVL68:
+ 690 02ec 0646     		mov	r6, r0
+ 691 02ee 0F46     		mov	r7, r1
+  50:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 692              		.loc 1 50 60 view .LVU151
+ 693 02f0 2846     		mov	r0, r5
+ 694 02f2 FFF7FEFF 		bl	_ZN5Timer4readEv
+ 695              	.LVL69:
+ 696 02f6 53EC102B 		vmov	r2, r3, d0
+  50:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 697              		.loc 1 50 39 view .LVU152
+ 698 02fa 3046     		mov	r0, r6
+ 699 02fc 3946     		mov	r1, r7
+ 700 02fe FFF7FEFF 		bl	__aeabi_dmul
+ 701              	.LVL70:
+  50:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 702              		.loc 1 50 63 view .LVU153
+ 703 0302 0022     		movs	r2, #0
+ 704 0304 324B     		ldr	r3, .L44
+ 705 0306 FFF7FEFF 		bl	__aeabi_dmul
+ 706              	.LVL71:
+ 707 030a 0246     		mov	r2, r0
+ 708 030c 0B46     		mov	r3, r1
+  50:lib/pid/pid.cpp ****                   if (i_ > max_limit_) i_ = max_limit_;
+ 709              		.loc 1 50 22 view .LVU154
+ 710 030e D4E90201 		ldrd	r0, [r4, #8]
+ 711 0312 FFF7FEFF 		bl	__aeabi_dadd
+ 712              	.LVL72:
+ 713 0316 0646     		mov	r6, r0
+ 714 0318 0F46     		mov	r7, r1
+ 715 031a C4E90267 		strd	r6, [r4, #8]
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 16
 
 
- 762 036c 0022     		movs	r2, #0
- 763 036e 474B     		ldr	r3, .L55
- 764 0370 FFF7FEFF 		bl	__aeabi_dmul
- 765              	.LVL78:
- 766 0374 0246     		mov	r2, r0
- 767 0376 0B46     		mov	r3, r1
-  51:lib/pid/pid.cpp ****                   if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
- 768              		.loc 1 51 22 view .LVU152
- 769 0378 D4E90201 		ldrd	r0, [r4, #8]
- 770 037c FFF7FEFF 		bl	__aeabi_dadd
- 771              	.LVL79:
- 772 0380 8246     		mov	r10, r0
- 773 0382 8B46     		mov	fp, r1
- 774 0384 C4E902AB 		strd	r10, [r4, #8]
+  51:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 716              		.loc 1 51 19 is_stmt 1 view .LVU155
+  51:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 717              		.loc 1 51 26 is_stmt 0 view .LVU156
+ 718 031e B4F95000 		ldrsh	r0, [r4, #80]
+ 719 0322 FFF7FEFF 		bl	__aeabi_i2d
+ 720              	.LVL73:
+ 721 0326 8246     		mov	r10, r0
+ 722 0328 8B46     		mov	fp, r1
+  51:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 723              		.loc 1 51 19 view .LVU157
+ 724 032a 0246     		mov	r2, r0
+ 725 032c 0B46     		mov	r3, r1
+ 726 032e 3046     		mov	r0, r6
+ 727 0330 3946     		mov	r1, r7
+ 728 0332 FFF7FEFF 		bl	__aeabi_dcmpgt
+ 729              	.LVL74:
+ 730 0336 08B1     		cbz	r0, .L23
+  51:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 731              		.loc 1 51 40 is_stmt 1 discriminator 1 view .LVU158
+  51:lib/pid/pid.cpp ****                   if (i_ < min_limit_) i_ = min_limit_;
+ 732              		.loc 1 51 43 is_stmt 0 discriminator 1 view .LVU159
+ 733 0338 C4E902AB 		strd	r10, [r4, #8]
+ 734              	.L23:
   52:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 775              		.loc 1 52 19 is_stmt 1 view .LVU153
+ 735              		.loc 1 52 19 is_stmt 1 view .LVU160
   52:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 776              		.loc 1 52 23 is_stmt 0 view .LVU154
- 777 0388 0022     		movs	r2, #0
- 778 038a 0023     		movs	r3, #0
- 779 038c FFF7FEFF 		bl	__aeabi_dcmpgt
- 780              	.LVL80:
- 781 0390 0028     		cmp	r0, #0
- 782 0392 73D0     		beq	.L51
- 783 0394 5646     		mov	r6, r10
- 784 0396 5F46     		mov	r7, fp
- 785              	.L25:
+ 736              		.loc 1 52 23 is_stmt 0 view .LVU161
+ 737 033c D4E902AB 		ldrd	r10, [r4, #8]
   52:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 786              		.loc 1 52 31 discriminator 4 view .LVU155
- 787 0398 B4F85000 		ldrh	r0, [r4, #80]
- 788 039c FFF7FEFF 		bl	__aeabi_i2d
- 789              	.LVL81:
- 790 03a0 8046     		mov	r8, r0
- 791 03a2 8946     		mov	r9, r1
+ 738              		.loc 1 52 26 view .LVU162
+ 739 0340 B4F95200 		ldrsh	r0, [r4, #82]
+ 740 0344 FFF7FEFF 		bl	__aeabi_i2d
+ 741              	.LVL75:
+ 742 0348 0646     		mov	r6, r0
+ 743 034a 0F46     		mov	r7, r1
   52:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 792              		.loc 1 52 19 discriminator 4 view .LVU156
- 793 03a4 3246     		mov	r2, r6
- 794 03a6 3B46     		mov	r3, r7
- 795 03a8 FFF7FEFF 		bl	__aeabi_dcmplt
- 796              	.LVL82:
- 797 03ac 68B1     		cbz	r0, .L26
+ 744              		.loc 1 52 19 view .LVU163
+ 745 034c 0246     		mov	r2, r0
+ 746 034e 0B46     		mov	r3, r1
+ 747 0350 5046     		mov	r0, r10
+ 748 0352 5946     		mov	r1, fp
+ 749 0354 FFF7FEFF 		bl	__aeabi_dcmplt
+ 750              	.LVL76:
+ 751 0358 08B1     		cbz	r0, .L25
   52:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 798              		.loc 1 52 41 is_stmt 1 discriminator 9 view .LVU157
+ 752              		.loc 1 52 40 is_stmt 1 discriminator 1 view .LVU164
   52:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 799              		.loc 1 52 59 is_stmt 0 discriminator 9 view .LVU158
- 800 03ae 3246     		mov	r2, r6
- 801 03b0 3B46     		mov	r3, r7
- 802 03b2 5046     		mov	r0, r10
- 803 03b4 5946     		mov	r1, fp
- 804 03b6 FFF7FEFF 		bl	__aeabi_ddiv
- 805              	.LVL83:
- 806 03ba 0246     		mov	r2, r0
- 807 03bc 0B46     		mov	r3, r1
-  52:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 808              		.loc 1 52 53 discriminator 9 view .LVU159
- 809 03be 4046     		mov	r0, r8
- 810 03c0 4946     		mov	r1, r9
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 18
-
-
- 811 03c2 FFF7FEFF 		bl	__aeabi_dmul
- 812              	.LVL84:
-  52:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 813              		.loc 1 52 44 discriminator 9 view .LVU160
- 814 03c6 C4E90201 		strd	r0, [r4, #8]
- 815              	.L26:
+ 753              		.loc 1 52 43 is_stmt 0 discriminator 1 view .LVU165
+ 754 035a C4E90267 		strd	r6, [r4, #8]
+ 755              	.L25:
   53:lib/pid/pid.cpp ****                   p_ = input - pre_input_;
- 816              		.loc 1 53 19 is_stmt 1 view .LVU161
+ 756              		.loc 1 53 19 is_stmt 1 view .LVU166
   53:lib/pid/pid.cpp ****                   p_ = input - pre_input_;
- 817              		.loc 1 53 28 is_stmt 0 view .LVU162
- 818 03ca D4E90023 		ldrd	r2, [r4]
+ 757              		.loc 1 53 28 is_stmt 0 view .LVU167
+ 758 035e D4E90023 		ldrd	r2, [r4]
   53:lib/pid/pid.cpp ****                   p_ = input - pre_input_;
- 819              		.loc 1 53 26 view .LVU163
- 820 03ce C4E90623 		strd	r2, [r4, #24]
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 17
+
+
+ 759              		.loc 1 53 26 view .LVU168
+ 760 0362 C4E90623 		strd	r2, [r4, #24]
   54:lib/pid/pid.cpp ****                   pre_input_ = input;
- 821              		.loc 1 54 19 is_stmt 1 view .LVU164
+ 761              		.loc 1 54 19 is_stmt 1 view .LVU169
   54:lib/pid/pid.cpp ****                   pre_input_ = input;
- 822              		.loc 1 54 30 is_stmt 0 view .LVU165
- 823 03d2 D4E91023 		ldrd	r2, [r4, #64]
- 824 03d6 51EC180B 		vmov	r0, r1, d8
- 825 03da FFF7FEFF 		bl	__aeabi_dsub
- 826              	.LVL85:
- 827 03de 0246     		mov	r2, r0
- 828 03e0 0B46     		mov	r3, r1
+ 762              		.loc 1 54 30 is_stmt 0 view .LVU170
+ 763 0366 D4E91023 		ldrd	r2, [r4, #64]
+ 764 036a 4046     		mov	r0, r8
+ 765 036c 4946     		mov	r1, r9
+ 766 036e FFF7FEFF 		bl	__aeabi_dsub
+ 767              	.LVL77:
+ 768 0372 0246     		mov	r2, r0
+ 769 0374 0B46     		mov	r3, r1
   54:lib/pid/pid.cpp ****                   pre_input_ = input;
- 829              		.loc 1 54 22 view .LVU166
- 830 03e2 C4E90023 		strd	r2, [r4]
+ 770              		.loc 1 54 22 view .LVU171
+ 771 0376 C4E90023 		strd	r2, [r4]
   55:lib/pid/pid.cpp **** 
- 831              		.loc 1 55 19 is_stmt 1 view .LVU167
+ 772              		.loc 1 55 19 is_stmt 1 view .LVU172
   55:lib/pid/pid.cpp **** 
- 832              		.loc 1 55 30 is_stmt 0 view .LVU168
- 833 03e6 84ED108B 		vstr.64	d8, [r4, #64]
-  57:lib/pid/pid.cpp **** 
- 834              		.loc 1 57 19 is_stmt 1 view .LVU169
-  57:lib/pid/pid.cpp **** 
- 835              		.loc 1 57 33 is_stmt 0 view .LVU170
- 836 03ea D4E90823 		ldrd	r2, [r4, #32]
- 837 03ee FFF7FEFF 		bl	__aeabi_dmul
- 838              	.LVL86:
- 839 03f2 0246     		mov	r2, r0
- 840 03f4 0B46     		mov	r3, r1
-  57:lib/pid/pid.cpp **** 
- 841              		.loc 1 57 28 view .LVU171
- 842 03f6 0020     		movs	r0, #0
- 843 03f8 0021     		movs	r1, #0
- 844 03fa FFF7FEFF 		bl	__aeabi_dsub
- 845              	.LVL87:
- 846 03fe 0646     		mov	r6, r0
- 847 0400 0F46     		mov	r7, r1
-  57:lib/pid/pid.cpp **** 
- 848              		.loc 1 57 44 view .LVU172
- 849 0402 D4E90A23 		ldrd	r2, [r4, #40]
- 850 0406 D4E90201 		ldrd	r0, [r4, #8]
- 851 040a FFF7FEFF 		bl	__aeabi_dmul
- 852              	.LVL88:
- 853 040e 0246     		mov	r2, r0
- 854 0410 0B46     		mov	r3, r1
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 19
+ 773              		.loc 1 55 30 is_stmt 0 view .LVU173
+ 774 037a C4E91089 		strd	r8, [r4, #64]
+  57:lib/pid/pid.cpp ****             }
+ 775              		.loc 1 57 19 is_stmt 1 view .LVU174
+  57:lib/pid/pid.cpp ****             }
+ 776              		.loc 1 57 33 is_stmt 0 view .LVU175
+ 777 037e D4E90823 		ldrd	r2, [r4, #32]
+ 778 0382 FFF7FEFF 		bl	__aeabi_dmul
+ 779              	.LVL78:
+ 780 0386 0246     		mov	r2, r0
+ 781 0388 0B46     		mov	r3, r1
+  57:lib/pid/pid.cpp ****             }
+ 782              		.loc 1 57 28 view .LVU176
+ 783 038a 0020     		movs	r0, #0
+ 784 038c 0021     		movs	r1, #0
+ 785 038e FFF7FEFF 		bl	__aeabi_dsub
+ 786              	.LVL79:
+ 787 0392 0646     		mov	r6, r0
+ 788 0394 0F46     		mov	r7, r1
+  57:lib/pid/pid.cpp ****             }
+ 789              		.loc 1 57 44 view .LVU177
+ 790 0396 D4E90A23 		ldrd	r2, [r4, #40]
+ 791 039a D4E90201 		ldrd	r0, [r4, #8]
+ 792 039e FFF7FEFF 		bl	__aeabi_dmul
+ 793              	.LVL80:
+ 794 03a2 0246     		mov	r2, r0
+ 795 03a4 0B46     		mov	r3, r1
+  57:lib/pid/pid.cpp ****             }
+ 796              		.loc 1 57 39 view .LVU178
+ 797 03a6 3046     		mov	r0, r6
+ 798 03a8 3946     		mov	r1, r7
+ 799 03aa FFF7FEFF 		bl	__aeabi_dadd
+ 800              	.LVL81:
+ 801 03ae 0646     		mov	r6, r0
+ 802 03b0 0F46     		mov	r7, r1
+  57:lib/pid/pid.cpp ****             }
+ 803              		.loc 1 57 55 view .LVU179
+ 804 03b2 D4E90C23 		ldrd	r2, [r4, #48]
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 18
 
 
-  57:lib/pid/pid.cpp **** 
- 855              		.loc 1 57 39 view .LVU173
- 856 0412 3046     		mov	r0, r6
- 857 0414 3946     		mov	r1, r7
- 858 0416 FFF7FEFF 		bl	__aeabi_dadd
- 859              	.LVL89:
- 860 041a 0646     		mov	r6, r0
- 861 041c 0F46     		mov	r7, r1
-  57:lib/pid/pid.cpp **** 
- 862              		.loc 1 57 55 view .LVU174
- 863 041e D4E90C23 		ldrd	r2, [r4, #48]
- 864 0422 D4E90401 		ldrd	r0, [r4, #16]
- 865 0426 FFF7FEFF 		bl	__aeabi_dmul
- 866              	.LVL90:
- 867 042a 0246     		mov	r2, r0
- 868 042c 0B46     		mov	r3, r1
-  57:lib/pid/pid.cpp **** 
- 869              		.loc 1 57 50 view .LVU175
- 870 042e 3046     		mov	r0, r6
- 871 0430 3946     		mov	r1, r7
- 872 0432 FFF7FEFF 		bl	__aeabi_dsub
- 873              	.LVL91:
- 874 0436 8246     		mov	r10, r0
- 875 0438 8B46     		mov	fp, r1
-  57:lib/pid/pid.cpp **** 
- 876              		.loc 1 57 24 view .LVU176
- 877 043a C4E90EAB 		strd	r10, [r4, #56]
-  59:lib/pid/pid.cpp ****             }
- 878              		.loc 1 59 19 is_stmt 1 view .LVU177
-  59:lib/pid/pid.cpp ****             }
- 879              		.loc 1 59 23 is_stmt 0 view .LVU178
- 880 043e 0022     		movs	r2, #0
- 881 0440 0023     		movs	r3, #0
- 882 0442 FFF7FEFF 		bl	__aeabi_dcmpgt
- 883              	.LVL92:
- 884 0446 E8B1     		cbz	r0, .L52
- 885 0448 5646     		mov	r6, r10
- 886 044a 5F46     		mov	r7, fp
- 887              	.L28:
-  59:lib/pid/pid.cpp ****             }
- 888              		.loc 1 59 19 discriminator 4 view .LVU179
- 889 044c 3246     		mov	r2, r6
- 890 044e 3B46     		mov	r3, r7
- 891 0450 4046     		mov	r0, r8
- 892 0452 4946     		mov	r1, r9
- 893 0454 FFF7FEFF 		bl	__aeabi_dcmplt
- 894              	.LVL93:
- 895 0458 0028     		cmp	r0, #0
- 896 045a 3FF4EFAD 		beq	.L17
-  59:lib/pid/pid.cpp ****             }
- 897              		.loc 1 59 43 is_stmt 1 discriminator 9 view .LVU180
-  59:lib/pid/pid.cpp ****             }
- 898              		.loc 1 59 70 is_stmt 0 discriminator 9 view .LVU181
- 899 045e 5246     		mov	r2, r10
- 900 0460 5B46     		mov	r3, fp
- 901 0462 3046     		mov	r0, r6
- 902 0464 3946     		mov	r1, r7
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 20
-
-
- 903 0466 FFF7FEFF 		bl	__aeabi_ddiv
- 904              	.LVL94:
- 905 046a 0246     		mov	r2, r0
- 906 046c 0B46     		mov	r3, r1
-  59:lib/pid/pid.cpp ****             }
- 907              		.loc 1 59 57 discriminator 9 view .LVU182
- 908 046e 4046     		mov	r0, r8
- 909 0470 4946     		mov	r1, r9
- 910 0472 FFF7FEFF 		bl	__aeabi_dmul
- 911              	.LVL95:
-  59:lib/pid/pid.cpp ****             }
- 912              		.loc 1 59 48 discriminator 9 view .LVU183
- 913 0476 C4E90E01 		strd	r0, [r4, #56]
- 914 047a DFE5     		b	.L17
- 915              	.L51:
-  52:lib/pid/pid.cpp ****                   pre_p_ = p_;
- 916              		.loc 1 52 23 discriminator 2 view .LVU184
- 917 047c 5646     		mov	r6, r10
- 918 047e 0BF10047 		add	r7, fp, #-2147483648
- 919 0482 89E7     		b	.L25
- 920              	.L52:
-  59:lib/pid/pid.cpp ****             }
- 921              		.loc 1 59 23 discriminator 2 view .LVU185
- 922 0484 5646     		mov	r6, r10
- 923 0486 0BF10047 		add	r7, fp, #-2147483648
- 924 048a DFE7     		b	.L28
- 925              	.L56:
- 926              		.align	2
- 927              	.L55:
- 928 048c 0000E03F 		.word	1071644672
- 929              		.cfi_endproc
- 930              	.LFE249:
- 931              		.fnend
- 933              		.global	__aeabi_d2f
- 934              		.section	.text._ZN3PID3GetEv,"ax",%progbits
- 935              		.align	1
- 936              		.global	_ZN3PID3GetEv
- 937              		.syntax unified
- 938              		.thumb
- 939              		.thumb_func
- 941              	_ZN3PID3GetEv:
- 942              		.fnstart
- 943              	.LVL96:
- 944              	.LFB250:
+ 805 03b6 D4E90401 		ldrd	r0, [r4, #16]
+ 806 03ba FFF7FEFF 		bl	__aeabi_dmul
+ 807              	.LVL82:
+ 808 03be 0246     		mov	r2, r0
+ 809 03c0 0B46     		mov	r3, r1
+  57:lib/pid/pid.cpp ****             }
+ 810              		.loc 1 57 50 view .LVU180
+ 811 03c2 3046     		mov	r0, r6
+ 812 03c4 3946     		mov	r1, r7
+ 813 03c6 FFF7FEFF 		bl	__aeabi_dsub
+ 814              	.LVL83:
+  57:lib/pid/pid.cpp ****             }
+ 815              		.loc 1 57 24 view .LVU181
+ 816 03ca C4E90E01 		strd	r0, [r4, #56]
+ 817 03ce 35E6     		b	.L17
+ 818              	.L45:
+ 819              		.align	2
+ 820              	.L44:
+ 821 03d0 0000E03F 		.word	1071644672
+ 822              		.cfi_endproc
+ 823              	.LFE249:
+ 824              		.fnend
+ 826              		.global	__aeabi_d2f
+ 827              		.section	.text._ZN3PID3GetEv,"ax",%progbits
+ 828              		.align	1
+ 829              		.global	_ZN3PID3GetEv
+ 830              		.syntax unified
+ 831              		.thumb
+ 832              		.thumb_func
+ 834              	_ZN3PID3GetEv:
+ 835              		.fnstart
+ 836              	.LVL84:
+ 837              	.LFB250:
   64:lib/pid/pid.cpp **** 
   65:lib/pid/pid.cpp **** float PID::Get() {
- 945              		.loc 1 65 18 is_stmt 1 view -0
- 946              		.cfi_startproc
- 947              		@ args = 0, pretend = 0, frame = 0
- 948              		@ frame_needed = 0, uses_anonymous_args = 0
- 949              		.loc 1 65 18 is_stmt 0 view .LVU187
- 950 0000 08B5     		push	{r3, lr}
- 951              	.LCFI7:
- 952              		.cfi_def_cfa_offset 8
- 953              		.cfi_offset 3, -8
- 954              		.cfi_offset 14, -4
+ 838              		.loc 1 65 18 is_stmt 1 view -0
+ 839              		.cfi_startproc
+ 840              		@ args = 0, pretend = 0, frame = 0
+ 841              		@ frame_needed = 0, uses_anonymous_args = 0
+ 842              		.loc 1 65 18 is_stmt 0 view .LVU183
+ 843 0000 08B5     		push	{r3, lr}
+ 844              	.LCFI7:
+ 845              		.cfi_def_cfa_offset 8
+ 846              		.cfi_offset 3, -8
+ 847              		.cfi_offset 14, -4
   66:lib/pid/pid.cpp ****       return pid_;
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 21
-
-
- 955              		.loc 1 66 7 is_stmt 1 view .LVU188
- 956              		.loc 1 66 14 is_stmt 0 view .LVU189
- 957 0002 D0E90E01 		ldrd	r0, [r0, #56]
- 958              	.LVL97:
- 959              		.loc 1 66 14 view .LVU190
- 960 0006 FFF7FEFF 		bl	__aeabi_d2f
- 961              	.LVL98:
+ 848              		.loc 1 66 7 is_stmt 1 view .LVU184
+ 849              		.loc 1 66 14 is_stmt 0 view .LVU185
+ 850 0002 D0E90E01 		ldrd	r0, [r0, #56]
+ 851              	.LVL85:
+ 852              		.loc 1 66 14 view .LVU186
+ 853 0006 FFF7FEFF 		bl	__aeabi_d2f
+ 854              	.LVL86:
   67:lib/pid/pid.cpp **** }...
- 962              		.loc 1 67 1 view .LVU191
- 963 000a 00EE100A 		vmov	s0, r0
- 964 000e 08BD     		pop	{r3, pc}
- 965              		.cfi_endproc
- 966              	.LFE250:
- 967              		.cantunwind
- 968              		.fnend
- 970              		.text
- 971              	.Letext0:
- 972              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
- 973              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-none
- 974              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
- 975              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
- 976              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
- 977              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
- 978              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
- 979              		.file 9 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
- 980              		.file 10 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
- 981              		.file 11 "Lib/Timer/Timer.hpp"
- 982              		.file 12 "lib/pid/pid.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s 			page 22
+ 855              		.loc 1 67 1 view .LVU187
+ 856 000a 00EE100A 		vmov	s0, r0
+ 857 000e 08BD     		pop	{r3, pc}
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 19
+
+
+ 858              		.cfi_endproc
+ 859              	.LFE250:
+ 860              		.cantunwind
+ 861              		.fnend
+ 863              		.text
+ 864              	.Letext0:
+ 865              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 866              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-none
+ 867              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 868              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 869              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 870              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ 871              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 872              		.file 9 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 873              		.file 10 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 874              		.file 11 "Lib/Timer/Timer.hpp"
+ 875              		.file 12 "lib/pid/pid.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s 			page 20
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 pid.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:21     .text._ZN3PIDC2Ev:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:27     .text._ZN3PIDC2Ev:00000000 _ZN3PIDC2Ev
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:21     .text._ZN3PIDC2Ev:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:27     .text._ZN3PIDC2Ev:00000000 _ZN3PIDC2Ev
       .ARM.exidx.text._ZN3PIDC2Ev:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:27     .text._ZN3PIDC2Ev:00000000 _ZN3PIDC1Ev
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:67     .text._ZN3PID7SetGainEfff:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:73     .text._ZN3PID7SetGainEfff:00000000 _ZN3PID7SetGainEfff
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:27     .text._ZN3PIDC2Ev:00000000 _ZN3PIDC1Ev
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:67     .text._ZN3PID7SetGainEfff:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:73     .text._ZN3PID7SetGainEfff:00000000 _ZN3PID7SetGainEfff
 .ARM.exidx.text._ZN3PID7SetGainEfff:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:124    .text._ZN3PID15SetSamplingFreqEt:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:130    .text._ZN3PID15SetSamplingFreqEt:00000000 _ZN3PID15SetSamplingFreqEt
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:124    .text._ZN3PID15SetSamplingFreqEt:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:130    .text._ZN3PID15SetSamplingFreqEt:00000000 _ZN3PID15SetSamplingFreqEt
 .ARM.exidx.text._ZN3PID15SetSamplingFreqEt:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:167    .text._ZN3PID8SetLimitEt:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:173    .text._ZN3PID8SetLimitEt:00000000 _ZN3PID8SetLimitEt
-.ARM.exidx.text._ZN3PID8SetLimitEt:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:193    .text._ZN3PID7SetTypeEh:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:199    .text._ZN3PID7SetTypeEh:00000000 _ZN3PID7SetTypeEh
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:167    .text._ZN3PID8SetLimitEss:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:173    .text._ZN3PID8SetLimitEss:00000000 _ZN3PID8SetLimitEss
+.ARM.exidx.text._ZN3PID8SetLimitEss:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:196    .text._ZN3PID7SetTypeEh:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:202    .text._ZN3PID7SetTypeEh:00000000 _ZN3PID7SetTypeEh
 .ARM.exidx.text._ZN3PID7SetTypeEh:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:226    .text._ZN3PID7ComputeEff:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:232    .text._ZN3PID7ComputeEff:00000000 _ZN3PID7ComputeEff
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:705    .text._ZN3PID7ComputeEff:00000304 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:710    .text._ZN3PID7ComputeEff:00000308 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:928    .text._ZN3PID7ComputeEff:0000048c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:229    .text._ZN3PID7ComputeEff:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:235    .text._ZN3PID7ComputeEff:00000000 _ZN3PID7ComputeEff
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:821    .text._ZN3PID7ComputeEff:000003d0 $d
 .ARM.extab.text._ZN3PID7ComputeEff:00000000 $d
 .ARM.exidx.text._ZN3PID7ComputeEff:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:935    .text._ZN3PID3GetEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccrrNlr1.s:941    .text._ZN3PID3GetEv:00000000 _ZN3PID3GetEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:828    .text._ZN3PID3GetEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccDKZX3S.s:834    .text._ZN3PID3GetEv:00000000 _ZN3PID3GetEv
     .ARM.exidx.text._ZN3PID3GetEv:00000000 $d
 
 UNDEFINED SYMBOLS
@@ -1270,8 +1137,8 @@ __aeabi_dsub
 __aeabi_ddiv
 __aeabi_dadd
 __aeabi_dmul
-__aeabi_dcmpgt
 __aeabi_i2d
+__aeabi_dcmpgt
 _ZN5Timer4readEv
 _ZN5Timer5resetEv
 __aeabi_unwind_cpp_pr1

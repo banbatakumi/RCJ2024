@@ -14,8 +14,9 @@ void PID::SetSamplingFreq(uint16_t sampling_freq) {
       this->sampling_period_ = 1.0f / sampling_freq;
 }
 
-void PID::SetLimit(uint16_t limit) {
-      this->limit_ = limit;
+void PID::SetLimit(int16_t min_limit, int16_t max_limit) {
+      this->min_limit_ = min_limit;
+      this->max_limit_ = max_limit;
 }
 
 void PID::SetType(uint8_t type) {
@@ -28,36 +29,35 @@ void PID::Compute(float input, float target) {
                   p_ = target - input;                                 // 比例
                   d_ = (p_ - pre_p_) / sampling_timer.read();          // 微分
                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
-                  if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
+                  if (i_ > max_limit_) i_ = max_limit_;
+                  if (i_ < min_limit_) i_ = min_limit_;
                   pre_p_ = p_;
 
                   pid_ = p_ * kp_ + i_ * ki_ + d_ * kd_;
-
-                  if (abs(pid_) > limit_) pid_ = limit_ * (abs(pid_) / pid_);
             } else if (type_ == 1) {
                   p_ = target - input;                                 // 比例
                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
-                  if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
+                  if (i_ > max_limit_) i_ = max_limit_;
+                  if (i_ < min_limit_) i_ = min_limit_;
                   pre_p_ = p_;
                   pre_input_ = input;
 
                   pid_ = p_ * kp_ + i_ * ki_ - d_ * kd_;
-
-                  if (abs(pid_) > limit_) pid_ = limit_ * (abs(pid_) / pid_);
             } else if (type_ == 2) {
                   p_ = target - input;                                 // 比例
                   d_ = (input - pre_input_) / sampling_timer.read();   // 微分
                   i_ += (p_ + pre_p_) * sampling_timer.read() * 0.5f;  // 台形積分
-                  if (abs(i_) > limit_) i_ = limit_ * (i_ / abs(i_));
+                  if (i_ > max_limit_) i_ = max_limit_;
+                  if (i_ < min_limit_) i_ = min_limit_;
                   pre_p_ = p_;
                   p_ = input - pre_input_;
                   pre_input_ = input;
 
                   pid_ = 0 - p_ * kp_ + i_ * ki_ - d_ * kd_;
-
-                  if (abs(pid_) > limit_) pid_ = limit_ * (abs(pid_) / pid_);
             }
+            if (pid_ > max_limit_) pid_ = max_limit_;
+            if (pid_ < min_limit_) pid_ = min_limit_;
             sampling_timer.reset();
       }
 }
