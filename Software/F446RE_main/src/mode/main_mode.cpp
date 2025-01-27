@@ -15,6 +15,8 @@ void Mode::MainMode() {
       robot->GetSensors();
       robot->info.Line.on_led = 1;  // 使えない
 
+      robot->motor.Drive(0, 0);
+
       // cortex-debug
       yaw = robot->info.Imu.yaw;
       voltage = robot->info.voltage;
@@ -25,6 +27,11 @@ void Mode::MainMode() {
       encoder[1] = robot->info.motor_rps[1];
       encoder[2] = robot->info.motor_rps[2];
       encoder[3] = robot->info.motor_rps[3];
+      if (encoder[0] != 0) {
+            robot->led1 = 1;
+      } else {
+            robot->led1 = 0;
+      }
 
       //  定周期処理
       process_time_ = process_timer.read_us();

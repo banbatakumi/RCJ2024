@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s 			page 1
   44              		.loc 1 12 26 is_stmt 0 view .LVU3
   45 0004 FFF7FEFF 		bl	_ZN5Timer5resetEv
   46              	.LVL1:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s 			page 2
 
 
   13:src/mode/main_mode.cpp ****       robot->ImuUart();
@@ -86,227 +86,312 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s 			page 1
   65 001c 0122     		movs	r2, #1
   66 001e 9A74     		strb	r2, [r3, #18]
   17:src/mode/main_mode.cpp **** 
-  18:src/mode/main_mode.cpp ****       // cortex-debug
-  19:src/mode/main_mode.cpp ****       yaw = robot->info.Imu.yaw;
-  67              		.loc 1 19 7 is_stmt 1 view .LVU12
-  68              		.loc 1 19 13 is_stmt 0 view .LVU13
-  69 0020 6368     		ldr	r3, [r4, #4]
-  70              		.loc 1 19 29 view .LVU14
-  71 0022 B3F92010 		ldrsh	r1, [r3, #32]
-  72              		.loc 1 19 11 view .LVU15
-  73 0026 1C4A     		ldr	r2, .L5
-  74 0028 1160     		str	r1, [r2]
-  20:src/mode/main_mode.cpp ****       voltage = robot->info.voltage;
-  75              		.loc 1 20 7 is_stmt 1 view .LVU16
-  76              		.loc 1 20 29 is_stmt 0 view .LVU17
-  77 002a 1968     		ldr	r1, [r3]	@ float
-  78              		.loc 1 20 15 view .LVU18
-  79 002c 1B4A     		ldr	r2, .L5+4
-  80 002e 1160     		str	r1, [r2]	@ float
-  21:src/mode/main_mode.cpp ****       line_dir = robot->info.Line.dir;
-  81              		.loc 1 21 7 is_stmt 1 view .LVU19
-  82              		.loc 1 21 35 is_stmt 0 view .LVU20
-  83 0030 B3F90E10 		ldrsh	r1, [r3, #14]
-  84              		.loc 1 21 16 view .LVU21
-  85 0034 1A4A     		ldr	r2, .L5+8
-  86 0036 1160     		str	r1, [r2]
-  22:src/mode/main_mode.cpp ****       is_on_line = robot->info.Line.is_on_line;
-  87              		.loc 1 22 7 is_stmt 1 view .LVU22
-  88              		.loc 1 22 37 is_stmt 0 view .LVU23
-  89 0038 597A     		ldrb	r1, [r3, #9]	@ zero_extendqisi2
-  90              		.loc 1 22 18 view .LVU24
-  91 003a 1A4A     		ldr	r2, .L5+12
-  92 003c 1160     		str	r1, [r2]
-  23:src/mode/main_mode.cpp **** 
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s 			page 3
+  18:src/mode/main_mode.cpp ****       robot->motor.Drive(0, 0);
+  67              		.loc 1 18 7 is_stmt 1 view .LVU12
+  68 0020 6068     		ldr	r0, [r4, #4]
+  69              		.loc 1 18 25 is_stmt 0 view .LVU13
+  70 0022 0022     		movs	r2, #0
+  71 0024 1146     		mov	r1, r2
+  72 0026 00F58870 		add	r0, r0, #272
+  73 002a FFF7FEFF 		bl	_ZN10MotorDrive5DriveEsh
+  74              	.LVL5:
+  19:src/mode/main_mode.cpp **** 
+  20:src/mode/main_mode.cpp ****       // cortex-debug
+  21:src/mode/main_mode.cpp ****       yaw = robot->info.Imu.yaw;
+  75              		.loc 1 21 7 is_stmt 1 view .LVU14
+  76              		.loc 1 21 13 is_stmt 0 view .LVU15
+  77 002e 6368     		ldr	r3, [r4, #4]
+  78              		.loc 1 21 29 view .LVU16
+  79 0030 B3F92010 		ldrsh	r1, [r3, #32]
+  80              		.loc 1 21 11 view .LVU17
+  81 0034 224A     		ldr	r2, .L7
+  82 0036 1160     		str	r1, [r2]
+  22:src/mode/main_mode.cpp ****       voltage = robot->info.voltage;
+  83              		.loc 1 22 7 is_stmt 1 view .LVU18
+  84              		.loc 1 22 29 is_stmt 0 view .LVU19
+  85 0038 1968     		ldr	r1, [r3]	@ float
+  86              		.loc 1 22 15 view .LVU20
+  87 003a 224A     		ldr	r2, .L7+4
+  88 003c 1160     		str	r1, [r2]	@ float
+  23:src/mode/main_mode.cpp ****       line_dir = robot->info.Line.dir;
+  89              		.loc 1 23 7 is_stmt 1 view .LVU21
+  90              		.loc 1 23 35 is_stmt 0 view .LVU22
+  91 003e B3F90E10 		ldrsh	r1, [r3, #14]
+  92              		.loc 1 23 16 view .LVU23
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s 			page 3
 
 
-  24:src/mode/main_mode.cpp ****       encoder[0] = robot->info.motor_rps[0];
-  93              		.loc 1 24 7 is_stmt 1 view .LVU25
-  94              		.loc 1 24 43 is_stmt 0 view .LVU26
-  95 003e 1979     		ldrb	r1, [r3, #4]	@ zero_extendqisi2
-  96              		.loc 1 24 18 view .LVU27
-  97 0040 194A     		ldr	r2, .L5+16
-  98 0042 1160     		str	r1, [r2]
-  25:src/mode/main_mode.cpp ****       encoder[1] = robot->info.motor_rps[1];
-  99              		.loc 1 25 7 is_stmt 1 view .LVU28
- 100              		.loc 1 25 43 is_stmt 0 view .LVU29
- 101 0044 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
- 102              		.loc 1 25 18 view .LVU30
- 103 0046 5360     		str	r3, [r2, #4]
-  26:src/mode/main_mode.cpp ****       encoder[2] = robot->info.motor_rps[2];
- 104              		.loc 1 26 7 is_stmt 1 view .LVU31
- 105              		.loc 1 26 20 is_stmt 0 view .LVU32
- 106 0048 6368     		ldr	r3, [r4, #4]
- 107              		.loc 1 26 43 view .LVU33
- 108 004a 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
- 109              		.loc 1 26 18 view .LVU34
- 110 004c 9360     		str	r3, [r2, #8]
-  27:src/mode/main_mode.cpp ****       encoder[3] = robot->info.motor_rps[3];
- 111              		.loc 1 27 7 is_stmt 1 view .LVU35
- 112              		.loc 1 27 20 is_stmt 0 view .LVU36
- 113 004e 6368     		ldr	r3, [r4, #4]
- 114              		.loc 1 27 43 view .LVU37
- 115 0050 DB79     		ldrb	r3, [r3, #7]	@ zero_extendqisi2
- 116              		.loc 1 27 18 view .LVU38
- 117 0052 D360     		str	r3, [r2, #12]
-  28:src/mode/main_mode.cpp **** 
-  29:src/mode/main_mode.cpp ****       //  定周期処理
-  30:src/mode/main_mode.cpp ****       process_time_ = process_timer.read_us();
- 118              		.loc 1 30 7 is_stmt 1 view .LVU39
- 119              		.loc 1 30 44 is_stmt 0 view .LVU40
- 120 0054 2046     		mov	r0, r4
- 121 0056 FFF7FEFF 		bl	_ZN5Timer7read_usEv
- 122              	.LVL5:
- 123              		.loc 1 30 21 view .LVU41
- 124 005a 80B2     		uxth	r0, r0
- 125 005c 2081     		strh	r0, [r4, #8]	@ movhi
-  31:src/mode/main_mode.cpp ****       if (process_time_ < PERIOD_US) {
- 126              		.loc 1 31 7 is_stmt 1 view .LVU42
- 127 005e C728     		cmp	r0, #199
- 128 0060 04D8     		bhi	.L2
- 129              	.L3:
-  32:src/mode/main_mode.cpp ****             while (process_timer.read_us() < PERIOD_US);
- 130              		.loc 1 32 44 discriminator 1 view .LVU43
- 131              		.loc 1 32 41 is_stmt 0 discriminator 1 view .LVU44
- 132 0062 2046     		mov	r0, r4
- 133 0064 FFF7FEFF 		bl	_ZN5Timer7read_usEv
- 134              	.LVL6:
- 135              		.loc 1 32 44 discriminator 1 view .LVU45
- 136 0068 C728     		cmp	r0, #199
- 137 006a FAD9     		bls	.L3
- 138              	.L2:
-  33:src/mode/main_mode.cpp ****       }
-  34:src/mode/main_mode.cpp ****       process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s 			page 4
+  93 0042 214A     		ldr	r2, .L7+8
+  94 0044 1160     		str	r1, [r2]
+  24:src/mode/main_mode.cpp ****       is_on_line = robot->info.Line.is_on_line;
+  95              		.loc 1 24 7 is_stmt 1 view .LVU24
+  96              		.loc 1 24 37 is_stmt 0 view .LVU25
+  97 0046 597A     		ldrb	r1, [r3, #9]	@ zero_extendqisi2
+  98              		.loc 1 24 18 view .LVU26
+  99 0048 204A     		ldr	r2, .L7+12
+ 100 004a 1160     		str	r1, [r2]
+  25:src/mode/main_mode.cpp **** 
+  26:src/mode/main_mode.cpp ****       encoder[0] = robot->info.motor_rps[0];
+ 101              		.loc 1 26 7 is_stmt 1 view .LVU27
+ 102              		.loc 1 26 43 is_stmt 0 view .LVU28
+ 103 004c 1979     		ldrb	r1, [r3, #4]	@ zero_extendqisi2
+ 104              		.loc 1 26 18 view .LVU29
+ 105 004e 204A     		ldr	r2, .L7+16
+ 106 0050 1160     		str	r1, [r2]
+  27:src/mode/main_mode.cpp ****       encoder[1] = robot->info.motor_rps[1];
+ 107              		.loc 1 27 7 is_stmt 1 view .LVU30
+ 108              		.loc 1 27 43 is_stmt 0 view .LVU31
+ 109 0052 5B79     		ldrb	r3, [r3, #5]	@ zero_extendqisi2
+ 110              		.loc 1 27 18 view .LVU32
+ 111 0054 5360     		str	r3, [r2, #4]
+  28:src/mode/main_mode.cpp ****       encoder[2] = robot->info.motor_rps[2];
+ 112              		.loc 1 28 7 is_stmt 1 view .LVU33
+ 113              		.loc 1 28 20 is_stmt 0 view .LVU34
+ 114 0056 6368     		ldr	r3, [r4, #4]
+ 115              		.loc 1 28 43 view .LVU35
+ 116 0058 9B79     		ldrb	r3, [r3, #6]	@ zero_extendqisi2
+ 117              		.loc 1 28 18 view .LVU36
+ 118 005a 9360     		str	r3, [r2, #8]
+  29:src/mode/main_mode.cpp ****       encoder[3] = robot->info.motor_rps[3];
+ 119              		.loc 1 29 7 is_stmt 1 view .LVU37
+ 120              		.loc 1 29 20 is_stmt 0 view .LVU38
+ 121 005c 6368     		ldr	r3, [r4, #4]
+ 122              		.loc 1 29 43 view .LVU39
+ 123 005e DB79     		ldrb	r3, [r3, #7]	@ zero_extendqisi2
+ 124              		.loc 1 29 18 view .LVU40
+ 125 0060 D360     		str	r3, [r2, #12]
+  30:src/mode/main_mode.cpp ****       if (encoder[0] != 0) {
+ 126              		.loc 1 30 7 is_stmt 1 view .LVU41
+ 127 0062 31B3     		cbz	r1, .L2
+  31:src/mode/main_mode.cpp ****             robot->led1 = 1;
+ 128              		.loc 1 31 13 view .LVU42
+ 129 0064 6368     		ldr	r3, [r4, #4]
+ 130              	.LVL6:
+ 131              	.LBB6:
+ 132              	.LBI6:
+ 133              		.file 2 "Lib/DigitalInOut/DigitalInOut.hpp"
+   1:Lib/DigitalInOut/DigitalInOut.hpp **** #ifndef __DigitalInOut__
+   2:Lib/DigitalInOut/DigitalInOut.hpp **** #define __DigitalInOut__
+   3:Lib/DigitalInOut/DigitalInOut.hpp **** 
+   4:Lib/DigitalInOut/DigitalInOut.hpp **** #include "main.h"
+   5:Lib/DigitalInOut/DigitalInOut.hpp **** 
+   6:Lib/DigitalInOut/DigitalInOut.hpp **** #ifdef __cplusplus
+   7:Lib/DigitalInOut/DigitalInOut.hpp **** 
+   8:Lib/DigitalInOut/DigitalInOut.hpp **** extern "C" {
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s 			page 4
 
 
- 139              		.loc 1 34 7 is_stmt 1 view .LVU46
- 140              		.loc 1 34 51 is_stmt 0 view .LVU47
- 141 006c 2046     		mov	r0, r4
- 142 006e FFF7FEFF 		bl	_ZN5Timer7read_usEv
- 143              	.LVL7:
- 144 0072 07EE900A 		vmov	s15, r0	@ int
- 145              		.loc 1 34 54 view .LVU48
- 146 0076 F8EE677A 		vcvt.f32.u32	s15, s15
- 147 007a 9FED0C7A 		vldr.32	s14, .L5+20
- 148 007e 67EE877A 		vmul.f32	s15, s15, s14
- 149              		.loc 1 34 27 view .LVU49
- 150 0082 F7EE006A 		vmov.f32	s13, #1.0e+0
- 151 0086 86EEA77A 		vdiv.f32	s14, s13, s15
- 152              		.loc 1 34 20 view .LVU50
- 153 008a BDEEC77A 		vcvt.s32.f32	s14, s14
- 154 008e 084B     		ldr	r3, .L5+24
- 155 0090 83ED007A 		vstr.32	s14, [r3]	@ int
-  35:src/mode/main_mode.cpp **** }...
- 156              		.loc 1 35 1 view .LVU51
- 157 0094 10BD     		pop	{r4, pc}
- 158              	.LVL8:
- 159              	.L6:
- 160              		.loc 1 35 1 view .LVU52
- 161 0096 00BF     		.align	2
- 162              	.L5:
- 163 0098 00000000 		.word	yaw
- 164 009c 00000000 		.word	voltage
- 165 00a0 00000000 		.word	line_dir
- 166 00a4 00000000 		.word	is_on_line
- 167 00a8 00000000 		.word	encoder
- 168 00ac BD378635 		.word	897988541
- 169 00b0 00000000 		.word	process_freq
- 170              		.cfi_endproc
- 171              	.LFE273:
- 172              		.fnend
- 174              		.global	encoder
- 175              		.section	.bss.encoder,"aw",%nobits
- 176              		.align	2
- 179              	encoder:
- 180 0000 00000000 		.space	16
- 180      00000000 
- 180      00000000 
- 180      00000000 
- 181              		.global	is_on_line
- 182              		.section	.bss.is_on_line,"aw",%nobits
- 183              		.align	2
- 186              	is_on_line:
- 187 0000 00000000 		.space	4
- 188              		.global	line_dir
- 189              		.section	.bss.line_dir,"aw",%nobits
- 190              		.align	2
- 193              	line_dir:
- 194 0000 00000000 		.space	4
- 195              		.global	process_freq
- 196              		.section	.bss.process_freq,"aw",%nobits
- 197              		.align	2
- 200              	process_freq:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s 			page 5
+   9:Lib/DigitalInOut/DigitalInOut.hpp **** 
+  10:Lib/DigitalInOut/DigitalInOut.hpp **** class DigitalOut {
+  11:Lib/DigitalInOut/DigitalInOut.hpp ****   public:
+  12:Lib/DigitalInOut/DigitalInOut.hpp ****     DigitalOut(GPIO_TypeDef *port, uint16_t pin) : port(port), pin(pin) {
+  13:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
+  14:Lib/DigitalInOut/DigitalInOut.hpp ****     }
+  15:Lib/DigitalInOut/DigitalInOut.hpp ****     void write(bool value) {
+  16:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+  17:Lib/DigitalInOut/DigitalInOut.hpp ****     }
+  18:Lib/DigitalInOut/DigitalInOut.hpp **** 
+  19:Lib/DigitalInOut/DigitalInOut.hpp ****     void operator=(bool value) {
+ 134              		.loc 2 19 10 view .LVU43
+ 135              	.LBB7:
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 136              		.loc 2 20 9 view .LVU44
+ 137              		.loc 2 20 26 is_stmt 0 view .LVU45
+ 138 0066 0122     		movs	r2, #1
+ 139 0068 998D     		ldrh	r1, [r3, #44]
+ 140 006a 986A     		ldr	r0, [r3, #40]
+ 141 006c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 142              	.LVL7:
+ 143              	.L3:
+ 144              		.loc 2 20 26 view .LVU46
+ 145              	.LBE7:
+ 146              	.LBE6:
+  32:src/mode/main_mode.cpp ****       } else {
+  33:src/mode/main_mode.cpp ****             robot->led1 = 0;
+  34:src/mode/main_mode.cpp ****       }
+  35:src/mode/main_mode.cpp **** 
+  36:src/mode/main_mode.cpp ****       //  定周期処理
+  37:src/mode/main_mode.cpp ****       process_time_ = process_timer.read_us();
+ 147              		.loc 1 37 7 is_stmt 1 view .LVU47
+ 148              		.loc 1 37 44 is_stmt 0 view .LVU48
+ 149 0070 2046     		mov	r0, r4
+ 150 0072 FFF7FEFF 		bl	_ZN5Timer7read_usEv
+ 151              	.LVL8:
+ 152              		.loc 1 37 21 view .LVU49
+ 153 0076 80B2     		uxth	r0, r0
+ 154 0078 2081     		strh	r0, [r4, #8]	@ movhi
+  38:src/mode/main_mode.cpp ****       if (process_time_ < PERIOD_US) {
+ 155              		.loc 1 38 7 is_stmt 1 view .LVU50
+ 156 007a C728     		cmp	r0, #199
+ 157 007c 04D8     		bhi	.L4
+ 158              	.L5:
+  39:src/mode/main_mode.cpp ****             while (process_timer.read_us() < PERIOD_US);
+ 159              		.loc 1 39 44 discriminator 1 view .LVU51
+ 160              		.loc 1 39 41 is_stmt 0 discriminator 1 view .LVU52
+ 161 007e 2046     		mov	r0, r4
+ 162 0080 FFF7FEFF 		bl	_ZN5Timer7read_usEv
+ 163              	.LVL9:
+ 164              		.loc 1 39 44 discriminator 1 view .LVU53
+ 165 0084 C728     		cmp	r0, #199
+ 166 0086 FAD9     		bls	.L5
+ 167              	.L4:
+  40:src/mode/main_mode.cpp ****       }
+  41:src/mode/main_mode.cpp ****       process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
+ 168              		.loc 1 41 7 is_stmt 1 view .LVU54
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s 			page 5
 
 
- 201 0000 00000000 		.space	4
- 202              		.global	voltage
- 203              		.section	.bss.voltage,"aw",%nobits
- 204              		.align	2
- 207              	voltage:
- 208 0000 00000000 		.space	4
- 209              		.global	yaw
- 210              		.section	.bss.yaw,"aw",%nobits
- 211              		.align	2
- 214              	yaw:
- 215 0000 00000000 		.space	4
- 216              		.text
- 217              	.Letext0:
- 218              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
- 219              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
- 220              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
- 221              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
- 222              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
- 223              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
- 224              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
- 225              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
- 226              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 227              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 228              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 229              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 230              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 231              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 232              		.file 16 "Lib/BufferedSerial/BufferedSerial.hpp"
- 233              		.file 17 "Lib/DigitalInOut/DigitalInOut.hpp"
- 234              		.file 18 "Lib/MovingAve/MovingAve.hpp"
- 235              		.file 19 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
- 236              		.file 20 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
- 237              		.file 21 "Lib/PWMSingle/PWMSingle.hpp"
- 238              		.file 22 "Lib/Timer/Timer.hpp"
- 239              		.file 23 "src/unit/dribbler_drive/dribbler_drive.hpp"
- 240              		.file 24 "src/unit/kicker/kicker.hpp"
- 241              		.file 25 "Lib/pid/pid.hpp"
- 242              		.file 26 "src/unit/motor_drive/motor_drive.hpp"
- 243              		.file 27 "src/unit/robot/robot.hpp"
- 244              		.file 28 "src/mode/mode.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s 			page 6
+ 169              		.loc 1 41 51 is_stmt 0 view .LVU55
+ 170 0088 2046     		mov	r0, r4
+ 171 008a FFF7FEFF 		bl	_ZN5Timer7read_usEv
+ 172              	.LVL10:
+ 173 008e 07EE900A 		vmov	s15, r0	@ int
+ 174              		.loc 1 41 54 view .LVU56
+ 175 0092 F8EE677A 		vcvt.f32.u32	s15, s15
+ 176 0096 9FED0F7A 		vldr.32	s14, .L7+20
+ 177 009a 67EE877A 		vmul.f32	s15, s15, s14
+ 178              		.loc 1 41 27 view .LVU57
+ 179 009e F7EE006A 		vmov.f32	s13, #1.0e+0
+ 180 00a2 86EEA77A 		vdiv.f32	s14, s13, s15
+ 181              		.loc 1 41 20 view .LVU58
+ 182 00a6 BDEEC77A 		vcvt.s32.f32	s14, s14
+ 183 00aa 0B4B     		ldr	r3, .L7+24
+ 184 00ac 83ED007A 		vstr.32	s14, [r3]	@ int
+  42:src/mode/main_mode.cpp **** }...
+ 185              		.loc 1 42 1 view .LVU59
+ 186 00b0 10BD     		pop	{r4, pc}
+ 187              	.LVL11:
+ 188              	.L2:
+  33:src/mode/main_mode.cpp ****             robot->led1 = 0;
+ 189              		.loc 1 33 13 is_stmt 1 view .LVU60
+ 190 00b2 6368     		ldr	r3, [r4, #4]
+ 191              	.LVL12:
+ 192              	.LBB8:
+ 193              	.LBI8:
+  19:Lib/DigitalInOut/DigitalInOut.hpp ****         HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 194              		.loc 2 19 10 view .LVU61
+ 195              	.LBB9:
+ 196              		.loc 2 20 9 view .LVU62
+ 197              		.loc 2 20 26 is_stmt 0 view .LVU63
+ 198 00b4 0022     		movs	r2, #0
+ 199 00b6 998D     		ldrh	r1, [r3, #44]
+ 200 00b8 986A     		ldr	r0, [r3, #40]
+ 201 00ba FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 202              	.LVL13:
+  21:Lib/DigitalInOut/DigitalInOut.hpp ****     }
+ 203              		.loc 2 21 5 view .LVU64
+ 204 00be D7E7     		b	.L3
+ 205              	.L8:
+ 206              		.align	2
+ 207              	.L7:
+ 208 00c0 00000000 		.word	yaw
+ 209 00c4 00000000 		.word	voltage
+ 210 00c8 00000000 		.word	line_dir
+ 211 00cc 00000000 		.word	is_on_line
+ 212 00d0 00000000 		.word	encoder
+ 213 00d4 BD378635 		.word	897988541
+ 214 00d8 00000000 		.word	process_freq
+ 215              	.LBE9:
+ 216              	.LBE8:
+ 217              		.cfi_endproc
+ 218              	.LFE273:
+ 219              		.fnend
+ 221              		.global	encoder
+ 222              		.section	.bss.encoder,"aw",%nobits
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s 			page 6
+
+
+ 223              		.align	2
+ 226              	encoder:
+ 227 0000 00000000 		.space	16
+ 227      00000000 
+ 227      00000000 
+ 227      00000000 
+ 228              		.global	is_on_line
+ 229              		.section	.bss.is_on_line,"aw",%nobits
+ 230              		.align	2
+ 233              	is_on_line:
+ 234 0000 00000000 		.space	4
+ 235              		.global	line_dir
+ 236              		.section	.bss.line_dir,"aw",%nobits
+ 237              		.align	2
+ 240              	line_dir:
+ 241 0000 00000000 		.space	4
+ 242              		.global	process_freq
+ 243              		.section	.bss.process_freq,"aw",%nobits
+ 244              		.align	2
+ 247              	process_freq:
+ 248 0000 00000000 		.space	4
+ 249              		.global	voltage
+ 250              		.section	.bss.voltage,"aw",%nobits
+ 251              		.align	2
+ 254              	voltage:
+ 255 0000 00000000 		.space	4
+ 256              		.global	yaw
+ 257              		.section	.bss.yaw,"aw",%nobits
+ 258              		.align	2
+ 261              	yaw:
+ 262 0000 00000000 		.space	4
+ 263              		.text
+ 264              	.Letext0:
+ 265              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 266              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 267              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 268              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ 269              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 270              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 271              		.file 9 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 272              		.file 10 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 273              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 274              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 275              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 276              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 277              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 278              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 279              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 280              		.file 18 "Lib/BufferedSerial/BufferedSerial.hpp"
+ 281              		.file 19 "Lib/MovingAve/MovingAve.hpp"
+ 282              		.file 20 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 283              		.file 21 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
+ 284              		.file 22 "Lib/PWMSingle/PWMSingle.hpp"
+ 285              		.file 23 "Lib/Timer/Timer.hpp"
+ 286              		.file 24 "src/unit/dribbler_drive/dribbler_drive.hpp"
+ 287              		.file 25 "src/unit/kicker/kicker.hpp"
+ 288              		.file 26 "Lib/pid/pid.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s 			page 7
+
+
+ 289              		.file 27 "src/unit/motor_drive/motor_drive.hpp"
+ 290              		.file 28 "src/unit/robot/robot.hpp"
+ 291              		.file 29 "src/mode/mode.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s 			page 8
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main_mode.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:21     .text._ZN4Mode8MainModeEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:27     .text._ZN4Mode8MainModeEv:00000000 _ZN4Mode8MainModeEv
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:163    .text._ZN4Mode8MainModeEv:00000098 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:214    .bss.yaw:00000000 yaw
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:207    .bss.voltage:00000000 voltage
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:193    .bss.line_dir:00000000 line_dir
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:186    .bss.is_on_line:00000000 is_on_line
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:179    .bss.encoder:00000000 encoder
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:200    .bss.process_freq:00000000 process_freq
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:21     .text._ZN4Mode8MainModeEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:27     .text._ZN4Mode8MainModeEv:00000000 _ZN4Mode8MainModeEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:208    .text._ZN4Mode8MainModeEv:000000c0 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:261    .bss.yaw:00000000 yaw
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:254    .bss.voltage:00000000 voltage
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:240    .bss.line_dir:00000000 line_dir
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:233    .bss.is_on_line:00000000 is_on_line
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:226    .bss.encoder:00000000 encoder
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:247    .bss.process_freq:00000000 process_freq
 .ARM.exidx.text._ZN4Mode8MainModeEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:176    .bss.encoder:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:183    .bss.is_on_line:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:190    .bss.line_dir:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:197    .bss.process_freq:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:204    .bss.voltage:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccF4PUXV.s:211    .bss.yaw:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:223    .bss.encoder:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:230    .bss.is_on_line:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:237    .bss.line_dir:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:244    .bss.process_freq:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:251    .bss.voltage:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccn7GZCG.s:258    .bss.yaw:00000000 $d
 
 UNDEFINED SYMBOLS
 _ZN5Timer5resetEv
 _ZN5Robot7ImuUartEv
 _ZN5Robot8LineUartEv
 _ZN5Robot10GetSensorsEv
+_ZN10MotorDrive5DriveEsh
+HAL_GPIO_WritePin
 _ZN5Timer7read_usEv
 __aeabi_unwind_cpp_pr0

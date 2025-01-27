@@ -105,7 +105,6 @@ void Robot::LineUart() {
                   recv_data[index - 1] = recv_byte;
                   index++;
             }
-            led1 = 1;
       }
 
       if (line_send_interval_timer.read_us() >= LINE_SEND_PERIOD_US) {
