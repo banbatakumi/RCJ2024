@@ -34,8 +34,13 @@ void main_app() {
             process_timer.reset();
             hardware.GetSensors();
             hardware.encoder.Read();
-            hardware.line.Read();
-            hardware.line.Compute();
+            if (hardware.info.Line.do_read == 1) {
+                  hardware.line.OnLed();
+                  hardware.line.Read();
+                  hardware.line.Compute();
+            } else {
+                  hardware.line.OffLed();
+            }
             // コメント
 
             // cortex-debug

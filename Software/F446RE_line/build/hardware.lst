@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
   25:Lib/BufferedSerial/BufferedSerial.hpp ****             _useDMA(false) {
   26:Lib/BufferedSerial/BufferedSerial.hpp ****       }
   27:Lib/BufferedSerial/BufferedSerial.hpp ****       void init(bool dma = false) {
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 2
 
 
   28:Lib/BufferedSerial/BufferedSerial.hpp ****             _useDMA = dma;
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
   69              		.loc 2 44 13 is_stmt 1 view .LVU16
   70              		.loc 2 44 28 is_stmt 0 view .LVU17
   71 0020 0131     		adds	r1, r1, #1
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 3
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 3
 
 
   72              		.loc 2 44 33 view .LVU18
@@ -178,15 +178,15 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  119              		.pad #52
  120 0004 8DB0     		sub	sp, sp, #52
  121              	.LCFI1:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 4
 
 
  122              		.cfi_def_cfa_offset 80
  123 0006 0446     		mov	r4, r0
  124              	.LVL7:
- 125              	.LBB47:
- 126              	.LBB48:
- 127              	.LBI48:
+ 125              	.LBB61:
+ 126              	.LBB62:
+ 127              	.LBI62:
  128              		.file 3 "Lib/DigitalInOut/DigitalInOut.hpp"
    1:Lib/DigitalInOut/DigitalInOut.hpp **** #ifndef __DIGITALINOUT__
    2:Lib/DigitalInOut/DigitalInOut.hpp **** #define __DIGITALINOUT__
@@ -201,7 +201,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
   11:Lib/DigitalInOut/DigitalInOut.hpp ****      public:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****       DigitalOut(GPIO_TypeDef *port, uint16_t pin) : port(port), pin(pin) {
  129              		.loc 3 12 7 is_stmt 1 view .LVU26
- 130              	.LBB49:
+ 130              	.LBB63:
  131              		.loc 3 12 54 is_stmt 0 view .LVU27
  132 0008 514D     		ldr	r5, .L6
  133 000a C561     		str	r5, [r0, #28]
@@ -218,13 +218,13 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  143 0016 FFF7FEFF 		bl	HAL_GPIO_WritePin
  144              	.LVL9:
  145              		.loc 3 13 30 view .LVU32
- 146              	.LBE49:
- 147              	.LBE48:
- 148              	.LBB50:
- 149              	.LBI50:
+ 146              	.LBE63:
+ 147              	.LBE62:
+ 148              	.LBB64:
+ 149              	.LBI64:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  150              		.loc 3 12 7 is_stmt 1 view .LVU33
- 151              	.LBB51:
+ 151              	.LBB65:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  152              		.loc 3 12 54 is_stmt 0 view .LVU34
  153 001a 6562     		str	r5, [r4, #36]
@@ -238,17 +238,17 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  160 0024 2846     		mov	r0, r5
  161 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
  162              	.LVL10:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 5
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 5
 
 
  163              		.loc 3 13 30 view .LVU38
- 164              	.LBE51:
- 165              	.LBE50:
- 166              	.LBB52:
- 167              	.LBI52:
+ 164              	.LBE65:
+ 165              	.LBE64:
+ 166              	.LBB66:
+ 167              	.LBI66:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  168              		.loc 3 12 7 is_stmt 1 view .LVU39
- 169              	.LBB53:
+ 169              	.LBB67:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  170              		.loc 3 12 54 is_stmt 0 view .LVU40
  171 002a E562     		str	r5, [r4, #44]
@@ -264,16 +264,16 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  180 0038 FFF7FEFF 		bl	HAL_GPIO_WritePin
  181              	.LVL11:
  182              		.loc 3 13 30 view .LVU44
- 183              	.LBE53:
- 184              	.LBE52:
+ 183              	.LBE67:
+ 184              	.LBE66:
  185              		.loc 1 5 20 view .LVU45
  186 003c 04F13409 		add	r9, r4, #52
  187              	.LVL12:
- 188              	.LBB54:
- 189              	.LBI54:
+ 188              	.LBB68:
+ 189              	.LBI68:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  190              		.loc 3 12 7 is_stmt 1 view .LVU46
- 191              	.LBB55:
+ 191              	.LBB69:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  192              		.loc 3 12 54 is_stmt 0 view .LVU47
  193 0040 6563     		str	r5, [r4, #52]
@@ -289,16 +289,16 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  202 004e FFF7FEFF 		bl	HAL_GPIO_WritePin
  203              	.LVL13:
  204              		.loc 3 13 30 view .LVU51
- 205              	.LBE55:
- 206              	.LBE54:
- 207              	.LBB56:
- 208              	.LBI56:
+ 205              	.LBE69:
+ 206              	.LBE68:
+ 207              	.LBB70:
+ 208              	.LBI70:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  209              		.loc 3 12 7 is_stmt 1 view .LVU52
- 210              	.LBB57:
+ 210              	.LBB71:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  211              		.loc 3 12 54 is_stmt 0 view .LVU53
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 6
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 6
 
 
  212 0052 A5F58065 		sub	r5, r5, #1024
@@ -314,13 +314,13 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  221 0062 FFF7FEFF 		bl	HAL_GPIO_WritePin
  222              	.LVL14:
  223              		.loc 3 13 30 view .LVU57
- 224              	.LBE57:
- 225              	.LBE56:
- 226              	.LBB58:
- 227              	.LBI58:
+ 224              	.LBE71:
+ 225              	.LBE70:
+ 226              	.LBB72:
+ 227              	.LBI72:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  228              		.loc 3 12 7 is_stmt 1 view .LVU58
- 229              	.LBB59:
+ 229              	.LBB73:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  230              		.loc 3 12 54 is_stmt 0 view .LVU59
  231 0066 6564     		str	r5, [r4, #68]
@@ -335,13 +335,13 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  239 0074 FFF7FEFF 		bl	HAL_GPIO_WritePin
  240              	.LVL15:
  241              		.loc 3 13 30 view .LVU63
- 242              	.LBE59:
- 243              	.LBE58:
- 244              	.LBB60:
- 245              	.LBI60:
+ 242              	.LBE73:
+ 243              	.LBE72:
+ 244              	.LBB74:
+ 245              	.LBI74:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  246              		.loc 3 12 7 is_stmt 1 view .LVU64
- 247              	.LBB61:
+ 247              	.LBB75:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  248              		.loc 3 12 54 is_stmt 0 view .LVU65
  249 0078 DFF8DC80 		ldr	r8, .L6+8
@@ -357,16 +357,16 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  258 008a FFF7FEFF 		bl	HAL_GPIO_WritePin
  259              	.LVL16:
  260              		.loc 3 13 30 view .LVU69
- 261              	.LBE61:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 7
+ 261              	.LBE75:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 7
 
 
- 262              	.LBE60:
- 263              	.LBB62:
- 264              	.LBI62:
+ 262              	.LBE74:
+ 263              	.LBB76:
+ 264              	.LBI76:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  265              		.loc 3 12 7 is_stmt 1 view .LVU70
- 266              	.LBB63:
+ 266              	.LBB77:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  267              		.loc 3 12 54 is_stmt 0 view .LVU71
  268 008e C4F85480 		str	r8, [r4, #84]
@@ -381,13 +381,13 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  276 009c FFF7FEFF 		bl	HAL_GPIO_WritePin
  277              	.LVL17:
  278              		.loc 3 13 30 view .LVU75
- 279              	.LBE63:
- 280              	.LBE62:
- 281              	.LBB64:
- 282              	.LBI64:
+ 279              	.LBE77:
+ 280              	.LBE76:
+ 281              	.LBB78:
+ 282              	.LBI78:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  283              		.loc 3 12 7 is_stmt 1 view .LVU76
- 284              	.LBB65:
+ 284              	.LBB79:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  285              		.loc 3 12 54 is_stmt 0 view .LVU77
  286 00a0 E565     		str	r5, [r4, #92]
@@ -402,13 +402,13 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  294 00ac FFF7FEFF 		bl	HAL_GPIO_WritePin
  295              	.LVL18:
  296              		.loc 3 13 30 view .LVU81
- 297              	.LBE65:
- 298              	.LBE64:
- 299              	.LBB66:
- 300              	.LBI66:
+ 297              	.LBE79:
+ 298              	.LBE78:
+ 299              	.LBB80:
+ 300              	.LBI80:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  301              		.loc 3 12 7 is_stmt 1 view .LVU82
- 302              	.LBB67:
+ 302              	.LBB81:
   12:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
  303              		.loc 3 12 54 is_stmt 0 view .LVU83
  304 00b0 6566     		str	r5, [r4, #100]
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  307 00b6 A4F86810 		strh	r1, [r4, #104]	@ movhi
  308              		.loc 3 13 13 is_stmt 1 view .LVU85
  309              		.loc 3 13 30 is_stmt 0 view .LVU86
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 8
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 8
 
 
  310 00ba 0022     		movs	r2, #0
@@ -426,13 +426,13 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  312 00be FFF7FEFF 		bl	HAL_GPIO_WritePin
  313              	.LVL19:
  314              		.loc 3 13 30 view .LVU87
- 315              	.LBE67:
- 316              	.LBE66:
- 317              	.LBB68:
- 318              	.LBI68:
+ 315              	.LBE81:
+ 316              	.LBE80:
+ 317              	.LBB82:
+ 318              	.LBI82:
   19:Lib/BufferedSerial/BufferedSerial.hpp ****           : _huart(huart),
  319              		.loc 2 19 7 is_stmt 1 view .LVU88
- 320              	.LBB69:
+ 320              	.LBB83:
   20:Lib/BufferedSerial/BufferedSerial.hpp ****             _rxBuf(new uint8_t[rxBufSize]),
  321              		.loc 2 20 13 is_stmt 0 view .LVU89
  322 00c2 244B     		ldr	r3, .L6+4
@@ -461,8 +461,8 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  339              	.LVL21:
   25:Lib/BufferedSerial/BufferedSerial.hpp ****       }
  340              		.loc 2 25 13 view .LVU96
- 341              	.LBE69:
- 342              	.LBE68:
+ 341              	.LBE83:
+ 342              	.LBE82:
  343              		.loc 1 5 20 view .LVU97
  344 00e0 2246     		mov	r2, r4
  345 00e2 4946     		mov	r1, r9
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  355 00fe 04F10C03 		add	r3, r4, #12
  356 0102 0893     		str	r3, [sp, #32]
  357 0104 04F10B03 		add	r3, r4, #11
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 9
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 9
 
 
  358 0108 0793     		str	r3, [sp, #28]
@@ -502,7 +502,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  376 013e 04F6B850 		addw	r0, r4, #3512
  377 0142 FFF7FEFF 		bl	_ZN4LineC1EP10DigitalOutS1_S1_S1_S1_S1_S1_PhS2_S2_S2_S2_S2_S2_S2_
  378              	.LVL23:
- 379              	.LBE47:
+ 379              	.LBE61:
    6:src/unit/hardware/hardware.cpp **** }
  380              		.loc 1 6 1 view .LVU98
  381 0146 2046     		mov	r0, r4
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
    8:src/unit/hardware/hardware.cpp **** void Hardware::Init() {
  412              		.loc 1 8 23 is_stmt 1 view -0
  413              		.cfi_startproc
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 10
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 10
 
 
  414              		@ args = 0, pretend = 0, frame = 0
@@ -556,8 +556,8 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
    9:src/unit/hardware/hardware.cpp ****       led3 = 1;
  426              		.loc 1 9 7 is_stmt 1 view .LVU102
  427              	.LVL26:
- 428              	.LBB70:
- 429              	.LBI70:
+ 428              	.LBB84:
+ 429              	.LBI84:
   14:Lib/DigitalInOut/DigitalInOut.hpp ****       }
   15:Lib/DigitalInOut/DigitalInOut.hpp ****       void write(bool value) {
   16:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
@@ -565,7 +565,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
   18:Lib/DigitalInOut/DigitalInOut.hpp **** 
   19:Lib/DigitalInOut/DigitalInOut.hpp ****       void operator=(bool value) {
  430              		.loc 3 19 12 view .LVU103
- 431              	.LBB71:
+ 431              	.LBB85:
   20:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
  432              		.loc 3 20 13 view .LVU104
  433              		.loc 3 20 30 is_stmt 0 view .LVU105
@@ -577,12 +577,12 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  439 000a FFF7FEFF 		bl	HAL_GPIO_WritePin
  440              	.LVL28:
  441              		.loc 3 20 30 view .LVU107
- 442              	.LBE71:
- 443              	.LBE70:
+ 442              	.LBE85:
+ 443              	.LBE84:
   10:src/unit/hardware/hardware.cpp ****       HAL_ADC_Start(&hadc1);
  444              		.loc 1 10 7 is_stmt 1 view .LVU108
  445              		.loc 1 10 20 is_stmt 0 view .LVU109
- 446 000e 154D     		ldr	r5, .L12
+ 446 000e 134D     		ldr	r5, .L12
  447 0010 2846     		mov	r0, r5
  448 0012 FFF7FEFF 		bl	HAL_ADC_Start
  449              	.LVL29:
@@ -590,15 +590,15 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  450              		.loc 1 11 7 is_stmt 1 view .LVU110
  451              		.loc 1 11 24 is_stmt 0 view .LVU111
  452 0016 0C22     		movs	r2, #12
- 453 0018 1349     		ldr	r1, .L12+4
+ 453 0018 1149     		ldr	r1, .L12+4
  454 001a 2846     		mov	r0, r5
  455 001c FFF7FEFF 		bl	HAL_ADC_Start_DMA
  456              	.LVL30:
   12:src/unit/hardware/hardware.cpp ****       for (uint8_t i = 0; i < 12; i++) {
  457              		.loc 1 12 7 is_stmt 1 view .LVU112
- 458              	.LBB72:
+ 458              	.LBB86:
  459              		.loc 1 12 20 is_stmt 0 view .LVU113
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 11
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 11
 
 
  460 0020 0022     		movs	r2, #0
@@ -609,7 +609,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
   13:src/unit/hardware/hardware.cpp ****             while (!(adc_get_val[i] > 0));
  465              		.loc 1 13 20 is_stmt 1 discriminator 1 view .LVU115
  466              		.loc 1 13 35 is_stmt 0 discriminator 1 view .LVU116
- 467 0024 104B     		ldr	r3, .L12+4
+ 467 0024 0E4B     		ldr	r3, .L12+4
  468 0026 33F81230 		ldrh	r3, [r3, r2, lsl #1]
  469              		.loc 1 13 20 discriminator 1 view .LVU117
  470 002a 002B     		cmp	r3, #0
@@ -627,18 +627,18 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  479              		.loc 1 12 29 is_stmt 1 discriminator 1 view .LVU120
  480 0032 0B2A     		cmp	r2, #11
  481 0034 F6D9     		bls	.L10
- 482              	.LBE72:
+ 482              	.LBE86:
   14:src/unit/hardware/hardware.cpp ****       }
   15:src/unit/hardware/hardware.cpp **** 
   16:src/unit/hardware/hardware.cpp ****       // 諸々の初期化
   17:src/unit/hardware/hardware.cpp ****       serial6.init();
  483              		.loc 1 17 7 view .LVU121
  484              	.LVL34:
- 485              	.LBB73:
- 486              	.LBI73:
+ 485              	.LBB87:
+ 486              	.LBI87:
   27:Lib/BufferedSerial/BufferedSerial.hpp ****             _useDMA = dma;
  487              		.loc 2 27 12 view .LVU122
- 488              	.LBB74:
+ 488              	.LBB88:
   28:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
  489              		.loc 2 28 13 view .LVU123
   28:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
@@ -658,12 +658,12 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  500 0044 FFF7FEFF 		bl	HAL_UART_Receive_DMA
  501              	.LVL36:
   29:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 12
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 12
 
 
  502              		.loc 2 29 33 view .LVU128
- 503              	.LBE74:
- 504              	.LBE73:
+ 503              	.LBE88:
+ 504              	.LBE87:
   18:src/unit/hardware/hardware.cpp ****       HAL_Delay(100);
  505              		.loc 1 18 7 is_stmt 1 view .LVU129
  506              		.loc 1 18 16 is_stmt 0 view .LVU130
@@ -672,11 +672,11 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  509              	.LVL37:
   19:src/unit/hardware/hardware.cpp ****       led3 = 0;
  510              		.loc 1 19 7 is_stmt 1 view .LVU131
- 511              	.LBB75:
- 512              	.LBI75:
+ 511              	.LBB89:
+ 512              	.LBI89:
   19:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
  513              		.loc 3 19 12 view .LVU132
- 514              	.LBB76:
+ 514              	.LBB90:
  515              		.loc 3 20 13 view .LVU133
  516              		.loc 3 20 30 is_stmt 0 view .LVU134
  517 004e 2A46     		mov	r2, r5
@@ -685,534 +685,751 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 1
  520 0054 FFF7FEFF 		bl	HAL_GPIO_WritePin
  521              	.LVL38:
  522              		.loc 3 20 30 view .LVU135
- 523              	.LBE76:
- 524              	.LBE75:
-  20:src/unit/hardware/hardware.cpp ****       line.OnLed();
- 525              		.loc 1 20 7 is_stmt 1 view .LVU136
- 526              		.loc 1 20 17 is_stmt 0 view .LVU137
- 527 0058 04F6B850 		addw	r0, r4, #3512
- 528 005c FFF7FEFF 		bl	_ZN4Line5OnLedEv
- 529              	.LVL39:
-  21:src/unit/hardware/hardware.cpp **** }
- 530              		.loc 1 21 1 view .LVU138
- 531 0060 38BD     		pop	{r3, r4, r5, pc}
- 532              	.LVL40:
- 533              	.L13:
- 534              		.loc 1 21 1 view .LVU139
- 535 0062 00BF     		.align	2
- 536              	.L12:
- 537 0064 00000000 		.word	hadc1
- 538 0068 00000000 		.word	adc_get_val
- 539              		.cfi_endproc
- 540              	.LFE265:
- 541              		.fnend
- 543              		.section	.text._ZN8Hardware10GetSensorsEv,"ax",%progbits
- 544              		.align	1
- 545              		.global	_ZN8Hardware10GetSensorsEv
- 546              		.syntax unified
- 547              		.thumb
- 548              		.thumb_func
- 550              	_ZN8Hardware10GetSensorsEv:
- 551              		.fnstart
- 552              	.LVL41:
- 553              	.LFB266:
-  22:src/unit/hardware/hardware.cpp **** 
-  23:src/unit/hardware/hardware.cpp **** void Hardware::GetSensors() {
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 13
+ 523              	.LBE90:
+ 524              	.LBE89:
+  20:src/unit/hardware/hardware.cpp **** }
+ 525              		.loc 1 20 1 view .LVU136
+ 526 0058 38BD     		pop	{r3, r4, r5, pc}
+ 527              	.LVL39:
+ 528              	.L13:
+ 529              		.loc 1 20 1 view .LVU137
+ 530 005a 00BF     		.align	2
+ 531              	.L12:
+ 532 005c 00000000 		.word	hadc1
+ 533 0060 00000000 		.word	adc_get_val
+ 534              		.cfi_endproc
+ 535              	.LFE265:
+ 536              		.fnend
+ 538              		.section	.text._ZN8Hardware10GetSensorsEv,"ax",%progbits
+ 539              		.align	1
+ 540              		.global	_ZN8Hardware10GetSensorsEv
+ 541              		.syntax unified
+ 542              		.thumb
+ 543              		.thumb_func
+ 545              	_ZN8Hardware10GetSensorsEv:
+ 546              		.fnstart
+ 547              	.LVL40:
+ 548              	.LFB266:
+  21:src/unit/hardware/hardware.cpp **** 
+  22:src/unit/hardware/hardware.cpp **** void Hardware::GetSensors() {
+ 549              		.loc 1 22 29 is_stmt 1 view -0
+ 550              		.cfi_startproc
+ 551              		@ args = 0, pretend = 0, frame = 0
+ 552              		@ frame_needed = 0, uses_anonymous_args = 0
+ 553              		.loc 1 22 29 is_stmt 0 view .LVU139
+ 554 0000 38B5     		push	{r3, r4, r5, lr}
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 13
 
 
- 554              		.loc 1 23 29 is_stmt 1 view -0
- 555              		.cfi_startproc
- 556              		@ args = 0, pretend = 0, frame = 0
- 557              		@ frame_needed = 0, uses_anonymous_args = 0
- 558              		.loc 1 23 29 is_stmt 0 view .LVU141
- 559 0000 38B5     		push	{r3, r4, r5, lr}
- 560              		.save {r3, r4, r5, lr}
- 561              	.LCFI4:
- 562              		.cfi_def_cfa_offset 16
- 563              		.cfi_offset 3, -16
- 564              		.cfi_offset 4, -12
- 565              		.cfi_offset 5, -8
- 566              		.cfi_offset 14, -4
- 567 0002 0446     		mov	r4, r0
-  24:src/unit/hardware/hardware.cpp ****       info.Encoder.photo_val[0] = adc_get_val[0];
- 568              		.loc 1 24 7 is_stmt 1 view .LVU142
- 569              		.loc 1 24 48 is_stmt 0 view .LVU143
- 570 0004 214B     		ldr	r3, .L16
- 571 0006 1A88     		ldrh	r2, [r3]
- 572              		.loc 1 24 33 view .LVU144
- 573 0008 0270     		strb	r2, [r0]
-  25:src/unit/hardware/hardware.cpp ****       info.Encoder.photo_val[1] = adc_get_val[1];
- 574              		.loc 1 25 7 is_stmt 1 view .LVU145
- 575              		.loc 1 25 48 is_stmt 0 view .LVU146
- 576 000a 5A88     		ldrh	r2, [r3, #2]
- 577              		.loc 1 25 33 view .LVU147
- 578 000c 4270     		strb	r2, [r0, #1]
-  26:src/unit/hardware/hardware.cpp ****       info.Encoder.photo_val[2] = adc_get_val[2];
- 579              		.loc 1 26 7 is_stmt 1 view .LVU148
- 580              		.loc 1 26 48 is_stmt 0 view .LVU149
- 581 000e 9A88     		ldrh	r2, [r3, #4]
- 582              		.loc 1 26 33 view .LVU150
- 583 0010 8270     		strb	r2, [r0, #2]
-  27:src/unit/hardware/hardware.cpp ****       info.Encoder.photo_val[3] = adc_get_val[3];
- 584              		.loc 1 27 7 is_stmt 1 view .LVU151
- 585              		.loc 1 27 48 is_stmt 0 view .LVU152
- 586 0012 DA88     		ldrh	r2, [r3, #6]
- 587              		.loc 1 27 33 view .LVU153
- 588 0014 C270     		strb	r2, [r0, #3]
-  28:src/unit/hardware/hardware.cpp **** 
-  29:src/unit/hardware/hardware.cpp ****       info.Line.leftside_val = adc_get_val[4];
- 589              		.loc 1 29 7 is_stmt 1 view .LVU154
- 590              		.loc 1 29 45 is_stmt 0 view .LVU155
- 591 0016 1A89     		ldrh	r2, [r3, #8]
- 592              		.loc 1 29 30 view .LVU156
- 593 0018 0272     		strb	r2, [r0, #8]
-  30:src/unit/hardware/hardware.cpp ****       info.Line.rightside_val = adc_get_val[5];
- 594              		.loc 1 30 7 is_stmt 1 view .LVU157
- 595              		.loc 1 30 46 is_stmt 0 view .LVU158
- 596 001a 5A89     		ldrh	r2, [r3, #10]
- 597              		.loc 1 30 31 view .LVU159
- 598 001c 4272     		strb	r2, [r0, #9]
-  31:src/unit/hardware/hardware.cpp ****       info.Line.mux1x_val = adc_get_val[6];
- 599              		.loc 1 31 7 is_stmt 1 view .LVU160
- 600              		.loc 1 31 42 is_stmt 0 view .LVU161
- 601 001e 9A89     		ldrh	r2, [r3, #12]
- 602              		.loc 1 31 27 view .LVU162
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 14
+ 555              		.save {r3, r4, r5, lr}
+ 556              	.LCFI4:
+ 557              		.cfi_def_cfa_offset 16
+ 558              		.cfi_offset 3, -16
+ 559              		.cfi_offset 4, -12
+ 560              		.cfi_offset 5, -8
+ 561              		.cfi_offset 14, -4
+ 562 0002 0446     		mov	r4, r0
+  23:src/unit/hardware/hardware.cpp ****       info.Encoder.photo_val[0] = adc_get_val[0];
+ 563              		.loc 1 23 7 is_stmt 1 view .LVU140
+ 564              		.loc 1 23 48 is_stmt 0 view .LVU141
+ 565 0004 214B     		ldr	r3, .L16
+ 566 0006 1A88     		ldrh	r2, [r3]
+ 567              		.loc 1 23 33 view .LVU142
+ 568 0008 0270     		strb	r2, [r0]
+  24:src/unit/hardware/hardware.cpp ****       info.Encoder.photo_val[1] = adc_get_val[1];
+ 569              		.loc 1 24 7 is_stmt 1 view .LVU143
+ 570              		.loc 1 24 48 is_stmt 0 view .LVU144
+ 571 000a 5A88     		ldrh	r2, [r3, #2]
+ 572              		.loc 1 24 33 view .LVU145
+ 573 000c 4270     		strb	r2, [r0, #1]
+  25:src/unit/hardware/hardware.cpp ****       info.Encoder.photo_val[2] = adc_get_val[2];
+ 574              		.loc 1 25 7 is_stmt 1 view .LVU146
+ 575              		.loc 1 25 48 is_stmt 0 view .LVU147
+ 576 000e 9A88     		ldrh	r2, [r3, #4]
+ 577              		.loc 1 25 33 view .LVU148
+ 578 0010 8270     		strb	r2, [r0, #2]
+  26:src/unit/hardware/hardware.cpp ****       info.Encoder.photo_val[3] = adc_get_val[3];
+ 579              		.loc 1 26 7 is_stmt 1 view .LVU149
+ 580              		.loc 1 26 48 is_stmt 0 view .LVU150
+ 581 0012 DA88     		ldrh	r2, [r3, #6]
+ 582              		.loc 1 26 33 view .LVU151
+ 583 0014 C270     		strb	r2, [r0, #3]
+  27:src/unit/hardware/hardware.cpp **** 
+  28:src/unit/hardware/hardware.cpp ****       info.Line.leftside_val = adc_get_val[4];
+ 584              		.loc 1 28 7 is_stmt 1 view .LVU152
+ 585              		.loc 1 28 45 is_stmt 0 view .LVU153
+ 586 0016 1A89     		ldrh	r2, [r3, #8]
+ 587              		.loc 1 28 30 view .LVU154
+ 588 0018 0272     		strb	r2, [r0, #8]
+  29:src/unit/hardware/hardware.cpp ****       info.Line.rightside_val = adc_get_val[5];
+ 589              		.loc 1 29 7 is_stmt 1 view .LVU155
+ 590              		.loc 1 29 46 is_stmt 0 view .LVU156
+ 591 001a 5A89     		ldrh	r2, [r3, #10]
+ 592              		.loc 1 29 31 view .LVU157
+ 593 001c 4272     		strb	r2, [r0, #9]
+  30:src/unit/hardware/hardware.cpp ****       info.Line.mux1x_val = adc_get_val[6];
+ 594              		.loc 1 30 7 is_stmt 1 view .LVU158
+ 595              		.loc 1 30 42 is_stmt 0 view .LVU159
+ 596 001e 9A89     		ldrh	r2, [r3, #12]
+ 597              		.loc 1 30 27 view .LVU160
+ 598 0020 8272     		strb	r2, [r0, #10]
+  31:src/unit/hardware/hardware.cpp ****       info.Line.mux1y_val = adc_get_val[7];
+ 599              		.loc 1 31 7 is_stmt 1 view .LVU161
+ 600              		.loc 1 31 42 is_stmt 0 view .LVU162
+ 601 0022 DA89     		ldrh	r2, [r3, #14]
+ 602              		.loc 1 31 27 view .LVU163
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 14
 
 
- 603 0020 8272     		strb	r2, [r0, #10]
-  32:src/unit/hardware/hardware.cpp ****       info.Line.mux1y_val = adc_get_val[7];
- 604              		.loc 1 32 7 is_stmt 1 view .LVU163
- 605              		.loc 1 32 42 is_stmt 0 view .LVU164
- 606 0022 DA89     		ldrh	r2, [r3, #14]
- 607              		.loc 1 32 27 view .LVU165
- 608 0024 C272     		strb	r2, [r0, #11]
-  33:src/unit/hardware/hardware.cpp ****       info.Line.mux2x_val = adc_get_val[8];
- 609              		.loc 1 33 7 is_stmt 1 view .LVU166
- 610              		.loc 1 33 42 is_stmt 0 view .LVU167
- 611 0026 1A8A     		ldrh	r2, [r3, #16]
- 612              		.loc 1 33 27 view .LVU168
- 613 0028 0273     		strb	r2, [r0, #12]
-  34:src/unit/hardware/hardware.cpp ****       info.Line.mux2y_val = adc_get_val[9];
- 614              		.loc 1 34 7 is_stmt 1 view .LVU169
- 615              		.loc 1 34 42 is_stmt 0 view .LVU170
- 616 002a 5A8A     		ldrh	r2, [r3, #18]
- 617              		.loc 1 34 27 view .LVU171
- 618 002c 4273     		strb	r2, [r0, #13]
-  35:src/unit/hardware/hardware.cpp ****       info.Line.mux3x_val = adc_get_val[10];
- 619              		.loc 1 35 7 is_stmt 1 view .LVU172
- 620              		.loc 1 35 43 is_stmt 0 view .LVU173
- 621 002e 9A8A     		ldrh	r2, [r3, #20]
- 622              		.loc 1 35 27 view .LVU174
- 623 0030 8273     		strb	r2, [r0, #14]
-  36:src/unit/hardware/hardware.cpp ****       info.Line.mux3y_val = adc_get_val[11];
- 624              		.loc 1 36 7 is_stmt 1 view .LVU175
- 625              		.loc 1 36 43 is_stmt 0 view .LVU176
- 626 0032 DB8A     		ldrh	r3, [r3, #22]
- 627              		.loc 1 36 27 view .LVU177
- 628 0034 C373     		strb	r3, [r0, #15]
-  37:src/unit/hardware/hardware.cpp **** 
-  38:src/unit/hardware/hardware.cpp ****       info.Line.dir = line.dir;
- 629              		.loc 1 38 7 is_stmt 1 view .LVU178
- 630              		.loc 1 38 28 is_stmt 0 view .LVU179
- 631 0036 B0F9B83D 		ldrsh	r3, [r0, #3512]
- 632              		.loc 1 38 21 view .LVU180
- 633 003a 4382     		strh	r3, [r0, #18]	@ movhi
-  39:src/unit/hardware/hardware.cpp ****       info.Line.is_half_out = line.is_half_out;
- 634              		.loc 1 39 7 is_stmt 1 view .LVU181
- 635              		.loc 1 39 36 is_stmt 0 view .LVU182
- 636 003c 90F8BB3D 		ldrb	r3, [r0, #3515]	@ zero_extendqisi2
- 637              		.loc 1 39 29 view .LVU183
- 638 0040 4375     		strb	r3, [r0, #21]
-  40:src/unit/hardware/hardware.cpp ****       info.Line.is_leftside_white = line.is_leftside_white;
- 639              		.loc 1 40 7 is_stmt 1 view .LVU184
- 640              		.loc 1 40 42 is_stmt 0 view .LVU185
- 641 0042 90F8BC3D 		ldrb	r3, [r0, #3516]	@ zero_extendqisi2
- 642              		.loc 1 40 35 view .LVU186
- 643 0046 C375     		strb	r3, [r0, #23]
-  41:src/unit/hardware/hardware.cpp ****       info.Line.is_rightside_white = line.is_rightside_white;
- 644              		.loc 1 41 7 is_stmt 1 view .LVU187
- 645              		.loc 1 41 43 is_stmt 0 view .LVU188
- 646 0048 90F8BD3D 		ldrb	r3, [r0, #3517]	@ zero_extendqisi2
- 647              		.loc 1 41 36 view .LVU189
- 648 004c 0376     		strb	r3, [r0, #24]
-  42:src/unit/hardware/hardware.cpp ****       info.Line.is_on_line = line.IsOnLine();
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 15
+ 603 0024 C272     		strb	r2, [r0, #11]
+  32:src/unit/hardware/hardware.cpp ****       info.Line.mux2x_val = adc_get_val[8];
+ 604              		.loc 1 32 7 is_stmt 1 view .LVU164
+ 605              		.loc 1 32 42 is_stmt 0 view .LVU165
+ 606 0026 1A8A     		ldrh	r2, [r3, #16]
+ 607              		.loc 1 32 27 view .LVU166
+ 608 0028 0273     		strb	r2, [r0, #12]
+  33:src/unit/hardware/hardware.cpp ****       info.Line.mux2y_val = adc_get_val[9];
+ 609              		.loc 1 33 7 is_stmt 1 view .LVU167
+ 610              		.loc 1 33 42 is_stmt 0 view .LVU168
+ 611 002a 5A8A     		ldrh	r2, [r3, #18]
+ 612              		.loc 1 33 27 view .LVU169
+ 613 002c 4273     		strb	r2, [r0, #13]
+  34:src/unit/hardware/hardware.cpp ****       info.Line.mux3x_val = adc_get_val[10];
+ 614              		.loc 1 34 7 is_stmt 1 view .LVU170
+ 615              		.loc 1 34 43 is_stmt 0 view .LVU171
+ 616 002e 9A8A     		ldrh	r2, [r3, #20]
+ 617              		.loc 1 34 27 view .LVU172
+ 618 0030 8273     		strb	r2, [r0, #14]
+  35:src/unit/hardware/hardware.cpp ****       info.Line.mux3y_val = adc_get_val[11];
+ 619              		.loc 1 35 7 is_stmt 1 view .LVU173
+ 620              		.loc 1 35 43 is_stmt 0 view .LVU174
+ 621 0032 DB8A     		ldrh	r3, [r3, #22]
+ 622              		.loc 1 35 27 view .LVU175
+ 623 0034 C373     		strb	r3, [r0, #15]
+  36:src/unit/hardware/hardware.cpp **** 
+  37:src/unit/hardware/hardware.cpp ****       info.Line.dir = line.dir;
+ 624              		.loc 1 37 7 is_stmt 1 view .LVU176
+ 625              		.loc 1 37 28 is_stmt 0 view .LVU177
+ 626 0036 B0F9B83D 		ldrsh	r3, [r0, #3512]
+ 627              		.loc 1 37 21 view .LVU178
+ 628 003a 4382     		strh	r3, [r0, #18]	@ movhi
+  38:src/unit/hardware/hardware.cpp ****       info.Line.is_half_out = line.is_half_out;
+ 629              		.loc 1 38 7 is_stmt 1 view .LVU179
+ 630              		.loc 1 38 36 is_stmt 0 view .LVU180
+ 631 003c 90F8BB3D 		ldrb	r3, [r0, #3515]	@ zero_extendqisi2
+ 632              		.loc 1 38 29 view .LVU181
+ 633 0040 4375     		strb	r3, [r0, #21]
+  39:src/unit/hardware/hardware.cpp ****       info.Line.is_leftside_white = line.is_leftside_white;
+ 634              		.loc 1 39 7 is_stmt 1 view .LVU182
+ 635              		.loc 1 39 42 is_stmt 0 view .LVU183
+ 636 0042 90F8BC3D 		ldrb	r3, [r0, #3516]	@ zero_extendqisi2
+ 637              		.loc 1 39 35 view .LVU184
+ 638 0046 C375     		strb	r3, [r0, #23]
+  40:src/unit/hardware/hardware.cpp ****       info.Line.is_rightside_white = line.is_rightside_white;
+ 639              		.loc 1 40 7 is_stmt 1 view .LVU185
+ 640              		.loc 1 40 43 is_stmt 0 view .LVU186
+ 641 0048 90F8BD3D 		ldrb	r3, [r0, #3517]	@ zero_extendqisi2
+ 642              		.loc 1 40 36 view .LVU187
+ 643 004c 0376     		strb	r3, [r0, #24]
+  41:src/unit/hardware/hardware.cpp ****       info.Line.is_on_line = line.IsOnLine();
+ 644              		.loc 1 41 7 is_stmt 1 view .LVU188
+ 645              		.loc 1 41 43 is_stmt 0 view .LVU189
+ 646 004e 00F6B850 		addw	r0, r0, #3512
+ 647              	.LVL41:
+ 648              		.loc 1 41 43 view .LVU190
+ 649 0052 FFF7FEFF 		bl	_ZN4Line8IsOnLineEv
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 15
 
 
- 649              		.loc 1 42 7 is_stmt 1 view .LVU190
- 650              		.loc 1 42 43 is_stmt 0 view .LVU191
- 651 004e 00F6B850 		addw	r0, r0, #3512
- 652              	.LVL42:
- 653              		.loc 1 42 43 view .LVU192
- 654 0052 FFF7FEFF 		bl	_ZN4Line8IsOnLineEv
- 655              	.LVL43:
- 656              		.loc 1 42 28 view .LVU193
- 657 0056 A075     		strb	r0, [r4, #22]
-  43:src/unit/hardware/hardware.cpp ****       info.Line.max_interval = line.max_interval;
- 658              		.loc 1 43 7 is_stmt 1 view .LVU194
- 659              		.loc 1 43 37 is_stmt 0 view .LVU195
- 660 0058 94F8BA3D 		ldrb	r3, [r4, #3514]	@ zero_extendqisi2
- 661              		.loc 1 43 30 view .LVU196
- 662 005c 2375     		strb	r3, [r4, #20]
-  44:src/unit/hardware/hardware.cpp **** 
-  45:src/unit/hardware/hardware.cpp ****       info.Encoder.rps[0] = encoder.GetMotorRPS(0);
- 663              		.loc 1 45 7 is_stmt 1 view .LVU197
- 664              		.loc 1 45 48 is_stmt 0 view .LVU198
- 665 005e 04F18005 		add	r5, r4, #128
- 666 0062 0021     		movs	r1, #0
- 667 0064 2846     		mov	r0, r5
- 668 0066 FFF7FEFF 		bl	_ZN7Encoder11GetMotorRPSEh
- 669              	.LVL44:
- 670              		.loc 1 45 27 view .LVU199
- 671 006a 2071     		strb	r0, [r4, #4]
-  46:src/unit/hardware/hardware.cpp ****       info.Encoder.rps[1] = encoder.GetMotorRPS(1);
- 672              		.loc 1 46 7 is_stmt 1 view .LVU200
- 673              		.loc 1 46 48 is_stmt 0 view .LVU201
- 674 006c 0121     		movs	r1, #1
- 675 006e 2846     		mov	r0, r5
- 676 0070 FFF7FEFF 		bl	_ZN7Encoder11GetMotorRPSEh
- 677              	.LVL45:
- 678              		.loc 1 46 27 view .LVU202
- 679 0074 6071     		strb	r0, [r4, #5]
-  47:src/unit/hardware/hardware.cpp ****       info.Encoder.rps[2] = encoder.GetMotorRPS(2);
- 680              		.loc 1 47 7 is_stmt 1 view .LVU203
- 681              		.loc 1 47 48 is_stmt 0 view .LVU204
- 682 0076 0221     		movs	r1, #2
- 683 0078 2846     		mov	r0, r5
- 684 007a FFF7FEFF 		bl	_ZN7Encoder11GetMotorRPSEh
- 685              	.LVL46:
- 686              		.loc 1 47 27 view .LVU205
- 687 007e A071     		strb	r0, [r4, #6]
-  48:src/unit/hardware/hardware.cpp ****       info.Encoder.rps[3] = encoder.GetMotorRPS(3);
- 688              		.loc 1 48 7 is_stmt 1 view .LVU206
- 689              		.loc 1 48 48 is_stmt 0 view .LVU207
- 690 0080 0321     		movs	r1, #3
- 691 0082 2846     		mov	r0, r5
- 692 0084 FFF7FEFF 		bl	_ZN7Encoder11GetMotorRPSEh
+ 650              	.LVL42:
+ 651              		.loc 1 41 28 view .LVU191
+ 652 0056 A075     		strb	r0, [r4, #22]
+  42:src/unit/hardware/hardware.cpp ****       info.Line.max_interval = line.max_interval;
+ 653              		.loc 1 42 7 is_stmt 1 view .LVU192
+ 654              		.loc 1 42 37 is_stmt 0 view .LVU193
+ 655 0058 94F8BA3D 		ldrb	r3, [r4, #3514]	@ zero_extendqisi2
+ 656              		.loc 1 42 30 view .LVU194
+ 657 005c 2375     		strb	r3, [r4, #20]
+  43:src/unit/hardware/hardware.cpp **** 
+  44:src/unit/hardware/hardware.cpp ****       info.Encoder.rps[0] = encoder.GetMotorRPS(0);
+ 658              		.loc 1 44 7 is_stmt 1 view .LVU195
+ 659              		.loc 1 44 48 is_stmt 0 view .LVU196
+ 660 005e 04F18005 		add	r5, r4, #128
+ 661 0062 0021     		movs	r1, #0
+ 662 0064 2846     		mov	r0, r5
+ 663 0066 FFF7FEFF 		bl	_ZN7Encoder11GetMotorRPSEh
+ 664              	.LVL43:
+ 665              		.loc 1 44 27 view .LVU197
+ 666 006a 2071     		strb	r0, [r4, #4]
+  45:src/unit/hardware/hardware.cpp ****       info.Encoder.rps[1] = encoder.GetMotorRPS(1);
+ 667              		.loc 1 45 7 is_stmt 1 view .LVU198
+ 668              		.loc 1 45 48 is_stmt 0 view .LVU199
+ 669 006c 0121     		movs	r1, #1
+ 670 006e 2846     		mov	r0, r5
+ 671 0070 FFF7FEFF 		bl	_ZN7Encoder11GetMotorRPSEh
+ 672              	.LVL44:
+ 673              		.loc 1 45 27 view .LVU200
+ 674 0074 6071     		strb	r0, [r4, #5]
+  46:src/unit/hardware/hardware.cpp ****       info.Encoder.rps[2] = encoder.GetMotorRPS(2);
+ 675              		.loc 1 46 7 is_stmt 1 view .LVU201
+ 676              		.loc 1 46 48 is_stmt 0 view .LVU202
+ 677 0076 0221     		movs	r1, #2
+ 678 0078 2846     		mov	r0, r5
+ 679 007a FFF7FEFF 		bl	_ZN7Encoder11GetMotorRPSEh
+ 680              	.LVL45:
+ 681              		.loc 1 46 27 view .LVU203
+ 682 007e A071     		strb	r0, [r4, #6]
+  47:src/unit/hardware/hardware.cpp ****       info.Encoder.rps[3] = encoder.GetMotorRPS(3);
+ 683              		.loc 1 47 7 is_stmt 1 view .LVU204
+ 684              		.loc 1 47 48 is_stmt 0 view .LVU205
+ 685 0080 0321     		movs	r1, #3
+ 686 0082 2846     		mov	r0, r5
+ 687 0084 FFF7FEFF 		bl	_ZN7Encoder11GetMotorRPSEh
+ 688              	.LVL46:
+ 689              		.loc 1 47 27 view .LVU206
+ 690 0088 E071     		strb	r0, [r4, #7]
+  48:src/unit/hardware/hardware.cpp **** }
+ 691              		.loc 1 48 1 view .LVU207
+ 692 008a 38BD     		pop	{r3, r4, r5, pc}
  693              	.LVL47:
- 694              		.loc 1 48 27 view .LVU208
- 695 0088 E071     		strb	r0, [r4, #7]
-  49:src/unit/hardware/hardware.cpp **** }
- 696              		.loc 1 49 1 view .LVU209
- 697 008a 38BD     		pop	{r3, r4, r5, pc}
- 698              	.LVL48:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 16
+ 694              	.L17:
+ 695              		.loc 1 48 1 view .LVU208
+ 696              		.align	2
+ 697              	.L16:
+ 698 008c 00000000 		.word	adc_get_val
+ 699              		.cfi_endproc
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 16
 
 
- 699              	.L17:
- 700              		.loc 1 49 1 view .LVU210
- 701              		.align	2
- 702              	.L16:
- 703 008c 00000000 		.word	adc_get_val
- 704              		.cfi_endproc
- 705              	.LFE266:
- 706              		.fnend
- 708              		.global	__aeabi_i2d
- 709              		.global	__aeabi_dmul
- 710              		.global	__aeabi_dadd
- 711              		.global	__aeabi_d2uiz
- 712              		.section	.text._ZN8Hardware8MainUartEv,"ax",%progbits
- 713              		.align	1
- 714              		.global	_ZN8Hardware8MainUartEv
- 715              		.syntax unified
- 716              		.thumb
- 717              		.thumb_func
- 719              	_ZN8Hardware8MainUartEv:
- 720              		.fnstart
- 721              	.LVL49:
- 722              	.LFB267:
-  50:src/unit/hardware/hardware.cpp **** 
-  51:src/unit/hardware/hardware.cpp **** void Hardware::MainUart() {
- 723              		.loc 1 51 27 is_stmt 1 view -0
- 724              		.cfi_startproc
- 725              		@ args = 0, pretend = 0, frame = 8
- 726              		@ frame_needed = 0, uses_anonymous_args = 0
- 727              		.loc 1 51 27 is_stmt 0 view .LVU212
- 728 0000 10B5     		push	{r4, lr}
- 729              		.save {r4, lr}
- 730              	.LCFI5:
- 731              		.cfi_def_cfa_offset 8
- 732              		.cfi_offset 4, -8
- 733              		.cfi_offset 14, -4
- 734              		.pad #8
- 735 0002 82B0     		sub	sp, sp, #8
- 736              	.LCFI6:
- 737              		.cfi_def_cfa_offset 16
- 738 0004 0446     		mov	r4, r0
-  52:src/unit/hardware/hardware.cpp ****       static const uint8_t HEADER = 0xFF;  // ヘッダ
- 739              		.loc 1 52 7 is_stmt 1 view .LVU213
-  53:src/unit/hardware/hardware.cpp ****       static const uint8_t FOOTER = 0xAA;  // ヘッダ
- 740              		.loc 1 53 7 view .LVU214
-  54:src/unit/hardware/hardware.cpp ****       static const uint8_t data_size = 8;
- 741              		.loc 1 54 7 view .LVU215
-  55:src/unit/hardware/hardware.cpp ****       uint8_t send_data[data_size];
- 742              		.loc 1 55 7 view .LVU216
-  56:src/unit/hardware/hardware.cpp ****       send_data[0] = HEADER;
- 743              		.loc 1 56 7 view .LVU217
- 744              		.loc 1 56 20 is_stmt 0 view .LVU218
- 745 0006 FF23     		movs	r3, #255
- 746 0008 8DF80030 		strb	r3, [sp]
-  57:src/unit/hardware/hardware.cpp ****       send_data[1] = info.Encoder.rps[0];
- 747              		.loc 1 57 7 is_stmt 1 view .LVU219
- 748              		.loc 1 57 40 is_stmt 0 view .LVU220
- 749 000c 0379     		ldrb	r3, [r0, #4]	@ zero_extendqisi2
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 17
+ 700              	.LFE266:
+ 701              		.fnend
+ 703              		.global	__aeabi_i2d
+ 704              		.global	__aeabi_dmul
+ 705              		.global	__aeabi_dadd
+ 706              		.global	__aeabi_d2uiz
+ 707              		.section	.text._ZN8Hardware8MainUartEv,"ax",%progbits
+ 708              		.align	1
+ 709              		.global	_ZN8Hardware8MainUartEv
+ 710              		.syntax unified
+ 711              		.thumb
+ 712              		.thumb_func
+ 714              	_ZN8Hardware8MainUartEv:
+ 715              		.fnstart
+ 716              	.LVL48:
+ 717              	.LFB267:
+  49:src/unit/hardware/hardware.cpp **** 
+  50:src/unit/hardware/hardware.cpp **** void Hardware::MainUart() {
+ 718              		.loc 1 50 27 is_stmt 1 view -0
+ 719              		.cfi_startproc
+ 720              		@ args = 0, pretend = 0, frame = 8
+ 721              		@ frame_needed = 0, uses_anonymous_args = 0
+ 722              		.loc 1 50 27 is_stmt 0 view .LVU210
+ 723 0000 30B5     		push	{r4, r5, lr}
+ 724              		.save {r4, r5, lr}
+ 725              	.LCFI5:
+ 726              		.cfi_def_cfa_offset 12
+ 727              		.cfi_offset 4, -12
+ 728              		.cfi_offset 5, -8
+ 729              		.cfi_offset 14, -4
+ 730              		.pad #12
+ 731 0002 83B0     		sub	sp, sp, #12
+ 732              	.LCFI6:
+ 733              		.cfi_def_cfa_offset 24
+ 734 0004 0446     		mov	r4, r0
+  51:src/unit/hardware/hardware.cpp ****       static uint16_t recv_count;
+ 735              		.loc 1 51 7 is_stmt 1 view .LVU211
+  52:src/unit/hardware/hardware.cpp **** 
+  53:src/unit/hardware/hardware.cpp ****       // 受信
+  54:src/unit/hardware/hardware.cpp ****       if (serial6.available()) {
+ 736              		.loc 1 54 7 view .LVU212
+ 737              	.LVL49:
+ 738              	.LBB91:
+ 739              	.LBB92:
+ 740              	.LBI92:
+  33:Lib/BufferedSerial/BufferedSerial.hpp ****             uint16_t rxTop = _rxBufSize - _huart->hdmarx->Instance->NDTR;
+ 741              		.loc 2 33 12 view .LVU213
+ 742              	.LBB93:
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 743              		.loc 2 34 13 view .LVU214
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 744              		.loc 2 34 30 is_stmt 0 view .LVU215
+ 745 0006 B0F87830 		ldrh	r3, [r0, #120]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 746              		.loc 2 34 43 view .LVU216
+ 747 000a C26E     		ldr	r2, [r0, #108]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 17
 
 
- 750              		.loc 1 57 20 view .LVU221
- 751 000e 8DF80130 		strb	r3, [sp, #1]
-  58:src/unit/hardware/hardware.cpp ****       send_data[2] = info.Encoder.rps[1];
- 752              		.loc 1 58 7 is_stmt 1 view .LVU222
- 753              		.loc 1 58 40 is_stmt 0 view .LVU223
- 754 0012 4379     		ldrb	r3, [r0, #5]	@ zero_extendqisi2
- 755              		.loc 1 58 20 view .LVU224
- 756 0014 8DF80230 		strb	r3, [sp, #2]
-  59:src/unit/hardware/hardware.cpp ****       send_data[3] = info.Encoder.rps[2];
- 757              		.loc 1 59 7 is_stmt 1 view .LVU225
- 758              		.loc 1 59 40 is_stmt 0 view .LVU226
- 759 0018 8379     		ldrb	r3, [r0, #6]	@ zero_extendqisi2
- 760              		.loc 1 59 20 view .LVU227
- 761 001a 8DF80330 		strb	r3, [sp, #3]
-  60:src/unit/hardware/hardware.cpp ****       send_data[4] = info.Encoder.rps[3];
- 762              		.loc 1 60 7 is_stmt 1 view .LVU228
- 763              		.loc 1 60 40 is_stmt 0 view .LVU229
- 764 001e C379     		ldrb	r3, [r0, #7]	@ zero_extendqisi2
- 765              		.loc 1 60 20 view .LVU230
- 766 0020 8DF80430 		strb	r3, [sp, #4]
-  61:src/unit/hardware/hardware.cpp ****       send_data[5] = info.Line.max_interval << 4 | info.Line.is_on_line << 3 | info.Line.is_half_ou
- 767              		.loc 1 61 7 is_stmt 1 view .LVU231
- 768              		.loc 1 61 32 is_stmt 0 view .LVU232
- 769 0024 027D     		ldrb	r2, [r0, #20]	@ zero_extendqisi2
- 770              		.loc 1 61 62 view .LVU233
- 771 0026 837D     		ldrb	r3, [r0, #22]	@ zero_extendqisi2
- 772              		.loc 1 61 73 view .LVU234
- 773 0028 DB00     		lsls	r3, r3, #3
- 774              		.loc 1 61 50 view .LVU235
- 775 002a 43EA0213 		orr	r3, r3, r2, lsl #4
- 776 002e 5BB2     		sxtb	r3, r3
- 777              		.loc 1 61 90 view .LVU236
- 778 0030 427D     		ldrb	r2, [r0, #21]	@ zero_extendqisi2
- 779              		.loc 1 61 78 view .LVU237
- 780 0032 43EA8203 		orr	r3, r3, r2, lsl #2
- 781 0036 5BB2     		sxtb	r3, r3
- 782              		.loc 1 61 119 view .LVU238
- 783 0038 C27D     		ldrb	r2, [r0, #23]	@ zero_extendqisi2
- 784              		.loc 1 61 107 view .LVU239
- 785 003a 43EA4203 		orr	r3, r3, r2, lsl #1
- 786 003e 5BB2     		sxtb	r3, r3
- 787              		.loc 1 61 154 view .LVU240
- 788 0040 90F91820 		ldrsb	r2, [r0, #24]
- 789              		.loc 1 61 142 view .LVU241
- 790 0044 1343     		orrs	r3, r3, r2
- 791              		.loc 1 61 20 view .LVU242
- 792 0046 8DF80530 		strb	r3, [sp, #5]
-  62:src/unit/hardware/hardware.cpp ****       send_data[6] = info.Line.dir * 0.5 + 90;
- 793              		.loc 1 62 7 is_stmt 1 view .LVU243
- 794              		.loc 1 62 36 is_stmt 0 view .LVU244
- 795 004a B0F91200 		ldrsh	r0, [r0, #18]
- 796              	.LVL50:
- 797              		.loc 1 62 36 view .LVU245
- 798 004e FFF7FEFF 		bl	__aeabi_i2d
- 799              	.LVL51:
- 800 0052 0022     		movs	r2, #0
- 801 0054 154B     		ldr	r3, .L22
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 18
+ 748              		.loc 2 34 51 view .LVU217
+ 749 000c D26B     		ldr	r2, [r2, #60]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 750              		.loc 2 34 59 view .LVU218
+ 751 000e 1268     		ldr	r2, [r2]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 752              		.loc 2 34 69 view .LVU219
+ 753 0010 5268     		ldr	r2, [r2, #4]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 754              		.loc 2 34 41 view .LVU220
+ 755 0012 92B2     		uxth	r2, r2
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 756              		.loc 2 34 69 view .LVU221
+ 757 0014 9B1A     		subs	r3, r3, r2
+ 758 0016 9BB2     		uxth	r3, r3
+ 759              	.LVL50:
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 760              		.loc 2 35 13 is_stmt 1 view .LVU222
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 761              		.loc 2 35 29 is_stmt 0 view .LVU223
+ 762 0018 B0F87620 		ldrh	r2, [r0, #118]
+ 763              	.LVL51:
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 764              		.loc 2 35 29 view .LVU224
+ 765              	.LBE93:
+ 766              	.LBE92:
+ 767              		.loc 1 54 7 view .LVU225
+ 768 001c 9342     		cmp	r3, r2
+ 769 001e 5CD0     		beq	.L19
+ 770              	.LBB94:
+  55:src/unit/hardware/hardware.cpp ****             led2 = 1;
+ 771              		.loc 1 55 13 is_stmt 1 view .LVU226
+ 772              	.LVL52:
+ 773              	.LBB95:
+ 774              	.LBI95:
+  19:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 775              		.loc 3 19 12 view .LVU227
+ 776              	.LBB96:
+ 777              		.loc 3 20 13 view .LVU228
+ 778              		.loc 3 20 30 is_stmt 0 view .LVU229
+ 779 0020 0122     		movs	r2, #1
+ 780 0022 018D     		ldrh	r1, [r0, #40]
+ 781 0024 406A     		ldr	r0, [r0, #36]
+ 782              	.LVL53:
+ 783              		.loc 3 20 30 view .LVU230
+ 784 0026 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 785              	.LVL54:
+  21:Lib/DigitalInOut/DigitalInOut.hpp ****       }
+ 786              		.loc 3 21 7 view .LVU231
+ 787 002a 07E0     		b	.L20
+ 788              	.LVL55:
+ 789              	.L21:
+ 790              		.loc 3 21 7 view .LVU232
+ 791              	.LBE96:
+ 792              	.LBE95:
+  56:src/unit/hardware/hardware.cpp **** 
+  57:src/unit/hardware/hardware.cpp ****             while (serial6.available()) info.Line.do_read = serial6.read();
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 18
 
 
- 802 0056 FFF7FEFF 		bl	__aeabi_dmul
- 803              	.LVL52:
- 804              		.loc 1 62 42 view .LVU246
- 805 005a 0022     		movs	r2, #0
- 806 005c 144B     		ldr	r3, .L22+4
- 807 005e FFF7FEFF 		bl	__aeabi_dadd
- 808              	.LVL53:
- 809              		.loc 1 62 20 view .LVU247
- 810 0062 FFF7FEFF 		bl	__aeabi_d2uiz
- 811              	.LVL54:
- 812 0066 8DF80600 		strb	r0, [sp, #6]
-  63:src/unit/hardware/hardware.cpp ****       send_data[7] = FOOTER;
- 813              		.loc 1 63 7 is_stmt 1 view .LVU248
- 814              		.loc 1 63 20 is_stmt 0 view .LVU249
- 815 006a AA23     		movs	r3, #170
- 816 006c 8DF80730 		strb	r3, [sp, #7]
-  64:src/unit/hardware/hardware.cpp ****       serial6.write(send_data, data_size);
- 817              		.loc 1 64 7 is_stmt 1 view .LVU250
- 818              	.LVL55:
- 819              	.LBB77:
- 820              	.LBI77:
+ 793              		.loc 1 57 41 is_stmt 1 discriminator 2 view .LVU233
+ 794              		.loc 1 57 73 is_stmt 0 discriminator 2 view .LVU234
+ 795 002c 04F16C00 		add	r0, r4, #108
+ 796 0030 FFF7FEFF 		bl	_ZN14BufferedSerial4readEv
+ 797              	.LVL56:
+ 798 0034 0038     		subs	r0, r0, #0
+ 799 0036 18BF     		it	ne
+ 800 0038 0120     		movne	r0, #1
+ 801              		.loc 1 57 59 discriminator 2 view .LVU235
+ 802 003a 2074     		strb	r0, [r4, #16]
+ 803              	.L20:
+ 804              		.loc 1 57 37 is_stmt 1 discriminator 1 view .LVU236
+ 805              	.LVL57:
+ 806              	.LBB97:
+ 807              	.LBI97:
+  33:Lib/BufferedSerial/BufferedSerial.hpp ****             uint16_t rxTop = _rxBufSize - _huart->hdmarx->Instance->NDTR;
+ 808              		.loc 2 33 12 discriminator 1 view .LVU237
+ 809              	.LBB98:
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 810              		.loc 2 34 13 discriminator 1 view .LVU238
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 811              		.loc 2 34 30 is_stmt 0 discriminator 1 view .LVU239
+ 812 003c B4F87830 		ldrh	r3, [r4, #120]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 813              		.loc 2 34 43 discriminator 1 view .LVU240
+ 814 0040 E56E     		ldr	r5, [r4, #108]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 815              		.loc 2 34 51 discriminator 1 view .LVU241
+ 816 0042 EA6B     		ldr	r2, [r5, #60]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 817              		.loc 2 34 59 discriminator 1 view .LVU242
+ 818 0044 1268     		ldr	r2, [r2]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 819              		.loc 2 34 69 discriminator 1 view .LVU243
+ 820 0046 5268     		ldr	r2, [r2, #4]
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 821              		.loc 2 34 41 discriminator 1 view .LVU244
+ 822 0048 92B2     		uxth	r2, r2
+  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
+ 823              		.loc 2 34 69 discriminator 1 view .LVU245
+ 824 004a 9B1A     		subs	r3, r3, r2
+ 825 004c 9BB2     		uxth	r3, r3
+ 826              	.LVL58:
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 827              		.loc 2 35 13 is_stmt 1 discriminator 1 view .LVU246
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 828              		.loc 2 35 29 is_stmt 0 discriminator 1 view .LVU247
+ 829 004e B4F87620 		ldrh	r2, [r4, #118]
+ 830              	.LVL59:
+  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
+ 831              		.loc 2 35 29 discriminator 1 view .LVU248
+ 832              	.LBE98:
+ 833              	.LBE97:
+ 834              		.loc 1 57 37 discriminator 1 view .LVU249
+ 835 0052 9342     		cmp	r3, r2
+ 836 0054 EAD1     		bne	.L21
+  58:src/unit/hardware/hardware.cpp **** 
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 19
+
+
+  59:src/unit/hardware/hardware.cpp ****             static const uint8_t HEADER = 0xFF;  // ヘッダ
+ 837              		.loc 1 59 13 is_stmt 1 view .LVU250
+  60:src/unit/hardware/hardware.cpp ****             static const uint8_t FOOTER = 0xAA;  // ヘッダ
+ 838              		.loc 1 60 13 view .LVU251
+  61:src/unit/hardware/hardware.cpp ****             static const uint8_t data_size = 8;
+ 839              		.loc 1 61 13 view .LVU252
+  62:src/unit/hardware/hardware.cpp ****             uint8_t send_data[data_size];
+ 840              		.loc 1 62 13 view .LVU253
+  63:src/unit/hardware/hardware.cpp ****             send_data[0] = HEADER;
+ 841              		.loc 1 63 13 view .LVU254
+ 842              		.loc 1 63 26 is_stmt 0 view .LVU255
+ 843 0056 FF23     		movs	r3, #255
+ 844 0058 8DF80030 		strb	r3, [sp]
+  64:src/unit/hardware/hardware.cpp ****             send_data[1] = info.Encoder.rps[0];
+ 845              		.loc 1 64 13 is_stmt 1 view .LVU256
+ 846              		.loc 1 64 46 is_stmt 0 view .LVU257
+ 847 005c 2379     		ldrb	r3, [r4, #4]	@ zero_extendqisi2
+ 848              		.loc 1 64 26 view .LVU258
+ 849 005e 8DF80130 		strb	r3, [sp, #1]
+  65:src/unit/hardware/hardware.cpp ****             send_data[2] = info.Encoder.rps[1];
+ 850              		.loc 1 65 13 is_stmt 1 view .LVU259
+ 851              		.loc 1 65 46 is_stmt 0 view .LVU260
+ 852 0062 6379     		ldrb	r3, [r4, #5]	@ zero_extendqisi2
+ 853              		.loc 1 65 26 view .LVU261
+ 854 0064 8DF80230 		strb	r3, [sp, #2]
+  66:src/unit/hardware/hardware.cpp ****             send_data[3] = info.Encoder.rps[2];
+ 855              		.loc 1 66 13 is_stmt 1 view .LVU262
+ 856              		.loc 1 66 46 is_stmt 0 view .LVU263
+ 857 0068 A379     		ldrb	r3, [r4, #6]	@ zero_extendqisi2
+ 858              		.loc 1 66 26 view .LVU264
+ 859 006a 8DF80330 		strb	r3, [sp, #3]
+  67:src/unit/hardware/hardware.cpp ****             send_data[4] = info.Encoder.rps[3];
+ 860              		.loc 1 67 13 is_stmt 1 view .LVU265
+ 861              		.loc 1 67 46 is_stmt 0 view .LVU266
+ 862 006e E379     		ldrb	r3, [r4, #7]	@ zero_extendqisi2
+ 863              		.loc 1 67 26 view .LVU267
+ 864 0070 8DF80430 		strb	r3, [sp, #4]
+  68:src/unit/hardware/hardware.cpp ****             send_data[5] = info.Line.max_interval << 4 | info.Line.is_on_line << 3 | info.Line.is_h
+ 865              		.loc 1 68 13 is_stmt 1 view .LVU268
+ 866              		.loc 1 68 38 is_stmt 0 view .LVU269
+ 867 0074 227D     		ldrb	r2, [r4, #20]	@ zero_extendqisi2
+ 868              		.loc 1 68 68 view .LVU270
+ 869 0076 A37D     		ldrb	r3, [r4, #22]	@ zero_extendqisi2
+ 870              		.loc 1 68 79 view .LVU271
+ 871 0078 DB00     		lsls	r3, r3, #3
+ 872              		.loc 1 68 56 view .LVU272
+ 873 007a 43EA0213 		orr	r3, r3, r2, lsl #4
+ 874 007e 5BB2     		sxtb	r3, r3
+ 875              		.loc 1 68 96 view .LVU273
+ 876 0080 627D     		ldrb	r2, [r4, #21]	@ zero_extendqisi2
+ 877              		.loc 1 68 84 view .LVU274
+ 878 0082 43EA8203 		orr	r3, r3, r2, lsl #2
+ 879 0086 5BB2     		sxtb	r3, r3
+ 880              		.loc 1 68 125 view .LVU275
+ 881 0088 E27D     		ldrb	r2, [r4, #23]	@ zero_extendqisi2
+ 882              		.loc 1 68 113 view .LVU276
+ 883 008a 43EA4203 		orr	r3, r3, r2, lsl #1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 20
+
+
+ 884 008e 5BB2     		sxtb	r3, r3
+ 885              		.loc 1 68 160 view .LVU277
+ 886 0090 94F91820 		ldrsb	r2, [r4, #24]
+ 887              		.loc 1 68 148 view .LVU278
+ 888 0094 1343     		orrs	r3, r3, r2
+ 889              		.loc 1 68 26 view .LVU279
+ 890 0096 8DF80530 		strb	r3, [sp, #5]
+  69:src/unit/hardware/hardware.cpp ****             send_data[6] = info.Line.dir * 0.5 + 90;
+ 891              		.loc 1 69 13 is_stmt 1 view .LVU280
+ 892              		.loc 1 69 42 is_stmt 0 view .LVU281
+ 893 009a B4F91200 		ldrsh	r0, [r4, #18]
+ 894 009e FFF7FEFF 		bl	__aeabi_i2d
+ 895              	.LVL60:
+ 896 00a2 0022     		movs	r2, #0
+ 897 00a4 1C4B     		ldr	r3, .L26
+ 898 00a6 FFF7FEFF 		bl	__aeabi_dmul
+ 899              	.LVL61:
+ 900              		.loc 1 69 48 view .LVU282
+ 901 00aa 0022     		movs	r2, #0
+ 902 00ac 1B4B     		ldr	r3, .L26+4
+ 903 00ae FFF7FEFF 		bl	__aeabi_dadd
+ 904              	.LVL62:
+ 905              		.loc 1 69 26 view .LVU283
+ 906 00b2 FFF7FEFF 		bl	__aeabi_d2uiz
+ 907              	.LVL63:
+ 908 00b6 8DF80600 		strb	r0, [sp, #6]
+  70:src/unit/hardware/hardware.cpp ****             send_data[7] = FOOTER;
+ 909              		.loc 1 70 13 is_stmt 1 view .LVU284
+ 910              		.loc 1 70 26 is_stmt 0 view .LVU285
+ 911 00ba AA23     		movs	r3, #170
+ 912 00bc 8DF80730 		strb	r3, [sp, #7]
+  71:src/unit/hardware/hardware.cpp ****             serial6.write(send_data, data_size);
+ 913              		.loc 1 71 13 is_stmt 1 view .LVU286
+ 914              	.LVL64:
+ 915              	.LBB99:
+ 916              	.LBI99:
   48:Lib/BufferedSerial/BufferedSerial.hpp **** 
   49:Lib/BufferedSerial/BufferedSerial.hpp ****       void write(uint8_t data) {
   50:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Transmit(_huart, &data, 1, 100);
   51:Lib/BufferedSerial/BufferedSerial.hpp ****       }
   52:Lib/BufferedSerial/BufferedSerial.hpp **** 
   53:Lib/BufferedSerial/BufferedSerial.hpp ****       void write(const uint8_t *data, uint16_t len) {
- 821              		.loc 2 53 12 view .LVU251
- 822              	.LBB78:
+ 917              		.loc 2 53 12 view .LVU287
+ 918              	.LBB100:
   54:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Transmit(_huart, (uint8_t *)data, len, 100);
- 823              		.loc 2 54 13 view .LVU252
- 824              		.loc 2 54 30 is_stmt 0 view .LVU253
- 825 0070 6423     		movs	r3, #100
- 826 0072 0822     		movs	r2, #8
- 827 0074 6946     		mov	r1, sp
- 828 0076 E06E     		ldr	r0, [r4, #108]
- 829 0078 FFF7FEFF 		bl	HAL_UART_Transmit
- 830              	.LVL56:
- 831              		.loc 2 54 30 view .LVU254
- 832              	.LBE78:
- 833              	.LBE77:
-  65:src/unit/hardware/hardware.cpp **** 
-  66:src/unit/hardware/hardware.cpp ****       // 受信
-  67:src/unit/hardware/hardware.cpp ****       if (serial6.available()) info.Line.do_read = serial6.read();
- 834              		.loc 1 67 7 is_stmt 1 view .LVU255
- 835              	.LBB79:
- 836              	.LBI79:
-  33:Lib/BufferedSerial/BufferedSerial.hpp ****             uint16_t rxTop = _rxBufSize - _huart->hdmarx->Instance->NDTR;
- 837              		.loc 2 33 12 view .LVU256
- 838              	.LBB80:
-  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
- 839              		.loc 2 34 13 view .LVU257
-  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
- 840              		.loc 2 34 30 is_stmt 0 view .LVU258
- 841 007c B4F87830 		ldrh	r3, [r4, #120]
-  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
- 842              		.loc 2 34 43 view .LVU259
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 19
+ 919              		.loc 2 54 13 view .LVU288
+ 920              		.loc 2 54 30 is_stmt 0 view .LVU289
+ 921 00c0 6423     		movs	r3, #100
+ 922 00c2 0822     		movs	r2, #8
+ 923 00c4 6946     		mov	r1, sp
+ 924 00c6 2846     		mov	r0, r5
+ 925 00c8 FFF7FEFF 		bl	HAL_UART_Transmit
+ 926              	.LVL65:
+ 927              		.loc 2 54 30 view .LVU290
+ 928              	.LBE100:
+ 929              	.LBE99:
+  72:src/unit/hardware/hardware.cpp **** 
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 21
 
 
- 843 0080 E26E     		ldr	r2, [r4, #108]
-  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
- 844              		.loc 2 34 51 view .LVU260
- 845 0082 D26B     		ldr	r2, [r2, #60]
-  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
- 846              		.loc 2 34 59 view .LVU261
- 847 0084 1268     		ldr	r2, [r2]
-  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
- 848              		.loc 2 34 69 view .LVU262
- 849 0086 5268     		ldr	r2, [r2, #4]
-  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
- 850              		.loc 2 34 41 view .LVU263
- 851 0088 92B2     		uxth	r2, r2
-  34:Lib/BufferedSerial/BufferedSerial.hpp ****             return rxTop != rxBtm;
- 852              		.loc 2 34 69 view .LVU264
- 853 008a 9B1A     		subs	r3, r3, r2
- 854 008c 9BB2     		uxth	r3, r3
- 855              	.LVL57:
-  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
- 856              		.loc 2 35 13 is_stmt 1 view .LVU265
-  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
- 857              		.loc 2 35 29 is_stmt 0 view .LVU266
- 858 008e B4F87620 		ldrh	r2, [r4, #118]
- 859              	.LVL58:
-  35:Lib/BufferedSerial/BufferedSerial.hpp ****       }
- 860              		.loc 2 35 29 view .LVU267
- 861              	.LBE80:
- 862              	.LBE79:
- 863              		.loc 1 67 7 view .LVU268
- 864 0092 9342     		cmp	r3, r2
- 865 0094 01D1     		bne	.L21
- 866              	.L18:
-  68:src/unit/hardware/hardware.cpp **** }...
- 867              		.loc 1 68 1 view .LVU269
- 868 0096 02B0     		add	sp, sp, #8
- 869              	.LCFI7:
- 870              		.cfi_remember_state
- 871              		.cfi_def_cfa_offset 8
- 872              		@ sp needed
- 873 0098 10BD     		pop	{r4, pc}
- 874              	.LVL59:
- 875              	.L21:
- 876              	.LCFI8:
- 877              		.cfi_restore_state
-  67:src/unit/hardware/hardware.cpp ****       if (serial6.available()) info.Line.do_read = serial6.read();
- 878              		.loc 1 67 32 is_stmt 1 discriminator 1 view .LVU270
-  67:src/unit/hardware/hardware.cpp ****       if (serial6.available()) info.Line.do_read = serial6.read();
- 879              		.loc 1 67 64 is_stmt 0 discriminator 1 view .LVU271
- 880 009a 04F16C00 		add	r0, r4, #108
- 881 009e FFF7FEFF 		bl	_ZN14BufferedSerial4readEv
- 882              	.LVL60:
- 883 00a2 0038     		subs	r0, r0, #0
- 884 00a4 18BF     		it	ne
- 885 00a6 0120     		movne	r0, #1
-  67:src/unit/hardware/hardware.cpp ****       if (serial6.available()) info.Line.do_read = serial6.read();
- 886              		.loc 1 67 50 discriminator 1 view .LVU272
- 887 00a8 2074     		strb	r0, [r4, #16]
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 20
+  73:src/unit/hardware/hardware.cpp ****             led2 = 0;
+ 930              		.loc 1 73 13 is_stmt 1 view .LVU291
+ 931              	.LBB101:
+ 932              	.LBI101:
+  19:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 933              		.loc 3 19 12 view .LVU292
+ 934              	.LBB102:
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****       }
+ 935              		.loc 3 20 13 view .LVU293
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****       }
+ 936              		.loc 3 20 30 is_stmt 0 view .LVU294
+ 937 00cc 0022     		movs	r2, #0
+ 938 00ce 218D     		ldrh	r1, [r4, #40]
+ 939 00d0 606A     		ldr	r0, [r4, #36]
+ 940 00d2 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 941              	.LVL66:
+ 942              	.L18:
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****       }
+ 943              		.loc 3 20 30 view .LVU295
+ 944              	.LBE102:
+ 945              	.LBE101:
+ 946              	.LBE94:
+ 947              	.LBE91:
+  74:src/unit/hardware/hardware.cpp ****       } else {
+  75:src/unit/hardware/hardware.cpp ****             led3 = 1;
+  76:src/unit/hardware/hardware.cpp ****             recv_count++;
+  77:src/unit/hardware/hardware.cpp ****             if (recv_count > 1000) {
+  78:src/unit/hardware/hardware.cpp ****                   serial6.init();
+  79:src/unit/hardware/hardware.cpp ****                   recv_count = 0;
+  80:src/unit/hardware/hardware.cpp ****             }
+  81:src/unit/hardware/hardware.cpp ****             led3 = 0;
+  82:src/unit/hardware/hardware.cpp ****       }
+  83:src/unit/hardware/hardware.cpp **** }...
+ 948              		.loc 1 83 1 view .LVU296
+ 949 00d6 03B0     		add	sp, sp, #12
+ 950              	.LCFI7:
+ 951              		.cfi_remember_state
+ 952              		.cfi_def_cfa_offset 12
+ 953              		@ sp needed
+ 954 00d8 30BD     		pop	{r4, r5, pc}
+ 955              	.LVL67:
+ 956              	.L19:
+ 957              	.LCFI8:
+ 958              		.cfi_restore_state
+ 959              	.LBB109:
+  75:src/unit/hardware/hardware.cpp ****             led3 = 1;
+ 960              		.loc 1 75 13 is_stmt 1 view .LVU297
+ 961              	.LBB103:
+ 962              	.LBI103:
+  19:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 963              		.loc 3 19 12 view .LVU298
+ 964              	.LBB104:
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****       }
+ 965              		.loc 3 20 13 view .LVU299
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****       }
+ 966              		.loc 3 20 30 is_stmt 0 view .LVU300
+ 967 00da 0122     		movs	r2, #1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 22
 
 
- 888              		.loc 1 68 1 discriminator 1 view .LVU273
- 889 00aa F4E7     		b	.L18
- 890              	.L23:
- 891              		.align	2
- 892              	.L22:
- 893 00ac 0000E03F 		.word	1071644672
- 894 00b0 00805640 		.word	1079410688
- 895              		.cfi_endproc
- 896              	.LFE267:
- 897              		.fnend
- 899              		.global	adc_get_val
- 900              		.section	.bss.adc_get_val,"aw",%nobits
- 901              		.align	2
- 904              	adc_get_val:
- 905 0000 00000000 		.space	24
- 905      00000000 
- 905      00000000 
- 905      00000000 
- 905      00000000 
- 906              		.text
- 907              	.Letext0:
- 908              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
- 909              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
- 910              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
- 911              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
- 912              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
- 913              		.file 9 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
- 914              		.file 10 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
- 915              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
- 916              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 917              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 918              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 919              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 920              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
- 921              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 922              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 923              		.file 19 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
- 924              		.file 20 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
- 925              		.file 21 "Core/Inc/usart.h"
- 926              		.file 22 "Core/Inc/adc.h"
- 927              		.file 23 "Lib/MovingAve/MovingAve.hpp"
- 928              		.file 24 "Lib/Timer/Timer.hpp"
- 929              		.file 25 "src/unit/encoder/encoder.hpp"
- 930              		.file 26 "src/unit/line/line.hpp"
- 931              		.file 27 "src/unit/hardware/hardware.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s 			page 21
+ 968 00dc 018E     		ldrh	r1, [r0, #48]
+ 969 00de C06A     		ldr	r0, [r0, #44]
+ 970              	.LVL68:
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****       }
+ 971              		.loc 3 20 30 view .LVU301
+ 972 00e0 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 973              	.LVL69:
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****       }
+ 974              		.loc 3 20 30 view .LVU302
+ 975              	.LBE104:
+ 976              	.LBE103:
+  76:src/unit/hardware/hardware.cpp ****             recv_count++;
+ 977              		.loc 1 76 13 is_stmt 1 view .LVU303
+  76:src/unit/hardware/hardware.cpp ****             recv_count++;
+ 978              		.loc 1 76 23 is_stmt 0 view .LVU304
+ 979 00e4 0E4A     		ldr	r2, .L26+8
+ 980 00e6 1388     		ldrh	r3, [r2]
+ 981 00e8 0133     		adds	r3, r3, #1
+ 982 00ea 9BB2     		uxth	r3, r3
+ 983 00ec 1380     		strh	r3, [r2]	@ movhi
+  77:src/unit/hardware/hardware.cpp ****             if (recv_count > 1000) {
+ 984              		.loc 1 77 13 is_stmt 1 view .LVU305
+ 985 00ee B3F57A7F 		cmp	r3, #1000
+ 986 00f2 05D8     		bhi	.L25
+ 987              	.L23:
+  81:src/unit/hardware/hardware.cpp ****             led3 = 0;
+ 988              		.loc 1 81 13 view .LVU306
+ 989              	.LVL70:
+ 990              	.LBB105:
+ 991              	.LBI105:
+  19:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
+ 992              		.loc 3 19 12 view .LVU307
+ 993              	.LBB106:
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****       }
+ 994              		.loc 3 20 13 view .LVU308
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****       }
+ 995              		.loc 3 20 30 is_stmt 0 view .LVU309
+ 996 00f4 0022     		movs	r2, #0
+ 997 00f6 218E     		ldrh	r1, [r4, #48]
+ 998 00f8 E06A     		ldr	r0, [r4, #44]
+ 999 00fa FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 1000              	.LVL71:
+  20:Lib/DigitalInOut/DigitalInOut.hpp ****       }
+ 1001              		.loc 3 20 30 view .LVU310
+ 1002              	.LBE106:
+ 1003              	.LBE105:
+ 1004              	.LBE109:
+ 1005              		.loc 1 83 1 view .LVU311
+ 1006 00fe EAE7     		b	.L18
+ 1007              	.L25:
+ 1008              	.LBB110:
+  78:src/unit/hardware/hardware.cpp ****                   serial6.init();
+ 1009              		.loc 1 78 19 is_stmt 1 view .LVU312
+ 1010              	.LVL72:
+ 1011              	.LBB107:
+ 1012              	.LBI107:
+  27:Lib/BufferedSerial/BufferedSerial.hpp ****             _useDMA = dma;
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 23
+
+
+ 1013              		.loc 2 27 12 view .LVU313
+ 1014              	.LBB108:
+  28:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
+ 1015              		.loc 2 28 13 view .LVU314
+  28:Lib/BufferedSerial/BufferedSerial.hpp ****             HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
+ 1016              		.loc 2 28 21 is_stmt 0 view .LVU315
+ 1017 0100 0025     		movs	r5, #0
+ 1018 0102 84F87A50 		strb	r5, [r4, #122]
+  29:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
+ 1019              		.loc 2 29 13 is_stmt 1 view .LVU316
+  29:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
+ 1020              		.loc 2 29 33 is_stmt 0 view .LVU317
+ 1021 0106 B4F87820 		ldrh	r2, [r4, #120]
+ 1022 010a 216F     		ldr	r1, [r4, #112]
+ 1023 010c E06E     		ldr	r0, [r4, #108]
+ 1024 010e FFF7FEFF 		bl	HAL_UART_Receive_DMA
+ 1025              	.LVL73:
+  29:Lib/BufferedSerial/BufferedSerial.hpp ****             // printf("- Serial init\n");
+ 1026              		.loc 2 29 33 view .LVU318
+ 1027              	.LBE108:
+ 1028              	.LBE107:
+  79:src/unit/hardware/hardware.cpp ****                   recv_count = 0;
+ 1029              		.loc 1 79 19 is_stmt 1 view .LVU319
+  79:src/unit/hardware/hardware.cpp ****                   recv_count = 0;
+ 1030              		.loc 1 79 30 is_stmt 0 view .LVU320
+ 1031 0112 034B     		ldr	r3, .L26+8
+ 1032 0114 1D80     		strh	r5, [r3]	@ movhi
+ 1033 0116 EDE7     		b	.L23
+ 1034              	.L27:
+ 1035              		.align	2
+ 1036              	.L26:
+ 1037 0118 0000E03F 		.word	1071644672
+ 1038 011c 00805640 		.word	1079410688
+ 1039 0120 00000000 		.word	_ZZN8Hardware8MainUartEvE10recv_count
+ 1040              	.LBE110:
+ 1041              		.cfi_endproc
+ 1042              	.LFE267:
+ 1043              		.fnend
+ 1045              		.section	.bss._ZZN8Hardware8MainUartEvE10recv_count,"aw",%nobits
+ 1046              		.align	1
+ 1049              	_ZZN8Hardware8MainUartEvE10recv_count:
+ 1050 0000 0000     		.space	2
+ 1051              		.global	adc_get_val
+ 1052              		.section	.bss.adc_get_val,"aw",%nobits
+ 1053              		.align	2
+ 1056              	adc_get_val:
+ 1057 0000 00000000 		.space	24
+ 1057      00000000 
+ 1057      00000000 
+ 1057      00000000 
+ 1057      00000000 
+ 1058              		.text
+ 1059              	.Letext0:
+ 1060              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 1061              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 1062              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 1063              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 24
+
+
+ 1064              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 1065              		.file 9 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 1066              		.file 10 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 1067              		.file 11 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 1068              		.file 12 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 1069              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 1070              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 1071              		.file 15 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 1072              		.file 16 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_adc.h"
+ 1073              		.file 17 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 1074              		.file 18 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 1075              		.file 19 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 1076              		.file 20 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
+ 1077              		.file 21 "Core/Inc/usart.h"
+ 1078              		.file 22 "Core/Inc/adc.h"
+ 1079              		.file 23 "Lib/MovingAve/MovingAve.hpp"
+ 1080              		.file 24 "Lib/Timer/Timer.hpp"
+ 1081              		.file 25 "src/unit/encoder/encoder.hpp"
+ 1082              		.file 26 "src/unit/line/line.hpp"
+ 1083              		.file 27 "src/unit/hardware/hardware.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s 			page 25
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 hardware.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:21     .text._ZN14BufferedSerial4readEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:27     .text._ZN14BufferedSerial4readEv:00000000 _ZN14BufferedSerial4readEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:21     .text._ZN14BufferedSerial4readEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:27     .text._ZN14BufferedSerial4readEv:00000000 _ZN14BufferedSerial4readEv
 .ARM.exidx.text._ZN14BufferedSerial4readEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:93     .text._ZN8HardwareC2Ev:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:99     .text._ZN8HardwareC2Ev:00000000 _ZN8HardwareC2Ev
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:392    .text._ZN8HardwareC2Ev:00000150 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:93     .text._ZN8HardwareC2Ev:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:99     .text._ZN8HardwareC2Ev:00000000 _ZN8HardwareC2Ev
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:392    .text._ZN8HardwareC2Ev:00000150 $d
  .ARM.exidx.text._ZN8HardwareC2Ev:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:99     .text._ZN8HardwareC2Ev:00000000 _ZN8HardwareC1Ev
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:402    .text._ZN8Hardware4InitEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:408    .text._ZN8Hardware4InitEv:00000000 _ZN8Hardware4InitEv
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:537    .text._ZN8Hardware4InitEv:00000064 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:904    .bss.adc_get_val:00000000 adc_get_val
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:99     .text._ZN8HardwareC2Ev:00000000 _ZN8HardwareC1Ev
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:402    .text._ZN8Hardware4InitEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:408    .text._ZN8Hardware4InitEv:00000000 _ZN8Hardware4InitEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:532    .text._ZN8Hardware4InitEv:0000005c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:1056   .bss.adc_get_val:00000000 adc_get_val
 .ARM.exidx.text._ZN8Hardware4InitEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:544    .text._ZN8Hardware10GetSensorsEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:550    .text._ZN8Hardware10GetSensorsEv:00000000 _ZN8Hardware10GetSensorsEv
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:703    .text._ZN8Hardware10GetSensorsEv:0000008c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:539    .text._ZN8Hardware10GetSensorsEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:545    .text._ZN8Hardware10GetSensorsEv:00000000 _ZN8Hardware10GetSensorsEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:698    .text._ZN8Hardware10GetSensorsEv:0000008c $d
 .ARM.exidx.text._ZN8Hardware10GetSensorsEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:713    .text._ZN8Hardware8MainUartEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:719    .text._ZN8Hardware8MainUartEv:00000000 _ZN8Hardware8MainUartEv
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:893    .text._ZN8Hardware8MainUartEv:000000ac $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:708    .text._ZN8Hardware8MainUartEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:714    .text._ZN8Hardware8MainUartEv:00000000 _ZN8Hardware8MainUartEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:1037   .text._ZN8Hardware8MainUartEv:00000118 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:1049   .bss._ZZN8Hardware8MainUartEvE10recv_count:00000000 _ZZN8Hardware8MainUartEvE10recv_count
 .ARM.exidx.text._ZN8Hardware8MainUartEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNCWu8M.s:901    .bss.adc_get_val:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:1046   .bss._ZZN8Hardware8MainUartEvE10recv_count:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccFn9NwA.s:1053   .bss.adc_get_val:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_GPIO_WritePin
@@ -1225,7 +1442,6 @@ HAL_ADC_Start
 HAL_ADC_Start_DMA
 HAL_UART_Receive_DMA
 HAL_Delay
-_ZN4Line5OnLedEv
 hadc1
 _ZN4Line8IsOnLineEv
 _ZN7Encoder11GetMotorRPSEh
