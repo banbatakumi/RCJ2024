@@ -20,7 +20,7 @@ typedef struct {
             uint8_t mux2x_val, mux2y_val;
             uint8_t mux3x_val, mux3y_val;
 
-            bool do_read;
+            volatile bool do_read;
 
             int16_t dir;
             uint8_t max_interval;

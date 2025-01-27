@@ -41,7 +41,6 @@ void main_app() {
             } else {
                   hardware.line.OffLed();
             }
-            // コメント
 
             // cortex-debug
             encoder[0] = hardware.info.Encoder.rps[0];
