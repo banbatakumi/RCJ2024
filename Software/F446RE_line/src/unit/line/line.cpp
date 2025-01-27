@@ -46,7 +46,7 @@ void Line::Read() {
             mux2b_->write(0);
             mux3a_->write(1);
             mux3b_->write(0);
-            wait_us(10);
+            wait_us(WAIT_US);
             read_sensors_group_++;
       } else if (read_sensors_group_ == 2) {
             val_[21] = *mux1x_val_;
@@ -61,7 +61,7 @@ void Line::Read() {
             mux2b_->write(1);
             mux3a_->write(0);
             mux3b_->write(1);
-            wait_us(10);
+            wait_us(WAIT_US);
             read_sensors_group_++;
       } else if (read_sensors_group_ == 3) {
             val_[20] = *mux1x_val_;
@@ -76,7 +76,7 @@ void Line::Read() {
             mux2b_->write(1);
             mux3a_->write(1);
             mux3b_->write(1);
-            wait_us(10);
+            wait_us(WAIT_US);
             read_sensors_group_++;
       } else if (read_sensors_group_ == 4) {
             val_[23] = *mux1x_val_;
@@ -91,7 +91,7 @@ void Line::Read() {
             mux2b_->write(0);
             mux3a_->write(0);
             mux3b_->write(0);
-            wait_us(10);
+            wait_us(WAIT_US);
             read_sensors_group_ = 0;
       }
 
@@ -107,7 +107,7 @@ void Line::Read() {
 
 void Line::SetTh() {
       OnLed();
-      HAL_Delay(1);
+      HAL_Delay(10);
       leftside_th_ = 0;
       rightside_th_ = 0;
       for (uint16_t i = 0; i < LINE_QTY; i++) {

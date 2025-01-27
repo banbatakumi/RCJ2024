@@ -10,6 +10,8 @@
 #define SET_TH_NUM 5000
 #define TH_VALUE 3
 
+#define WAIT_US 3
+
 class Line {
      public:
       Line(DigitalOut *led_line,
