@@ -21,7 +21,6 @@ bool is_leftside_white;
 bool is_rightside_white;
 
 void TimInterrupt5khz() {
-      hardware.MainUart();
 }
 
 void setup() {
@@ -34,6 +33,7 @@ void main_app() {
             process_timer.reset();
             hardware.GetSensors();
             hardware.encoder.Read();
+            hardware.MainUart();
             if (hardware.info.Line.do_read == 1) {
                   hardware.line.OnLed();
                   hardware.line.Read();

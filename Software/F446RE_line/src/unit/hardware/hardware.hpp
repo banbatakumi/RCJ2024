@@ -9,6 +9,9 @@
 #include "line.hpp"
 
 #define UART_RECV_ERROR 1000
+
+#define SEND_FREQ 1000  // Hz
+#define SEND_PERIOD_US (int)((1.0f / SEND_FREQ) * 1000000)
 typedef struct {
       struct {
             uint8_t photo_val[4];
@@ -65,6 +68,8 @@ class Hardware {
       void Init();
       void GetSensors();
       void MainUart();
+
+      Timer send_interval_timer;
 
      private:
 };

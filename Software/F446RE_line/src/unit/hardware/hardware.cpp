@@ -48,27 +48,23 @@ void Hardware::GetSensors() {
 }
 
 void Hardware::MainUart() {
-      static uint16_t not_recv_count;
-      static const uint8_t HEADER = 0xFF;  // ヘッダ
-      static const uint8_t FOOTER = 0xAA;  // ヘッダ
-      static const uint8_t data_size = 8;
-      uint8_t send_data[data_size];
-      send_data[0] = HEADER;
-      send_data[1] = info.Encoder.rps[0];
-      send_data[2] = info.Encoder.rps[1];
-      send_data[3] = info.Encoder.rps[2];
-      send_data[4] = info.Encoder.rps[3];
-      send_data[5] = info.Line.max_interval << 4 | info.Line.is_on_line << 3 | info.Line.is_half_out << 2 | info.Line.is_leftside_white << 1 | info.Line.is_rightside_white;
-      send_data[6] = info.Line.dir * 0.5 + 90;
-      send_data[7] = FOOTER;
-      serial6.write(send_data, data_size);
+      if (send_interval_timer.read_us() >= SEND_PERIOD_US) {
+            static const uint8_t HEADER = 0xFF;  // ヘッダ
+            static const uint8_t FOOTER = 0xAA;  // ヘッダ
+            static const uint8_t data_size = 8;
+            uint8_t send_data[data_size];
+            send_data[0] = HEADER;
+            send_data[1] = info.Encoder.rps[0];
+            send_data[2] = info.Encoder.rps[1];
+            send_data[3] = info.Encoder.rps[2];
+            send_data[4] = info.Encoder.rps[3];
+            send_data[5] = info.Line.max_interval << 4 | info.Line.is_on_line << 3 | info.Line.is_half_out << 2 | info.Line.is_leftside_white << 1 | info.Line.is_rightside_white;
+            send_data[6] = info.Line.dir * 0.5 + 90;
+            send_data[7] = FOOTER;
+            serial6.write(send_data, data_size);
+            send_interval_timer.reset();
+      }
 
       // 受信
-      if (serial6.available()) {
-            led2 = 1;
-
-            while (serial6.available()) info.Line.do_read = serial6.read();
-
-            led2 = 0;
-      }
+      while (serial6.available()) info.Line.do_read = serial6.read();
 }
