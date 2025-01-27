@@ -20,7 +20,7 @@ bool is_on_line;
 bool is_leftside_white;
 bool is_rightside_white;
 
-void TimInterrupt2khz() {
+void TimInterrupt5khz() {
       hardware.MainUart();
 }
 

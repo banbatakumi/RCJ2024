@@ -8,6 +8,7 @@
 #include "encoder.hpp"
 #include "line.hpp"
 
+#define UART_RECV_ERROR 1000
 typedef struct {
       struct {
             uint8_t photo_val[4];

@@ -61,7 +61,7 @@ void SystemClock_Config(void);
 /* USER CODE BEGIN 0 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
       if (htim == &htim10) {
-            TimInterrupt2khz();
+            TimInterrupt5khz();
       }
 }
 /* USER CODE END 0 */

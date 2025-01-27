@@ -48,7 +48,7 @@ void Hardware::GetSensors() {
 }
 
 void Hardware::MainUart() {
-      static uint16_t recv_count;
+      static uint16_t not_recv_count;
 
       // 受信
       if (serial6.available()) {
@@ -73,10 +73,11 @@ void Hardware::MainUart() {
             led2 = 0;
       } else {
             led3 = 1;
-            recv_count++;
-            if (recv_count > 1000) {
+            not_recv_count++;
+            if (not_recv_count > UART_RECV_ERROR) {
                   serial6.init();
-                  recv_count = 0;
+                  HAL_Delay(100);
+                  not_recv_count = 0;
             }
             led3 = 0;
       }
