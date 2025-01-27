@@ -81,8 +81,10 @@ class Robot {
       void HardwareInit();
       void GetSensors();
 
-      void RecvImuUart();
-      void RecvLineUart();
+      void ImuUart();
+      void LineUart();
+
+      Timer line_send_interval_timer;
 
       inline __attribute__((always_inline)) void heartBeat() {
             static int i = 0;

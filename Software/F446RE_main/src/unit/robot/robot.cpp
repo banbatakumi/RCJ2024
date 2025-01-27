@@ -41,7 +41,7 @@ void Robot::GetSensors() {
       info.voltage = adc_get_val[0] * voltage_conversion;
 }
 
-void Robot::RecvImuUart() {
+void Robot::ImuUart() {
       static const uint8_t HEADER = 0xFF;  // ヘッダ
       static const uint8_t FOOTER = 0xAA;  // ヘッダ
       static const uint8_t dataSize = 6;   // データのサイズ
@@ -71,14 +71,13 @@ void Robot::RecvImuUart() {
       }
 }
 
-void Robot::RecvLineUart() {
+void Robot::LineUart() {
       static const uint8_t HEADER = 0xFF;   // ヘッダ
       static const uint8_t FOOTER = 0xAA;   // ヘッダ
       static const uint8_t data_size = 6;   // データのサイズ
       static uint8_t index = 0;             // 受信したデータのインデックスカウンター
       static uint8_t recv_data[data_size];  // 受信したデータ
       static uint8_t recv_byte;
-      serial2.write(info.Line.on_led);
 
       while (serial2.available()) {
             recv_byte = serial2.read();
@@ -107,5 +106,10 @@ void Robot::RecvLineUart() {
                   index++;
             }
             led1 = 1;
+      }
+
+      if (line_send_interval_timer.read_us() >= LINE_SEND_PERIOD_US) {
+            serial2.write(info.Line.on_led);
+            line_send_interval_timer.reset();
       }
 }

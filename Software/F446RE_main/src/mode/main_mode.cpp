@@ -10,8 +10,8 @@ int encoder[4];
 
 void Mode::MainMode() {
       process_timer.reset();
-      robot->RecvImuUart();
-      robot->RecvLineUart();
+      robot->ImuUart();
+      robot->LineUart();
       robot->GetSensors();
       robot->info.Line.on_led = 1;  // 使えない
 
