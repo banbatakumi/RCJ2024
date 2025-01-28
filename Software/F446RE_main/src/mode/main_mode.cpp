@@ -13,9 +13,11 @@ void Mode::MainMode() {
       robot->ImuUart();
       robot->LineUart();
       robot->GetSensors();
-      robot->info.Line.on_led = 1;  // 使えない
+      robot->info.Line.on_led = 1;
 
-      robot->motor.Drive(0, 0);
+      static float cnt;
+      cnt += 0.05;
+      robot->motor.Drive(cnt, 0.5);
 
       // cortex-debug
       yaw = robot->info.Imu.yaw;
@@ -27,11 +29,6 @@ void Mode::MainMode() {
       encoder[1] = robot->info.motor_rps[1];
       encoder[2] = robot->info.motor_rps[2];
       encoder[3] = robot->info.motor_rps[3];
-      if (encoder[0] != 0) {
-            robot->led1 = 1;
-      } else {
-            robot->led1 = 0;
-      }
 
       //  定周期処理
       process_time_ = process_timer.read_us();

@@ -12,16 +12,16 @@ MotorDrive::MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
       this->motor_rps_ = motor_rps;
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             motor_ave[i].SetLength(MOVING_AVE_NUM);
-            motor_pid[i].SetGain(10, 10, 0.1);
+            motor_pid[i].SetGain(10, 15, 0.1);
             motor_pid[i].SetLimit(MIN_POWER, MAX_POWER);
             motor_pid[i].SetSamplingFreq(1000);
             motor_pid[i].SetType(1);
       }
 
-      pid.SetGain(3, 0.5, 0.1);
-      pid.SetLimit(-100, 100);
+      pid.SetGain(3, 0, 0.3);
+      pid.SetLimit(-150, 150);
       pid.SetSamplingFreq(500);
-      pid.SetType(1);
+      pid.SetType(0);
 }
 
 void MotorDrive::Init() {
@@ -35,29 +35,25 @@ void MotorDrive::Init() {
       motor4b_->init();
 }
 
-void MotorDrive::Drive(int16_t deg, uint8_t speed) {
+#define WHEEL_R 0.025
+
+void MotorDrive::Drive(int16_t deg, float speed) {
       int16_t power[MOTOR_QTY];
+      float vel_x, vel_y;
 
-      for (uint8_t i = 0; i < MOTOR_QTY; i++) {
-            power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
-      }
+      vel_x = speed * MyMath::cosDeg(deg);
+      vel_y = speed * MyMath::sinDeg(deg);
 
-      // 補正
-      uint8_t max_power = 0;
+      pid.Compute(0, *yaw_);
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
-            if (max_power < abs(power[i])) max_power = abs(power[i]);
-      }
-      for (uint8_t i = 0; i < MOTOR_QTY; i++) {
-            power[i] *= float(speed) / max_power;
+            power[i] = (1 / 0.025) * (-1 * MyMath::sinDeg(45 + (90 * i)) * MyMath::cosDeg(45) * vel_x + MyMath::cosDeg(45 + (90 * i)) * MyMath::cosDeg(45) * vel_y) * PI * 2;
+            power[i] -= pid.Get();
+            // power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
       }
 
       // PIDで姿勢制御
 
-      pid.Compute(0, *yaw_);
-
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
-            power[i] -= pid.Get();
-
             motor_pid[i].Compute(motor_rps_[i], abs(power[i]));
             if (power[i] > 0) {
                   power[i] = motor_pid[i].Get();
