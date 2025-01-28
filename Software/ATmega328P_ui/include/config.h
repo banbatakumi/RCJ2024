@@ -40,16 +40,18 @@ void ModeRun() {
 }
 
 void SendData() {  // UART送信
-      const uint8_t send_byte_num = 7;
-      uint8_t send_byte[send_byte_num];
-      send_byte[0] = 0xFF;
+      const uint8_t data_size = 7;
+      const uint8_t HEADER = 0xFF;
+      const uint8_t FOOTER = 0xAA;
+      uint8_t send_byte[data_size];
+      send_byte[0] = HEADER;
       send_byte[1] = item + 127;
       send_byte[2] = sub_item << 4 | mode;
       send_byte[3] = do_own_dir_correction << 4 | dribbler_sig;
       send_byte[4] = moving_speed;
       send_byte[5] = line_moving_speed;
-      send_byte[6] = 0xAA;
-      Serial.write(send_byte, send_byte_num);
+      send_byte[6] = FOOTER;
+      Serial.write(send_byte, data_size);
       Serial.flush();
 }
 

@@ -24,8 +24,6 @@ void setup() {
             delay(25);
       }
 
-      pinMode(robocup, INPUT);
-
       delay(100);
       tone(buzzer_pin, 2000, 100);
       delay(100);
