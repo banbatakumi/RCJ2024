@@ -1,7 +1,5 @@
 #include "motor_drive.hpp"
 
-int debug;
-
 MotorDrive::MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
                        PwmSingleOut *motor2a, PwmSingleOut *motor2b,
                        PwmSingleOut *motor3a, PwmSingleOut *motor3b,
@@ -35,8 +33,6 @@ void MotorDrive::Init() {
       motor4b_->init();
 }
 
-#define WHEEL_R 0.025
-
 void MotorDrive::Drive(int16_t deg, float speed) {
       int16_t power[MOTOR_QTY];
       float vel_x, vel_y;
@@ -48,7 +44,6 @@ void MotorDrive::Drive(int16_t deg, float speed) {
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             power[i] = (1 / 0.025) * (-1 * MyMath::sinDeg(45 + (90 * i)) * MyMath::cosDeg(45) * vel_x + MyMath::cosDeg(45 + (90 * i)) * MyMath::cosDeg(45) * vel_y) * PI * 2;
             power[i] -= pid.Get();
-            // power[i] = MyMath::sinDeg(deg - (45 + (90 * i))) * speed;
       }
 
       // PIDで姿勢制御

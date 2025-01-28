@@ -15,6 +15,8 @@
 
 #define CHECK_SPEED 100  // ms
 
+#define WHEEL_R 0.025
+
 class MotorDrive {
      public:
       MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,

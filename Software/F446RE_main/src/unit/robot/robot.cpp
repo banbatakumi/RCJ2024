@@ -3,6 +3,8 @@
 uint16_t adc_get_val[3];
 
 Robot::Robot() {
+      catch_front.SetLength(10);
+      catch_back.SetLength(10);
 }
 
 void Robot::HardwareInit() {
@@ -39,6 +41,14 @@ void Robot::HardwareInit() {
 void Robot::GetSensors() {
       const float voltage_conversion = 0.01298828125;
       info.voltage = adc_get_val[0] * voltage_conversion;
+
+      catch_front.Compute(adc_get_val[1]);
+      catch_back.Compute(adc_get_val[2]);
+      info.Catch.front_val = catch_front.Get();
+      info.Catch.back_val = catch_back.Get();
+
+      info.Catch.is_front = info.Catch.front_val < CATCH_FRONT_TH ? 1 : 0;
+      info.Catch.is_back = info.Catch.back_val < CATCH_BACK_TH ? 1 : 0;
 }
 
 void Robot::ImuUart() {

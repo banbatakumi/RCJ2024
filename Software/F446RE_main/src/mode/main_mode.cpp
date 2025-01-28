@@ -7,6 +7,7 @@ int process_freq;
 int line_dir;
 int is_on_line;
 int encoder[4];
+int debug[2];
 
 void Mode::MainMode() {
       process_timer.reset();
@@ -15,9 +16,13 @@ void Mode::MainMode() {
       robot->GetSensors();
       robot->info.Line.on_led = 1;
 
-      static float cnt;
-      cnt += 0.05;
-      robot->motor.Drive(cnt, 0.5);
+      // static float cnt;
+      // cnt += 0.05;
+      // robot->motor.Drive(cnt, 0.5);
+      // robot->dribbler_front.Hold(20);
+      // if (robot->info.Catch.is_front) {
+      //       robot->kicker.Kick(0.15);
+      // }
 
       // cortex-debug
       yaw = robot->info.Imu.yaw;
@@ -29,6 +34,9 @@ void Mode::MainMode() {
       encoder[1] = robot->info.motor_rps[1];
       encoder[2] = robot->info.motor_rps[2];
       encoder[3] = robot->info.motor_rps[3];
+
+      debug[0] = robot->info.Catch.front_val;
+      debug[1] = robot->info.Catch.back_val;
 
       //  定周期処理
       process_time_ = process_timer.read_us();

@@ -16,7 +16,6 @@
 typedef struct {
       float voltage;
       uint8_t motor_rps[4];
-
       struct {
             uint8_t interval;
             bool is_on_line;
@@ -30,11 +29,9 @@ typedef struct {
       } Line;
       struct {
             uint16_t front_val;
-            uint16_t front_th;
             bool is_front;
             uint16_t back_val;
-            uint16_t back_th;
-            bool back_front;
+            bool is_back;
       } Catch;
       struct {
             int16_t yaw;
@@ -85,6 +82,9 @@ class Robot {
       void LineUart();
 
       Timer line_send_interval_timer;
+
+      MovingAve catch_front;
+      MovingAve catch_back;
 
       inline __attribute__((always_inline)) void heartBeat() {
             static int i = 0;
