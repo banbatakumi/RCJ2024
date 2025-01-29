@@ -5,55 +5,61 @@
 
 #define LOW_VOLTAGE 8
 
-int16_t debug_val[4];
-int16_t own_dir;
-float battery_voltage;
+int16_t debug_val[2];
+int16_t yaw;
+float voltage;
 bool is_connect_to_ally;
 bool is_ally_catch_ball;
 bool is_ally_moving;
+
 uint8_t cnt;
 
 void Home() {
-      if (Serial.available() > 0) {
-            if (Serial.read() == 0xFF) {
-                  uint8_t debug_val_H[2];
-                  uint8_t debug_val_L[2];
-                  uint8_t own_dir_H;
-                  uint8_t own_dir_L;
-                  uint8_t bool_data;
-                  battery_voltage = Serial.read() / 20.00;
-                  bool_data = Serial.read();
-                  own_dir_H = Serial.read();
-                  own_dir_L = Serial.read();
-                  debug_val_H[0] = Serial.read();
-                  debug_val_L[0] = Serial.read();
-                  debug_val_H[1] = Serial.read();
-                  debug_val_L[1] = Serial.read();
-                  debug_val[2] = Serial.read();
-                  debug_val[3] = Serial.read();
+      static const uint8_t HEADER = 0xFF;   // ヘッダ
+      static const uint8_t FOOTER = 0xAA;   // ヘッダ
+      static const uint8_t data_size = 8;   // データのサイズ
+      static uint8_t index = 0;             // 受信したデータのインデックスカウンター
+      static uint8_t recv_data[data_size];  // 受信したデータ
+      static uint8_t recv_byte;
 
-                  own_dir = ((((uint16_t)own_dir_H << 8) & 0xFF00) | ((int16_t)own_dir_L & 0x00FF)) - 32768;
-                  for (uint8_t i = 0; i < 2; i++) debug_val[i] = ((((uint16_t)debug_val_H[i] << 8) & 0xFF00) | ((int16_t)debug_val_L[i] & 0x00FF)) - 32768;
-                  is_connect_to_ally = bool_data & 1;
-                  is_ally_moving = bool_data >> 1 & 1;
-                  is_ally_catch_ball = bool_data >> 2 & 1;
-                  is_moving = bool_data >> 3 & 1;
-                  while (Serial.available() > 0) Serial.read();
+      while (Serial.available() > 0) {
+            recv_byte = Serial.read();
+            if (index == 0) {
+                  if (recv_byte == HEADER) {
+                        index++;
+                  } else {
+                        index = 0;
+                  }
+            } else if (index == (data_size + 1)) {
+                  if (recv_byte == FOOTER) {
+                        voltage = recv_data[0];
+                        is_connect_to_ally = recv_data[1] & 1;
+                        is_ally_moving = recv_data[1] >> 1 & 1;
+                        is_ally_catch_ball = recv_data[1] >> 2 & 1;
+                        is_moving = recv_data[1] >> 3 & 1;
+                        yaw = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv_data[3] & 0x00FF)) - 32768;
+                        debug_val[0] = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_data[5] & 0x00FF)) - 32768;
+                        debug_val[1] = ((((uint16_t)recv_data[6] << 8) & 0xFF00) | ((int16_t)recv_data[7] & 0x00FF)) - 32768;
+                  }
+                  index = 0;
+            } else {
+                  recv_data[index - 1] = recv_byte;
+                  index++;
             }
       }
 
       if (mode == 0) {
             oled.setCursor(0, CenterY(5));
-            if (battery_voltage > 6) {
+            if (voltage > 6) {
                   oled.print("Battery: ");
             } else {
                   oled.print("USB: ");
             }
-            oled.print(battery_voltage);
+            oled.print(voltage);
             oled.print("v");
             oled.drawLine(0, 15, 128, 15);
 
-            if (battery_voltage < LOW_VOLTAGE) {
+            if (voltage < LOW_VOLTAGE) {
                   for (uint8_t i = 0; i < 16; i++) {
                         led.SetPixelColorSimply(i, 1, 0, 0);
                   }
@@ -63,7 +69,7 @@ void Home() {
                         oled.print("Can't start");
                   }
             } else if (sub_item == 0) {
-                  for (uint8_t i = 0; i < round((battery_voltage - 8) * 8); i++) {
+                  for (uint8_t i = 0; i < round((voltage - 8) * 8); i++) {
                         led.SetPixelColorSimply(i, 1, 1, 1);
                   }
             }
@@ -92,8 +98,8 @@ void Home() {
       if (sub_item == 0) {
             oled.setCursor(CenterX(64, 4), CenterY(32));
             oled.print("Home");
-            oled.setCursor(CenterX(64, String(own_dir).length()), CenterY(48));
-            oled.print(own_dir);
+            oled.setCursor(CenterX(64, String(yaw).length()), CenterY(48));
+            oled.print(yaw);
             mode = 0;
       } else if (sub_item == 1) {
             if (mode == 0) {
@@ -102,13 +108,13 @@ void Home() {
                   oled.setCursor(CenterX(88, 2), CenterY(32));
                   oled.print("DF");
             }
-            if (set_val == -1 && battery_voltage > LOW_VOLTAGE) mode = 1;
-            if (set_val == 1 && battery_voltage > LOW_VOLTAGE) mode = 2;
+            if (set_val == -1 && voltage > LOW_VOLTAGE) mode = 1;
+            if (set_val == 1 && voltage > LOW_VOLTAGE) mode = 2;
             // if (digitalRead(robocup) == 0) mode = 0;
-            if (pre_sub_item == 0) do_own_dir_correction = 1;
-            if (do_own_dir_correction == 1) cnt++;
+            if (pre_sub_item == 0) do_yaw_correction = 1;
+            if (do_yaw_correction == 1) cnt++;
             if (cnt > 10) {
-                  do_own_dir_correction = 0;
+                  do_yaw_correction = 0;
                   cnt = 0;
             }
       } else if (sub_item == 2) {
@@ -132,11 +138,11 @@ void Home() {
             if (set_val != 0) mode = 3 - mode;
             if (debug_val[1] > 80) {
                   led.SetDegree(debug_val[0], 1, 0, 0);
-            }else if (debug_val[1] > 55) {
+            } else if (debug_val[1] > 55) {
                   led.SetDegree(debug_val[0], 1, 1, 0);
-            }else if (debug_val[1] > 30) {
+            } else if (debug_val[1] > 30) {
                   led.SetDegree(debug_val[0], 0, 1, 0);
-            }else if (debug_val[1] > 5) {
+            } else if (debug_val[1] > 5) {
                   led.SetDegree(debug_val[0], 1, 1, 1);
             }
       } else {
