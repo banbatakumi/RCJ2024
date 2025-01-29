@@ -129,10 +129,11 @@ void Robot::UiUart() {
       static uint8_t sub_item;
       static bool set_yaw_zero;
       static uint8_t dribbler_sig;
+
       while (serial3.available()) {
             static const uint8_t HEADER = 0xFF;   // ヘッダ
             static const uint8_t FOOTER = 0xAA;   // ヘッダ
-            static const uint8_t data_size = 5;   // データのサイズ
+            static const uint8_t data_size = 4;   // データのサイズ
             static uint8_t index = 0;             // 受信したデータのインデックスカウンター
             static uint8_t recv_data[data_size];  // 受信したデータ
             static uint8_t recv_byte;
@@ -146,13 +147,13 @@ void Robot::UiUart() {
                   }
             } else if (index == (data_size + 1)) {
                   if (recv_byte == FOOTER) {
-                        item = recv_data[0] - 127;
-                        sub_item = recv_data[1] >> 4;
-                        sub_item = recv_data[1] & 0b00001111;
-                        set_yaw_zero = recv_data[2] >> 4;
-                        dribbler_sig = recv_data[2] & 0b00001111;
-                        info.moving_speed = recv_data[3] * 0.01;
-                        info.line_moving_speed = recv_data[4] * 0.01;
+                        item = ((recv_data[0] >> 4) & 0b00001111) - 8;
+                        sub_item = recv_data[0] & 0b00001111;
+                        info.mode = (recv_data[1] >> 4) & 0b00001111;
+                        dribbler_sig = (recv_data[1] >> 1) & 0b0000111;
+                        set_yaw_zero = recv_data[1] & 0b0000001;
+                        info.moving_speed = recv_data[2] * 0.01;
+                        info.line_moving_speed = recv_data[3] * 0.01;
                   }
                   index = 0;
             } else {
@@ -178,11 +179,43 @@ void Robot::UiUart() {
             } else {
                   dribbler_back.Hold(HOLD_WAIT_POWER);
             }
-      } else if (dribbler_sig == 4) {
-            dribbler_back.Hold(0);
       }
 
+      int16_t debug_val[2];
+
       if (ui_send_interval_timer.read_us() >= UI_SEND_PERIOD_US) {
+            if (info.mode == 0) {
+                  static const uint8_t HEADER = 0xFF;  // ヘッダ
+                  if (item == -2) {
+                        static const uint8_t data_size = 1;
+                        uint8_t send_data[data_size];
+                        send_data[0] = info.Catch.is_front << 1 | info.Catch.is_back;
+                        serial3.write(send_data, data_size);
+                  } else if (item == 0) {
+                        static const uint8_t data_size = 9;
+                        uint8_t send_data[data_size];
+                        send_data[0] = HEADER;
+                        send_data[1] = info.voltage * 20;
+                        send_data[2] = info.voltage * 0;
+                        send_data[3] = (uint8_t)(((uint16_t)(info.Imu.yaw + 32768) & 0xFF00) >> 8);
+                        send_data[4] = (uint8_t)((uint16_t)(info.Imu.yaw + 32768) & 0x00FF);
+                        send_data[5] = (uint8_t)(((uint16_t)(debug_val[0] + 32768) & 0xFF00) >> 8);
+                        send_data[6] = (uint8_t)((uint16_t)(debug_val[0] + 32768) & 0x00FF);
+                        send_data[7] = (uint8_t)(((uint16_t)(debug_val[1] + 32768) & 0xFF00) >> 8);
+                        send_data[8] = (uint8_t)((uint16_t)(debug_val[1] + 32768) & 0x00FF);
+                        serial3.write(send_data, data_size);
+                  } else if (item == 1) {
+                        static const uint8_t data_size = 5;
+                        uint8_t send_data[data_size];
+                        send_data[0] = HEADER;
+                        send_data[1] = info.Line.dir;
+                        send_data[2] = info.Line.inside_dir;
+                        send_data[3] = info.Line.interval;
+                        send_data[4] = info.Line.is_on_line << 2 | info.Line.is_leftside << 1 | info.Line.is_rightside;
+                        serial3.write(send_data, data_size);
+                  }
+            }
+
             ui_send_interval_timer.reset();
       }
 }
