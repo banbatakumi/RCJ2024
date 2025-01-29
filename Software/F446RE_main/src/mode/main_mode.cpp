@@ -13,6 +13,7 @@ void Mode::MainMode() {
       process_timer.reset();
       robot->ImuUart();
       robot->LineUart();
+      robot->UiUart();
       robot->GetSensors();
       robot->info.Line.on_led = 1;
 

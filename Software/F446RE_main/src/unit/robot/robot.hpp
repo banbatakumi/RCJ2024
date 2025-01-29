@@ -16,6 +16,10 @@
 typedef struct {
       float voltage;
       uint8_t motor_rps[4];
+
+      uint8_t mode;
+
+      float moving_speed, line_moving_speed;
       struct {
             uint8_t interval;
             bool is_on_line;
@@ -72,16 +76,19 @@ class Robot {
       DribblerDrive dribbler_back = DribblerDrive(&dribbler_back_a, &dribbler_back_b);
       Kicker kicker = Kicker(&kicker_charge, &kicker_kick);
 
-      BufferedSerial serial1 = BufferedSerial(&huart1, 128);
-      BufferedSerial serial2 = BufferedSerial(&huart2, 256);
+      BufferedSerial serial1 = BufferedSerial(&huart1, 128);  // imu
+      BufferedSerial serial2 = BufferedSerial(&huart2, 256);  // line
+      BufferedSerial serial3 = BufferedSerial(&huart3, 256);  // ui
 
       void HardwareInit();
       void GetSensors();
 
       void ImuUart();
       void LineUart();
+      void UiUart();
 
       Timer line_send_interval_timer;
+      Timer ui_send_interval_timer;
 
       MovingAve catch_front;
       MovingAve catch_back;

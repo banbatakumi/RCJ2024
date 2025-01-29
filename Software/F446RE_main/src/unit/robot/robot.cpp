@@ -17,6 +17,7 @@ void Robot::HardwareInit() {
       // 諸々の初期化
       serial1.init();
       serial2.init();
+      serial3.init();
       ledh.init();
       motor1a.init();
       motor1b.init();
@@ -52,14 +53,14 @@ void Robot::GetSensors() {
 }
 
 void Robot::ImuUart() {
-      static const uint8_t HEADER = 0xFF;  // ヘッダ
-      static const uint8_t FOOTER = 0xAA;  // ヘッダ
-      static const uint8_t dataSize = 6;   // データのサイズ
-      static uint8_t index = 0;            // 受信したデータのインデックスカウンター
-      static uint8_t recv_data[dataSize];  // 受信したデータ
-      static uint8_t recv_byte;
-
       while (serial1.available()) {
+            static const uint8_t HEADER = 0xFF;  // ヘッダ
+            static const uint8_t FOOTER = 0xAA;  // ヘッダ
+            static const uint8_t dataSize = 6;   // データのサイズ
+            static uint8_t index = 0;            // 受信したデータのインデックスカウンター
+            static uint8_t recv_data[dataSize];  // 受信したデータ
+            static uint8_t recv_byte;
+
             recv_byte = serial1.read();
             if (index == 0) {
                   if (recv_byte == HEADER) {
@@ -82,14 +83,14 @@ void Robot::ImuUart() {
 }
 
 void Robot::LineUart() {
-      static const uint8_t HEADER = 0xFF;   // ヘッダ
-      static const uint8_t FOOTER = 0xAA;   // ヘッダ
-      static const uint8_t data_size = 6;   // データのサイズ
-      static uint8_t index = 0;             // 受信したデータのインデックスカウンター
-      static uint8_t recv_data[data_size];  // 受信したデータ
-      static uint8_t recv_byte;
-
       while (serial2.available()) {
+            static const uint8_t HEADER = 0xFF;   // ヘッダ
+            static const uint8_t FOOTER = 0xAA;   // ヘッダ
+            static const uint8_t data_size = 6;   // データのサイズ
+            static uint8_t index = 0;             // 受信したデータのインデックスカウンター
+            static uint8_t recv_data[data_size];  // 受信したデータ
+            static uint8_t recv_byte;
+
             recv_byte = serial2.read();
             if (index == 0) {
                   if (recv_byte == HEADER) {
@@ -120,5 +121,68 @@ void Robot::LineUart() {
       if (line_send_interval_timer.read_us() >= LINE_SEND_PERIOD_US) {
             serial2.write(info.Line.on_led);
             line_send_interval_timer.reset();
+      }
+}
+
+void Robot::UiUart() {
+      static int8_t item;
+      static uint8_t sub_item;
+      static bool set_yaw_zero;
+      static uint8_t dribbler_sig;
+      while (serial3.available()) {
+            static const uint8_t HEADER = 0xFF;   // ヘッダ
+            static const uint8_t FOOTER = 0xAA;   // ヘッダ
+            static const uint8_t data_size = 5;   // データのサイズ
+            static uint8_t index = 0;             // 受信したデータのインデックスカウンター
+            static uint8_t recv_data[data_size];  // 受信したデータ
+            static uint8_t recv_byte;
+
+            recv_byte = serial3.read();
+            if (index == 0) {
+                  if (recv_byte == HEADER) {
+                        index++;
+                  } else {
+                        index = 0;
+                  }
+            } else if (index == (data_size + 1)) {
+                  if (recv_byte == FOOTER) {
+                        item = recv_data[0] - 127;
+                        sub_item = recv_data[1] >> 4;
+                        sub_item = recv_data[1] & 0b00001111;
+                        set_yaw_zero = recv_data[2] >> 4;
+                        dribbler_sig = recv_data[2] & 0b00001111;
+                        info.moving_speed = recv_data[3] * 0.01;
+                        info.line_moving_speed = recv_data[4] * 0.01;
+                  }
+                  index = 0;
+            } else {
+                  recv_data[index - 1] = recv_byte;
+                  index++;
+            }
+      }
+
+      if (dribbler_sig == 0) {
+            dribbler_front.Hold(0);
+            dribbler_back.Hold(0);
+      } else if (dribbler_sig == 1) {
+            if (info.Catch.is_front) {
+                  dribbler_front.Hold(HOLD_MAX_POWER);
+            } else {
+                  dribbler_front.Hold(HOLD_WAIT_POWER);
+            }
+      } else if (dribbler_sig == 2) {
+            kicker.Kick();
+      } else if (dribbler_sig == 3) {
+            if (info.Catch.is_back) {
+                  dribbler_back.Hold(HOLD_MAX_POWER);
+            } else {
+                  dribbler_back.Hold(HOLD_WAIT_POWER);
+            }
+      } else if (dribbler_sig == 4) {
+            dribbler_back.Hold(0);
+      }
+
+      if (ui_send_interval_timer.read_us() >= UI_SEND_PERIOD_US) {
+            ui_send_interval_timer.reset();
       }
 }
