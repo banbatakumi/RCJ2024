@@ -15,38 +15,57 @@ bool is_ally_moving;
 uint8_t cnt;
 
 void Home() {
-      static const uint8_t HEADER = 0xFF;   // ヘッダ
-      static const uint8_t FOOTER = 0xAA;   // ヘッダ
-      static const uint8_t data_size = 8;   // データのサイズ
-      static uint8_t index = 0;             // 受信したデータのインデックスカウンター
-      static uint8_t recv_data[data_size];  // 受信したデータ
-      static uint8_t recv_byte;
+      if (Serial.available() > 0) {
+            if (Serial.read() == 0xFF) {
+                  uint8_t debug_val_H[2];
+                  uint8_t debug_val_L[2];
+                  uint8_t yaw_H;
+                  uint8_t yaw_L;
+                  uint8_t bool_data;
+                  voltage = Serial.read() / 20.00;
+                  bool_data = Serial.read();
+                  yaw_H = Serial.read();
+                  yaw_L = Serial.read();
+                  debug_val_H[0] = Serial.read();
+                  debug_val_L[0] = Serial.read();
+                  debug_val_H[1] = Serial.read();
+                  debug_val_L[1] = Serial.read();
 
-      while (Serial.available() > 0) {
-            recv_byte = Serial.read();
-            if (index == 0) {
-                  if (recv_byte == HEADER) {
-                        index++;
-                  } else {
-                        index = 0;
-                  }
-            } else if (index == (data_size + 1)) {
-                  if (recv_byte == FOOTER) {
-                        voltage = recv_data[0];
-                        is_connect_to_ally = recv_data[1] & 1;
-                        is_ally_moving = recv_data[1] >> 1 & 1;
-                        is_ally_catch_ball = recv_data[1] >> 2 & 1;
-                        is_moving = recv_data[1] >> 3 & 1;
-                        yaw = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv_data[3] & 0x00FF)) - 32768;
-                        debug_val[0] = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_data[5] & 0x00FF)) - 32768;
-                        debug_val[1] = ((((uint16_t)recv_data[6] << 8) & 0xFF00) | ((int16_t)recv_data[7] & 0x00FF)) - 32768;
-                  }
-                  index = 0;
-            } else {
-                  recv_data[index - 1] = recv_byte;
-                  index++;
+                  yaw = ((((uint16_t)yaw_H << 8) & 0xFF00) | ((int16_t)yaw_L & 0x00FF)) - 32768;
+                  for (uint8_t i = 0; i < 2; i++) debug_val[i] = ((((uint16_t)debug_val_H[i] << 8) & 0xFF00) | ((int16_t)debug_val_L[i] & 0x00FF)) - 32768;
+                  is_connect_to_ally = bool_data & 1;
+                  is_ally_moving = (bool_data) >> 1 & 1;
+                  is_ally_catch_ball = (bool_data >> 2) & 1;
+                  is_moving = bool_data >> 3 & 1;
+                  while (Serial.available() > 0) Serial.read();
             }
       }
+
+      // if (Serial.available() > 0) {
+      //       recv_byte = Serial.read();
+      //       if (index == 0) {
+      //             if (recv_byte == HEADER) {
+      //                   index++;
+      //             } else {
+      //                   index = 0;
+      //             }
+      //       } else if (index == (data_size + 1)) {
+      //             if (recv_byte == FOOTER) {
+      //                   voltage = recv_data[0];
+      //                   is_connect_to_ally = recv_data[1] & 1;
+      //                   is_ally_moving = recv_data[1] >> 1 & 1;
+      //                   is_ally_catch_ball = recv_data[1] >> 2 & 1;
+      //                   is_moving = recv_data[1] >> 3 & 1;
+      //                   yaw = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv_data[3] & 0x00FF)) - 32768;
+      //                   debug_val[0] = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_data[5] & 0x00FF)) - 32768;
+      //                   debug_val[1] = ((((uint16_t)recv_data[6] << 8) & 0xFF00) | ((int16_t)recv_data[7] & 0x00FF)) - 32768;
+      //             }
+      //             index = 0;
+      //       } else {
+      //             recv_data[index - 1] = recv_byte;
+      //             index++;
+      //       }
+      // }
 
       if (mode == 0) {
             oled.setCursor(0, CenterY(5));

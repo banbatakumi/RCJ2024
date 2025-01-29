@@ -38,7 +38,7 @@ void Dribbler() {
             if (set_val == -1) {
                   dribbler_sig = 3;
             } else if (set_val == 1) {
-                  dribbler_sig = 4;
+                  dribbler_sig = 0;
             }
       } else {
             sub_item = 0;

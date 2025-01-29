@@ -45,11 +45,11 @@ void SendData() {  // UART送信
       const uint8_t FOOTER = 0xAA;
       uint8_t send_byte[data_size];
       send_byte[0] = HEADER;
-      send_byte[1] = (item - 8) << 4 | sub_item;
-      send_byte[2] = sub_item << 5 | mode << 2 | do_yaw_correction << 1 | dribbler_sig;
-      send_byte[4] = moving_speed;
-      send_byte[5] = line_moving_speed;
-      send_byte[6] = FOOTER;
+      send_byte[1] = (item + 8) << 4 | sub_item;
+      send_byte[2] = mode << 4 | dribbler_sig << 1 | do_yaw_correction;
+      send_byte[3] = moving_speed;
+      send_byte[4] = line_moving_speed;
+      send_byte[5] = FOOTER;
       Serial.write(send_byte, data_size);
       Serial.flush();
 }
