@@ -28,6 +28,7 @@ class MotorDrive {
       void Drive(int16_t deg, float speed);
       void Run(int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4);
       void Brake();
+      void Free();
       void Init();
       void CheckConnection();
 

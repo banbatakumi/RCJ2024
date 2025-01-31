@@ -5,7 +5,7 @@ void MovingAve::SetLength(uint8_t length) {
       length_product_ = 1.0f / length_;
 }
 
-void MovingAve::Compute(float input) {
+void MovingAve::Compute(double input) {
       if (cnt_ >= length_) cnt_ = 0;
       data_[cnt_] = input;
       result_ = 0;

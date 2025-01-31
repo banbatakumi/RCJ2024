@@ -17,6 +17,33 @@ void Mode::MainMode() {
       robot->GetSensors();
       robot->info.Line.on_led = 1;
 
+      if (robot->info.mode == 0) {
+            robot->motor.Free();
+
+            if (robot->info.Ui.dribbler_sig == 0) {
+                  robot->dribbler_front.Hold(0);
+                  robot->dribbler_back.Hold(0);
+            } else if (robot->info.Ui.dribbler_sig == 1) {
+                  if (robot->info.Catch.is_front) {
+                        robot->dribbler_front.Hold(HOLD_MAX_POWER);
+                  } else {
+                        robot->dribbler_front.Hold(HOLD_WAIT_POWER);
+                  }
+            } else if (robot->info.Ui.dribbler_sig == 2) {
+                  robot->kicker.Kick();
+            } else if (robot->info.Ui.dribbler_sig == 3) {
+                  if (robot->info.Catch.is_back) {
+                        robot->dribbler_back.Hold(HOLD_MAX_POWER);
+                  } else {
+                        robot->dribbler_back.Hold(HOLD_WAIT_POWER);
+                  }
+            }
+      } else if (robot->info.mode == 1) {
+            robot->motor.Drive(0, 0.5);
+      } else if (robot->info.mode == 2) {
+            robot->motor.Drive(180, 0.5);
+      }
+
       // static float cnt;
       // cnt += 0.05;
       // robot->motor.Drive(cnt, 0.5);

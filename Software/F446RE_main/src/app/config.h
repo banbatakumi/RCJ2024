@@ -15,4 +15,6 @@
 #define HOLD_MAX_POWER 100
 #define HOLD_WAIT_POWER 50
 
+#define VOLTAGE_RC 0.999
+
 #endif

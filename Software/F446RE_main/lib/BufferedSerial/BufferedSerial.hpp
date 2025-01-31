@@ -54,10 +54,6 @@ class BufferedSerial {
             HAL_UART_Transmit(_huart, (uint8_t *)data, len, 100);
       }
 
-      uint8_t getc() {
-            return read();
-      }
-
      private:
       UART_HandleTypeDef *_huart;
       uint8_t *_rxBuf;

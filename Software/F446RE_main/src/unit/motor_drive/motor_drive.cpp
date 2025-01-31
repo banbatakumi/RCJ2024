@@ -112,6 +112,17 @@ void MotorDrive::Brake() {
       motor4b_->write(1);
 }
 
+void MotorDrive::Free() {
+      motor1a_->write(0);
+      motor1b_->write(0);
+      motor2a_->write(0);
+      motor2b_->write(0);
+      motor3a_->write(0);
+      motor3b_->write(0);
+      motor4a_->write(0);
+      motor4b_->write(0);
+}
+
 void MotorDrive::CheckConnection() {
       // 接続チェック
       motor1a_->sound(700, CHECK_SPEED);

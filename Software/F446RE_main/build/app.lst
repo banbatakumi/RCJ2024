@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -28,7 +28,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
   26              	_Z41__static_initialization_and_destruction_0ii:
   27              		.fnstart
   28              	.LVL0:
-  29              	.LFB276:
+  29              	.LFB275:
    1:src/app/app.cpp **** #include "app.h"
    2:src/app/app.cpp **** 
    3:src/app/app.cpp **** #include "mode.hpp"
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
   34              		.loc 1 22 1 is_stmt 0 view .LVU1
   35 0000 0128     		cmp	r0, #1
   36 0002 00D0     		beq	.L7
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 2
 
 
   37 0004 7047     		bx	lr
@@ -118,13 +118,13 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
   84              	.L10:
   85 0026 00BF     		.align	2
   86              	.L9:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 3
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 3
 
 
   87 0028 00000000 		.word	robot
   88 002c 00000000 		.word	mode
   89              		.cfi_endproc
-  90              	.LFE276:
+  90              	.LFE275:
   91              		.cantunwind
   92              		.fnend
   94              		.global	__aeabi_f2d
@@ -140,7 +140,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  105              	_ZN12PwmSingleOut5writeEf:
  106              		.fnstart
  107              	.LVL7:
- 108              	.LFB266:
+ 108              	.LFB265:
  109              		.file 3 "Lib/PWMSingle/PWMSingle.hpp"
    1:Lib/PWMSingle/PWMSingle.hpp **** #ifndef __PWMSINGLE__
    2:Lib/PWMSingle/PWMSingle.hpp **** #define __PWMSINGLE__
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  122 0002 0446     		mov	r4, r0
   22:Lib/PWMSingle/PWMSingle.hpp ****             duty = (int)(Constrain(duty, 0.0, 1.0) * _maxValue);
  123              		.loc 3 22 13 is_stmt 1 view .LVU14
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 4
 
 
  124              		.loc 3 22 26 is_stmt 0 view .LVU15
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  177              	.LVL16:
  178              		.loc 3 23 13 discriminator 1 view .LVU27
  179 005a C3ED0D7A 		vstr.32	s15, [r3, #52]	@ int
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 5
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 5
 
 
  180              	.L11:
@@ -295,10 +295,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  222              	.L23:
  223 0094 0000F03F 		.word	1072693248
  224              		.cfi_endproc
- 225              	.LFE266:
+ 225              	.LFE265:
  226              		.cantunwind
  227              		.fnend
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 6
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 6
 
 
  229              		.section	.text.TimInterrupt1khz,"ax",%progbits
@@ -309,17 +309,17 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  234              		.thumb_func
  236              	TimInterrupt1khz:
  237              		.fnstart
- 238              	.LFB273:
+ 238              	.LFB272:
    9:src/app/app.cpp **** void TimInterrupt1khz() {
  239              		.loc 1 9 25 is_stmt 1 view -0
  240              		.cfi_startproc
  241              		@ args = 0, pretend = 0, frame = 0
  242              		@ frame_needed = 0, uses_anonymous_args = 0
- 243 0000 10B5     		push	{r4, lr}
- 244              		.save {r4, lr}
+ 243 0000 08B5     		push	{r3, lr}
+ 244              		.save {r3, lr}
  245              	.LCFI2:
  246              		.cfi_def_cfa_offset 8
- 247              		.cfi_offset 4, -8
+ 247              		.cfi_offset 3, -8
  248              		.cfi_offset 14, -4
   10:src/app/app.cpp ****       robot.heartBeat();
  249              		.loc 1 10 7 view .LVU39
@@ -342,124 +342,131 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
   13:src/unit/robot/robot.hpp **** #include "main.h"
   14:src/unit/robot/robot.hpp **** #include "motor_drive.hpp"
   15:src/unit/robot/robot.hpp **** 
-  16:src/unit/robot/robot.hpp **** typedef struct {
-  17:src/unit/robot/robot.hpp ****       float voltage;
-  18:src/unit/robot/robot.hpp ****       uint8_t motor_rps[4];
-  19:src/unit/robot/robot.hpp **** 
-  20:src/unit/robot/robot.hpp ****       uint8_t mode;
+  16:src/unit/robot/robot.hpp **** #define VOLTAGE_CONVERTION 0.01298828125
+  17:src/unit/robot/robot.hpp **** 
+  18:src/unit/robot/robot.hpp **** typedef struct {
+  19:src/unit/robot/robot.hpp ****       float voltage;
+  20:src/unit/robot/robot.hpp ****       uint8_t motor_rps[4];
   21:src/unit/robot/robot.hpp **** 
-  22:src/unit/robot/robot.hpp ****       float moving_speed, line_moving_speed;
-  23:src/unit/robot/robot.hpp ****       struct {
-  24:src/unit/robot/robot.hpp ****             uint8_t interval;
-  25:src/unit/robot/robot.hpp ****             bool is_on_line;
-  26:src/unit/robot/robot.hpp ****             bool is_half_out;
-  27:src/unit/robot/robot.hpp ****             bool is_leftside;
-  28:src/unit/robot/robot.hpp ****             bool is_rightside;
-  29:src/unit/robot/robot.hpp ****             int16_t dir;
-  30:src/unit/robot/robot.hpp ****             int16_t inside_dir;
-  31:src/unit/robot/robot.hpp **** 
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 7
+  22:src/unit/robot/robot.hpp ****       uint8_t mode;
+  23:src/unit/robot/robot.hpp **** 
+  24:src/unit/robot/robot.hpp ****       float moving_speed, line_moving_speed;
+  25:src/unit/robot/robot.hpp ****       struct {
+  26:src/unit/robot/robot.hpp ****             uint8_t interval;
+  27:src/unit/robot/robot.hpp ****             bool is_on_line;
+  28:src/unit/robot/robot.hpp ****             bool is_half_out;
+  29:src/unit/robot/robot.hpp ****             bool is_leftside;
+  30:src/unit/robot/robot.hpp ****             bool is_rightside;
+  31:src/unit/robot/robot.hpp ****             int16_t dir;
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 7
 
 
-  32:src/unit/robot/robot.hpp ****             bool on_led;
-  33:src/unit/robot/robot.hpp ****       } Line;
-  34:src/unit/robot/robot.hpp ****       struct {
-  35:src/unit/robot/robot.hpp ****             uint16_t front_val;
-  36:src/unit/robot/robot.hpp ****             bool is_front;
-  37:src/unit/robot/robot.hpp ****             uint16_t back_val;
-  38:src/unit/robot/robot.hpp ****             bool is_back;
-  39:src/unit/robot/robot.hpp ****       } Catch;
-  40:src/unit/robot/robot.hpp ****       struct {
-  41:src/unit/robot/robot.hpp ****             int16_t yaw;
-  42:src/unit/robot/robot.hpp ****             int16_t pitch;
-  43:src/unit/robot/robot.hpp ****             int16_t roll;
-  44:src/unit/robot/robot.hpp ****       } Imu;
-  45:src/unit/robot/robot.hpp **** 
-  46:src/unit/robot/robot.hpp **** } RobotInfo;
-  47:src/unit/robot/robot.hpp **** class Robot {
-  48:src/unit/robot/robot.hpp ****      public:
-  49:src/unit/robot/robot.hpp ****       Robot();
-  50:src/unit/robot/robot.hpp **** 
-  51:src/unit/robot/robot.hpp ****       // values
-  52:src/unit/robot/robot.hpp ****       RobotInfo info;
-  53:src/unit/robot/robot.hpp **** 
-  54:src/unit/robot/robot.hpp ****       DigitalOut led1 = DigitalOut(LED1_GPIO_Port, LED1_Pin);
-  55:src/unit/robot/robot.hpp ****       PwmSingleOut ledh = PwmSingleOut(&htim13, TIM_CHANNEL_1);
-  56:src/unit/robot/robot.hpp **** 
-  57:src/unit/robot/robot.hpp ****       PwmSingleOut motor1a = PwmSingleOut(&htim12, TIM_CHANNEL_2);
-  58:src/unit/robot/robot.hpp ****       PwmSingleOut motor1b = PwmSingleOut(&htim12, TIM_CHANNEL_1);
-  59:src/unit/robot/robot.hpp ****       PwmSingleOut motor2a = PwmSingleOut(&htim2, TIM_CHANNEL_3);
-  60:src/unit/robot/robot.hpp ****       PwmSingleOut motor2b = PwmSingleOut(&htim2, TIM_CHANNEL_4);
-  61:src/unit/robot/robot.hpp ****       PwmSingleOut motor3a = PwmSingleOut(&htim3, TIM_CHANNEL_2);
-  62:src/unit/robot/robot.hpp ****       PwmSingleOut motor3b = PwmSingleOut(&htim2, TIM_CHANNEL_2);
-  63:src/unit/robot/robot.hpp ****       PwmSingleOut motor4a = PwmSingleOut(&htim3, TIM_CHANNEL_1);
-  64:src/unit/robot/robot.hpp ****       PwmSingleOut motor4b = PwmSingleOut(&htim3, TIM_CHANNEL_3);
-  65:src/unit/robot/robot.hpp **** 
-  66:src/unit/robot/robot.hpp ****       PwmSingleOut dribbler_front_a = PwmSingleOut(&htim4, TIM_CHANNEL_1);
-  67:src/unit/robot/robot.hpp ****       PwmSingleOut dribbler_front_b = PwmSingleOut(&htim4, TIM_CHANNEL_2);
-  68:src/unit/robot/robot.hpp ****       PwmSingleOut dribbler_back_a = PwmSingleOut(&htim2, TIM_CHANNEL_1);
-  69:src/unit/robot/robot.hpp ****       PwmSingleOut dribbler_back_b = PwmSingleOut(&htim4, TIM_CHANNEL_4);
-  70:src/unit/robot/robot.hpp **** 
-  71:src/unit/robot/robot.hpp ****       DigitalOut kicker_charge = DigitalOut(KICKER_CHARGE_GPIO_Port, KICKER_CHARGE_Pin);
-  72:src/unit/robot/robot.hpp ****       DigitalOut kicker_kick = DigitalOut(KICKER_KICK_GPIO_Port, KICKER_KICK_Pin);
-  73:src/unit/robot/robot.hpp **** 
-  74:src/unit/robot/robot.hpp ****       MotorDrive motor = MotorDrive(&motor1a, &motor1b, &motor2a, &motor2b, &motor3a, &motor3b, &mo
-  75:src/unit/robot/robot.hpp ****       DribblerDrive dribbler_front = DribblerDrive(&dribbler_front_a, &dribbler_front_b);
-  76:src/unit/robot/robot.hpp ****       DribblerDrive dribbler_back = DribblerDrive(&dribbler_back_a, &dribbler_back_b);
-  77:src/unit/robot/robot.hpp ****       Kicker kicker = Kicker(&kicker_charge, &kicker_kick);
-  78:src/unit/robot/robot.hpp **** 
-  79:src/unit/robot/robot.hpp ****       BufferedSerial serial1 = BufferedSerial(&huart1, 128);  // imu
-  80:src/unit/robot/robot.hpp ****       BufferedSerial serial2 = BufferedSerial(&huart2, 256);  // line
-  81:src/unit/robot/robot.hpp ****       BufferedSerial serial3 = BufferedSerial(&huart3, 256);  // ui
-  82:src/unit/robot/robot.hpp **** 
-  83:src/unit/robot/robot.hpp ****       void HardwareInit();
-  84:src/unit/robot/robot.hpp ****       void GetSensors();
+  32:src/unit/robot/robot.hpp ****             int16_t inside_dir;
+  33:src/unit/robot/robot.hpp **** 
+  34:src/unit/robot/robot.hpp ****             bool on_led;
+  35:src/unit/robot/robot.hpp ****       } Line;
+  36:src/unit/robot/robot.hpp ****       struct {
+  37:src/unit/robot/robot.hpp ****             uint16_t front_val;
+  38:src/unit/robot/robot.hpp ****             bool is_front;
+  39:src/unit/robot/robot.hpp ****             uint16_t back_val;
+  40:src/unit/robot/robot.hpp ****             bool is_back;
+  41:src/unit/robot/robot.hpp ****       } Catch;
+  42:src/unit/robot/robot.hpp ****       struct {
+  43:src/unit/robot/robot.hpp ****             int16_t yaw;
+  44:src/unit/robot/robot.hpp ****             int16_t pitch;
+  45:src/unit/robot/robot.hpp ****             int16_t roll;
+  46:src/unit/robot/robot.hpp ****       } Imu;
+  47:src/unit/robot/robot.hpp **** 
+  48:src/unit/robot/robot.hpp ****       struct {
+  49:src/unit/robot/robot.hpp ****             bool set_yaw_zero;
+  50:src/unit/robot/robot.hpp ****             uint8_t dribbler_sig;
+  51:src/unit/robot/robot.hpp ****       } Ui;
+  52:src/unit/robot/robot.hpp **** 
+  53:src/unit/robot/robot.hpp **** } RobotInfo;
+  54:src/unit/robot/robot.hpp **** class Robot {
+  55:src/unit/robot/robot.hpp ****      public:
+  56:src/unit/robot/robot.hpp ****       Robot();
+  57:src/unit/robot/robot.hpp **** 
+  58:src/unit/robot/robot.hpp ****       // values
+  59:src/unit/robot/robot.hpp ****       RobotInfo info;
+  60:src/unit/robot/robot.hpp **** 
+  61:src/unit/robot/robot.hpp ****       DigitalOut led1 = DigitalOut(LED1_GPIO_Port, LED1_Pin);
+  62:src/unit/robot/robot.hpp ****       PwmSingleOut ledh = PwmSingleOut(&htim13, TIM_CHANNEL_1);
+  63:src/unit/robot/robot.hpp **** 
+  64:src/unit/robot/robot.hpp ****       PwmSingleOut motor1a = PwmSingleOut(&htim12, TIM_CHANNEL_2);
+  65:src/unit/robot/robot.hpp ****       PwmSingleOut motor1b = PwmSingleOut(&htim12, TIM_CHANNEL_1);
+  66:src/unit/robot/robot.hpp ****       PwmSingleOut motor2a = PwmSingleOut(&htim2, TIM_CHANNEL_3);
+  67:src/unit/robot/robot.hpp ****       PwmSingleOut motor2b = PwmSingleOut(&htim2, TIM_CHANNEL_4);
+  68:src/unit/robot/robot.hpp ****       PwmSingleOut motor3a = PwmSingleOut(&htim3, TIM_CHANNEL_2);
+  69:src/unit/robot/robot.hpp ****       PwmSingleOut motor3b = PwmSingleOut(&htim2, TIM_CHANNEL_2);
+  70:src/unit/robot/robot.hpp ****       PwmSingleOut motor4a = PwmSingleOut(&htim3, TIM_CHANNEL_1);
+  71:src/unit/robot/robot.hpp ****       PwmSingleOut motor4b = PwmSingleOut(&htim3, TIM_CHANNEL_3);
+  72:src/unit/robot/robot.hpp **** 
+  73:src/unit/robot/robot.hpp ****       PwmSingleOut dribbler_front_a = PwmSingleOut(&htim4, TIM_CHANNEL_1);
+  74:src/unit/robot/robot.hpp ****       PwmSingleOut dribbler_front_b = PwmSingleOut(&htim4, TIM_CHANNEL_2);
+  75:src/unit/robot/robot.hpp ****       PwmSingleOut dribbler_back_a = PwmSingleOut(&htim2, TIM_CHANNEL_1);
+  76:src/unit/robot/robot.hpp ****       PwmSingleOut dribbler_back_b = PwmSingleOut(&htim4, TIM_CHANNEL_4);
+  77:src/unit/robot/robot.hpp **** 
+  78:src/unit/robot/robot.hpp ****       DigitalOut kicker_charge = DigitalOut(KICKER_CHARGE_GPIO_Port, KICKER_CHARGE_Pin);
+  79:src/unit/robot/robot.hpp ****       DigitalOut kicker_kick = DigitalOut(KICKER_KICK_GPIO_Port, KICKER_KICK_Pin);
+  80:src/unit/robot/robot.hpp **** 
+  81:src/unit/robot/robot.hpp ****       MotorDrive motor = MotorDrive(&motor1a, &motor1b, &motor2a, &motor2b, &motor3a, &motor3b, &mo
+  82:src/unit/robot/robot.hpp ****       DribblerDrive dribbler_front = DribblerDrive(&dribbler_front_a, &dribbler_front_b);
+  83:src/unit/robot/robot.hpp ****       DribblerDrive dribbler_back = DribblerDrive(&dribbler_back_a, &dribbler_back_b);
+  84:src/unit/robot/robot.hpp ****       Kicker kicker = Kicker(&kicker_charge, &kicker_kick);
   85:src/unit/robot/robot.hpp **** 
-  86:src/unit/robot/robot.hpp ****       void ImuUart();
-  87:src/unit/robot/robot.hpp ****       void LineUart();
-  88:src/unit/robot/robot.hpp ****       void UiUart();
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 8
+  86:src/unit/robot/robot.hpp ****       BufferedSerial serial1 = BufferedSerial(&huart1, 128);  // imu
+  87:src/unit/robot/robot.hpp ****       BufferedSerial serial2 = BufferedSerial(&huart2, 256);  // line
+  88:src/unit/robot/robot.hpp ****       BufferedSerial serial3 = BufferedSerial(&huart3, 256);  // ui
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 8
 
 
   89:src/unit/robot/robot.hpp **** 
-  90:src/unit/robot/robot.hpp ****       Timer line_send_interval_timer;
-  91:src/unit/robot/robot.hpp ****       Timer ui_send_interval_timer;
+  90:src/unit/robot/robot.hpp ****       void HardwareInit();
+  91:src/unit/robot/robot.hpp ****       void GetSensors();
   92:src/unit/robot/robot.hpp **** 
-  93:src/unit/robot/robot.hpp ****       MovingAve catch_front;
-  94:src/unit/robot/robot.hpp ****       MovingAve catch_back;
-  95:src/unit/robot/robot.hpp **** 
-  96:src/unit/robot/robot.hpp ****       inline __attribute__((always_inline)) void heartBeat() {
- 254              		.loc 4 96 50 view .LVU40
+  93:src/unit/robot/robot.hpp ****       void ImuUart();
+  94:src/unit/robot/robot.hpp ****       void LineUart();
+  95:src/unit/robot/robot.hpp ****       void UiUart();
+  96:src/unit/robot/robot.hpp **** 
+  97:src/unit/robot/robot.hpp ****       Timer line_send_interval_timer;
+  98:src/unit/robot/robot.hpp ****       Timer ui_send_interval_timer;
+  99:src/unit/robot/robot.hpp **** 
+ 100:src/unit/robot/robot.hpp ****       MovingAve catch_front;
+ 101:src/unit/robot/robot.hpp ****       MovingAve catch_back;
+ 102:src/unit/robot/robot.hpp **** 
+ 103:src/unit/robot/robot.hpp ****       inline __attribute__((always_inline)) void heartBeat() {
+ 254              		.loc 4 103 50 view .LVU40
  255              	.LBB15:
-  97:src/unit/robot/robot.hpp ****             static int i = 0;
- 256              		.loc 4 97 13 view .LVU41
-  98:src/unit/robot/robot.hpp ****             i++;
- 257              		.loc 4 98 13 view .LVU42
- 258              		.loc 4 98 14 is_stmt 0 view .LVU43
- 259 0002 204A     		ldr	r2, .L32
+ 104:src/unit/robot/robot.hpp ****             static int i = 0;
+ 256              		.loc 4 104 13 view .LVU41
+ 105:src/unit/robot/robot.hpp ****             i++;
+ 257              		.loc 4 105 13 view .LVU42
+ 258              		.loc 4 105 14 is_stmt 0 view .LVU43
+ 259 0002 1F4A     		ldr	r2, .L32
  260 0004 1368     		ldr	r3, [r2]
  261 0006 0133     		adds	r3, r3, #1
  262 0008 1360     		str	r3, [r2]
-  99:src/unit/robot/robot.hpp ****             ledh = abs(MyMath::sinDeg(int(i * (360.0f / 2000.0f))));
- 263              		.loc 4 99 13 is_stmt 1 view .LVU44
- 264              		.loc 4 99 20 is_stmt 0 view .LVU45
+ 106:src/unit/robot/robot.hpp ****             ledh = abs(MyMath::sinDeg(int(i * (360.0f / 2000.0f))));
+ 263              		.loc 4 106 13 is_stmt 1 view .LVU44
+ 264              		.loc 4 106 20 is_stmt 0 view .LVU45
  265 000a 07EE903A 		vmov	s15, r3	@ int
  266 000e F8EEE77A 		vcvt.f32.s32	s15, s15
- 267 0012 9FED1D7A 		vldr.32	s14, .L32+4
+ 267 0012 9FED1C7A 		vldr.32	s14, .L32+4
  268 0016 67EE877A 		vmul.f32	s15, s15, s14
  269 001a FDEEE77A 		vcvt.s32.f32	s15, s15
  270 001e 17EE900A 		vmov	r0, s15	@ int
  271 0022 FFF7FEFF 		bl	sinDeg
  272              	.LVL24:
- 273              		.loc 4 99 18 view .LVU46
+ 273              		.loc 4 106 18 view .LVU46
  274 0026 B5EEC00A 		vcmpe.f32	s0, #0
  275 002a F1EE10FA 		vmrs	APSR_nzcv, FPSCR
- 276 002e 17DD     		ble	.L30
- 277              		.loc 4 99 20 view .LVU47
- 278 0030 144B     		ldr	r3, .L32
+ 276 002e 15DD     		ble	.L30
+ 277              		.loc 4 106 20 view .LVU47
+ 278 0030 134B     		ldr	r3, .L32
  279 0032 D3ED007A 		vldr.32	s15, [r3]	@ int
  280 0036 F8EEE77A 		vcvt.f32.s32	s15, s15
- 281 003a 9FED137A 		vldr.32	s14, .L32+4
+ 281 003a 9FED127A 		vldr.32	s14, .L32+4
  282 003e 67EE877A 		vmul.f32	s15, s15, s14
  283 0042 FDEEE77A 		vcvt.s32.f32	s15, s15
  284 0046 17EE900A 		vmov	r0, s15	@ int
@@ -471,76 +478,76 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
   25:Lib/PWMSingle/PWMSingle.hpp **** 
   26:Lib/PWMSingle/PWMSingle.hpp ****       void operator=(float duty) {
  290              		.loc 3 26 12 is_stmt 1 view .LVU48
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 9
+
+
  291              	.LBB17:
   27:Lib/PWMSingle/PWMSingle.hpp ****             write(duty);
  292              		.loc 3 27 13 view .LVU49
  293              		.loc 3 27 18 is_stmt 0 view .LVU50
- 294 004e 0F4C     		ldr	r4, .L32+8
+ 294 004e 0E48     		ldr	r0, .L32+8
  295              	.LVL26:
  296              		.loc 3 27 18 view .LVU51
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 9
-
-
- 297 0050 2046     		mov	r0, r4
- 298 0052 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
- 299              	.LVL27:
- 300              		.loc 3 27 18 view .LVU52
- 301              	.LBE17:
- 302              	.LBE16:
- 303              	.LBE15:
- 304              	.LBE14:
+ 297 0050 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ 298              	.LVL27:
+ 299              		.loc 3 27 18 view .LVU52
+ 300              	.LBE17:
+ 301              	.LBE16:
+ 302              	.LBE15:
+ 303              	.LBE14:
   11:src/app/app.cpp ****       robot.kicker.Control();
- 305              		.loc 1 11 7 is_stmt 1 view .LVU53
+ 304              		.loc 1 11 7 is_stmt 1 view .LVU53
   11:src/app/app.cpp ****       robot.kicker.Control();
- 306              		.loc 1 11 27 is_stmt 0 view .LVU54
- 307 0056 04F54C60 		add	r0, r4, #3264
- 308 005a FFF7FEFF 		bl	_ZN6Kicker7ControlEv
- 309              	.LVL28:
+ 305              		.loc 1 11 27 is_stmt 0 view .LVU54
+ 306 0054 0D48     		ldr	r0, .L32+12
+ 307 0056 FFF7FEFF 		bl	_ZN6Kicker7ControlEv
+ 308              	.LVL28:
   12:src/app/app.cpp **** }
- 310              		.loc 1 12 1 view .LVU55
- 311 005e 10BD     		pop	{r4, pc}
- 312              	.LVL29:
- 313              	.L30:
- 314              	.LBB19:
- 315              	.LBB18:
- 316              		.loc 4 99 20 view .LVU56
- 317 0060 084B     		ldr	r3, .L32
- 318 0062 D3ED007A 		vldr.32	s15, [r3]	@ int
- 319 0066 F8EEE77A 		vcvt.f32.s32	s15, s15
- 320 006a 9FED077A 		vldr.32	s14, .L32+4
- 321 006e 67EE877A 		vmul.f32	s15, s15, s14
- 322 0072 FDEEE77A 		vcvt.s32.f32	s15, s15
- 323 0076 17EE900A 		vmov	r0, s15	@ int
- 324 007a FFF7FEFF 		bl	sinDeg
- 325              	.LVL30:
- 326              		.loc 4 99 18 view .LVU57
- 327 007e B1EE400A 		vneg.f32	s0, s0
- 328 0082 E4E7     		b	.L28
- 329              	.L33:
- 330              		.align	2
- 331              	.L32:
- 332 0084 00000000 		.word	_ZZN5Robot9heartBeatEvE1i
- 333 0088 EC51383E 		.word	1043878380
- 334 008c 38000000 		.word	robot+56
+ 309              		.loc 1 12 1 view .LVU55
+ 310 005a 08BD     		pop	{r3, pc}
+ 311              	.LVL29:
+ 312              	.L30:
+ 313              	.LBB19:
+ 314              	.LBB18:
+ 315              		.loc 4 106 20 view .LVU56
+ 316 005c 084B     		ldr	r3, .L32
+ 317 005e D3ED007A 		vldr.32	s15, [r3]	@ int
+ 318 0062 F8EEE77A 		vcvt.f32.s32	s15, s15
+ 319 0066 9FED077A 		vldr.32	s14, .L32+4
+ 320 006a 67EE877A 		vmul.f32	s15, s15, s14
+ 321 006e FDEEE77A 		vcvt.s32.f32	s15, s15
+ 322 0072 17EE900A 		vmov	r0, s15	@ int
+ 323 0076 FFF7FEFF 		bl	sinDeg
+ 324              	.LVL30:
+ 325              		.loc 4 106 18 view .LVU57
+ 326 007a B1EE400A 		vneg.f32	s0, s0
+ 327 007e E6E7     		b	.L28
+ 328              	.L33:
+ 329              		.align	2
+ 330              	.L32:
+ 331 0080 00000000 		.word	_ZZN5Robot9heartBeatEvE1i
+ 332 0084 EC51383E 		.word	1043878380
+ 333 0088 38000000 		.word	robot+56
+ 334 008c 88160000 		.word	robot+5768
  335              	.LBE18:
  336              	.LBE19:
  337              		.cfi_endproc
- 338              	.LFE273:
+ 338              	.LFE272:
  339              		.fnend
  341              		.section	.text.setup,"ax",%progbits
  342              		.align	1
  343              		.global	setup
  344              		.syntax unified
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 10
+
+
  345              		.thumb
  346              		.thumb_func
  348              	setup:
  349              		.fnstart
- 350              	.LFB274:
+ 350              	.LFB273:
   14:src/app/app.cpp **** void setup() {
  351              		.loc 1 14 14 is_stmt 1 view -0
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 10
-
-
  352              		.cfi_startproc
  353              		@ args = 0, pretend = 0, frame = 0
  354              		@ frame_needed = 0, uses_anonymous_args = 0
@@ -565,7 +572,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  370              	.L36:
  371 000c 00000000 		.word	robot
  372              		.cfi_endproc
- 373              	.LFE274:
+ 373              	.LFE273:
  374              		.fnend
  376              		.section	.text.main_app,"ax",%progbits
  377              		.align	1
@@ -575,7 +582,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  381              		.thumb_func
  383              	main_app:
  384              		.fnstart
- 385              	.LFB275:
+ 385              	.LFB274:
   18:src/app/app.cpp **** void main_app() {
  386              		.loc 1 18 17 is_stmt 1 view -0
  387              		.cfi_startproc
@@ -591,6 +598,9 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
   19:src/app/app.cpp ****       while (1) {
  397              		.loc 1 19 7 discriminator 1 view .LVU63
   20:src/app/app.cpp ****             mode.MainMode();
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 11
+
+
  398              		.loc 1 20 13 discriminator 1 view .LVU64
   20:src/app/app.cpp ****             mode.MainMode();
  399              		.loc 1 20 26 is_stmt 0 discriminator 1 view .LVU65
@@ -598,9 +608,6 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  401 0004 FFF7FEFF 		bl	_ZN4Mode8MainModeEv
  402              	.LVL32:
   19:src/app/app.cpp ****       while (1) {
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 11
-
-
  403              		.loc 1 19 7 is_stmt 1 discriminator 1 view .LVU66
  404 0008 FBE7     		b	.L39
  405              	.L42:
@@ -608,7 +615,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  407              	.L41:
  408 000c 00000000 		.word	mode
  409              		.cfi_endproc
- 410              	.LFE275:
+ 410              	.LFE274:
  411              		.fnend
  413              		.section	.text._GLOBAL__sub_I_robot,"ax",%progbits
  414              		.align	1
@@ -617,7 +624,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  417              		.thumb_func
  419              	_GLOBAL__sub_I_robot:
  420              		.fnstart
- 421              	.LFB277:
+ 421              	.LFB276:
  422              		.loc 1 22 1 view -0
  423              		.cfi_startproc
  424              		@ args = 0, pretend = 0, frame = 0
@@ -634,7 +641,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  435              	.LVL33:
  436 000c 08BD     		pop	{r3, pc}
  437              		.cfi_endproc
- 438              	.LFE277:
+ 438              	.LFE276:
  439              		.cantunwind
  440              		.fnend
  442              		.section	.init_array,"aw",%init_array
@@ -651,16 +658,16 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  453              		.section	.bss.robot,"aw",%nobits
  454              		.align	3
  457              	robot:
- 458 0000 00000000 		.space	4232
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 12
+
+
+ 458 0000 00000000 		.space	7496
  458      00000000 
  458      00000000 
  458      00000000 
  458      00000000 
  459              		.weak	_ZZN5Robot9heartBeatEvE1i
  460              		.section	.bss._ZZN5Robot9heartBeatEvE1i,"awG",%nobits,_ZZN5Robot9heartBeatEvE1i,comdat
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 12
-
-
  461              		.align	2
  464              	_ZZN5Robot9heartBeatEvE1i:
  465 0000 00000000 		.space	4
@@ -691,43 +698,44 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 1
  490              		.file 27 "Lib/pid/pid.hpp"
  491              		.file 28 "src/unit/motor_drive/motor_drive.hpp"
  492              		.file 29 "Lib/MyMath/MyMath.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s 			page 13
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s 			page 13
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 app.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:21     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:26     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:87     .text._Z41__static_initialization_and_destruction_0ii:00000028 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:457    .bss.robot:00000000 robot
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:450    .bss.mode:00000000 mode
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:21     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:26     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:87     .text._Z41__static_initialization_and_destruction_0ii:00000028 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:457    .bss.robot:00000000 robot
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:450    .bss.mode:00000000 mode
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:99     .text._ZN12PwmSingleOut5writeEf:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:105    .text._ZN12PwmSingleOut5writeEf:00000000 _ZN12PwmSingleOut5writeEf
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:223    .text._ZN12PwmSingleOut5writeEf:00000094 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:99     .text._ZN12PwmSingleOut5writeEf:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:105    .text._ZN12PwmSingleOut5writeEf:00000000 _ZN12PwmSingleOut5writeEf
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:223    .text._ZN12PwmSingleOut5writeEf:00000094 $d
 .ARM.exidx.text._ZN12PwmSingleOut5writeEf:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:230    .text.TimInterrupt1khz:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:236    .text.TimInterrupt1khz:00000000 TimInterrupt1khz
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:332    .text.TimInterrupt1khz:00000084 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:464    .bss._ZZN5Robot9heartBeatEvE1i:00000000 _ZZN5Robot9heartBeatEvE1i
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:230    .text.TimInterrupt1khz:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:236    .text.TimInterrupt1khz:00000000 TimInterrupt1khz
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:331    .text.TimInterrupt1khz:00000080 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:464    .bss._ZZN5Robot9heartBeatEvE1i:00000000 _ZZN5Robot9heartBeatEvE1i
+ .ARM.extab.text.TimInterrupt1khz:00000000 $d
  .ARM.exidx.text.TimInterrupt1khz:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:342    .text.setup:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:348    .text.setup:00000000 setup
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:371    .text.setup:0000000c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:342    .text.setup:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:348    .text.setup:00000000 setup
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:371    .text.setup:0000000c $d
             .ARM.extab.text.setup:00000000 $d
             .ARM.exidx.text.setup:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:377    .text.main_app:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:383    .text.main_app:00000000 main_app
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:408    .text.main_app:0000000c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:377    .text.main_app:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:383    .text.main_app:00000000 main_app
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:408    .text.main_app:0000000c $d
          .ARM.extab.text.main_app:00000000 $d
          .ARM.exidx.text.main_app:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:414    .text._GLOBAL__sub_I_robot:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:419    .text._GLOBAL__sub_I_robot:00000000 _GLOBAL__sub_I_robot
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:414    .text._GLOBAL__sub_I_robot:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:419    .text._GLOBAL__sub_I_robot:00000000 _GLOBAL__sub_I_robot
 .ARM.exidx.text._GLOBAL__sub_I_robot:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:443    .init_array:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:447    .bss.mode:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:454    .bss.robot:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccGANz5G.s:461    .bss._ZZN5Robot9heartBeatEvE1i:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:443    .init_array:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:447    .bss.mode:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:454    .bss.robot:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cczTN8tI.s:461    .bss._ZZN5Robot9heartBeatEvE1i:00000000 $d
 
 UNDEFINED SYMBOLS
 _ZN5RobotC1Ev
@@ -738,7 +746,6 @@ __aeabi_dmul
 __aeabi_d2iz
 sinDeg
 _ZN6Kicker7ControlEv
-__aeabi_unwind_cpp_pr0
-_ZN5Robot12HardwareInitEv
 __aeabi_unwind_cpp_pr1
+_ZN5Robot12HardwareInitEv
 _ZN4Mode8MainModeEv

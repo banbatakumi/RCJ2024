@@ -13,6 +13,8 @@
 #include "main.h"
 #include "motor_drive.hpp"
 
+#define VOLTAGE_CONVERTION 0.01298828125
+
 typedef struct {
       float voltage;
       uint8_t motor_rps[4];
@@ -42,6 +44,11 @@ typedef struct {
             int16_t pitch;
             int16_t roll;
       } Imu;
+
+      struct {
+            bool set_yaw_zero;
+            uint8_t dribbler_sig;
+      } Ui;
 
 } RobotInfo;
 class Robot {

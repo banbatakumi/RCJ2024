@@ -40,8 +40,10 @@ void Robot::HardwareInit() {
 }
 
 void Robot::GetSensors() {
-      const float voltage_conversion = 0.01298828125;
-      info.voltage = adc_get_val[0] * voltage_conversion;
+      static float pre_voltage = 9.6;
+      info.voltage = adc_get_val[0] * VOLTAGE_CONVERTION;
+      info.voltage = info.voltage * (1 - VOLTAGE_RC) + pre_voltage * VOLTAGE_RC;
+      pre_voltage = info.voltage;
 
       catch_front.Compute(adc_get_val[1]);
       catch_back.Compute(adc_get_val[2]);
@@ -85,7 +87,7 @@ void Robot::ImuUart() {
 void Robot::LineUart() {
       while (serial2.available()) {
             static const uint8_t HEADER = 0xFF;   // ヘッダ
-            static const uint8_t FOOTER = 0xAA;   // ヘッダ
+            static const uint8_t FOOTER = 0xAA;   // フッタ
             static const uint8_t data_size = 6;   // データのサイズ
             static uint8_t index = 0;             // 受信したデータのインデックスカウンター
             static uint8_t recv_data[data_size];  // 受信したデータ
@@ -127,8 +129,6 @@ void Robot::LineUart() {
 void Robot::UiUart() {
       static int8_t item;
       static uint8_t sub_item;
-      static bool set_yaw_zero;
-      static uint8_t dribbler_sig;
 
       while (serial3.available()) {
             static const uint8_t HEADER = 0xFF;   // ヘッダ
@@ -150,8 +150,8 @@ void Robot::UiUart() {
                         item = ((recv_data[0] >> 4) & 0b00001111) - 8;
                         sub_item = recv_data[0] & 0b00001111;
                         info.mode = (recv_data[1] >> 4) & 0b00001111;
-                        dribbler_sig = (recv_data[1] >> 1) & 0b0000111;
-                        set_yaw_zero = recv_data[1] & 0b0000001;
+                        info.Ui.dribbler_sig = (recv_data[1] >> 1) & 0b0000111;
+                        info.Ui.set_yaw_zero = recv_data[1] & 0b0000001;
                         info.moving_speed = recv_data[2] * 0.01;
                         info.line_moving_speed = recv_data[3] * 0.01;
                   }
@@ -162,29 +162,10 @@ void Robot::UiUart() {
             }
       }
 
-      if (dribbler_sig == 0) {
-            dribbler_front.Hold(0);
-            dribbler_back.Hold(0);
-      } else if (dribbler_sig == 1) {
-            if (info.Catch.is_front) {
-                  dribbler_front.Hold(HOLD_MAX_POWER);
-            } else {
-                  dribbler_front.Hold(HOLD_WAIT_POWER);
-            }
-      } else if (dribbler_sig == 2) {
-            kicker.Kick();
-      } else if (dribbler_sig == 3) {
-            if (info.Catch.is_back) {
-                  dribbler_back.Hold(HOLD_MAX_POWER);
-            } else {
-                  dribbler_back.Hold(HOLD_WAIT_POWER);
-            }
-      }
+      if (info.mode == 0) {
+            int16_t debug_val[2];
 
-      int16_t debug_val[2];
-
-      if (ui_send_interval_timer.read_us() >= UI_SEND_PERIOD_US) {
-            if (info.mode == 0) {
+            if (ui_send_interval_timer.read_us() >= UI_SEND_PERIOD_US) {
                   static const uint8_t HEADER = 0xFF;  // ヘッダ
                   if (item == -2) {
                         static const uint8_t data_size = 1;
@@ -214,8 +195,8 @@ void Robot::UiUart() {
                         send_data[4] = info.Line.is_on_line << 2 | info.Line.is_leftside << 1 | info.Line.is_rightside;
                         serial3.write(send_data, data_size);
                   }
-            }
 
-            ui_send_interval_timer.reset();
+                  ui_send_interval_timer.reset();
+            }
       }
 }
