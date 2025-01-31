@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
   28:Core/Src/usart.c **** UART_HandleTypeDef huart2;
   29:Core/Src/usart.c **** UART_HandleTypeDef huart3;
   30:Core/Src/usart.c **** DMA_HandleTypeDef hdma_usart1_rx;
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 2
 
 
   31:Core/Src/usart.c **** DMA_HandleTypeDef hdma_usart1_tx;
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
   59 0016 0C22     		movs	r2, #12
   60 0018 4261     		str	r2, [r0, #20]
   55:Core/Src/usart.c ****   huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 3
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 3
 
 
   61              		.loc 1 55 3 is_stmt 1 view .LVU13
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  102              		@ frame_needed = 0, uses_anonymous_args = 0
  103 0000 08B5     		push	{r3, lr}
  104              	.LCFI1:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 4
 
 
  105              		.cfi_def_cfa_offset 8
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  142 0022 00B9     		cbnz	r0, .L10
  143              	.L7:
   87:Core/Src/usart.c ****   {
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 5
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 5
 
 
   88:Core/Src/usart.c ****     Error_Handler();
@@ -298,14 +298,14 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  179              		.loc 1 107 19 is_stmt 0 view .LVU48
  180 0002 0A48     		ldr	r0, .L17
  181 0004 0A4B     		ldr	r3, .L17+4
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 6
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 6
 
 
  182 0006 0360     		str	r3, [r0]
- 108:Core/Src/usart.c ****   huart3.Init.BaudRate = 19200;
+ 108:Core/Src/usart.c ****   huart3.Init.BaudRate = 38400;
  183              		.loc 1 108 3 is_stmt 1 view .LVU49
  184              		.loc 1 108 24 is_stmt 0 view .LVU50
- 185 0008 4FF49643 		mov	r3, #19200
+ 185 0008 4FF41643 		mov	r3, #38400
  186 000c 4360     		str	r3, [r0, #4]
  109:Core/Src/usart.c ****   huart3.Init.WordLength = UART_WORDLENGTH_8B;
  187              		.loc 1 109 3 is_stmt 1 view .LVU51
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  219              	.LVL5:
  220              		.loc 1 123 1 is_stmt 0 view .LVU68
  221 002a FBE7     		b	.L13
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 7
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 7
 
 
  222              	.L18:
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  132:Core/Src/usart.c **** 
  133:Core/Src/usart.c ****   /* USER CODE END USART1_MspInit 0 */
  134:Core/Src/usart.c ****     /* USART1 clock enable */
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 8
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 8
 
 
  135:Core/Src/usart.c ****     __HAL_RCC_USART1_CLK_ENABLE();
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  189:Core/Src/usart.c ****   /* USER CODE BEGIN USART1_MspInit 1 */
  190:Core/Src/usart.c **** 
  191:Core/Src/usart.c ****   /* USER CODE END USART1_MspInit 1 */
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 9
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 9
 
 
  192:Core/Src/usart.c ****   }
@@ -538,7 +538,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  241:Core/Src/usart.c ****     hdma_usart2_tx.Init.Priority = DMA_PRIORITY_LOW;
  242:Core/Src/usart.c ****     hdma_usart2_tx.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
  243:Core/Src/usart.c ****     if (HAL_DMA_Init(&hdma_usart2_tx) != HAL_OK)
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 10
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 10
 
 
  244:Core/Src/usart.c ****     {
@@ -598,7 +598,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  291:Core/Src/usart.c ****       Error_Handler();
  292:Core/Src/usart.c ****     }
  293:Core/Src/usart.c **** 
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 11
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 11
 
 
  294:Core/Src/usart.c ****     __HAL_LINKDMA(uartHandle,hdmarx,hdma_usart3_rx);
@@ -658,7 +658,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  304 003a 5A6C     		ldr	r2, [r3, #68]
  305 003c 02F01002 		and	r2, r2, #16
  306 0040 0192     		str	r2, [sp, #4]
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 12
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 12
 
 
  135:Core/Src/usart.c **** 
@@ -718,7 +718,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  147:Core/Src/usart.c **** 
  344              		.loc 1 147 5 is_stmt 1 view .LVU102
  345 006a 07A9     		add	r1, sp, #28
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 13
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 13
 
 
  346 006c 8948     		ldr	r0, .L39+16
@@ -778,7 +778,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  381              		.loc 1 159 34 is_stmt 0 view .LVU121
  382 0092 0562     		str	r5, [r0, #32]
  160:Core/Src/usart.c ****     if (HAL_DMA_Init(&hdma_usart1_rx) != HAL_OK)
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 14
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 14
 
 
  383              		.loc 1 160 5 is_stmt 1 view .LVU122
@@ -838,7 +838,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  419 00b6 4FF48062 		mov	r2, #1024
  420 00ba 0261     		str	r2, [r0, #16]
  174:Core/Src/usart.c ****     hdma_usart1_tx.Init.MemDataAlignment = DMA_MDATAALIGN_BYTE;
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 15
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 15
 
 
  421              		.loc 1 174 5 is_stmt 1 view .LVU141
@@ -898,7 +898,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  457              		.loc 1 188 5 view .LVU159
  458 00e0 2520     		movs	r0, #37
  459 00e2 FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 16
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 16
 
 
  460              	.LVL14:
@@ -958,7 +958,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  502 0118 03F00103 		and	r3, r3, #1
  503 011c 0493     		str	r3, [sp, #16]
  201:Core/Src/usart.c ****     /**USART2 GPIO Configuration
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 17
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 17
 
 
  504              		.loc 1 201 5 view .LVU172
@@ -1018,7 +1018,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  541              		.loc 1 217 5 is_stmt 1 view .LVU189
  217:Core/Src/usart.c ****     hdma_usart2_rx.Init.PeriphInc = DMA_PINC_DISABLE;
  542              		.loc 1 217 35 is_stmt 0 view .LVU190
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 18
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 18
 
 
  543 0144 8560     		str	r5, [r0, #8]
@@ -1078,7 +1078,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  230:Core/Src/usart.c **** 
  578              		.loc 1 230 5 view .LVU210
  579 0166 9C63     		str	r4, [r3, #56]
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 19
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 19
 
 
  230:Core/Src/usart.c **** 
@@ -1138,7 +1138,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  242:Core/Src/usart.c ****     if (HAL_DMA_Init(&hdma_usart2_tx) != HAL_OK)
  615              		.loc 1 242 5 is_stmt 1 view .LVU230
  242:Core/Src/usart.c ****     if (HAL_DMA_Init(&hdma_usart2_tx) != HAL_OK)
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 20
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 20
 
 
  616              		.loc 1 242 34 is_stmt 0 view .LVU231
@@ -1198,7 +1198,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  657              		.loc 1 263 5 view .LVU244
  658 01ba 0025     		movs	r5, #0
  659 01bc 0595     		str	r5, [sp, #20]
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 21
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 21
 
 
  263:Core/Src/usart.c **** 
@@ -1258,7 +1258,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  698              		.loc 1 273 5 view .LVU260
  273:Core/Src/usart.c ****     GPIO_InitStruct.Alternate = GPIO_AF7_USART3;
  699              		.loc 1 273 27 is_stmt 0 view .LVU261
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 22
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 22
 
 
  700 01f0 0323     		movs	r3, #3
@@ -1318,7 +1318,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  736              		.loc 1 285 42 is_stmt 0 view .LVU279
  737 0218 8561     		str	r5, [r0, #24]
  286:Core/Src/usart.c ****     hdma_usart3_rx.Init.Priority = DMA_PRIORITY_LOW;
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 23
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 23
 
 
  738              		.loc 1 286 5 is_stmt 1 view .LVU280
@@ -1378,7 +1378,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  774 023e 8360     		str	r3, [r0, #8]
  300:Core/Src/usart.c ****     hdma_usart3_tx.Init.MemInc = DMA_MINC_ENABLE;
  775              		.loc 1 300 5 is_stmt 1 view .LVU299
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 24
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 24
 
 
  300:Core/Src/usart.c ****     hdma_usart3_tx.Init.MemInc = DMA_MINC_ENABLE;
@@ -1438,7 +1438,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  811 0262 9C63     		str	r4, [r3, #56]
  312:Core/Src/usart.c **** 
  812              		.loc 1 312 5 view .LVU319
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 25
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 25
 
 
  315:Core/Src/usart.c ****     HAL_NVIC_EnableIRQ(USART3_IRQn);
@@ -1498,7 +1498,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  864              		.thumb_func
  866              	HAL_UART_MspDeInit:
  867              	.LVL35:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 26
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 26
 
 
  868              	.LFB243:
@@ -1558,7 +1558,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  352:Core/Src/usart.c ****   /* USER CODE BEGIN USART2_MspDeInit 0 */
  353:Core/Src/usart.c **** 
  354:Core/Src/usart.c ****   /* USER CODE END USART2_MspDeInit 0 */
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 27
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 27
 
 
  355:Core/Src/usart.c ****     /* Peripheral clock disable */
@@ -1618,7 +1618,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  902              	.L46:
  332:Core/Src/usart.c **** 
  903              		.loc 1 332 5 is_stmt 1 view .LVU335
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 28
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 28
 
 
  904 001a 02F59432 		add	r2, r2, #75776
@@ -1678,7 +1678,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  948 0060 FFF7FEFF 		bl	HAL_DMA_DeInit
  949              	.LVL47:
  369:Core/Src/usart.c ****   /* USER CODE BEGIN USART2_MspDeInit 1 */
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 29
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 29
 
 
  950              		.loc 1 369 5 view .LVU346
@@ -1738,7 +1738,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  1000      00000000 
  1000      00000000 
  1000      00000000 
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 30
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 30
 
 
  1000      00000000 
@@ -1798,7 +1798,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  1042      00000000 
  1043              		.global	huart2
  1044              		.section	.bss.huart2,"aw",%nobits
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 31
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 31
 
 
  1045              		.align	2
@@ -1829,44 +1829,44 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 1
  1066              		.file 9 "Core/Inc/usart.h"
  1067              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
  1068              		.file 11 "Core/Inc/main.h"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s 			page 32
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s 			page 32
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 usart.c
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:21     .text.MX_USART1_UART_Init:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:27     .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:85     .text.MX_USART1_UART_Init:0000002c $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1055   .bss.huart1:00000000 huart1
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:91     .text.MX_USART2_UART_Init:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:97     .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:155    .text.MX_USART2_UART_Init:0000002c $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1048   .bss.huart2:00000000 huart2
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:161    .text.MX_USART3_UART_Init:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:167    .text.MX_USART3_UART_Init:00000000 MX_USART3_UART_Init
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:225    .text.MX_USART3_UART_Init:0000002c $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1041   .bss.huart3:00000000 huart3
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:231    .text.HAL_UART_MspInit:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:237    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:838    .text.HAL_UART_MspInit:00000284 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1034   .bss.hdma_usart1_rx:00000000 hdma_usart1_rx
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1027   .bss.hdma_usart1_tx:00000000 hdma_usart1_tx
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1020   .bss.hdma_usart2_rx:00000000 hdma_usart2_rx
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1013   .bss.hdma_usart2_tx:00000000 hdma_usart2_tx
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1006   .bss.hdma_usart3_rx:00000000 hdma_usart3_rx
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:999    .bss.hdma_usart3_tx:00000000 hdma_usart3_tx
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:860    .text.HAL_UART_MspDeInit:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:866    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:986    .text.HAL_UART_MspDeInit:00000098 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:996    .bss.hdma_usart3_tx:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1003   .bss.hdma_usart3_rx:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1010   .bss.hdma_usart2_tx:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1017   .bss.hdma_usart2_rx:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1024   .bss.hdma_usart1_tx:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1031   .bss.hdma_usart1_rx:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1038   .bss.huart3:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1045   .bss.huart2:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc3lPaMg.s:1052   .bss.huart1:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:21     .text.MX_USART1_UART_Init:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:27     .text.MX_USART1_UART_Init:00000000 MX_USART1_UART_Init
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:85     .text.MX_USART1_UART_Init:0000002c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1055   .bss.huart1:00000000 huart1
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:91     .text.MX_USART2_UART_Init:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:97     .text.MX_USART2_UART_Init:00000000 MX_USART2_UART_Init
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:155    .text.MX_USART2_UART_Init:0000002c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1048   .bss.huart2:00000000 huart2
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:161    .text.MX_USART3_UART_Init:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:167    .text.MX_USART3_UART_Init:00000000 MX_USART3_UART_Init
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:225    .text.MX_USART3_UART_Init:0000002c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1041   .bss.huart3:00000000 huart3
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:231    .text.HAL_UART_MspInit:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:237    .text.HAL_UART_MspInit:00000000 HAL_UART_MspInit
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:838    .text.HAL_UART_MspInit:00000284 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1034   .bss.hdma_usart1_rx:00000000 hdma_usart1_rx
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1027   .bss.hdma_usart1_tx:00000000 hdma_usart1_tx
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1020   .bss.hdma_usart2_rx:00000000 hdma_usart2_rx
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1013   .bss.hdma_usart2_tx:00000000 hdma_usart2_tx
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1006   .bss.hdma_usart3_rx:00000000 hdma_usart3_rx
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:999    .bss.hdma_usart3_tx:00000000 hdma_usart3_tx
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:860    .text.HAL_UART_MspDeInit:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:866    .text.HAL_UART_MspDeInit:00000000 HAL_UART_MspDeInit
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:986    .text.HAL_UART_MspDeInit:00000098 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:996    .bss.hdma_usart3_tx:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1003   .bss.hdma_usart3_rx:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1010   .bss.hdma_usart2_tx:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1017   .bss.hdma_usart2_rx:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1024   .bss.hdma_usart1_tx:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1031   .bss.hdma_usart1_rx:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1038   .bss.huart3:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1045   .bss.huart2:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cccEQ96I.s:1052   .bss.huart1:00000000 $d
 
 UNDEFINED SYMBOLS
 HAL_UART_Init

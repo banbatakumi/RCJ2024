@@ -39,18 +39,10 @@ void Mode::MainMode() {
                   }
             }
       } else if (robot->info.mode == 1) {
-            robot->motor.Drive(0, 0.5);
+            Offence();
       } else if (robot->info.mode == 2) {
-            robot->motor.Drive(180, 0.5);
+            Defence();
       }
-
-      // static float cnt;
-      // cnt += 0.05;
-      // robot->motor.Drive(cnt, 0.5);
-      // robot->dribbler_front.Hold(20);
-      // if (robot->info.Catch.is_front) {
-      //       robot->kicker.Kick(0.15);
-      // }
 
       // cortex-debug
       yaw = robot->info.Imu.yaw;
