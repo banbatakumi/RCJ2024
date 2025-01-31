@@ -44,8 +44,8 @@ void Line() {
       }
 
       if (is_on_line == 1) led.SetDegree(line_inside_dir, 0, 1, 0);
-      if (is_left_line) led.SetPixelColorSimply(12, 0, 0, 1);
-      if (is_right_line) led.SetPixelColorSimply(4, 0, 0, 1);
+      if (is_left_line) led.SetPixelColor(12, 0, 0, 255);
+      if (is_right_line) led.SetPixelColor(4, 0, 0, 255);
 }
 
 #endif

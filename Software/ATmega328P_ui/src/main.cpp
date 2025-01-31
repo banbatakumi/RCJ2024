@@ -3,7 +3,7 @@
 #include "config.h"
 
 void setup() {
-      Serial.begin(19200);  // 通信速度: 9600, 14400, 19200, 28800, 38400, 57600, 115200
+      Serial.begin(38400);  // 通信速度: 9600, 14400, 19200, 28800, 38400, 57600, 115200
 
       // OLEDセットアップ
       oled.begin();
@@ -19,6 +19,7 @@ void setup() {
       led.SetBrightness(50);
       led.Clear();
 
+      // 起動音
       tone(buzzer_pin, 2000, 100);
       delay(100);
       tone(buzzer_pin, 1000, 100);

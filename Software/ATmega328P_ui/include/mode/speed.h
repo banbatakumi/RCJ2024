@@ -16,7 +16,7 @@ void Speed() {
             if (moving_speed > 100) moving_speed = 100;
 
             for (uint8_t i = 0; i < round(moving_speed / 6.25); i++) {
-                  led.SetPixelColorSimply(i, 0, 0, 1);
+                  led.SetPixelColor(i, 0, 0, 255);
             }
       } else if (sub_item == 2) {
             oled.setCursor(CenterX(64, 4), CenterY(16));
@@ -27,7 +27,7 @@ void Speed() {
             if (line_moving_speed > 100) line_moving_speed = 100;
 
             for (uint8_t i = 0; i < round(line_moving_speed / 6.25); i++) {
-                  led.SetPixelColorSimply(i, 0, 0, 1);
+                  led.SetPixelColor(i, 0, 0, 255);
             }
       } else {
             sub_item = 0;

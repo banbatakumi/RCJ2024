@@ -10,16 +10,15 @@ class NeoPixel {
      public:
       NeoPixel();
       Adafruit_NeoPixel led;
-      void SetPixelColorSimply(int8_t led_num_, bool red_, bool green_, bool blue_);
-      void SetPixelColor(int8_t led_num_, uint8_t red_, uint8_t green_, uint8_t blue_);
-      void SetDegree(int16_t degree_, bool red_, bool green_, bool blue_);
+      void SetPixelColor(int8_t led_num, uint8_t red, uint8_t green, uint8_t blue);
+      void SetDegree(int16_t degree, bool red, bool green, bool blue);
       void Clear();
       void Show();
       void Rainbow();
-      void SetBrightness(uint8_t brightness_);
+      void SetBrightness(uint8_t brightness);
 
      private:
-      uint8_t brightness;
+      uint8_t brightness_;
 };
 
 #endif

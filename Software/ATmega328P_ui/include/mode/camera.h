@@ -83,8 +83,8 @@ void Camera() {
             oled.print("S:");
             oled.print(b_goal_size);
 
-            if (y_goal_size != 0) led.SetPixelColorSimply(round(y_goal_dir / 22.5) % 16, 1, 1, 0);
-            if (b_goal_size != 0) led.SetPixelColorSimply(round(b_goal_dir / 22.5) % 16, 0, 0, 1);
+            if (y_goal_size != 0) led.SetPixelColor(round(y_goal_dir / 22.5) % 16, 255, 255, 0);
+            if (b_goal_size != 0) led.SetPixelColor(round(b_goal_dir / 22.5) % 16, 0, 0, 255);
       } else if (sub_item == 3) {
             if (Serial.available() > 0) {
                   if (Serial.read() == 0xFF) {
@@ -118,20 +118,20 @@ void Camera() {
             oled.drawEllipse(101, 32, 9, 9);
             oled.drawEllipse(101, 32, 1, 1);
 
-            if ((front_proximity >> 6) & 1) led.SetPixelColorSimply(13, 1, 0, 0);
-            if ((front_proximity >> 5) & 1) led.SetPixelColorSimply(14, 1, 0, 0);
-            if ((front_proximity >> 4) & 1) led.SetPixelColorSimply(15, 1, 0, 0);
-            if ((front_proximity >> 3) & 1) led.SetPixelColorSimply(0, 1, 0, 0);
-            if ((front_proximity >> 2) & 1) led.SetPixelColorSimply(1, 1, 0, 0);
-            if ((front_proximity >> 1) & 1) led.SetPixelColorSimply(2, 1, 0, 0);
-            if (front_proximity & 1) led.SetPixelColorSimply(3, 1, 0, 0);
-            if ((back_proximity >> 6) & 1) led.SetPixelColorSimply(5, 1, 0, 0);
-            if ((back_proximity >> 5) & 1) led.SetPixelColorSimply(6, 1, 0, 0);
-            if ((back_proximity >> 4) & 1) led.SetPixelColorSimply(7, 1, 0, 0);
-            if ((back_proximity >> 3) & 1) led.SetPixelColorSimply(8, 1, 0, 0);
-            if ((back_proximity >> 2) & 1) led.SetPixelColorSimply(9, 1, 0, 0);
-            if ((back_proximity >> 1) & 1) led.SetPixelColorSimply(10, 1, 0, 0);
-            if (back_proximity & 1) led.SetPixelColorSimply(11, 1, 0, 0);
+            if ((front_proximity >> 6) & 1) led.SetPixelColor(13, 255, 0, 0);
+            if ((front_proximity >> 5) & 1) led.SetPixelColor(14, 255, 0, 0);
+            if ((front_proximity >> 4) & 1) led.SetPixelColor(15, 255, 0, 0);
+            if ((front_proximity >> 3) & 1) led.SetPixelColor(0, 255, 0, 0);
+            if ((front_proximity >> 2) & 1) led.SetPixelColor(1, 255, 0, 0);
+            if ((front_proximity >> 1) & 1) led.SetPixelColor(2, 255, 0, 0);
+            if (front_proximity & 1) led.SetPixelColor(3, 255, 0, 0);
+            if ((back_proximity >> 6) & 1) led.SetPixelColor(5, 255, 0, 0);
+            if ((back_proximity >> 5) & 1) led.SetPixelColor(6, 255, 0, 0);
+            if ((back_proximity >> 4) & 1) led.SetPixelColor(7, 255, 0, 0);
+            if ((back_proximity >> 3) & 1) led.SetPixelColor(8, 255, 0, 0);
+            if ((back_proximity >> 2) & 1) led.SetPixelColor(9, 255, 0, 0);
+            if ((back_proximity >> 1) & 1) led.SetPixelColor(10, 255, 0, 0);
+            if (back_proximity & 1) led.SetPixelColor(11, 255, 0, 0);
       } else {
             sub_item = 0;
       }
