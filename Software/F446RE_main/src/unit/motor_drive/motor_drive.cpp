@@ -10,7 +10,7 @@ MotorDrive::MotorDrive(PwmSingleOut *motor1a, PwmSingleOut *motor1b,
       this->motor_rps_ = motor_rps;
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
             motor_ave[i].SetLength(MOVING_AVE_NUM);
-            motor_pid[i].SetGain(10, 15, 0.1);
+            motor_pid[i].SetGain(10, 7.5, 0.2);
             motor_pid[i].SetLimit(MIN_POWER, MAX_POWER);
             motor_pid[i].SetSamplingFreq(1000);
             motor_pid[i].SetType(1);
@@ -34,23 +34,23 @@ void MotorDrive::Init() {
 }
 
 void MotorDrive::Drive(int16_t deg, float speed) {
+      float target_rad_s[MOTOR_QTY];
       int16_t power[MOTOR_QTY];
-      float vel_x, vel_y;
 
-      vel_x = speed * MyMath::cosDeg(deg);
-      vel_y = speed * MyMath::sinDeg(deg);
+      float vel_x = speed * MyMath::cosDeg(deg);
+      float vel_y = speed * MyMath::sinDeg(deg);
 
       pid.Compute(0, *yaw_);
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
-            power[i] = (1 / 0.025) * (-1 * MyMath::sinDeg(45 + (90 * i)) * MyMath::cosDeg(45) * vel_x + MyMath::cosDeg(45 + (90 * i)) * MyMath::cosDeg(45) * vel_y) * PI * 2;
-            power[i] -= pid.Get();
+            target_rad_s[i] = (1 / 0.025) * (-1 * MyMath::sinDeg(45 + (90 * i)) * MyMath::cosDeg(45) * vel_x + MyMath::cosDeg(45 + (90 * i)) * MyMath::cosDeg(45) * vel_y) * PI * 2;
+            target_rad_s[i] -= pid.Get();
       }
 
       // PIDで姿勢制御
-
       for (uint8_t i = 0; i < MOTOR_QTY; i++) {
-            motor_pid[i].Compute(motor_rps_[i], abs(power[i]));
-            if (power[i] > 0) {
+            if (target_rad_s[i] == 0) motor_pid[i].ResetI();
+            motor_pid[i].Compute(motor_rps_[i], abs(target_rad_s[i]));
+            if (target_rad_s[i] > 0) {
                   power[i] = motor_pid[i].Get();
             } else {
                   power[i] = motor_pid[i].Get() * -1;

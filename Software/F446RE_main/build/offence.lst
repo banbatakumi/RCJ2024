@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccoJFtNc.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccTNzxyP.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -44,12 +44,12 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccoJFtNc.s 			page 1
   39              		.cfi_def_cfa_offset 8
   40              		.cfi_offset 3, -8
   41              		.cfi_offset 14, -4
-   4:src/mode/offence.cpp ****       robot->motor.Drive(0, 0.5);
+   4:src/mode/offence.cpp ****       robot->motor.Drive(0, 0.2);
   42              		.loc 1 4 7 is_stmt 1 view .LVU2
   43 0002 4068     		ldr	r0, [r0, #4]
   44              	.LVL1:
   45              		.loc 1 4 25 is_stmt 0 view .LVU3
-  46 0004 B6EE000A 		vmov.f32	s0, #5.0e-1
+  46 0004 9FED030A 		vldr.32	s0, .L3
   47 0008 0021     		movs	r1, #0
   48 000a 00F58C70 		add	r0, r0, #280
   49 000e FFF7FEFF 		bl	_ZN10MotorDrive5DriveEsf
@@ -57,46 +57,51 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccoJFtNc.s 			page 1
    5:src/mode/offence.cpp **** }...
   51              		.loc 1 5 1 view .LVU4
   52 0012 08BD     		pop	{r3, pc}
-  53              		.cfi_endproc
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccoJFtNc.s 			page 2
+  53              	.L4:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccTNzxyP.s 			page 2
 
 
-  54              	.LFE272:
-  55              		.fnend
-  57              		.text
-  58              	.Letext0:
-  59              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
-  60              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
-  61              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
-  62              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
-  63              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
-  64              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
-  65              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
-  66              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
-  67              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
-  68              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
-  69              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
-  70              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
-  71              		.file 14 "Lib/BufferedSerial/BufferedSerial.hpp"
-  72              		.file 15 "Lib/DigitalInOut/DigitalInOut.hpp"
-  73              		.file 16 "Lib/MovingAve/MovingAve.hpp"
-  74              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
-  75              		.file 18 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
-  76              		.file 19 "Lib/PWMSingle/PWMSingle.hpp"
-  77              		.file 20 "Lib/Timer/Timer.hpp"
-  78              		.file 21 "src/unit/dribbler_drive/dribbler_drive.hpp"
-  79              		.file 22 "src/unit/kicker/kicker.hpp"
-  80              		.file 23 "Lib/pid/pid.hpp"
-  81              		.file 24 "src/unit/motor_drive/motor_drive.hpp"
-  82              		.file 25 "src/unit/robot/robot.hpp"
-  83              		.file 26 "src/mode/mode.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccoJFtNc.s 			page 3
+  54              		.align	2
+  55              	.L3:
+  56 0014 CDCC4C3E 		.word	1045220557
+  57              		.cfi_endproc
+  58              	.LFE272:
+  59              		.fnend
+  61              		.text
+  62              	.Letext0:
+  63              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+  64              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+  65              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+  66              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+  67              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+  68              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+  69              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+  70              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+  71              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+  72              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+  73              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+  74              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+  75              		.file 14 "Lib/BufferedSerial/BufferedSerial.hpp"
+  76              		.file 15 "Lib/DigitalInOut/DigitalInOut.hpp"
+  77              		.file 16 "Lib/MovingAve/MovingAve.hpp"
+  78              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+  79              		.file 18 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
+  80              		.file 19 "Lib/PWMSingle/PWMSingle.hpp"
+  81              		.file 20 "Lib/Timer/Timer.hpp"
+  82              		.file 21 "src/unit/dribbler_drive/dribbler_drive.hpp"
+  83              		.file 22 "src/unit/kicker/kicker.hpp"
+  84              		.file 23 "Lib/pid/pid.hpp"
+  85              		.file 24 "src/unit/motor_drive/motor_drive.hpp"
+  86              		.file 25 "src/unit/robot/robot.hpp"
+  87              		.file 26 "src/mode/mode.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccTNzxyP.s 			page 3
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 offence.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccoJFtNc.s:21     .text._ZN4Mode7OffenceEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccoJFtNc.s:27     .text._ZN4Mode7OffenceEv:00000000 _ZN4Mode7OffenceEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccTNzxyP.s:21     .text._ZN4Mode7OffenceEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccTNzxyP.s:27     .text._ZN4Mode7OffenceEv:00000000 _ZN4Mode7OffenceEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccTNzxyP.s:56     .text._ZN4Mode7OffenceEv:00000014 $d
 .ARM.extab.text._ZN4Mode7OffenceEv:00000000 $d
 .ARM.exidx.text._ZN4Mode7OffenceEv:00000000 $d
 

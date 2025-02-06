@@ -167,13 +167,14 @@ void Robot::UiUart() {
 
             if (ui_send_interval_timer.read_us() >= UI_SEND_PERIOD_US) {
                   static const uint8_t HEADER = 0xFF;  // ヘッダ
+                  static const uint8_t FOOTER = 0xAA;  // ヘッダ
                   if (item == -2) {
                         static const uint8_t data_size = 1;
                         uint8_t send_data[data_size];
                         send_data[0] = info.Catch.is_front << 1 | info.Catch.is_back;
                         serial3.write(send_data, data_size);
                   } else if (item == 0) {
-                        static const uint8_t data_size = 9;
+                        static const uint8_t data_size = 10;
                         uint8_t send_data[data_size];
                         send_data[0] = HEADER;
                         send_data[1] = info.voltage * 20;
@@ -184,15 +185,17 @@ void Robot::UiUart() {
                         send_data[6] = (uint8_t)((uint16_t)(debug_val[0] + 32768) & 0x00FF);
                         send_data[7] = (uint8_t)(((uint16_t)(debug_val[1] + 32768) & 0xFF00) >> 8);
                         send_data[8] = (uint8_t)((uint16_t)(debug_val[1] + 32768) & 0x00FF);
+                        send_data[9] = FOOTER;
                         serial3.write(send_data, data_size);
                   } else if (item == 1) {
-                        static const uint8_t data_size = 5;
+                        static const uint8_t data_size = 6;
                         uint8_t send_data[data_size];
                         send_data[0] = HEADER;
                         send_data[1] = info.Line.dir;
                         send_data[2] = info.Line.inside_dir;
                         send_data[3] = info.Line.interval;
                         send_data[4] = info.Line.is_on_line << 2 | info.Line.is_leftside << 1 | info.Line.is_rightside;
+                        send_data[5] = FOOTER;
                         serial3.write(send_data, data_size);
                   }
 

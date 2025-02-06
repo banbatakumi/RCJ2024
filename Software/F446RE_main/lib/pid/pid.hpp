@@ -17,6 +17,7 @@ class PID {
 
       void Compute(float input, float target);
       float Get();
+      void ResetI();
 
       void SetType(uint8_t type = 0);
 

@@ -65,3 +65,7 @@ void PID::Compute(float input, float target) {
 float PID::Get() {
       return pid_;
 }
+
+void PID::ResetI() {
+      i_ = 0;
+}
