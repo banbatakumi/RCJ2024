@@ -37,6 +37,7 @@ void main_app() {
       while (1) {
             process_timer.reset();
             hardware.MainUart();
+            hardware.M1nUart();
 
             hardware.info.ball_dir = 90;
             hardware.info.ball_dis = 40;

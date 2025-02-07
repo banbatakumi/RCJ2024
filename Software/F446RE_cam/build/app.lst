@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
   27:src/app/app.cpp ****       hardware.led2 = 0;
   28:src/app/app.cpp ****       hardware.led3 = 0;
   29:src/app/app.cpp ****       hardware.led4 = 0;
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 2
 
 
   30:src/app/app.cpp ****       for (uint8_t i = 0; i < 5; i++) {
@@ -71,40 +71,41 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
   37:src/app/app.cpp ****       while (1) {
   38:src/app/app.cpp ****             process_timer.reset();
   39:src/app/app.cpp ****             hardware.MainUart();
-  40:src/app/app.cpp **** 
-  41:src/app/app.cpp ****             hardware.info.ball_dir = 90;
-  42:src/app/app.cpp ****             hardware.info.ball_dis = 40;
-  43:src/app/app.cpp **** 
-  44:src/app/app.cpp ****             //  定周期処理
-  45:src/app/app.cpp ****             process_time_ = process_timer.read_us();
-  46:src/app/app.cpp ****             if (process_time_ < PERIOD_US) {
-  47:src/app/app.cpp ****                   while (process_timer.read_us() < PERIOD_US);
-  48:src/app/app.cpp ****             }
-  49:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
-  50:src/app/app.cpp ****       }
-  51:src/app/app.cpp **** }...
-  30              		.loc 1 51 1 view -0
+  40:src/app/app.cpp ****             hardware.M1nUart();
+  41:src/app/app.cpp **** 
+  42:src/app/app.cpp ****             hardware.info.ball_dir = 90;
+  43:src/app/app.cpp ****             hardware.info.ball_dis = 40;
+  44:src/app/app.cpp **** 
+  45:src/app/app.cpp ****             //  定周期処理
+  46:src/app/app.cpp ****             process_time_ = process_timer.read_us();
+  47:src/app/app.cpp ****             if (process_time_ < PERIOD_US) {
+  48:src/app/app.cpp ****                   while (process_timer.read_us() < PERIOD_US);
+  49:src/app/app.cpp ****             }
+  50:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
+  51:src/app/app.cpp ****       }
+  52:src/app/app.cpp **** }...
+  30              		.loc 1 52 1 view -0
   31              		.cfi_startproc
   32              		@ args = 0, pretend = 0, frame = 0
   33              		@ frame_needed = 0, uses_anonymous_args = 0
-  34              		.loc 1 51 1 is_stmt 0 view .LVU1
+  34              		.loc 1 52 1 is_stmt 0 view .LVU1
   35 0000 0128     		cmp	r0, #1
   36 0002 00D0     		beq	.L7
   37 0004 7047     		bx	lr
   38              	.L7:
-  39              		.loc 1 51 1 discriminator 1 view .LVU2
+  39              		.loc 1 52 1 discriminator 1 view .LVU2
   40 0006 08B5     		push	{r3, lr}
   41              	.LCFI0:
   42              		.cfi_def_cfa_offset 8
   43              		.cfi_offset 3, -8
   44              		.cfi_offset 14, -4
-  45              		.loc 1 51 1 discriminator 1 view .LVU3
+  45              		.loc 1 52 1 discriminator 1 view .LVU3
   46 0008 4FF6FF73 		movw	r3, #65535
   47 000c 9942     		cmp	r1, r3
   48 000e 00D0     		beq	.L8
   49              	.LVL1:
   50              	.L1:
-  51              		.loc 1 51 1 view .LVU4
+  51              		.loc 1 52 1 view .LVU4
   52 0010 08BD     		pop	{r3, pc}
   53              	.LVL2:
   54              	.L8:
@@ -117,14 +118,14 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
   59 0014 FFF7FEFF 		bl	_ZN8HardwareC1Ev
   60              	.LVL4:
    9:src/app/app.cpp **** Timer process_timer;
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 3
+
+
   61              		.loc 1 9 7 view .LVU7
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 3
-
-
   62 0018 0248     		ldr	r0, .L9+4
   63 001a FFF7FEFF 		bl	_ZN5TimerC1Ev
   64              	.LVL5:
-  65              		.loc 1 51 1 view .LVU8
+  65              		.loc 1 52 1 view .LVU8
   66 001e F7E7     		b	.L1
   67              	.L10:
   68              		.align	2
@@ -177,10 +178,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
   96              		@ frame_needed = 0, uses_anonymous_args = 0
   97              		.loc 2 21 12 is_stmt 0 view .LVU10
   98 0000 D0B5     		push	{r4, r6, r7, lr}
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 4
+
+
   99              	.LCFI1:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 4
-
-
  100              		.cfi_def_cfa_offset 16
  101              		.cfi_offset 4, -16
  102              		.cfi_offset 6, -12
@@ -237,10 +238,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  152              	.LVL14:
   23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
  153              		.loc 2 23 13 is_stmt 1 discriminator 8 view .LVU22
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 5
+
+
  154 004e 6368     		ldr	r3, [r4, #4]
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 5
-
-
  155 0050 33B9     		cbnz	r3, .L13
  156              		.loc 2 23 13 is_stmt 0 discriminator 1 view .LVU23
  157 0052 2368     		ldr	r3, [r4]
@@ -297,10 +298,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
   23:Lib/PWMSingle/PWMSingle.hpp ****             __HAL_TIM_SET_COMPARE(_htim, _channel, duty);
  200              		.loc 2 23 13 discriminator 5 view .LVU34
  201 008c C3ED0F7A 		vstr.32	s15, [r3, #60]	@ int
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 6
+
+
  202 0090 E5E7     		b	.L11
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 6
-
-
  203              	.L24:
  204 0092 00BF     		.align	2
  205              	.L23:
@@ -357,13 +358,13 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  252              		.loc 2 26 12 view .LVU39
  253              	.LBB25:
   27:Lib/PWMSingle/PWMSingle.hpp ****             write(duty);
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 7
+
+
  254              		.loc 2 27 13 view .LVU40
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 7
-
-
  255              		.loc 2 27 18 is_stmt 0 view .LVU41
  256 000e B7EE000A 		vmov.f32	s0, #1.0e+0
- 257 0012 04F15400 		add	r0, r4, #84
+ 257 0012 04F15800 		add	r0, r4, #88
  258 0016 FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
  259              	.LVL23:
  260              		.loc 2 27 18 view .LVU42
@@ -417,10 +418,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  298 004e FFF7FEFF 		bl	sin
  299              	.LVL29:
   23:src/app/app.cpp ****             hardware.led4 = abs(MyMath::sin(i + PI / 2));
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 8
+
+
  300              		.loc 1 23 27 discriminator 2 view .LVU53
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 8
-
-
  301 0052 B1EE400A 		vneg.f32	s0, s0
  302              	.L38:
  303              	.LVL30:
@@ -477,10 +478,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  346 008a FFF7FEFF 		bl	__aeabi_dcmplt
  347              	.LVL38:
  348 008e 0028     		cmp	r0, #0
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 9
+
+
  349 0090 5ED0     		beq	.L51
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 9
-
-
   20:src/app/app.cpp ****             hardware.led1 = abs(MyMath::sin(i));
  350              		.loc 1 20 13 is_stmt 1 view .LVU66
   20:src/app/app.cpp ****             hardware.led1 = abs(MyMath::sin(i));
@@ -537,10 +538,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  394              		.loc 1 21 27 discriminator 4 view .LVU78
  395 00d0 B5EEC00A 		vcmpe.f32	s0, #0
  396 00d4 F1EE10FA 		vmrs	APSR_nzcv, FPSCR
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 10
+
+
  397 00d8 A9DD     		ble	.L47
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 10
-
-
   21:src/app/app.cpp ****             hardware.led2 = abs(MyMath::sin(i + PI / 4));
  398              		.loc 1 21 29 discriminator 1 view .LVU79
  399 00da B0EE480A 		vmov.f32	s0, s16
@@ -597,10 +598,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  444              		.loc 2 27 13 discriminator 4 view .LVU90
  445              		.loc 2 27 18 is_stmt 0 discriminator 4 view .LVU91
  446 0118 3448     		ldr	r0, .L52+60
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 11
+
+
  447              	.LVL54:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 11
-
-
  448              		.loc 2 27 18 discriminator 4 view .LVU92
  449 011a FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
  450              	.LVL55:
@@ -657,10 +658,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  494 0156 B0EE480A 		vmov.f32	s0, s16
  495 015a 2046     		mov	r0, r4
  496 015c FFF7FEFF 		bl	_ZN12PwmSingleOut5writeEf
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 12
+
+
  497              	.LVL63:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 12
-
-
  498              		.loc 2 27 18 view .LVU105
  499              	.LBE36:
  500              	.LBE35:
@@ -717,10 +718,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  544              	.LBB43:
   30:src/app/app.cpp ****       for (uint8_t i = 0; i < 5; i++) {
  545              		.loc 1 30 20 is_stmt 0 view .LVU122
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 13
+
+
  546 0184 0024     		movs	r4, #0
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 13
-
-
   30:src/app/app.cpp ****       for (uint8_t i = 0; i < 5; i++) {
  547              		.loc 1 30 7 view .LVU123
  548 0186 0DE0     		b	.L40
@@ -777,10 +778,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  590 01a8 BDEC028B 		vldm	sp!, {d8}
  591              	.LCFI4:
  592              		.cfi_restore 80
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 14
+
+
  593              		.cfi_restore 81
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 14
-
-
  594              		.cfi_def_cfa_offset 16
  595 01ac 38BD     		pop	{r3, r4, r5, pc}
  596              	.LVL75:
@@ -801,10 +802,10 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  610 01d4 FB21F93F 		.word	1073291771
  611 01d8 00000000 		.word	hardware
  612 01dc 00000000 		.word	0
- 613 01e0 64000000 		.word	hardware+100
- 614 01e4 34000000 		.word	hardware+52
- 615 01e8 44000000 		.word	hardware+68
- 616 01ec 54000000 		.word	hardware+84
+ 613 01e0 68000000 		.word	hardware+104
+ 614 01e4 38000000 		.word	hardware+56
+ 615 01e8 48000000 		.word	hardware+72
+ 616 01ec 58000000 		.word	hardware+88
  617              		.cfi_endproc
  618              	.LFE163:
  619              		.fnend
@@ -832,30 +833,30 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  642              		.cfi_offset 14, -4
  643 0002 13E0     		b	.L57
  644              	.L55:
-  49:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
- 645              		.loc 1 49 13 view .LVU140
-  49:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
- 646              		.loc 1 49 57 is_stmt 0 view .LVU141
- 647 0004 1748     		ldr	r0, .L59
+  50:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
+ 645              		.loc 1 50 13 view .LVU140
+  50:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
+ 646              		.loc 1 50 57 is_stmt 0 view .LVU141
+ 647 0004 1948     		ldr	r0, .L59
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 15
+
+
  648 0006 FFF7FEFF 		bl	_ZN5Timer7read_usEv
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 15
-
-
  649              	.LVL76:
  650 000a 07EE900A 		vmov	s15, r0	@ int
-  49:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
- 651              		.loc 1 49 60 view .LVU142
+  50:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
+ 651              		.loc 1 50 60 view .LVU142
  652 000e F8EE677A 		vcvt.f32.u32	s15, s15
- 653 0012 9FED157A 		vldr.32	s14, .L59+4
+ 653 0012 9FED177A 		vldr.32	s14, .L59+4
  654 0016 67EE877A 		vmul.f32	s15, s15, s14
-  49:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
- 655              		.loc 1 49 33 view .LVU143
+  50:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
+ 655              		.loc 1 50 33 view .LVU143
  656 001a F7EE006A 		vmov.f32	s13, #1.0e+0
  657 001e 86EEA77A 		vdiv.f32	s14, s13, s15
-  49:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
- 658              		.loc 1 49 26 view .LVU144
+  50:src/app/app.cpp ****             process_freq = 1.0f / (process_timer.read_us() * 0.000001f);
+ 658              		.loc 1 50 26 view .LVU144
  659 0022 BDEEC77A 		vcvt.s32.f32	s14, s14
- 660 0026 114B     		ldr	r3, .L59+8
+ 660 0026 134B     		ldr	r3, .L59+8
  661 0028 83ED007A 		vstr.32	s14, [r3]	@ int
   37:src/app/app.cpp ****       while (1) {
  662              		.loc 1 37 7 is_stmt 1 view .LVU145
@@ -866,7 +867,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  665              		.loc 1 38 13 view .LVU147
   38:src/app/app.cpp ****             process_timer.reset();
  666              		.loc 1 38 32 is_stmt 0 view .LVU148
- 667 002c 0D4D     		ldr	r5, .L59
+ 667 002c 0F4D     		ldr	r5, .L59
  668 002e 2846     		mov	r0, r5
  669 0030 FFF7FEFF 		bl	_ZN5Timer5resetEv
  670              	.LVL77:
@@ -874,178 +875,188 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 1
  671              		.loc 1 39 13 is_stmt 1 view .LVU149
   39:src/app/app.cpp ****             hardware.MainUart();
  672              		.loc 1 39 30 is_stmt 0 view .LVU150
- 673 0034 0E4C     		ldr	r4, .L59+12
+ 673 0034 104C     		ldr	r4, .L59+12
  674 0036 2046     		mov	r0, r4
  675 0038 FFF7FEFF 		bl	_ZN8Hardware8MainUartEv
  676              	.LVL78:
-  41:src/app/app.cpp ****             hardware.info.ball_dir = 90;
- 677              		.loc 1 41 13 is_stmt 1 view .LVU151
-  41:src/app/app.cpp ****             hardware.info.ball_dir = 90;
- 678              		.loc 1 41 36 is_stmt 0 view .LVU152
- 679 003c 5A23     		movs	r3, #90
- 680 003e 6384     		strh	r3, [r4, #34]	@ movhi
-  42:src/app/app.cpp ****             hardware.info.ball_dis = 40;
- 681              		.loc 1 42 13 is_stmt 1 view .LVU153
-  42:src/app/app.cpp ****             hardware.info.ball_dis = 40;
- 682              		.loc 1 42 36 is_stmt 0 view .LVU154
- 683 0040 2823     		movs	r3, #40
- 684 0042 A384     		strh	r3, [r4, #36]	@ movhi
-  45:src/app/app.cpp ****             process_time_ = process_timer.read_us();
- 685              		.loc 1 45 13 is_stmt 1 view .LVU155
-  45:src/app/app.cpp ****             process_time_ = process_timer.read_us();
- 686              		.loc 1 45 50 is_stmt 0 view .LVU156
- 687 0044 2846     		mov	r0, r5
- 688 0046 FFF7FEFF 		bl	_ZN5Timer7read_usEv
- 689              	.LVL79:
-  45:src/app/app.cpp ****             process_time_ = process_timer.read_us();
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 16
+  40:src/app/app.cpp ****             hardware.M1nUart();
+ 677              		.loc 1 40 13 is_stmt 1 view .LVU151
+  40:src/app/app.cpp ****             hardware.M1nUart();
+ 678              		.loc 1 40 29 is_stmt 0 view .LVU152
+ 679 003c 2046     		mov	r0, r4
+ 680 003e FFF7FEFF 		bl	_ZN8Hardware7M1nUartEv
+ 681              	.LVL79:
+  42:src/app/app.cpp ****             hardware.info.ball_dir = 90;
+ 682              		.loc 1 42 13 is_stmt 1 view .LVU153
+  42:src/app/app.cpp ****             hardware.info.ball_dir = 90;
+ 683              		.loc 1 42 36 is_stmt 0 view .LVU154
+ 684 0042 5A23     		movs	r3, #90
+ 685 0044 E384     		strh	r3, [r4, #38]	@ movhi
+  43:src/app/app.cpp ****             hardware.info.ball_dis = 40;
+ 686              		.loc 1 43 13 is_stmt 1 view .LVU155
+  43:src/app/app.cpp ****             hardware.info.ball_dis = 40;
+ 687              		.loc 1 43 36 is_stmt 0 view .LVU156
+ 688 0046 2823     		movs	r3, #40
+ 689 0048 2385     		strh	r3, [r4, #40]	@ movhi
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 16
 
 
- 690              		.loc 1 45 27 view .LVU157
- 691 004a 80B2     		uxth	r0, r0
- 692 004c 094B     		ldr	r3, .L59+16
- 693 004e 1880     		strh	r0, [r3]	@ movhi
-  46:src/app/app.cpp ****             if (process_time_ < PERIOD_US) {
- 694              		.loc 1 46 13 is_stmt 1 view .LVU158
- 695 0050 B0F5FA7F 		cmp	r0, #500
- 696 0054 D6D2     		bcs	.L55
- 697              	.L56:
-  47:src/app/app.cpp ****                   while (process_timer.read_us() < PERIOD_US);
- 698              		.loc 1 47 50 discriminator 1 view .LVU159
-  47:src/app/app.cpp ****                   while (process_timer.read_us() < PERIOD_US);
- 699              		.loc 1 47 47 is_stmt 0 discriminator 1 view .LVU160
- 700 0056 0348     		ldr	r0, .L59
- 701 0058 FFF7FEFF 		bl	_ZN5Timer7read_usEv
- 702              	.LVL80:
-  47:src/app/app.cpp ****                   while (process_timer.read_us() < PERIOD_US);
- 703              		.loc 1 47 50 discriminator 1 view .LVU161
- 704 005c B0F5FA7F 		cmp	r0, #500
- 705 0060 F9D3     		bcc	.L56
- 706 0062 CFE7     		b	.L55
- 707              	.L60:
- 708              		.align	2
- 709              	.L59:
- 710 0064 00000000 		.word	process_timer
- 711 0068 BD378635 		.word	897988541
- 712 006c 00000000 		.word	process_freq
- 713 0070 00000000 		.word	hardware
- 714 0074 00000000 		.word	process_time_
- 715              		.cfi_endproc
- 716              	.LFE164:
- 717              		.fnend
- 719              		.section	.text._GLOBAL__sub_I_hardware,"ax",%progbits
- 720              		.align	1
- 721              		.syntax unified
- 722              		.thumb
- 723              		.thumb_func
- 725              	_GLOBAL__sub_I_hardware:
- 726              		.fnstart
- 727              	.LFB166:
- 728              		.loc 1 51 1 is_stmt 1 view -0
- 729              		.cfi_startproc
- 730              		@ args = 0, pretend = 0, frame = 0
- 731              		@ frame_needed = 0, uses_anonymous_args = 0
- 732 0000 08B5     		push	{r3, lr}
- 733              	.LCFI6:
- 734              		.cfi_def_cfa_offset 8
- 735              		.cfi_offset 3, -8
- 736              		.cfi_offset 14, -4
- 737              		.loc 1 51 1 is_stmt 0 view .LVU163
- 738 0002 4FF6FF71 		movw	r1, #65535
- 739 0006 0120     		movs	r0, #1
- 740 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
- 741              	.LVL81:
- 742 000c 08BD     		pop	{r3, pc}
- 743              		.cfi_endproc
- 744              	.LFE166:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 17
+  46:src/app/app.cpp ****             process_time_ = process_timer.read_us();
+ 690              		.loc 1 46 13 is_stmt 1 view .LVU157
+  46:src/app/app.cpp ****             process_time_ = process_timer.read_us();
+ 691              		.loc 1 46 50 is_stmt 0 view .LVU158
+ 692 004a 2846     		mov	r0, r5
+ 693 004c FFF7FEFF 		bl	_ZN5Timer7read_usEv
+ 694              	.LVL80:
+  46:src/app/app.cpp ****             process_time_ = process_timer.read_us();
+ 695              		.loc 1 46 27 view .LVU159
+ 696 0050 80B2     		uxth	r0, r0
+ 697 0052 0A4B     		ldr	r3, .L59+16
+ 698 0054 1880     		strh	r0, [r3]	@ movhi
+  47:src/app/app.cpp ****             if (process_time_ < PERIOD_US) {
+ 699              		.loc 1 47 13 is_stmt 1 view .LVU160
+ 700 0056 B0F5FA7F 		cmp	r0, #500
+ 701 005a D3D2     		bcs	.L55
+ 702              	.L56:
+  48:src/app/app.cpp ****                   while (process_timer.read_us() < PERIOD_US);
+ 703              		.loc 1 48 50 discriminator 1 view .LVU161
+  48:src/app/app.cpp ****                   while (process_timer.read_us() < PERIOD_US);
+ 704              		.loc 1 48 47 is_stmt 0 discriminator 1 view .LVU162
+ 705 005c 0348     		ldr	r0, .L59
+ 706 005e FFF7FEFF 		bl	_ZN5Timer7read_usEv
+ 707              	.LVL81:
+  48:src/app/app.cpp ****                   while (process_timer.read_us() < PERIOD_US);
+ 708              		.loc 1 48 50 discriminator 1 view .LVU163
+ 709 0062 B0F5FA7F 		cmp	r0, #500
+ 710 0066 F9D3     		bcc	.L56
+ 711 0068 CCE7     		b	.L55
+ 712              	.L60:
+ 713 006a 00BF     		.align	2
+ 714              	.L59:
+ 715 006c 00000000 		.word	process_timer
+ 716 0070 BD378635 		.word	897988541
+ 717 0074 00000000 		.word	process_freq
+ 718 0078 00000000 		.word	hardware
+ 719 007c 00000000 		.word	process_time_
+ 720              		.cfi_endproc
+ 721              	.LFE164:
+ 722              		.fnend
+ 724              		.section	.text._GLOBAL__sub_I_hardware,"ax",%progbits
+ 725              		.align	1
+ 726              		.syntax unified
+ 727              		.thumb
+ 728              		.thumb_func
+ 730              	_GLOBAL__sub_I_hardware:
+ 731              		.fnstart
+ 732              	.LFB166:
+ 733              		.loc 1 52 1 is_stmt 1 view -0
+ 734              		.cfi_startproc
+ 735              		@ args = 0, pretend = 0, frame = 0
+ 736              		@ frame_needed = 0, uses_anonymous_args = 0
+ 737 0000 08B5     		push	{r3, lr}
+ 738              	.LCFI6:
+ 739              		.cfi_def_cfa_offset 8
+ 740              		.cfi_offset 3, -8
+ 741              		.cfi_offset 14, -4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 17
 
 
- 745              		.cantunwind
- 746              		.fnend
- 748              		.section	.init_array,"aw",%init_array
- 749              		.align	2
- 750 0000 00000000 		.word	_GLOBAL__sub_I_hardware(target1)
- 751              		.global	process_freq
- 752              		.section	.bss.process_freq,"aw",%nobits
- 753              		.align	2
- 756              	process_freq:
- 757 0000 00000000 		.space	4
- 758              		.global	process_time_
- 759              		.section	.bss.process_time_,"aw",%nobits
- 760              		.align	1
- 763              	process_time_:
- 764 0000 0000     		.space	2
- 765              		.global	process_timer
- 766              		.section	.bss.process_timer,"aw",%nobits
- 767              		.align	2
- 770              	process_timer:
- 771 0000 00000000 		.space	4
- 772              		.global	hardware
- 773              		.section	.bss.hardware,"aw",%nobits
- 774              		.align	2
- 777              	hardware:
- 778 0000 00000000 		.space	200
- 778      00000000 
- 778      00000000 
- 778      00000000 
- 778      00000000 
- 779              		.text
- 780              	.Letext0:
- 781              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
- 782              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
- 783              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
- 784              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 785              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
- 786              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 787              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 788              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 789              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 790              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 791              		.file 13 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
- 792              		.file 14 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
- 793              		.file 15 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
- 794              		.file 16 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
- 795              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
- 796              		.file 18 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
- 797              		.file 19 "Lib/Timer/Timer.hpp"
- 798              		.file 20 "Lib/BufferedSerial/BufferedSerial.hpp"
- 799              		.file 21 "src/unit/hardware/hardware.hpp"
- 800              		.file 22 "Lib/MyMath/MyMath.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s 			page 18
+ 742              		.loc 1 52 1 is_stmt 0 view .LVU165
+ 743 0002 4FF6FF71 		movw	r1, #65535
+ 744 0006 0120     		movs	r0, #1
+ 745 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 746              	.LVL82:
+ 747 000c 08BD     		pop	{r3, pc}
+ 748              		.cfi_endproc
+ 749              	.LFE166:
+ 750              		.cantunwind
+ 751              		.fnend
+ 753              		.section	.init_array,"aw",%init_array
+ 754              		.align	2
+ 755 0000 00000000 		.word	_GLOBAL__sub_I_hardware(target1)
+ 756              		.global	process_freq
+ 757              		.section	.bss.process_freq,"aw",%nobits
+ 758              		.align	2
+ 761              	process_freq:
+ 762 0000 00000000 		.space	4
+ 763              		.global	process_time_
+ 764              		.section	.bss.process_time_,"aw",%nobits
+ 765              		.align	1
+ 768              	process_time_:
+ 769 0000 0000     		.space	2
+ 770              		.global	process_timer
+ 771              		.section	.bss.process_timer,"aw",%nobits
+ 772              		.align	2
+ 775              	process_timer:
+ 776 0000 00000000 		.space	4
+ 777              		.global	hardware
+ 778              		.section	.bss.hardware,"aw",%nobits
+ 779              		.align	2
+ 782              	hardware:
+ 783 0000 00000000 		.space	220
+ 783      00000000 
+ 783      00000000 
+ 783      00000000 
+ 783      00000000 
+ 784              		.text
+ 785              	.Letext0:
+ 786              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 787              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 788              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 789              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 790              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 791              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 792              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 793              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 794              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 795              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 796              		.file 13 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 797              		.file 14 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
+ 798              		.file 15 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 799              		.file 16 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ 800              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 801              		.file 18 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 802              		.file 19 "Lib/Timer/Timer.hpp"
+ 803              		.file 20 "Lib/BufferedSerial/BufferedSerial.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 18
+
+
+ 804              		.file 21 "src/unit/hardware/hardware.hpp"
+ 805              		.file 22 "Lib/MyMath/MyMath.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s 			page 19
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 app.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:21     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:26     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:70     .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:777    .bss.hardware:00000000 hardware
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:770    .bss.process_timer:00000000 process_timer
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:21     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:26     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:70     .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:782    .bss.hardware:00000000 hardware
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:775    .bss.process_timer:00000000 process_timer
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:82     .text._ZN12PwmSingleOut5writeEf:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:88     .text._ZN12PwmSingleOut5writeEf:00000000 _ZN12PwmSingleOut5writeEf
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:206    .text._ZN12PwmSingleOut5writeEf:00000094 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:82     .text._ZN12PwmSingleOut5writeEf:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:88     .text._ZN12PwmSingleOut5writeEf:00000000 _ZN12PwmSingleOut5writeEf
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:206    .text._ZN12PwmSingleOut5writeEf:00000094 $d
 .ARM.exidx.text._ZN12PwmSingleOut5writeEf:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:216    .text.setup:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:222    .text.setup:00000000 setup
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:601    .text.setup:000001b0 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:216    .text.setup:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:222    .text.setup:00000000 setup
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:601    .text.setup:000001b0 $d
             .ARM.extab.text.setup:00000000 $d
             .ARM.exidx.text.setup:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:622    .text.main_app:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:628    .text.main_app:00000000 main_app
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:710    .text.main_app:00000064 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:756    .bss.process_freq:00000000 process_freq
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:763    .bss.process_time_:00000000 process_time_
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:622    .text.main_app:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:628    .text.main_app:00000000 main_app
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:715    .text.main_app:0000006c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:761    .bss.process_freq:00000000 process_freq
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:768    .bss.process_time_:00000000 process_time_
          .ARM.exidx.text.main_app:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:720    .text._GLOBAL__sub_I_hardware:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:725    .text._GLOBAL__sub_I_hardware:00000000 _GLOBAL__sub_I_hardware
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:725    .text._GLOBAL__sub_I_hardware:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:730    .text._GLOBAL__sub_I_hardware:00000000 _GLOBAL__sub_I_hardware
 .ARM.exidx.text._GLOBAL__sub_I_hardware:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:749    .init_array:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:753    .bss.process_freq:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:760    .bss.process_time_:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:767    .bss.process_timer:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccnQ0ZX5.s:774    .bss.hardware:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:754    .init_array:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:758    .bss.process_freq:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:765    .bss.process_time_:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:772    .bss.process_timer:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccgisfXW.s:779    .bss.hardware:00000000 $d
 
 UNDEFINED SYMBOLS
 _ZN8HardwareC1Ev
@@ -1064,4 +1075,5 @@ __aeabi_unwind_cpp_pr1
 _ZN5Timer7read_usEv
 _ZN5Timer5resetEv
 _ZN8Hardware8MainUartEv
+_ZN8Hardware7M1nUartEv
 __aeabi_unwind_cpp_pr0

@@ -18,9 +18,10 @@ typedef struct {
             uint8_t yellow_goal_height;
             uint8_t blue_goal_dir;
             uint8_t blue_goal_height;
-            uint8_t court_dis;
+            uint8_t wall_dis;
 
             uint8_t proximity;
+            bool is_goal_front;
       } Cam[4];
 
       int16_t ball_dir;
@@ -47,17 +48,21 @@ class Hardware {
       PwmSingleOut led3 = PwmSingleOut(&htim3, TIM_CHANNEL_4);
       PwmSingleOut led4 = PwmSingleOut(&htim3, TIM_CHANNEL_3);
 
-      BufferedSerial serial1 = BufferedSerial(&huart1, 256);  // cam3
-      BufferedSerial serial2 = BufferedSerial(&huart2, 256);  // cam1
       BufferedSerial serial3 = BufferedSerial(&huart3, 256);  // main
-      BufferedSerial serial5 = BufferedSerial(&huart3, 256);  // cam2
-      BufferedSerial serial6 = BufferedSerial(&huart3, 256);  // cam4
+      // BufferedSerial serial1 = BufferedSerial(&huart1, 256);  // cam3
+      // BufferedSerial serial2 = BufferedSerial(&huart2, 256);  // cam1
+      // BufferedSerial serial5 = BufferedSerial(&huart5, 256);  // cam2
+      // BufferedSerial serial6 = BufferedSerial(&huart6, 256);  // cam4
+
+      BufferedSerial m1n_serial[4] = {BufferedSerial(&huart2, 256), BufferedSerial(&huart3, 256), BufferedSerial(&huart1, 256), BufferedSerial(&huart6, 256)};
 
       void Init();
 
       void MainUart();
+      void M1nUart();
 
       Timer main_send_interval_timer;
+      Timer m1n_send_interval_timer[4];
 
      private:
 };
