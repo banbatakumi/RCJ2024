@@ -18,6 +18,7 @@ void Robot::HardwareInit() {
       serial1.init();
       serial2.init();
       serial3.init();
+      serial4.init();
       ledh.init();
       motor1a.init();
       motor1b.init();
@@ -164,6 +165,8 @@ void Robot::UiUart() {
 
       if (info.mode == 0) {
             int16_t debug_val[2];
+            debug_val[0] = info.Cam.ball_dir;
+            debug_val[1] = info.Cam.ball_dis;
 
             if (ui_send_interval_timer.read_us() >= UI_SEND_PERIOD_US) {
                   static const uint8_t HEADER = 0xFF;  // ヘッダ
@@ -201,5 +204,47 @@ void Robot::UiUart() {
 
                   ui_send_interval_timer.reset();
             }
+      }
+}
+
+void Robot::CamUart() {
+      while (serial4.available()) {
+            static const uint8_t HEADER = 0xFF;   // ヘッダ
+            static const uint8_t FOOTER = 0xAA;   // フッタ
+            static const uint8_t data_size = 11;  // データのサイズ
+            static uint8_t index = 0;             // 受信したデータのインデックスカウンター
+            static uint8_t recv_data[data_size];  // 受信したデータ
+            static uint8_t recv_byte;
+
+            recv_byte = serial4.read();
+            if (index == 0) {
+                  if (recv_byte == HEADER) {
+                        index++;
+                  } else {
+                        index = 0;
+                  }
+            } else if (index == (data_size + 1)) {
+                  if (recv_byte == FOOTER) {
+                        info.Cam.ball_dir = ((((uint16_t)recv_data[0] << 8) & 0xFF00) | ((int16_t)recv_data[1] & 0x00FF)) - 32768;
+                        info.Cam.ball_dis = recv_data[2];
+                        info.Cam.yellow_goal_dir = recv_data[3] * 2 - 180;
+                        info.Cam.yellow_goal_height = recv_data[4];
+                        info.Cam.blue_goal_dir = recv_data[5] * 2 - 180;
+                        info.Cam.blue_goal_height = recv_data[6];
+                        info.Cam.is_goal_front = recv_data[7];
+                        info.Cam.own_x = recv_data[8] - 127;
+                        info.Cam.own_y = recv_data[9] - 127;
+                        info.Cam.proximity[0] = recv_data[10];
+                  }
+                  index = 0;
+            } else {
+                  recv_data[index - 1] = recv_byte;
+                  index++;
+            }
+      }
+
+      if (cam_send_interval_timer.read_us() >= CAM_SEND_PERIOD_US) {
+            serial4.write(info.Imu.yaw * 0.5 + 90);
+            cam_send_interval_timer.reset();
       }
 }

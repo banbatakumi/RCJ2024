@@ -50,6 +50,19 @@ typedef struct {
             uint8_t dribbler_sig;
       } Ui;
 
+      struct {
+            int16_t ball_dir;
+            int16_t ball_dis;
+            int16_t yellow_goal_dir;
+            int16_t yellow_goal_height;
+            int16_t blue_goal_dir;
+            int16_t blue_goal_height;
+            int8_t own_x;
+            int8_t own_y;
+
+            bool is_goal_front;
+            uint8_t proximity[4];
+      } Cam;
 } RobotInfo;
 class Robot {
      public:
@@ -86,6 +99,7 @@ class Robot {
       BufferedSerial serial1 = BufferedSerial(&huart1, 128);  // imu
       BufferedSerial serial2 = BufferedSerial(&huart2, 256);  // line
       BufferedSerial serial3 = BufferedSerial(&huart3, 256);  // ui
+      BufferedSerial serial4 = BufferedSerial(&huart4, 256);  // ui
 
       void HardwareInit();
       void GetSensors();
@@ -93,9 +107,11 @@ class Robot {
       void ImuUart();
       void LineUart();
       void UiUart();
+      void CamUart();
 
       Timer line_send_interval_timer;
       Timer ui_send_interval_timer;
+      Timer cam_send_interval_timer;
 
       MovingAve catch_front;
       MovingAve catch_back;

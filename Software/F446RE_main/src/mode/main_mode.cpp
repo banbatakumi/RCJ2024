@@ -14,6 +14,7 @@ void Mode::MainMode() {
       robot->ImuUart();
       robot->LineUart();
       robot->UiUart();
+      robot->CamUart();
       robot->GetSensors();
       robot->info.Line.on_led = 1;
 

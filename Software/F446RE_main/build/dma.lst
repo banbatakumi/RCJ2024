@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc7GGm1q.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s 			page 1
   28:Core/Src/dma.c **** /*----------------------------------------------------------------------------*/
   29:Core/Src/dma.c **** /* Configure DMA                                                              */
   30:Core/Src/dma.c **** /*----------------------------------------------------------------------------*/
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc7GGm1q.s 			page 2
 
 
   31:Core/Src/dma.c **** 
@@ -92,7 +92,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s 			page 1
   44 0004 0024     		movs	r4, #0
   45 0006 0094     		str	r4, [sp]
   46              		.loc 1 43 3 view .LVU3
-  47 0008 264B     		ldr	r3, .L3
+  47 0008 2E4B     		ldr	r3, .L3
   48 000a 1A6B     		ldr	r2, [r3, #48]
   49 000c 42F48002 		orr	r2, r2, #4194304
   50 0010 1A63     		str	r2, [r3, #48]
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s 			page 1
   69 0028 03F40013 		and	r3, r3, #2097152
   70 002c 0193     		str	r3, [sp, #4]
   71              		.loc 1 44 3 view .LVU11
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s 			page 3
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc7GGm1q.s 			page 3
 
 
   72 002e 019B     		ldr	r3, [sp, #4]
@@ -139,118 +139,144 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s 			page 1
   82 003a 0C20     		movs	r0, #12
   83 003c FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
   84              	.LVL1:
-  50:Core/Src/dma.c ****   /* DMA1_Stream3_IRQn interrupt configuration */
-  51:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA1_Stream3_IRQn, 0, 0);
+  50:Core/Src/dma.c ****   /* DMA1_Stream2_IRQn interrupt configuration */
+  51:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA1_Stream2_IRQn, 0, 0);
   85              		.loc 1 51 3 view .LVU15
   86 0040 2246     		mov	r2, r4
   87 0042 2146     		mov	r1, r4
-  88 0044 0E20     		movs	r0, #14
+  88 0044 0D20     		movs	r0, #13
   89 0046 FFF7FEFF 		bl	HAL_NVIC_SetPriority
   90              	.LVL2:
-  52:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA1_Stream3_IRQn);
+  52:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA1_Stream2_IRQn);
   91              		.loc 1 52 3 view .LVU16
-  92 004a 0E20     		movs	r0, #14
+  92 004a 0D20     		movs	r0, #13
   93 004c FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
   94              	.LVL3:
-  53:Core/Src/dma.c ****   /* DMA1_Stream5_IRQn interrupt configuration */
-  54:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 0, 0);
+  53:Core/Src/dma.c ****   /* DMA1_Stream3_IRQn interrupt configuration */
+  54:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA1_Stream3_IRQn, 0, 0);
   95              		.loc 1 54 3 view .LVU17
   96 0050 2246     		mov	r2, r4
   97 0052 2146     		mov	r1, r4
-  98 0054 1020     		movs	r0, #16
+  98 0054 0E20     		movs	r0, #14
   99 0056 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  100              	.LVL4:
-  55:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
+  55:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA1_Stream3_IRQn);
  101              		.loc 1 55 3 view .LVU18
- 102 005a 1020     		movs	r0, #16
+ 102 005a 0E20     		movs	r0, #14
  103 005c FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
  104              	.LVL5:
-  56:Core/Src/dma.c ****   /* DMA1_Stream6_IRQn interrupt configuration */
-  57:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
+  56:Core/Src/dma.c ****   /* DMA1_Stream4_IRQn interrupt configuration */
+  57:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 0, 0);
  105              		.loc 1 57 3 view .LVU19
  106 0060 2246     		mov	r2, r4
  107 0062 2146     		mov	r1, r4
- 108 0064 1120     		movs	r0, #17
+ 108 0064 0F20     		movs	r0, #15
  109 0066 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  110              	.LVL6:
-  58:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
+  58:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
  111              		.loc 1 58 3 view .LVU20
- 112 006a 1120     		movs	r0, #17
+ 112 006a 0F20     		movs	r0, #15
  113 006c FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
  114              	.LVL7:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s 			page 4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc7GGm1q.s 			page 4
 
 
-  59:Core/Src/dma.c ****   /* DMA2_Stream0_IRQn interrupt configuration */
-  60:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+  59:Core/Src/dma.c ****   /* DMA1_Stream5_IRQn interrupt configuration */
+  60:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA1_Stream5_IRQn, 0, 0);
  115              		.loc 1 60 3 view .LVU21
  116 0070 2246     		mov	r2, r4
  117 0072 2146     		mov	r1, r4
- 118 0074 3820     		movs	r0, #56
+ 118 0074 1020     		movs	r0, #16
  119 0076 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  120              	.LVL8:
-  61:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+  61:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA1_Stream5_IRQn);
  121              		.loc 1 61 3 view .LVU22
- 122 007a 3820     		movs	r0, #56
+ 122 007a 1020     		movs	r0, #16
  123 007c FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
  124              	.LVL9:
-  62:Core/Src/dma.c ****   /* DMA2_Stream2_IRQn interrupt configuration */
-  63:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 0, 0);
+  62:Core/Src/dma.c ****   /* DMA1_Stream6_IRQn interrupt configuration */
+  63:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA1_Stream6_IRQn, 0, 0);
  125              		.loc 1 63 3 view .LVU23
  126 0080 2246     		mov	r2, r4
  127 0082 2146     		mov	r1, r4
- 128 0084 3A20     		movs	r0, #58
+ 128 0084 1120     		movs	r0, #17
  129 0086 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  130              	.LVL10:
-  64:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
+  64:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA1_Stream6_IRQn);
  131              		.loc 1 64 3 view .LVU24
- 132 008a 3A20     		movs	r0, #58
+ 132 008a 1120     		movs	r0, #17
  133 008c FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
  134              	.LVL11:
-  65:Core/Src/dma.c ****   /* DMA2_Stream7_IRQn interrupt configuration */
-  66:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 0, 0);
+  65:Core/Src/dma.c ****   /* DMA2_Stream0_IRQn interrupt configuration */
+  66:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
  135              		.loc 1 66 3 view .LVU25
  136 0090 2246     		mov	r2, r4
  137 0092 2146     		mov	r1, r4
- 138 0094 4620     		movs	r0, #70
+ 138 0094 3820     		movs	r0, #56
  139 0096 FFF7FEFF 		bl	HAL_NVIC_SetPriority
  140              	.LVL12:
-  67:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
+  67:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
  141              		.loc 1 67 3 view .LVU26
- 142 009a 4620     		movs	r0, #70
+ 142 009a 3820     		movs	r0, #56
  143 009c FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
  144              	.LVL13:
-  68:Core/Src/dma.c **** 
-  69:Core/Src/dma.c **** }
- 145              		.loc 1 69 1 is_stmt 0 view .LVU27
- 146 00a0 02B0     		add	sp, sp, #8
- 147              	.LCFI2:
- 148              		.cfi_def_cfa_offset 8
- 149              		@ sp needed
- 150 00a2 10BD     		pop	{r4, pc}
- 151              	.L4:
- 152              		.align	2
- 153              	.L3:
- 154 00a4 00380240 		.word	1073887232
- 155              		.cfi_endproc
- 156              	.LFE239:
- 158              		.text
- 159              	.Letext0:
- 160              		.file 2 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
- 161              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s 			page 5
+  68:Core/Src/dma.c ****   /* DMA2_Stream2_IRQn interrupt configuration */
+  69:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA2_Stream2_IRQn, 0, 0);
+ 145              		.loc 1 69 3 view .LVU27
+ 146 00a0 2246     		mov	r2, r4
+ 147 00a2 2146     		mov	r1, r4
+ 148 00a4 3A20     		movs	r0, #58
+ 149 00a6 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 150              	.LVL14:
+  70:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA2_Stream2_IRQn);
+ 151              		.loc 1 70 3 view .LVU28
+ 152 00aa 3A20     		movs	r0, #58
+ 153 00ac FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 154              	.LVL15:
+  71:Core/Src/dma.c ****   /* DMA2_Stream7_IRQn interrupt configuration */
+  72:Core/Src/dma.c ****   HAL_NVIC_SetPriority(DMA2_Stream7_IRQn, 0, 0);
+ 155              		.loc 1 72 3 view .LVU29
+ 156 00b0 2246     		mov	r2, r4
+ 157 00b2 2146     		mov	r1, r4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc7GGm1q.s 			page 5
 
 
- 162              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
- 163              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s 			page 6
+ 158 00b4 4620     		movs	r0, #70
+ 159 00b6 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 160              	.LVL16:
+  73:Core/Src/dma.c ****   HAL_NVIC_EnableIRQ(DMA2_Stream7_IRQn);
+ 161              		.loc 1 73 3 view .LVU30
+ 162 00ba 4620     		movs	r0, #70
+ 163 00bc FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 164              	.LVL17:
+  74:Core/Src/dma.c **** 
+  75:Core/Src/dma.c **** }
+ 165              		.loc 1 75 1 is_stmt 0 view .LVU31
+ 166 00c0 02B0     		add	sp, sp, #8
+ 167              	.LCFI2:
+ 168              		.cfi_def_cfa_offset 8
+ 169              		@ sp needed
+ 170 00c2 10BD     		pop	{r4, pc}
+ 171              	.L4:
+ 172              		.align	2
+ 173              	.L3:
+ 174 00c4 00380240 		.word	1073887232
+ 175              		.cfi_endproc
+ 176              	.LFE239:
+ 178              		.text
+ 179              	.Letext0:
+ 180              		.file 2 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 181              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 182              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 183              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc7GGm1q.s 			page 6
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 dma.c
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s:21     .text.MX_DMA_Init:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s:27     .text.MX_DMA_Init:00000000 MX_DMA_Init
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccCc7f0S.s:154    .text.MX_DMA_Init:000000a4 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc7GGm1q.s:21     .text.MX_DMA_Init:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc7GGm1q.s:27     .text.MX_DMA_Init:00000000 MX_DMA_Init
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//cc7GGm1q.s:174    .text.MX_DMA_Init:000000c4 $d
 
 UNDEFINED SYMBOLS
 HAL_NVIC_SetPriority
