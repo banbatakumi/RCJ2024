@@ -16,10 +16,9 @@ uint16_t process_time;  // us
 int process_freq;
 
 void setup() {
-      HAL_Delay(2500);  // カメラの起動中待機
       hardware.Init();
 
-      for (uint8_t i = 0; i < 5; i++) {
+      for (uint8_t i = 0; i < 10; i++) {
             hardware.led1 = i % 2;
             HAL_Delay(100);
       }
