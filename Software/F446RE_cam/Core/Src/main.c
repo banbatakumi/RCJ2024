@@ -102,8 +102,8 @@ int main(void) {
       /* USER CODE END 2 */
 
       /* Infinite loop */
-      main_app();
       /* USER CODE BEGIN WHILE */
+      main_app();
       while (1) {
             /* USER CODE END WHILE */
 

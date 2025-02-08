@@ -54,7 +54,10 @@ class Hardware {
       // BufferedSerial serial5 = BufferedSerial(&huart5, 256);  // cam2
       // BufferedSerial serial6 = BufferedSerial(&huart6, 256);  // cam4
 
-      BufferedSerial m1n_serial[4] = {BufferedSerial(&huart2, 256), BufferedSerial(&huart3, 256), BufferedSerial(&huart1, 256), BufferedSerial(&huart6, 256)};
+      BufferedSerial* m1n_serial[4] = {new BufferedSerial(&huart2, 256),
+                                       new BufferedSerial(&huart5, 256),
+                                       new BufferedSerial(&huart1, 256),
+                                       new BufferedSerial(&huart6, 256)};
 
       void Init();
 

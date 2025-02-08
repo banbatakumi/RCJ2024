@@ -22,8 +22,8 @@ class BufferedSerial {
             rxTop(0),
             rxBtm(0),
             _rxBufSize(rxBufSize),
-            _useDMA(false) {
-      }
+            _useDMA(false) {}
+
       void init(bool dma = false) {
             _useDMA = dma;
             HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
