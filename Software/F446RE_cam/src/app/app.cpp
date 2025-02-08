@@ -16,23 +16,14 @@ uint16_t process_time;  // us
 int process_freq;
 
 void setup() {
+      HAL_Delay(2500);  // カメラの起動中待機
       hardware.Init();
-      hardware.led3 = 1;
-      for (float i = 0; i < PI * 4; i += PI * 0.01) {
-            hardware.led1 = abs(MyMath::sin(i));
-            hardware.led2 = abs(MyMath::sin(i + PI / 4));
-            hardware.led3 = abs(MyMath::sin(i + PI / 3));
-            hardware.led4 = abs(MyMath::sin(i + PI / 2));
-            HAL_Delay(5);
-      }
-      hardware.led1 = 0;
-      hardware.led2 = 0;
-      hardware.led3 = 0;
-      hardware.led4 = 0;
+
       for (uint8_t i = 0; i < 5; i++) {
-            hardware.led2 = i % 2;
+            hardware.led1 = i % 2;
             HAL_Delay(100);
       }
+      hardware.led1 = 1;
 }
 
 void main_app() {
@@ -40,6 +31,11 @@ void main_app() {
             process_timer.reset();
             hardware.MainUart();
             hardware.M1nUart();
+
+            if (hardware.info.Cam[0].is_camera_initialized && hardware.info.Cam[1].is_camera_initialized && hardware.info.Cam[2].is_camera_initialized && hardware.info.Cam[3].is_camera_initialized) {
+                  hardware.led2 = 1;
+                  hardware.led1 = 0;
+            }
 
             uint8_t min_dis = 200;
             uint8_t min_dis_num = 0;

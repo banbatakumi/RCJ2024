@@ -13,10 +13,10 @@ void Hardware::Init() {
       // serial2.init();
       // serial5.init();
       // serial6.init();
-      m1n_serial[0]->init();
-      m1n_serial[1]->init();
-      m1n_serial[2]->init();
-      m1n_serial[3]->init();
+      m1n_serial[0].init();
+      m1n_serial[1].init();
+      m1n_serial[2].init();
+      m1n_serial[3].init();
       led1.init();
       led2.init();
       led3.init();
@@ -60,8 +60,8 @@ void Hardware::M1nUart() {
       static uint8_t recv_data[4][data_size];  // 受信したデータ
       static uint8_t recv_byte[4];
       for (uint8_t i = 0; i < 4; i++) {
-            while (m1n_serial[i]->available()) {
-                  recv_byte[i] = m1n_serial[i]->read();
+            while (m1n_serial[i].available()) {
+                  recv_byte[i] = m1n_serial[i].read();
                   if (index[i] == 0) {
                         if (recv_byte[i] == HEADER) {
                               index[i]++;
@@ -92,6 +92,8 @@ void Hardware::M1nUart() {
                                     info.Cam[i].blue_goal_dir = goal_dir;
                                     info.Cam[i].blue_goal_height = goal_height;
                               }
+
+                              info.Cam[i].is_camera_initialized = 1;
                         }
                         index[i] = 0;
                   } else {
@@ -101,14 +103,10 @@ void Hardware::M1nUart() {
             }
 
             if (m1n_send_interval_timer[i].read_us() >= CAM_SEND_PERIOD_US) {
-                  m1n_serial[i]->write(info.yaw * 0.5 + 90);
+                  m1n_serial[i].write(info.yaw * 0.5 + 90);
                   m1n_send_interval_timer[i].reset();
             }
       }
-      for (int i = 0; i < 4; i++) {
-            delete m1n_serial[i];
-      }
-      debug = info.Cam[0].ball_dir;
       // static const uint8_t HEADER = 0xFF;  // ヘッダ
       // static const uint8_t FOOTER = 0xAA;  // フッタ
       // while (serial2.available()) {
