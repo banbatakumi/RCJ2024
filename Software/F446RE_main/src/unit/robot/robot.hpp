@@ -24,8 +24,8 @@ typedef struct {
       float moving_speed, line_moving_speed;
       struct {
             uint8_t interval;
+            uint8_t depth;
             bool is_on_line;
-            bool is_half_out;
             bool is_leftside;
             bool is_rightside;
             int16_t dir;

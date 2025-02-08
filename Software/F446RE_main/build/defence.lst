@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKXlPsU.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccwE0T1h.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -47,151 +47,121 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKXlPsU.s 			page 1
   42              		.cfi_def_cfa_offset 8
   43              		.cfi_offset 4, -8
   44              		.cfi_offset 14, -4
-   4:src/mode/defence.cpp ****       if (robot->info.Cam.ball_dir > 45) {
+   4:src/mode/defence.cpp ****       if (robot->info.Cam.ball_dir > 0) {
   45              		.loc 1 4 7 is_stmt 1 view .LVU2
   46              		.loc 1 4 11 is_stmt 0 view .LVU3
   47 0002 4468     		ldr	r4, [r0, #4]
   48              		.loc 1 4 27 view .LVU4
-  49 0004 B4F93020 		ldrsh	r2, [r4, #48]
-  50              		.loc 1 4 7 view .LVU5
-  51 0008 2D2A     		cmp	r2, #45
-  52 000a 19DD     		ble	.L2
-   5:src/mode/defence.cpp ****             robot->motor.Drive(90, abs(45 - robot->info.Cam.ball_dir) / 45.000);
-  53              		.loc 1 5 13 is_stmt 1 view .LVU6
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKXlPsU.s 			page 2
+  49 0004 B4F93000 		ldrsh	r0, [r4, #48]
+  50              	.LVL1:
+  51              		.loc 1 4 7 view .LVU5
+  52 0008 0028     		cmp	r0, #0
+  53 000a 13DD     		ble	.L2
+   5:src/mode/defence.cpp ****             robot->motor.Drive(90, abs(robot->info.Cam.ball_dir) / 30.000);
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccwE0T1h.s 			page 2
 
 
-  54              		.loc 1 5 31 is_stmt 0 view .LVU7
-  55 000c 04F59874 		add	r4, r4, #304
-  56              		.loc 1 5 36 view .LVU8
-  57 0010 C2F12D00 		rsb	r0, r2, #45
-  58              	.LVL1:
-  59              		.loc 1 5 71 view .LVU9
-  60 0014 0028     		cmp	r0, #0
-  61 0016 0EDD     		ble	.L3
-  62              		.loc 1 5 71 discriminator 1 view .LVU10
-  63 0018 FFF7FEFF 		bl	__aeabi_i2d
-  64              	.LVL2:
-  65              	.L4:
-  66              		.loc 1 5 71 discriminator 4 view .LVU11
-  67 001c 0022     		movs	r2, #0
-  68 001e 164B     		ldr	r3, .L9
-  69 0020 FFF7FEFF 		bl	__aeabi_ddiv
-  70              	.LVL3:
-  71              		.loc 1 5 31 discriminator 4 view .LVU12
-  72 0024 FFF7FEFF 		bl	__aeabi_d2f
-  73              	.LVL4:
-  74 0028 00EE100A 		vmov	s0, r0
-  75 002c 5A21     		movs	r1, #90
-  76 002e 2046     		mov	r0, r4
-  77 0030 FFF7FEFF 		bl	_ZN10MotorDrive5DriveEsf
-  78              	.LVL5:
-  79              	.L1:
+  54              		.loc 1 5 13 is_stmt 1 view .LVU6
+  55              		.loc 1 5 36 is_stmt 0 view .LVU7
+  56 000c 0028     		cmp	r0, #0
+  57 000e B8BF     		it	lt
+  58 0010 4042     		rsblt	r0, r0, #0
+  59              		.loc 1 5 66 view .LVU8
+  60 0012 80B2     		uxth	r0, r0
+  61 0014 FFF7FEFF 		bl	__aeabi_i2d
+  62              	.LVL2:
+  63 0018 0022     		movs	r2, #0
+  64 001a 114B     		ldr	r3, .L5
+  65 001c FFF7FEFF 		bl	__aeabi_ddiv
+  66              	.LVL3:
+  67              		.loc 1 5 31 view .LVU9
+  68 0020 FFF7FEFF 		bl	__aeabi_d2f
+  69              	.LVL4:
+  70 0024 00EE100A 		vmov	s0, r0
+  71 0028 5A21     		movs	r1, #90
+  72 002a 04F59870 		add	r0, r4, #304
+  73 002e FFF7FEFF 		bl	_ZN10MotorDrive5DriveEsf
+  74              	.LVL5:
+  75              	.L1:
    6:src/mode/defence.cpp ****       } else {
-   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(45 - robot->info.Cam.ball_dir) / 45.000);
+   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(robot->info.Cam.ball_dir) / 30.000);
    8:src/mode/defence.cpp ****       }
    9:src/mode/defence.cpp **** }...
-  80              		.loc 1 9 1 view .LVU13
-  81 0034 10BD     		pop	{r4, pc}
-  82              	.L3:
-   5:src/mode/defence.cpp ****             robot->motor.Drive(90, abs(45 - robot->info.Cam.ball_dir) / 45.000);
-  83              		.loc 1 5 71 discriminator 2 view .LVU14
-  84 0036 A2F12D00 		sub	r0, r2, #45
-  85 003a FFF7FEFF 		bl	__aeabi_i2d
-  86              	.LVL6:
-  87 003e EDE7     		b	.L4
-  88              	.LVL7:
-  89              	.L2:
-   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(45 - robot->info.Cam.ball_dir) / 45.000);
-  90              		.loc 1 7 13 is_stmt 1 view .LVU15
-   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(45 - robot->info.Cam.ball_dir) / 45.000);
-  91              		.loc 1 7 31 is_stmt 0 view .LVU16
-  92 0040 04F59874 		add	r4, r4, #304
-   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(45 - robot->info.Cam.ball_dir) / 45.000);
-  93              		.loc 1 7 37 view .LVU17
-  94 0044 C2F12D00 		rsb	r0, r2, #45
-  95              	.LVL8:
-   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(45 - robot->info.Cam.ball_dir) / 45.000);
-  96              		.loc 1 7 72 view .LVU18
-  97 0048 0028     		cmp	r0, #0
-  98 004a 0FDD     		ble	.L6
-   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(45 - robot->info.Cam.ball_dir) / 45.000);
-  99              		.loc 1 7 72 discriminator 1 view .LVU19
- 100 004c FFF7FEFF 		bl	__aeabi_i2d
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKXlPsU.s 			page 3
+  76              		.loc 1 9 1 view .LVU10
+  77 0032 10BD     		pop	{r4, pc}
+  78              	.L2:
+   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(robot->info.Cam.ball_dir) / 30.000);
+  79              		.loc 1 7 13 is_stmt 1 view .LVU11
+   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(robot->info.Cam.ball_dir) / 30.000);
+  80              		.loc 1 7 37 is_stmt 0 view .LVU12
+  81 0034 0028     		cmp	r0, #0
+  82 0036 B8BF     		it	lt
+  83 0038 4042     		rsblt	r0, r0, #0
+   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(robot->info.Cam.ball_dir) / 30.000);
+  84              		.loc 1 7 67 view .LVU13
+  85 003a 80B2     		uxth	r0, r0
+  86 003c FFF7FEFF 		bl	__aeabi_i2d
+  87              	.LVL6:
+  88 0040 0022     		movs	r2, #0
+  89 0042 074B     		ldr	r3, .L5
+  90 0044 FFF7FEFF 		bl	__aeabi_ddiv
+  91              	.LVL7:
+   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(robot->info.Cam.ball_dir) / 30.000);
+  92              		.loc 1 7 31 view .LVU14
+  93 0048 FFF7FEFF 		bl	__aeabi_d2f
+  94              	.LVL8:
+  95 004c 00EE100A 		vmov	s0, r0
+  96 0050 6FF05901 		mvn	r1, #89
+  97 0054 04F59870 		add	r0, r4, #304
+  98 0058 FFF7FEFF 		bl	_ZN10MotorDrive5DriveEsf
+  99              	.LVL9:
+ 100              		.loc 1 9 1 view .LVU15
+ 101 005c E9E7     		b	.L1
+ 102              	.L6:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccwE0T1h.s 			page 3
 
 
- 101              	.LVL9:
- 102              	.L7:
-   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(45 - robot->info.Cam.ball_dir) / 45.000);
- 103              		.loc 1 7 72 discriminator 4 view .LVU20
- 104 0050 0022     		movs	r2, #0
- 105 0052 094B     		ldr	r3, .L9
- 106 0054 FFF7FEFF 		bl	__aeabi_ddiv
- 107              	.LVL10:
-   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(45 - robot->info.Cam.ball_dir) / 45.000);
- 108              		.loc 1 7 31 discriminator 4 view .LVU21
- 109 0058 FFF7FEFF 		bl	__aeabi_d2f
- 110              	.LVL11:
- 111 005c 00EE100A 		vmov	s0, r0
- 112 0060 6FF05901 		mvn	r1, #89
- 113 0064 2046     		mov	r0, r4
- 114 0066 FFF7FEFF 		bl	_ZN10MotorDrive5DriveEsf
- 115              	.LVL12:
- 116              		.loc 1 9 1 discriminator 4 view .LVU22
- 117 006a E3E7     		b	.L1
- 118              	.L6:
-   7:src/mode/defence.cpp ****             robot->motor.Drive(-90, abs(45 - robot->info.Cam.ball_dir) / 45.000);
- 119              		.loc 1 7 72 discriminator 2 view .LVU23
- 120 006c A2F12D00 		sub	r0, r2, #45
- 121 0070 FFF7FEFF 		bl	__aeabi_i2d
- 122              	.LVL13:
- 123 0074 ECE7     		b	.L7
- 124              	.L10:
- 125 0076 00BF     		.align	2
- 126              	.L9:
- 127 0078 00804640 		.word	1078362112
- 128              		.cfi_endproc
- 129              	.LFE272:
- 130              		.fnend
- 132              		.text
- 133              	.Letext0:
- 134              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
- 135              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
- 136              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
- 137              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
- 138              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
- 139              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
- 140              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
- 141              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
- 142              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 143              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 144              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
- 145              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 146              		.file 14 "Lib/BufferedSerial/BufferedSerial.hpp"
- 147              		.file 15 "Lib/DigitalInOut/DigitalInOut.hpp"
- 148              		.file 16 "Lib/MovingAve/MovingAve.hpp"
- 149              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
- 150              		.file 18 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
- 151              		.file 19 "Lib/PWMSingle/PWMSingle.hpp"
- 152              		.file 20 "Lib/Timer/Timer.hpp"
- 153              		.file 21 "src/unit/dribbler_drive/dribbler_drive.hpp"
- 154              		.file 22 "src/unit/kicker/kicker.hpp"
- 155              		.file 23 "Lib/pid/pid.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKXlPsU.s 			page 4
-
-
- 156              		.file 24 "src/unit/motor_drive/motor_drive.hpp"
- 157              		.file 25 "src/unit/robot/robot.hpp"
- 158              		.file 26 "src/mode/mode.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKXlPsU.s 			page 5
+ 103 005e 00BF     		.align	2
+ 104              	.L5:
+ 105 0060 00003E40 		.word	1077805056
+ 106              		.cfi_endproc
+ 107              	.LFE272:
+ 108              		.fnend
+ 110              		.text
+ 111              	.Letext0:
+ 112              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 113              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 114              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 115              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ 116              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 117              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 118              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 119              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 120              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 121              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 122              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 123              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 124              		.file 14 "Lib/BufferedSerial/BufferedSerial.hpp"
+ 125              		.file 15 "Lib/DigitalInOut/DigitalInOut.hpp"
+ 126              		.file 16 "Lib/MovingAve/MovingAve.hpp"
+ 127              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 128              		.file 18 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
+ 129              		.file 19 "Lib/PWMSingle/PWMSingle.hpp"
+ 130              		.file 20 "Lib/Timer/Timer.hpp"
+ 131              		.file 21 "src/unit/dribbler_drive/dribbler_drive.hpp"
+ 132              		.file 22 "src/unit/kicker/kicker.hpp"
+ 133              		.file 23 "Lib/pid/pid.hpp"
+ 134              		.file 24 "src/unit/motor_drive/motor_drive.hpp"
+ 135              		.file 25 "src/unit/robot/robot.hpp"
+ 136              		.file 26 "src/mode/mode.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccwE0T1h.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 defence.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKXlPsU.s:24     .text._ZN4Mode7DefenceEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKXlPsU.s:30     .text._ZN4Mode7DefenceEv:00000000 _ZN4Mode7DefenceEv
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccKXlPsU.s:127    .text._ZN4Mode7DefenceEv:00000078 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccwE0T1h.s:24     .text._ZN4Mode7DefenceEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccwE0T1h.s:30     .text._ZN4Mode7DefenceEv:00000000 _ZN4Mode7DefenceEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccwE0T1h.s:105    .text._ZN4Mode7DefenceEv:00000060 $d
 .ARM.exidx.text._ZN4Mode7DefenceEv:00000000 $d
 
 UNDEFINED SYMBOLS

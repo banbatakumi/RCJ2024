@@ -103,16 +103,25 @@ void Robot::LineUart() {
                   }
             } else if (index == (data_size + 1)) {
                   if (recv_byte == FOOTER) {
+                        bool is_half_out;
                         info.motor_rps[0] = recv_data[0];
                         info.motor_rps[1] = recv_data[1];
                         info.motor_rps[2] = recv_data[2];
                         info.motor_rps[3] = recv_data[3];
                         info.Line.interval = recv_data[4] >> 4;
                         info.Line.is_on_line = (recv_data[4] >> 3) & 1;
-                        info.Line.is_half_out = (recv_data[4] >> 2) & 1;
+                        is_half_out = (recv_data[4] >> 2) & 1;
                         info.Line.is_leftside = (recv_data[4] >> 1) & 1;
                         info.Line.is_rightside = recv_data[4] & 1;
                         info.Line.dir = recv_data[5] * 2 - 180;
+
+                        if (is_half_out == 1) {
+                              info.Line.inside_dir = MyMath::NormalizeDeg180(info.Line.dir + 180);
+                              info.Line.depth = 24 - info.Line.interval;
+                        } else {
+                              info.Line.inside_dir = info.Line.dir;
+                              info.Line.depth = info.Line.interval;
+                        }
                   }
                   index = 0;
             } else {
