@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNWaIDn.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccaKXBnt.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -38,100 +38,156 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNWaIDn.s 			page 1
   33              		@ args = 0, pretend = 0, frame = 0
   34              		@ frame_needed = 0, uses_anonymous_args = 0
   35              		.loc 1 3 22 is_stmt 0 view .LVU1
-  36 0000 08B5     		push	{r3, lr}
-  37              		.save {r3, lr}
+  36 0000 10B5     		push	{r4, lr}
+  37              		.save {r4, lr}
   38              	.LCFI0:
   39              		.cfi_def_cfa_offset 8
-  40              		.cfi_offset 3, -8
+  40              		.cfi_offset 4, -8
   41              		.cfi_offset 14, -4
+  42 0002 0446     		mov	r4, r0
    4:src/mode/offence.cpp ****       if (robot->info.Line.is_on_line) {
-  42              		.loc 1 4 7 is_stmt 1 view .LVU2
-  43              		.loc 1 4 11 is_stmt 0 view .LVU3
-  44 0002 4068     		ldr	r0, [r0, #4]
-  45              	.LVL1:
-  46              		.loc 1 4 28 view .LVU4
-  47 0004 837D     		ldrb	r3, [r0, #22]	@ zero_extendqisi2
-  48              		.loc 1 4 7 view .LVU5
-  49 0006 43B1     		cbz	r3, .L2
+  43              		.loc 1 4 7 is_stmt 1 view .LVU2
+  44              		.loc 1 4 11 is_stmt 0 view .LVU3
+  45 0004 4068     		ldr	r0, [r0, #4]
+  46              	.LVL1:
+  47              		.loc 1 4 28 view .LVU4
+  48 0006 837D     		ldrb	r3, [r0, #22]	@ zero_extendqisi2
+  49              		.loc 1 4 7 view .LVU5
+  50 0008 FBB9     		cbnz	r3, .L7
    5:src/mode/offence.cpp ****             robot->motor.Drive(robot->info.Line.inside_dir, 0.5);
-  50              		.loc 1 5 13 is_stmt 1 view .LVU6
-  51              		.loc 1 5 31 is_stmt 0 view .LVU7
-  52 0008 B6EE000A 		vmov.f32	s0, #5.0e-1
-  53 000c B0F91C10 		ldrsh	r1, [r0, #28]
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNWaIDn.s 			page 2
-
-
-  54 0010 00F59870 		add	r0, r0, #304
-  55 0014 FFF7FEFF 		bl	_ZN10MotorDrive5DriveEsf
-  56              	.LVL2:
-  57              	.L1:
    6:src/mode/offence.cpp ****       } else {
-   7:src/mode/offence.cpp ****             robot->motor.Drive(robot->info.Cam.ball_dir * 2, 0.5);
-   8:src/mode/offence.cpp ****       }
-   9:src/mode/offence.cpp **** }...
-  58              		.loc 1 9 1 view .LVU8
-  59 0018 08BD     		pop	{r3, pc}
-  60              	.L2:
-   7:src/mode/offence.cpp ****             robot->motor.Drive(robot->info.Cam.ball_dir * 2, 0.5);
-  61              		.loc 1 7 13 is_stmt 1 view .LVU9
-   7:src/mode/offence.cpp ****             robot->motor.Drive(robot->info.Cam.ball_dir * 2, 0.5);
-  62              		.loc 1 7 48 is_stmt 0 view .LVU10
-  63 001a 018E     		ldrh	r1, [r0, #48]
-   7:src/mode/offence.cpp ****             robot->motor.Drive(robot->info.Cam.ball_dir * 2, 0.5);
-  64              		.loc 1 7 57 view .LVU11
-  65 001c 4900     		lsls	r1, r1, #1
-   7:src/mode/offence.cpp ****             robot->motor.Drive(robot->info.Cam.ball_dir * 2, 0.5);
-  66              		.loc 1 7 31 view .LVU12
-  67 001e B6EE000A 		vmov.f32	s0, #5.0e-1
-  68 0022 09B2     		sxth	r1, r1
-  69 0024 00F59870 		add	r0, r0, #304
-  70 0028 FFF7FEFF 		bl	_ZN10MotorDrive5DriveEsf
-  71              	.LVL3:
-  72              		.loc 1 9 1 view .LVU13
-  73 002c F4E7     		b	.L1
-  74              		.cfi_endproc
-  75              	.LFE272:
-  76              		.fnend
-  78              		.text
-  79              	.Letext0:
-  80              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
-  81              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
-  82              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
-  83              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
-  84              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
-  85              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
-  86              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
-  87              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
-  88              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
-  89              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
-  90              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
-  91              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
-  92              		.file 14 "Lib/BufferedSerial/BufferedSerial.hpp"
-  93              		.file 15 "Lib/DigitalInOut/DigitalInOut.hpp"
-  94              		.file 16 "Lib/MovingAve/MovingAve.hpp"
-  95              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
-  96              		.file 18 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
-  97              		.file 19 "Lib/PWMSingle/PWMSingle.hpp"
-  98              		.file 20 "Lib/Timer/Timer.hpp"
-  99              		.file 21 "src/unit/dribbler_drive/dribbler_drive.hpp"
- 100              		.file 22 "src/unit/kicker/kicker.hpp"
- 101              		.file 23 "Lib/pid/pid.hpp"
- 102              		.file 24 "src/unit/motor_drive/motor_drive.hpp"
- 103              		.file 25 "src/unit/robot/robot.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNWaIDn.s 			page 3
+   7:src/mode/offence.cpp ****             if (robot->info.Catch.is_front) robot->kicker.Kick(0.5);
+  51              		.loc 1 7 13 is_stmt 1 view .LVU6
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccaKXBnt.s 			page 2
 
 
- 104              		.file 26 "src/mode/mode.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNWaIDn.s 			page 4
+  52              		.loc 1 7 35 is_stmt 0 view .LVU7
+  53 000a 90F82230 		ldrb	r3, [r0, #34]	@ zero_extendqisi2
+  54              		.loc 1 7 13 view .LVU8
+  55 000e 2BBB     		cbnz	r3, .L8
+  56              	.L4:
+   8:src/mode/offence.cpp ****             robot->motor.Drive(robot->info.Cam.ball_dir * 2, 1);
+  57              		.loc 1 8 13 is_stmt 1 view .LVU9
+  58 0010 6068     		ldr	r0, [r4, #4]
+  59              		.loc 1 8 48 is_stmt 0 view .LVU10
+  60 0012 018E     		ldrh	r1, [r0, #48]
+  61              		.loc 1 8 57 view .LVU11
+  62 0014 4900     		lsls	r1, r1, #1
+  63              		.loc 1 8 31 view .LVU12
+  64 0016 B7EE000A 		vmov.f32	s0, #1.0e+0
+  65 001a 09B2     		sxth	r1, r1
+  66 001c 00F59870 		add	r0, r0, #304
+  67 0020 FFF7FEFF 		bl	_ZN10MotorDrive5DriveEsf
+  68              	.LVL2:
+   9:src/mode/offence.cpp ****             if (abs(robot->info.Cam.ball_dir) < 20 && robot->info.Cam.ball_dis < 10) {
+  69              		.loc 1 9 13 is_stmt 1 view .LVU13
+  70              		.loc 1 9 17 is_stmt 0 view .LVU14
+  71 0024 6068     		ldr	r0, [r4, #4]
+  72 0026 B0F93030 		ldrsh	r3, [r0, #48]
+  73 002a 002B     		cmp	r3, #0
+  74 002c B8BF     		it	lt
+  75 002e 5B42     		rsblt	r3, r3, #0
+  76 0030 9BB2     		uxth	r3, r3
+  77              		.loc 1 9 13 view .LVU15
+  78 0032 132B     		cmp	r3, #19
+  79 0034 03D8     		bhi	.L5
+  80              		.loc 1 9 71 discriminator 1 view .LVU16
+  81 0036 B0F93230 		ldrsh	r3, [r0, #50]
+  82              		.loc 1 9 52 discriminator 1 view .LVU17
+  83 003a 092B     		cmp	r3, #9
+  84 003c 15DD     		ble	.L9
+  85              	.L5:
+  10:src/mode/offence.cpp ****                   robot->dribbler_front.Hold(50);
+  11:src/mode/offence.cpp ****             } else {
+  12:src/mode/offence.cpp ****                   robot->dribbler_front.Hold(0);
+  86              		.loc 1 12 19 is_stmt 1 view .LVU18
+  87              		.loc 1 12 45 is_stmt 0 view .LVU19
+  88 003e 0021     		movs	r1, #0
+  89 0040 00F58150 		add	r0, r0, #4128
+  90 0044 FFF7FEFF 		bl	_ZN13DribblerDrive4HoldEh
+  91              	.LVL3:
+  92              	.L1:
+  13:src/mode/offence.cpp ****             }
+  14:src/mode/offence.cpp ****       }
+  15:src/mode/offence.cpp **** }...
+  93              		.loc 1 15 1 view .LVU20
+  94 0048 10BD     		pop	{r4, pc}
+  95              	.LVL4:
+  96              	.L7:
+   5:src/mode/offence.cpp ****             robot->motor.Drive(robot->info.Line.inside_dir, 0.5);
+  97              		.loc 1 5 13 is_stmt 1 view .LVU21
+   5:src/mode/offence.cpp ****             robot->motor.Drive(robot->info.Line.inside_dir, 0.5);
+  98              		.loc 1 5 31 is_stmt 0 view .LVU22
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccaKXBnt.s 			page 3
+
+
+  99 004a B6EE000A 		vmov.f32	s0, #5.0e-1
+ 100 004e B0F91C10 		ldrsh	r1, [r0, #28]
+ 101 0052 00F59870 		add	r0, r0, #304
+ 102 0056 FFF7FEFF 		bl	_ZN10MotorDrive5DriveEsf
+ 103              	.LVL5:
+ 104 005a F5E7     		b	.L1
+ 105              	.L8:
+   7:src/mode/offence.cpp ****             if (robot->info.Catch.is_front) robot->kicker.Kick(0.5);
+ 106              		.loc 1 7 45 is_stmt 1 discriminator 1 view .LVU23
+   7:src/mode/offence.cpp ****             if (robot->info.Catch.is_front) robot->kicker.Kick(0.5);
+ 107              		.loc 1 7 63 is_stmt 0 discriminator 1 view .LVU24
+ 108 005c B6EE000A 		vmov.f32	s0, #5.0e-1
+ 109 0060 00F5B550 		add	r0, r0, #5792
+ 110 0064 FFF7FEFF 		bl	_ZN6Kicker4KickEf
+ 111              	.LVL6:
+ 112 0068 D2E7     		b	.L4
+ 113              	.L9:
+  10:src/mode/offence.cpp ****                   robot->dribbler_front.Hold(50);
+ 114              		.loc 1 10 19 is_stmt 1 view .LVU25
+  10:src/mode/offence.cpp ****                   robot->dribbler_front.Hold(50);
+ 115              		.loc 1 10 45 is_stmt 0 view .LVU26
+ 116 006a 3221     		movs	r1, #50
+ 117 006c 00F58150 		add	r0, r0, #4128
+ 118 0070 FFF7FEFF 		bl	_ZN13DribblerDrive4HoldEh
+ 119              	.LVL7:
+ 120 0074 E8E7     		b	.L1
+ 121              		.cfi_endproc
+ 122              	.LFE272:
+ 123              		.fnend
+ 125              		.text
+ 126              	.Letext0:
+ 127              		.file 2 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 128              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 129              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 130              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ 131              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 132              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 133              		.file 8 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 134              		.file 9 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 135              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 136              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 137              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h"
+ 138              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 139              		.file 14 "Lib/BufferedSerial/BufferedSerial.hpp"
+ 140              		.file 15 "Lib/DigitalInOut/DigitalInOut.hpp"
+ 141              		.file 16 "Lib/MovingAve/MovingAve.hpp"
+ 142              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 143              		.file 18 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
+ 144              		.file 19 "Lib/PWMSingle/PWMSingle.hpp"
+ 145              		.file 20 "Lib/Timer/Timer.hpp"
+ 146              		.file 21 "src/unit/dribbler_drive/dribbler_drive.hpp"
+ 147              		.file 22 "src/unit/kicker/kicker.hpp"
+ 148              		.file 23 "Lib/pid/pid.hpp"
+ 149              		.file 24 "src/unit/motor_drive/motor_drive.hpp"
+ 150              		.file 25 "src/unit/robot/robot.hpp"
+ 151              		.file 26 "src/mode/mode.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccaKXBnt.s 			page 4
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 offence.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNWaIDn.s:21     .text._ZN4Mode7OffenceEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNWaIDn.s:27     .text._ZN4Mode7OffenceEv:00000000 _ZN4Mode7OffenceEv
-.ARM.extab.text._ZN4Mode7OffenceEv:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccaKXBnt.s:21     .text._ZN4Mode7OffenceEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccaKXBnt.s:27     .text._ZN4Mode7OffenceEv:00000000 _ZN4Mode7OffenceEv
 .ARM.exidx.text._ZN4Mode7OffenceEv:00000000 $d
 
 UNDEFINED SYMBOLS
 _ZN10MotorDrive5DriveEsf
-__aeabi_unwind_cpp_pr1
+_ZN13DribblerDrive4HoldEh
+_ZN6Kicker4KickEf
+__aeabi_unwind_cpp_pr0

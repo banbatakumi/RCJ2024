@@ -42,7 +42,9 @@ void Mode::MainMode() {
       } else if (robot->info.mode == 1) {
             Offence();
       } else if (robot->info.mode == 2) {
-            Defence();
+            robot->motor.Drive(0, 0);
+      } else if (robot->info.mode == 3) {
+            robot->motor.Drive(0, 0.5);
       }
 
       // cortex-debug
