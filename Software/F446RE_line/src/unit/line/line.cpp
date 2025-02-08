@@ -115,6 +115,7 @@ void Line::SetTh() {
       }
       for (uint16_t i = 0; i < SET_TH_NUM; i++) {
             Read();
+            HAL_Delay(1);
             leftside_th_ += *leftside_val_;
             rightside_th_ += *rightside_val_;
 
