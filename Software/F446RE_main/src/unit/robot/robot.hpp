@@ -23,6 +23,8 @@ typedef struct {
 
       float moving_speed, line_moving_speed;
       struct {
+            bool is_initialized = 0;
+
             uint8_t interval;
             uint8_t depth;
             bool is_on_line;
@@ -40,6 +42,8 @@ typedef struct {
             bool is_back;
       } Catch;
       struct {
+            bool is_initialized = 0;
+
             int16_t yaw;
             int16_t pitch;
             int16_t roll;
@@ -51,6 +55,8 @@ typedef struct {
       } Ui;
 
       struct {
+            bool is_initialized = 0;
+
             int16_t ball_dir;
             int16_t ball_dis;
             int16_t yellow_goal_dir;
@@ -59,10 +65,20 @@ typedef struct {
             int16_t blue_goal_height;
             int8_t own_x;
             int8_t own_y;
+            int16_t center_dir;
+            int16_t center_dis;
 
             bool is_goal_front;
             uint8_t proximity[4];
       } Cam;
+
+      struct {
+            bool is_initialized = 0;
+            bool is_connected = 0;
+            bool is_moving = 0;
+            bool is_catching_ball = 0;
+      } Bluetooth;
+
 } RobotInfo;
 class Robot {
      public:

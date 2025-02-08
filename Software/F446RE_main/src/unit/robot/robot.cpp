@@ -73,6 +73,7 @@ void Robot::ImuUart() {
                   }
             } else if (index == (dataSize + 1)) {
                   if (recv_byte == FOOTER) {
+                        if (info.Imu.is_initialized == 0) info.Imu.is_initialized = 1;
                         info.Imu.yaw = ((((uint16_t)recv_data[0] << 8) & 0xFF00) | ((int16_t)recv_data[1] & 0x00FF)) * 0.1 - 180;
                         info.Imu.pitch = ((((uint16_t)recv_data[2] << 8) & 0xFF00) | ((int16_t)recv_data[3] & 0x00FF)) * 0.1 - 180;
                         info.Imu.roll = ((((uint16_t)recv_data[4] << 8) & 0xFF00) | ((int16_t)recv_data[5] & 0x00FF)) * 0.1 - 180;
@@ -103,6 +104,8 @@ void Robot::LineUart() {
                   }
             } else if (index == (data_size + 1)) {
                   if (recv_byte == FOOTER) {
+                        if (info.Line.is_initialized == 0) info.Line.is_initialized = 1;
+
                         bool is_half_out;
                         info.motor_rps[0] = recv_data[0];
                         info.motor_rps[1] = recv_data[1];
@@ -190,7 +193,7 @@ void Robot::UiUart() {
                         uint8_t send_data[data_size];
                         send_data[0] = HEADER;
                         send_data[1] = info.voltage * 20;
-                        send_data[2] = info.voltage * 0;
+                        send_data[2] = (info.Imu.is_initialized & info.Line.is_initialized & info.Cam.is_initialized);
                         send_data[3] = (uint8_t)(((uint16_t)(info.Imu.yaw + 32768) & 0xFF00) >> 8);
                         send_data[4] = (uint8_t)((uint16_t)(info.Imu.yaw + 32768) & 0x00FF);
                         send_data[5] = (uint8_t)(((uint16_t)(debug_val[0] + 32768) & 0xFF00) >> 8);
@@ -209,6 +212,39 @@ void Robot::UiUart() {
                         send_data[4] = info.Line.is_on_line << 2 | info.Line.is_leftside << 1 | info.Line.is_rightside;
                         send_data[5] = FOOTER;
                         serial3.write(send_data, data_size);
+                  } else if (item == 2) {
+                        if (sub_item == 1) {
+                              static const uint8_t data_size = 6;
+                              uint8_t send_data[data_size];
+                              send_data[0] = HEADER;
+                              send_data[1] = info.Cam.ball_dir * 0.5 + 90;
+                              send_data[2] = info.Cam.ball_dis;
+                              send_data[3] = 0;
+                              send_data[4] = 0;
+                              send_data[5] = FOOTER;
+                              serial3.write(send_data, data_size);
+                        } else if (sub_item == 2) {
+                              static const uint8_t data_size = 6;
+                              uint8_t send_data[data_size];
+                              send_data[0] = HEADER;
+                              send_data[1] = info.Cam.yellow_goal_dir * 0.5 + 90;
+                              send_data[2] = info.Cam.yellow_goal_height;
+                              send_data[3] = info.Cam.blue_goal_dir * 0.5 + 90;
+                              send_data[4] = info.Cam.blue_goal_height;
+                              send_data[5] = FOOTER;
+                              serial3.write(send_data, data_size);
+                        } else if (sub_item == 3) {
+                              static const uint8_t data_size = 7;
+                              uint8_t send_data[data_size];
+                              send_data[0] = HEADER;
+                              send_data[1] = info.Cam.center_dir * 0.5 + 90;
+                              send_data[2] = info.Cam.center_dis;
+                              send_data[3] = info.Cam.own_x + 127;
+                              send_data[4] = info.Cam.own_y + 127;
+                              send_data[5] = info.Cam.proximity[0];
+                              send_data[6] = FOOTER;
+                              serial3.write(send_data, data_size);
+                        }
                   }
 
                   ui_send_interval_timer.reset();
@@ -234,6 +270,8 @@ void Robot::CamUart() {
                   }
             } else if (index == (data_size + 1)) {
                   if (recv_byte == FOOTER) {
+                        if (info.Cam.is_initialized == 0) info.Cam.is_initialized = 1;
+
                         info.Cam.ball_dir = ((((uint16_t)recv_data[0] << 8) & 0xFF00) | ((int16_t)recv_data[1] & 0x00FF)) - 32768;
                         info.Cam.ball_dis = recv_data[2];
                         info.Cam.yellow_goal_dir = recv_data[3] * 2 - 180;
@@ -244,6 +282,10 @@ void Robot::CamUart() {
                         info.Cam.own_x = recv_data[8] - 127;
                         info.Cam.own_y = recv_data[9] - 127;
                         info.Cam.proximity[0] = recv_data[10];
+
+                        info.Cam.center_dir = MyMath::atan2(info.Cam.own_y, info.Cam.own_x);
+                        info.Cam.center_dir = MyMath::atan2(info.Cam.own_y, info.Cam.own_x);
+                        info.Cam.center_dis = MyMath::sqrt(info.Cam.own_x * info.Cam.own_x + info.Cam.own_y * info.Cam.own_y);
                   }
                   index = 0;
             } else {
