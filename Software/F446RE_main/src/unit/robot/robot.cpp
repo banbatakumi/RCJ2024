@@ -116,10 +116,10 @@ void Robot::LineUart() {
                         info.Line.dir = recv_data[5] * 2 - 180;
 
                         if (is_half_out == 1) {
-                              info.Line.inside_dir = MyMath::NormalizeDeg180(info.Line.dir + 180);
+                              info.Line.inside_dir = info.Line.dir;
                               info.Line.depth = 24 - info.Line.interval;
                         } else {
-                              info.Line.inside_dir = info.Line.dir;
+                              info.Line.inside_dir = MyMath::NormalizeDeg180(info.Line.dir + 180);
                               info.Line.depth = info.Line.interval;
                         }
                   }
@@ -203,8 +203,8 @@ void Robot::UiUart() {
                         static const uint8_t data_size = 6;
                         uint8_t send_data[data_size];
                         send_data[0] = HEADER;
-                        send_data[1] = info.Line.dir;
-                        send_data[2] = info.Line.inside_dir;
+                        send_data[1] = info.Line.dir * 0.5 + 90;
+                        send_data[2] = info.Line.inside_dir * 0.5 + 90;
                         send_data[3] = info.Line.interval;
                         send_data[4] = info.Line.is_on_line << 2 | info.Line.is_leftside << 1 | info.Line.is_rightside;
                         send_data[5] = FOOTER;
