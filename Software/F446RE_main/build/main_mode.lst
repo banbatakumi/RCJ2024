@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -29,7 +29,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
   27              	_ZN4Mode8MainModeEv:
   28              		.fnstart
   29              	.LVL0:
-  30              	.LFB272:
+  30              	.LFB275:
    1:src/mode/main_mode.cpp **** #include "mode.hpp"
    2:src/mode/main_mode.cpp **** 
    3:src/mode/main_mode.cpp **** // cortex-debug用グローバル変数
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
   43              		.loc 1 13 7 is_stmt 1 view .LVU2
   44              		.loc 1 13 26 is_stmt 0 view .LVU3
   45 0004 FFF7FEFF 		bl	_ZN5Timer5resetEv
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s 			page 2
 
 
   46              	.LVL1:
@@ -118,7 +118,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
   29:src/mode/main_mode.cpp ****                         robot->dribbler_front.Hold(HOLD_MAX_POWER);
   30:src/mode/main_mode.cpp ****                   } else {
   31:src/mode/main_mode.cpp ****                         robot->dribbler_front.Hold(HOLD_WAIT_POWER);
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 3
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s 			page 3
 
 
   32:src/mode/main_mode.cpp ****                   }
@@ -178,7 +178,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
  116              		.loc 1 54 37 is_stmt 0 view .LVU34
  117 005e 997D     		ldrb	r1, [r3, #22]	@ zero_extendqisi2
  118              		.loc 1 54 18 view .LVU35
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s 			page 4
 
 
  119 0060 464A     		ldr	r2, .L21+12
@@ -238,7 +238,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
  162 0088 FFF7FEFF 		bl	_ZN5Timer7read_usEv
  163              	.LVL7:
  164              		.loc 1 65 21 view .LVU59
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 5
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s 			page 5
 
 
  165 008c 80B2     		uxth	r0, r0
@@ -298,7 +298,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
  209              		.loc 1 24 32 view .LVU74
  210 00d2 90F82F30 		ldrb	r3, [r0, #47]	@ zero_extendqisi2
   24:src/mode/main_mode.cpp ****             if (robot->info.Ui.dribbler_sig == 0) {
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 6
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s 			page 6
 
 
  211              		.loc 1 24 13 view .LVU75
@@ -358,7 +358,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
  251              		.loc 1 28 41 is_stmt 0 view .LVU89
  252 010e 90F82230 		ldrb	r3, [r0, #34]	@ zero_extendqisi2
   28:src/mode/main_mode.cpp ****                   if (robot->info.Catch.is_front) {
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 7
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s 			page 7
 
 
  253              		.loc 1 28 19 view .LVU90
@@ -418,7 +418,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
  295              		.loc 1 45 31 is_stmt 0 view .LVU102
  296 014e 9FED100A 		vldr.32	s0, .L21+32
  297 0152 0021     		movs	r1, #0
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 8
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s 			page 8
 
 
  298 0154 00F59870 		add	r0, r0, #304
@@ -449,7 +449,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
  321 018c 00000000 		.word	process_freq
  322 0190 00000000 		.word	0
  323              		.cfi_endproc
- 324              	.LFE272:
+ 324              	.LFE275:
  325              		.fnend
  327              		.global	debug
  328              		.section	.bss.debug,"aw",%nobits
@@ -478,7 +478,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
  355              		.global	process_freq
  356              		.section	.bss.process_freq,"aw",%nobits
  357              		.align	2
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 9
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s 			page 9
 
 
  360              	process_freq:
@@ -522,29 +522,29 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 1
  402              		.file 26 "src/unit/motor_drive/motor_drive.hpp"
  403              		.file 27 "src/unit/robot/robot.hpp"
  404              		.file 28 "src/mode/mode.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s 			page 10
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s 			page 10
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 main_mode.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:21     .text._ZN4Mode8MainModeEv:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:27     .text._ZN4Mode8MainModeEv:00000000 _ZN4Mode8MainModeEv
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:314    .text._ZN4Mode8MainModeEv:00000170 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:374    .bss.yaw:00000000 yaw
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:367    .bss.voltage:00000000 voltage
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:353    .bss.line_dir:00000000 line_dir
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:346    .bss.is_on_line:00000000 is_on_line
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:339    .bss.encoder:00000000 encoder
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:332    .bss.debug:00000000 debug
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:360    .bss.process_freq:00000000 process_freq
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:21     .text._ZN4Mode8MainModeEv:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:27     .text._ZN4Mode8MainModeEv:00000000 _ZN4Mode8MainModeEv
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:314    .text._ZN4Mode8MainModeEv:00000170 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:374    .bss.yaw:00000000 yaw
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:367    .bss.voltage:00000000 voltage
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:353    .bss.line_dir:00000000 line_dir
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:346    .bss.is_on_line:00000000 is_on_line
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:339    .bss.encoder:00000000 encoder
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:332    .bss.debug:00000000 debug
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:360    .bss.process_freq:00000000 process_freq
 .ARM.exidx.text._ZN4Mode8MainModeEv:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:329    .bss.debug:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:336    .bss.encoder:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:343    .bss.is_on_line:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:350    .bss.line_dir:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:357    .bss.process_freq:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:364    .bss.voltage:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccNIRQAo.s:371    .bss.yaw:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:329    .bss.debug:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:336    .bss.encoder:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:343    .bss.is_on_line:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:350    .bss.line_dir:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:357    .bss.process_freq:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:364    .bss.voltage:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccpeQzs4.s:371    .bss.yaw:00000000 $d
 
 UNDEFINED SYMBOLS
 _ZN5Timer5resetEv

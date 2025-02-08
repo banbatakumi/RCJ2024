@@ -22,15 +22,21 @@ class BufferedSerial {
             rxTop(0),
             rxBtm(0),
             _rxBufSize(rxBufSize),
-            _useDMA(false) {
+            _useDMA(false) {}
+      ~BufferedSerial() {
+            delete[] _rxBuf;
       }
+
       void init(bool dma = false) {
             _useDMA = dma;
             HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
-            // printf("- Serial init\n");
       }
 
       bool available() {
+            if (__HAL_UART_GET_FLAG(_huart, UART_FLAG_ORE) || __HAL_UART_GET_FLAG(_huart, UART_FLAG_NE) || __HAL_UART_GET_FLAG(_huart, UART_FLAG_FE) || __HAL_UART_GET_FLAG(_huart, UART_FLAG_PE)) {
+                  HAL_UART_Abort(_huart);
+                  HAL_UART_Receive_DMA(_huart, _rxBuf, _rxBufSize);
+            }
             uint16_t rxTop = _rxBufSize - _huart->hdmarx->Instance->NDTR;
             return rxTop != rxBtm;
       }
@@ -42,7 +48,6 @@ class BufferedSerial {
             }
             uint8_t data = _rxBuf[rxBtm];
             rxBtm = (rxBtm + 1) % _rxBufSize;
-            // printf("top:%d btm:%d NDTR:%d data:%d\n", rxTop, rxBtm, _huart->hdmarx->Instance->NDTR, data);
             return data;
       }
 
