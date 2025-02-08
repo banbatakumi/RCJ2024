@@ -1,4 +1,4 @@
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 1
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 1
 
 
    1              		.cpu cortex-m4
@@ -28,7 +28,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 1
   26              	_Z41__static_initialization_and_destruction_0ii:
   27              		.fnstart
   28              	.LVL0:
-  29              	.LFB264:
+  29              	.LFB266:
    1:src/app/app.cpp **** #include "app.h"
    2:src/app/app.cpp **** 
    3:src/app/app.cpp **** #include "Timer.hpp"
@@ -58,7 +58,7 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 1
   27:src/app/app.cpp **** 
   28:src/app/app.cpp **** void main_app() {
   29:src/app/app.cpp ****       while (1) {
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 2
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 2
 
 
   30:src/app/app.cpp ****             process_timer.reset();
@@ -103,245 +103,370 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 1
   34              		.loc 1 64 1 is_stmt 0 view .LVU1
   35 0000 0128     		cmp	r0, #1
   36 0002 00D0     		beq	.L7
-  37 0004 7047     		bx	lr
-  38              	.L7:
-  39              		.loc 1 64 1 discriminator 1 view .LVU2
-  40 0006 08B5     		push	{r3, lr}
-  41              	.LCFI0:
-  42              		.cfi_def_cfa_offset 8
-  43              		.cfi_offset 3, -8
-  44              		.cfi_offset 14, -4
-  45              		.loc 1 64 1 discriminator 1 view .LVU3
-  46 0008 4FF6FF73 		movw	r3, #65535
-  47 000c 9942     		cmp	r1, r3
-  48 000e 00D0     		beq	.L8
-  49              	.LVL1:
-  50              	.L1:
-  51              		.loc 1 64 1 view .LVU4
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 3
+  37              	.L4:
+  38 0004 7047     		bx	lr
+  39              	.L7:
+  40              		.loc 1 64 1 discriminator 1 view .LVU2
+  41 0006 4FF6FF73 		movw	r3, #65535
+  42 000a 9942     		cmp	r1, r3
+  43 000c FAD1     		bne	.L4
+  44              		.loc 1 64 1 view .LVU3
+  45 000e 10B5     		push	{r4, lr}
+  46              	.LCFI0:
+  47              		.cfi_def_cfa_offset 8
+  48              		.cfi_offset 4, -8
+  49              		.cfi_offset 14, -4
+   7:src/app/app.cpp **** Timer process_timer;
+  50              		.loc 1 7 10 view .LVU4
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 3
 
 
-  52 0010 08BD     		pop	{r3, pc}
-  53              	.LVL2:
-  54              	.L8:
+  51 0010 064C     		ldr	r4, .L8
+  52 0012 2046     		mov	r0, r4
+  53              	.LVL1:
    7:src/app/app.cpp **** Timer process_timer;
-  55              		.loc 1 7 10 view .LVU5
-  56 0012 0348     		ldr	r0, .L9
-  57              	.LVL3:
+  54              		.loc 1 7 10 view .LVU5
+  55 0014 FFF7FEFF 		bl	_ZN8HardwareC1Ev
+  56              	.LVL2:
    7:src/app/app.cpp **** Timer process_timer;
-  58              		.loc 1 7 10 view .LVU6
-  59 0014 FFF7FEFF 		bl	_ZN8HardwareC1Ev
-  60              	.LVL4:
+  57              		.loc 1 7 10 view .LVU6
+  58 0018 054A     		ldr	r2, .L8+4
+  59 001a 0649     		ldr	r1, .L8+8
+  60 001c 2046     		mov	r0, r4
+  61 001e FFF7FEFF 		bl	__aeabi_atexit
+  62              	.LVL3:
    8:src/app/app.cpp **** 
-  61              		.loc 1 8 7 view .LVU7
-  62 0018 0248     		ldr	r0, .L9+4
-  63 001a FFF7FEFF 		bl	_ZN5TimerC1Ev
-  64              	.LVL5:
-  65              		.loc 1 64 1 view .LVU8
-  66 001e F7E7     		b	.L1
-  67              	.L10:
-  68              		.align	2
+  63              		.loc 1 8 7 view .LVU7
+  64 0022 0548     		ldr	r0, .L8+12
+  65 0024 FFF7FEFF 		bl	_ZN5TimerC1Ev
+  66              	.LVL4:
+  67              		.loc 1 64 1 view .LVU8
+  68 0028 10BD     		pop	{r4, pc}
   69              	.L9:
-  70 0020 00000000 		.word	hardware
-  71 0024 00000000 		.word	process_timer
-  72              		.cfi_endproc
-  73              	.LFE264:
-  74              		.cantunwind
-  75              		.fnend
-  77              		.section	.text.setup,"ax",%progbits
-  78              		.align	1
-  79              		.global	setup
-  80              		.syntax unified
-  81              		.thumb
-  82              		.thumb_func
-  84              	setup:
-  85              		.fnstart
-  86              	.LFB262:
+  70 002a 00BF     		.align	2
+  71              	.L8:
+  72 002c 00000000 		.word	hardware
+  73 0030 00000000 		.word	__dso_handle
+  74 0034 00000000 		.word	_ZN8HardwareD1Ev
+  75 0038 00000000 		.word	process_timer
+  76              		.cfi_endproc
+  77              	.LFE266:
+  78              		.cantunwind
+  79              		.fnend
+  81              		.section	.text._ZN8HardwareD2Ev,"axG",%progbits,_ZN8HardwareD5Ev,comdat
+  82              		.align	1
+  83              		.weak	_ZN8HardwareD2Ev
+  84              		.syntax unified
+  85              		.thumb
+  86              		.thumb_func
+  88              	_ZN8HardwareD2Ev:
+  89              		.fnstart
+  90              	.LVL5:
+  91              	.LFB268:
+  92              		.file 2 "src/unit/hardware/hardware.hpp"
+   1:src/unit/hardware/hardware.hpp **** #ifndef __HARDWARE__
+   2:src/unit/hardware/hardware.hpp **** #define __HARDWARE__
+   3:src/unit/hardware/hardware.hpp **** 
+   4:src/unit/hardware/hardware.hpp **** #include "BufferedSerial.hpp"
+   5:src/unit/hardware/hardware.hpp **** #include "DigitalInOut.hpp"
+   6:src/unit/hardware/hardware.hpp **** #include "MyMath.hpp"
+   7:src/unit/hardware/hardware.hpp **** #include "adc.h"
+   8:src/unit/hardware/hardware.hpp **** #include "encoder.hpp"
+   9:src/unit/hardware/hardware.hpp **** #include "line.hpp"
+  10:src/unit/hardware/hardware.hpp **** 
+  11:src/unit/hardware/hardware.hpp **** #define SEND_FREQ 3000  // Hz
+  12:src/unit/hardware/hardware.hpp **** #define SEND_PERIOD_US (int)((1.0f / SEND_FREQ) * 1000000)
+  13:src/unit/hardware/hardware.hpp **** typedef struct {
+  14:src/unit/hardware/hardware.hpp ****       struct {
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 4
+
+
+  15:src/unit/hardware/hardware.hpp ****             uint8_t photo_val[4];
+  16:src/unit/hardware/hardware.hpp ****             uint8_t rps[4];
+  17:src/unit/hardware/hardware.hpp ****       } Encoder;
+  18:src/unit/hardware/hardware.hpp **** 
+  19:src/unit/hardware/hardware.hpp ****       struct {
+  20:src/unit/hardware/hardware.hpp ****             uint8_t leftside_val, rightside_val;
+  21:src/unit/hardware/hardware.hpp ****             uint8_t mux1x_val, mux1y_val;
+  22:src/unit/hardware/hardware.hpp ****             uint8_t mux2x_val, mux2y_val;
+  23:src/unit/hardware/hardware.hpp ****             uint8_t mux3x_val, mux3y_val;
+  24:src/unit/hardware/hardware.hpp **** 
+  25:src/unit/hardware/hardware.hpp ****             volatile bool do_read;
+  26:src/unit/hardware/hardware.hpp **** 
+  27:src/unit/hardware/hardware.hpp ****             int16_t dir;
+  28:src/unit/hardware/hardware.hpp ****             uint8_t max_interval;
+  29:src/unit/hardware/hardware.hpp ****             bool is_half_out;
+  30:src/unit/hardware/hardware.hpp ****             bool is_on_line;
+  31:src/unit/hardware/hardware.hpp ****             bool is_leftside_white;
+  32:src/unit/hardware/hardware.hpp ****             bool is_rightside_white;
+  33:src/unit/hardware/hardware.hpp ****       } Line;
+  34:src/unit/hardware/hardware.hpp **** } Info;
+  35:src/unit/hardware/hardware.hpp **** 
+  36:src/unit/hardware/hardware.hpp **** class Hardware {
+  93              		.loc 2 36 7 is_stmt 1 view -0
+  94              		.cfi_startproc
+  95              		@ args = 0, pretend = 0, frame = 0
+  96              		@ frame_needed = 0, uses_anonymous_args = 0
+  97              		.loc 2 36 7 is_stmt 0 view .LVU10
+  98 0000 10B5     		push	{r4, lr}
+  99              	.LCFI1:
+ 100              		.cfi_def_cfa_offset 8
+ 101              		.cfi_offset 4, -8
+ 102              		.cfi_offset 14, -4
+ 103 0002 0446     		mov	r4, r0
+ 104              	.LVL6:
+ 105              	.LBB10:
+ 106              	.LBI10:
+ 107              		.file 3 "Lib/BufferedSerial/BufferedSerial.hpp"
+   1:Lib/BufferedSerial/BufferedSerial.hpp **** #ifndef __BUFFERED_SERIAL__
+   2:Lib/BufferedSerial/BufferedSerial.hpp **** #define __BUFFERED_SERIAL__
+   3:Lib/BufferedSerial/BufferedSerial.hpp **** 
+   4:Lib/BufferedSerial/BufferedSerial.hpp **** #include <stdio.h>
+   5:Lib/BufferedSerial/BufferedSerial.hpp **** 
+   6:Lib/BufferedSerial/BufferedSerial.hpp **** #include "usart.h"
+   7:Lib/BufferedSerial/BufferedSerial.hpp **** 
+   8:Lib/BufferedSerial/BufferedSerial.hpp **** #ifdef __cplusplus
+   9:Lib/BufferedSerial/BufferedSerial.hpp **** 
+  10:Lib/BufferedSerial/BufferedSerial.hpp **** /*
+  11:Lib/BufferedSerial/BufferedSerial.hpp ****  Initの順番をDMAが先になるようにする
+  12:Lib/BufferedSerial/BufferedSerial.hpp ****  - MX_DMA_Init();
+  13:Lib/BufferedSerial/BufferedSerial.hpp ****  - MX_USART2_UART_Init();
+  14:Lib/BufferedSerial/BufferedSerial.hpp ****  - DMAはCircularモードにする
+  15:Lib/BufferedSerial/BufferedSerial.hpp **** */
+  16:Lib/BufferedSerial/BufferedSerial.hpp **** 
+  17:Lib/BufferedSerial/BufferedSerial.hpp **** class BufferedSerial {
+  18:Lib/BufferedSerial/BufferedSerial.hpp ****      public:
+  19:Lib/BufferedSerial/BufferedSerial.hpp ****       BufferedSerial(UART_HandleTypeDef *huart, uint16_t rxBufSize)
+  20:Lib/BufferedSerial/BufferedSerial.hpp ****           : _huart(huart),
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 5
+
+
+  21:Lib/BufferedSerial/BufferedSerial.hpp ****             _rxBuf(new uint8_t[rxBufSize]),
+  22:Lib/BufferedSerial/BufferedSerial.hpp ****             rxTop(0),
+  23:Lib/BufferedSerial/BufferedSerial.hpp ****             rxBtm(0),
+  24:Lib/BufferedSerial/BufferedSerial.hpp ****             _rxBufSize(rxBufSize),
+  25:Lib/BufferedSerial/BufferedSerial.hpp ****             _useDMA(false) {}
+  26:Lib/BufferedSerial/BufferedSerial.hpp ****       ~BufferedSerial() {
+ 108              		.loc 3 26 7 is_stmt 1 view .LVU11
+ 109              	.LBB11:
+  27:Lib/BufferedSerial/BufferedSerial.hpp ****             delete[] _rxBuf;
+ 110              		.loc 3 27 13 view .LVU12
+ 111              		.loc 3 27 22 is_stmt 0 view .LVU13
+ 112 0004 006F     		ldr	r0, [r0, #112]
+ 113              	.LVL7:
+ 114              		.loc 3 27 13 view .LVU14
+ 115 0006 08B1     		cbz	r0, .L11
+ 116              		.loc 3 27 22 view .LVU15
+ 117 0008 FFF7FEFF 		bl	_ZdaPv
+ 118              	.LVL8:
+ 119              	.L11:
+ 120              		.loc 3 27 22 view .LVU16
+ 121              	.LBE11:
+ 122              	.LBE10:
+ 123              		.loc 2 36 7 view .LVU17
+ 124 000c 2046     		mov	r0, r4
+ 125 000e 10BD     		pop	{r4, pc}
+ 126              		.loc 2 36 7 view .LVU18
+ 127              		.cfi_endproc
+ 128              	.LFE268:
+ 129              		.cantunwind
+ 130              		.fnend
+ 132              		.weak	_ZN8HardwareD1Ev
+ 133              		.thumb_set _ZN8HardwareD1Ev,_ZN8HardwareD2Ev
+ 134              		.section	.text.setup,"ax",%progbits
+ 135              		.align	1
+ 136              		.global	setup
+ 137              		.syntax unified
+ 138              		.thumb
+ 139              		.thumb_func
+ 141              	setup:
+ 142              		.fnstart
+ 143              	.LFB264:
   23:src/app/app.cpp ****       hardware.Init();
-  87              		.loc 1 23 14 is_stmt 1 view -0
-  88              		.cfi_startproc
-  89              		@ args = 0, pretend = 0, frame = 0
-  90              		@ frame_needed = 0, uses_anonymous_args = 0
-  91 0000 10B5     		push	{r4, lr}
-  92              		.save {r4, lr}
-  93              	.LCFI1:
-  94              		.cfi_def_cfa_offset 8
-  95              		.cfi_offset 4, -8
-  96              		.cfi_offset 14, -4
+ 144              		.loc 1 23 14 is_stmt 1 view -0
+ 145              		.cfi_startproc
+ 146              		@ args = 0, pretend = 0, frame = 0
+ 147              		@ frame_needed = 0, uses_anonymous_args = 0
+ 148 0000 10B5     		push	{r4, lr}
+ 149              		.save {r4, lr}
+ 150              	.LCFI2:
+ 151              		.cfi_def_cfa_offset 8
+ 152              		.cfi_offset 4, -8
+ 153              		.cfi_offset 14, -4
   24:src/app/app.cpp ****       hardware.line.SetTh();
-  97              		.loc 1 24 7 view .LVU10
+ 154              		.loc 1 24 7 view .LVU20
   24:src/app/app.cpp ****       hardware.line.SetTh();
-  98              		.loc 1 24 20 is_stmt 0 view .LVU11
-  99 0002 044C     		ldr	r4, .L13
- 100 0004 2046     		mov	r0, r4
- 101 0006 FFF7FEFF 		bl	_ZN8Hardware4InitEv
- 102              	.LVL6:
-  25:src/app/app.cpp **** }
- 103              		.loc 1 25 7 is_stmt 1 view .LVU12
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 4
+ 155              		.loc 1 24 20 is_stmt 0 view .LVU21
+ 156 0002 044C     		ldr	r4, .L15
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 6
 
 
+ 157 0004 2046     		mov	r0, r4
+ 158 0006 FFF7FEFF 		bl	_ZN8Hardware4InitEv
+ 159              	.LVL9:
   25:src/app/app.cpp **** }
- 104              		.loc 1 25 26 is_stmt 0 view .LVU13
- 105 000a 04F6B850 		addw	r0, r4, #3512
- 106 000e FFF7FEFF 		bl	_ZN4Line5SetThEv
- 107              	.LVL7:
+ 160              		.loc 1 25 7 is_stmt 1 view .LVU22
+  25:src/app/app.cpp **** }
+ 161              		.loc 1 25 26 is_stmt 0 view .LVU23
+ 162 000a 04F6B850 		addw	r0, r4, #3512
+ 163 000e FFF7FEFF 		bl	_ZN4Line5SetThEv
+ 164              	.LVL10:
   26:src/app/app.cpp **** 
- 108              		.loc 1 26 1 view .LVU14
- 109 0012 10BD     		pop	{r4, pc}
- 110              	.L14:
- 111              		.align	2
- 112              	.L13:
- 113 0014 00000000 		.word	hardware
- 114              		.cfi_endproc
- 115              	.LFE262:
- 116              		.fnend
- 118              		.section	.text.main_app,"ax",%progbits
- 119              		.align	1
- 120              		.global	main_app
- 121              		.syntax unified
- 122              		.thumb
- 123              		.thumb_func
- 125              	main_app:
- 126              		.fnstart
- 127              	.LFB263:
+ 165              		.loc 1 26 1 view .LVU24
+ 166 0012 10BD     		pop	{r4, pc}
+ 167              	.L16:
+ 168              		.align	2
+ 169              	.L15:
+ 170 0014 00000000 		.word	hardware
+ 171              		.cfi_endproc
+ 172              	.LFE264:
+ 173              		.fnend
+ 175              		.section	.text.main_app,"ax",%progbits
+ 176              		.align	1
+ 177              		.global	main_app
+ 178              		.syntax unified
+ 179              		.thumb
+ 180              		.thumb_func
+ 182              	main_app:
+ 183              		.fnstart
+ 184              	.LFB265:
   28:src/app/app.cpp ****       while (1) {
- 128              		.loc 1 28 17 is_stmt 1 view -0
- 129              		.cfi_startproc
- 130              		@ args = 0, pretend = 0, frame = 0
- 131              		@ frame_needed = 0, uses_anonymous_args = 0
- 132 0000 10B5     		push	{r4, lr}
- 133              		.save {r4, lr}
- 134              	.LCFI2:
- 135              		.cfi_def_cfa_offset 8
- 136              		.cfi_offset 4, -8
- 137              		.cfi_offset 14, -4
- 138 0002 4CE0     		b	.L20
- 139              	.L16:
+ 185              		.loc 1 28 17 is_stmt 1 view -0
+ 186              		.cfi_startproc
+ 187              		@ args = 0, pretend = 0, frame = 0
+ 188              		@ frame_needed = 0, uses_anonymous_args = 0
+ 189 0000 10B5     		push	{r4, lr}
+ 190              		.save {r4, lr}
+ 191              	.LCFI3:
+ 192              		.cfi_def_cfa_offset 8
+ 193              		.cfi_offset 4, -8
+ 194              		.cfi_offset 14, -4
+ 195 0002 4CE0     		b	.L22
+ 196              	.L18:
   39:src/app/app.cpp ****             }
- 140              		.loc 1 39 19 view .LVU16
+ 197              		.loc 1 39 19 view .LVU26
   39:src/app/app.cpp ****             }
- 141              		.loc 1 39 39 is_stmt 0 view .LVU17
- 142 0004 3448     		ldr	r0, .L22
- 143 0006 FFF7FEFF 		bl	_ZN4Line6OffLedEv
- 144              	.LVL8:
- 145              	.L17:
+ 198              		.loc 1 39 39 is_stmt 0 view .LVU27
+ 199 0004 3448     		ldr	r0, .L24
+ 200 0006 FFF7FEFF 		bl	_ZN4Line6OffLedEv
+ 201              	.LVL11:
+ 202              	.L19:
   43:src/app/app.cpp ****             encoder[1] = hardware.info.Encoder.rps[1];
- 146              		.loc 1 43 13 is_stmt 1 view .LVU18
+ 203              		.loc 1 43 13 is_stmt 1 view .LVU28
   43:src/app/app.cpp ****             encoder[1] = hardware.info.Encoder.rps[1];
- 147              		.loc 1 43 53 is_stmt 0 view .LVU19
- 148 000a 344B     		ldr	r3, .L22+4
- 149 000c 1979     		ldrb	r1, [r3, #4]	@ zero_extendqisi2
+ 204              		.loc 1 43 53 is_stmt 0 view .LVU29
+ 205 000a 344B     		ldr	r3, .L24+4
+ 206 000c 1979     		ldrb	r1, [r3, #4]	@ zero_extendqisi2
   43:src/app/app.cpp ****             encoder[1] = hardware.info.Encoder.rps[1];
- 150              		.loc 1 43 24 view .LVU20
- 151 000e 344A     		ldr	r2, .L22+8
- 152 0010 1160     		str	r1, [r2]
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 7
+
+
+ 207              		.loc 1 43 24 view .LVU30
+ 208 000e 344A     		ldr	r2, .L24+8
+ 209 0010 1160     		str	r1, [r2]
   44:src/app/app.cpp ****             encoder[2] = hardware.info.Encoder.rps[2];
- 153              		.loc 1 44 13 is_stmt 1 view .LVU21
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 5
-
-
+ 210              		.loc 1 44 13 is_stmt 1 view .LVU31
   44:src/app/app.cpp ****             encoder[2] = hardware.info.Encoder.rps[2];
- 154              		.loc 1 44 53 is_stmt 0 view .LVU22
- 155 0012 5979     		ldrb	r1, [r3, #5]	@ zero_extendqisi2
+ 211              		.loc 1 44 53 is_stmt 0 view .LVU32
+ 212 0012 5979     		ldrb	r1, [r3, #5]	@ zero_extendqisi2
   44:src/app/app.cpp ****             encoder[2] = hardware.info.Encoder.rps[2];
- 156              		.loc 1 44 24 view .LVU23
- 157 0014 5160     		str	r1, [r2, #4]
+ 213              		.loc 1 44 24 view .LVU33
+ 214 0014 5160     		str	r1, [r2, #4]
   45:src/app/app.cpp ****             encoder[3] = hardware.info.Encoder.rps[3];
- 158              		.loc 1 45 13 is_stmt 1 view .LVU24
+ 215              		.loc 1 45 13 is_stmt 1 view .LVU34
   45:src/app/app.cpp ****             encoder[3] = hardware.info.Encoder.rps[3];
- 159              		.loc 1 45 53 is_stmt 0 view .LVU25
- 160 0016 9979     		ldrb	r1, [r3, #6]	@ zero_extendqisi2
+ 216              		.loc 1 45 53 is_stmt 0 view .LVU35
+ 217 0016 9979     		ldrb	r1, [r3, #6]	@ zero_extendqisi2
   45:src/app/app.cpp ****             encoder[3] = hardware.info.Encoder.rps[3];
- 161              		.loc 1 45 24 view .LVU26
- 162 0018 9160     		str	r1, [r2, #8]
+ 218              		.loc 1 45 24 view .LVU36
+ 219 0018 9160     		str	r1, [r2, #8]
   46:src/app/app.cpp **** 
- 163              		.loc 1 46 13 is_stmt 1 view .LVU27
+ 220              		.loc 1 46 13 is_stmt 1 view .LVU37
   46:src/app/app.cpp **** 
- 164              		.loc 1 46 53 is_stmt 0 view .LVU28
- 165 001a D979     		ldrb	r1, [r3, #7]	@ zero_extendqisi2
+ 221              		.loc 1 46 53 is_stmt 0 view .LVU38
+ 222 001a D979     		ldrb	r1, [r3, #7]	@ zero_extendqisi2
   46:src/app/app.cpp **** 
- 166              		.loc 1 46 24 view .LVU29
- 167 001c D160     		str	r1, [r2, #12]
+ 223              		.loc 1 46 24 view .LVU39
+ 224 001c D160     		str	r1, [r2, #12]
   48:src/app/app.cpp ****             is_half_out = hardware.info.Line.is_half_out;
- 168              		.loc 1 48 13 is_stmt 1 view .LVU30
+ 225              		.loc 1 48 13 is_stmt 1 view .LVU40
   48:src/app/app.cpp ****             is_half_out = hardware.info.Line.is_half_out;
- 169              		.loc 1 48 38 is_stmt 0 view .LVU31
- 170 001e B3F91210 		ldrsh	r1, [r3, #18]
+ 226              		.loc 1 48 38 is_stmt 0 view .LVU41
+ 227 001e B3F91210 		ldrsh	r1, [r3, #18]
   48:src/app/app.cpp ****             is_half_out = hardware.info.Line.is_half_out;
- 171              		.loc 1 48 17 view .LVU32
- 172 0022 304A     		ldr	r2, .L22+12
- 173 0024 1180     		strh	r1, [r2]	@ movhi
+ 228              		.loc 1 48 17 view .LVU42
+ 229 0022 304A     		ldr	r2, .L24+12
+ 230 0024 1180     		strh	r1, [r2]	@ movhi
   49:src/app/app.cpp ****             is_leftside_white = hardware.info.Line.is_leftside_white;
- 174              		.loc 1 49 13 is_stmt 1 view .LVU33
+ 231              		.loc 1 49 13 is_stmt 1 view .LVU43
   49:src/app/app.cpp ****             is_leftside_white = hardware.info.Line.is_leftside_white;
- 175              		.loc 1 49 46 is_stmt 0 view .LVU34
- 176 0026 597D     		ldrb	r1, [r3, #21]	@ zero_extendqisi2
+ 232              		.loc 1 49 46 is_stmt 0 view .LVU44
+ 233 0026 597D     		ldrb	r1, [r3, #21]	@ zero_extendqisi2
   49:src/app/app.cpp ****             is_leftside_white = hardware.info.Line.is_leftside_white;
- 177              		.loc 1 49 25 view .LVU35
- 178 0028 2F4A     		ldr	r2, .L22+16
- 179 002a 1170     		strb	r1, [r2]
+ 234              		.loc 1 49 25 view .LVU45
+ 235 0028 2F4A     		ldr	r2, .L24+16
+ 236 002a 1170     		strb	r1, [r2]
   50:src/app/app.cpp ****             is_rightside_white = hardware.info.Line.is_rightside_white;
- 180              		.loc 1 50 13 is_stmt 1 view .LVU36
+ 237              		.loc 1 50 13 is_stmt 1 view .LVU46
   50:src/app/app.cpp ****             is_rightside_white = hardware.info.Line.is_rightside_white;
- 181              		.loc 1 50 52 is_stmt 0 view .LVU37
- 182 002c D97D     		ldrb	r1, [r3, #23]	@ zero_extendqisi2
+ 238              		.loc 1 50 52 is_stmt 0 view .LVU47
+ 239 002c D97D     		ldrb	r1, [r3, #23]	@ zero_extendqisi2
   50:src/app/app.cpp ****             is_rightside_white = hardware.info.Line.is_rightside_white;
- 183              		.loc 1 50 31 view .LVU38
- 184 002e 2F4A     		ldr	r2, .L22+20
- 185 0030 1170     		strb	r1, [r2]
+ 240              		.loc 1 50 31 view .LVU48
+ 241 002e 2F4A     		ldr	r2, .L24+20
+ 242 0030 1170     		strb	r1, [r2]
   51:src/app/app.cpp ****             is_on_line = hardware.info.Line.is_on_line;
- 186              		.loc 1 51 13 is_stmt 1 view .LVU39
+ 243              		.loc 1 51 13 is_stmt 1 view .LVU49
   51:src/app/app.cpp ****             is_on_line = hardware.info.Line.is_on_line;
- 187              		.loc 1 51 53 is_stmt 0 view .LVU40
- 188 0032 197E     		ldrb	r1, [r3, #24]	@ zero_extendqisi2
-  51:src/app/app.cpp ****             is_on_line = hardware.info.Line.is_on_line;
- 189              		.loc 1 51 32 view .LVU41
- 190 0034 2E4A     		ldr	r2, .L22+24
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 6
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 8
 
 
- 191 0036 1170     		strb	r1, [r2]
+ 244              		.loc 1 51 53 is_stmt 0 view .LVU50
+ 245 0032 197E     		ldrb	r1, [r3, #24]	@ zero_extendqisi2
+  51:src/app/app.cpp ****             is_on_line = hardware.info.Line.is_on_line;
+ 246              		.loc 1 51 32 view .LVU51
+ 247 0034 2E4A     		ldr	r2, .L24+24
+ 248 0036 1170     		strb	r1, [r2]
   52:src/app/app.cpp ****             max_interval = hardware.info.Line.max_interval;
- 192              		.loc 1 52 13 is_stmt 1 view .LVU42
+ 249              		.loc 1 52 13 is_stmt 1 view .LVU52
   52:src/app/app.cpp ****             max_interval = hardware.info.Line.max_interval;
- 193              		.loc 1 52 45 is_stmt 0 view .LVU43
- 194 0038 997D     		ldrb	r1, [r3, #22]	@ zero_extendqisi2
+ 250              		.loc 1 52 45 is_stmt 0 view .LVU53
+ 251 0038 997D     		ldrb	r1, [r3, #22]	@ zero_extendqisi2
   52:src/app/app.cpp ****             max_interval = hardware.info.Line.max_interval;
- 195              		.loc 1 52 24 view .LVU44
- 196 003a 2E4A     		ldr	r2, .L22+28
- 197 003c 1170     		strb	r1, [r2]
+ 252              		.loc 1 52 24 view .LVU54
+ 253 003a 2E4A     		ldr	r2, .L24+28
+ 254 003c 1170     		strb	r1, [r2]
   53:src/app/app.cpp **** 
- 198              		.loc 1 53 13 is_stmt 1 view .LVU45
+ 255              		.loc 1 53 13 is_stmt 1 view .LVU55
   53:src/app/app.cpp **** 
- 199              		.loc 1 53 47 is_stmt 0 view .LVU46
- 200 003e 1A7D     		ldrb	r2, [r3, #20]	@ zero_extendqisi2
+ 256              		.loc 1 53 47 is_stmt 0 view .LVU56
+ 257 003e 1A7D     		ldrb	r2, [r3, #20]	@ zero_extendqisi2
   53:src/app/app.cpp **** 
- 201              		.loc 1 53 26 view .LVU47
- 202 0040 2D4B     		ldr	r3, .L22+32
- 203 0042 1A70     		strb	r2, [r3]
+ 258              		.loc 1 53 26 view .LVU57
+ 259 0040 2D4B     		ldr	r3, .L24+32
+ 260 0042 1A70     		strb	r2, [r3]
   56:src/app/app.cpp ****             if (process_time_ < PERIOD_US) {
- 204              		.loc 1 56 13 is_stmt 1 view .LVU48
+ 261              		.loc 1 56 13 is_stmt 1 view .LVU58
   56:src/app/app.cpp ****             if (process_time_ < PERIOD_US) {
- 205              		.loc 1 56 50 is_stmt 0 view .LVU49
- 206 0044 2D48     		ldr	r0, .L22+36
- 207 0046 FFF7FEFF 		bl	_ZN5Timer7read_usEv
- 208              	.LVL9:
+ 262              		.loc 1 56 50 is_stmt 0 view .LVU59
+ 263 0044 2D48     		ldr	r0, .L24+36
+ 264 0046 FFF7FEFF 		bl	_ZN5Timer7read_usEv
+ 265              	.LVL12:
   56:src/app/app.cpp ****             if (process_time_ < PERIOD_US) {
- 209              		.loc 1 56 27 view .LVU50
- 210 004a 80B2     		uxth	r0, r0
- 211 004c 2C4B     		ldr	r3, .L22+40
- 212 004e 1880     		strh	r0, [r3]	@ movhi
+ 266              		.loc 1 56 27 view .LVU60
+ 267 004a 80B2     		uxth	r0, r0
+ 268 004c 2C4B     		ldr	r3, .L24+40
+ 269 004e 1880     		strh	r0, [r3]	@ movhi
   57:src/app/app.cpp ****                   hardware.led1 = 1;
- 213              		.loc 1 57 13 is_stmt 1 view .LVU51
- 214 0050 C728     		cmp	r0, #199
- 215 0052 10D8     		bhi	.L18
+ 270              		.loc 1 57 13 is_stmt 1 view .LVU61
+ 271 0050 C728     		cmp	r0, #199
+ 272 0052 10D8     		bhi	.L20
   58:src/app/app.cpp ****                   while (process_timer.read_us() < PERIOD_US);
- 216              		.loc 1 58 19 view .LVU52
- 217              	.LVL10:
- 218              	.LBB6:
- 219              	.LBI6:
- 220              		.file 2 "Lib/DigitalInOut/DigitalInOut.hpp"
+ 273              		.loc 1 58 19 view .LVU62
+ 274              	.LVL13:
+ 275              	.LBB12:
+ 276              	.LBI12:
+ 277              		.file 4 "Lib/DigitalInOut/DigitalInOut.hpp"
    1:Lib/DigitalInOut/DigitalInOut.hpp **** #ifndef __DIGITALINOUT__
    2:Lib/DigitalInOut/DigitalInOut.hpp **** #define __DIGITALINOUT__
    3:Lib/DigitalInOut/DigitalInOut.hpp **** 
@@ -353,345 +478,354 @@ ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 1
    9:Lib/DigitalInOut/DigitalInOut.hpp **** 
   10:Lib/DigitalInOut/DigitalInOut.hpp **** class DigitalOut {
   11:Lib/DigitalInOut/DigitalInOut.hpp ****      public:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 9
+
+
   12:Lib/DigitalInOut/DigitalInOut.hpp ****       DigitalOut(GPIO_TypeDef *port, uint16_t pin) : port(port), pin(pin) {
   13:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, GPIO_PIN_RESET);
   14:Lib/DigitalInOut/DigitalInOut.hpp ****       }
   15:Lib/DigitalInOut/DigitalInOut.hpp ****       void write(bool value) {
   16:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 7
-
-
   17:Lib/DigitalInOut/DigitalInOut.hpp ****       }
   18:Lib/DigitalInOut/DigitalInOut.hpp **** 
   19:Lib/DigitalInOut/DigitalInOut.hpp ****       void operator=(bool value) {
- 221              		.loc 2 19 12 view .LVU53
- 222              	.LBB7:
+ 278              		.loc 4 19 12 view .LVU63
+ 279              	.LBB13:
   20:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
- 223              		.loc 2 20 13 view .LVU54
- 224              		.loc 2 20 30 is_stmt 0 view .LVU55
- 225 0054 214B     		ldr	r3, .L22+4
- 226 0056 0122     		movs	r2, #1
- 227 0058 198C     		ldrh	r1, [r3, #32]
- 228 005a D869     		ldr	r0, [r3, #28]
- 229 005c FFF7FEFF 		bl	HAL_GPIO_WritePin
- 230              	.LVL11:
- 231              	.L19:
- 232              		.loc 2 20 30 view .LVU56
- 233              	.LBE7:
- 234              	.LBE6:
+ 280              		.loc 4 20 13 view .LVU64
+ 281              		.loc 4 20 30 is_stmt 0 view .LVU65
+ 282 0054 214B     		ldr	r3, .L24+4
+ 283 0056 0122     		movs	r2, #1
+ 284 0058 198C     		ldrh	r1, [r3, #32]
+ 285 005a D869     		ldr	r0, [r3, #28]
+ 286 005c FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 287              	.LVL14:
+ 288              	.L21:
+ 289              		.loc 4 20 30 view .LVU66
+ 290              	.LBE13:
+ 291              	.LBE12:
   59:src/app/app.cpp ****                   hardware.led1 = 0;
- 235              		.loc 1 59 50 is_stmt 1 discriminator 1 view .LVU57
+ 292              		.loc 1 59 50 is_stmt 1 discriminator 1 view .LVU67
   59:src/app/app.cpp ****                   hardware.led1 = 0;
- 236              		.loc 1 59 47 is_stmt 0 discriminator 1 view .LVU58
- 237 0060 2648     		ldr	r0, .L22+36
- 238 0062 FFF7FEFF 		bl	_ZN5Timer7read_usEv
- 239              	.LVL12:
+ 293              		.loc 1 59 47 is_stmt 0 discriminator 1 view .LVU68
+ 294 0060 2648     		ldr	r0, .L24+36
+ 295 0062 FFF7FEFF 		bl	_ZN5Timer7read_usEv
+ 296              	.LVL15:
   59:src/app/app.cpp ****                   hardware.led1 = 0;
- 240              		.loc 1 59 50 discriminator 1 view .LVU59
- 241 0066 C728     		cmp	r0, #199
- 242 0068 FAD9     		bls	.L19
+ 297              		.loc 1 59 50 discriminator 1 view .LVU69
+ 298 0066 C728     		cmp	r0, #199
+ 299 0068 FAD9     		bls	.L21
   60:src/app/app.cpp ****             }
- 243              		.loc 1 60 19 is_stmt 1 view .LVU60
- 244              	.LVL13:
- 245              	.LBB8:
- 246              	.LBI8:
+ 300              		.loc 1 60 19 is_stmt 1 view .LVU70
+ 301              	.LVL16:
+ 302              	.LBB14:
+ 303              	.LBI14:
   19:Lib/DigitalInOut/DigitalInOut.hpp ****             HAL_GPIO_WritePin(port, pin, value ? GPIO_PIN_SET : GPIO_PIN_RESET);
- 247              		.loc 2 19 12 view .LVU61
- 248              	.LBB9:
- 249              		.loc 2 20 13 view .LVU62
- 250              		.loc 2 20 30 is_stmt 0 view .LVU63
- 251 006a 1C4B     		ldr	r3, .L22+4
- 252 006c 0022     		movs	r2, #0
- 253 006e 198C     		ldrh	r1, [r3, #32]
- 254 0070 D869     		ldr	r0, [r3, #28]
- 255 0072 FFF7FEFF 		bl	HAL_GPIO_WritePin
- 256              	.LVL14:
- 257              	.L18:
- 258              		.loc 2 20 30 view .LVU64
- 259              	.LBE9:
- 260              	.LBE8:
+ 304              		.loc 4 19 12 view .LVU71
+ 305              	.LBB15:
+ 306              		.loc 4 20 13 view .LVU72
+ 307              		.loc 4 20 30 is_stmt 0 view .LVU73
+ 308 006a 1C4B     		ldr	r3, .L24+4
+ 309 006c 0022     		movs	r2, #0
+ 310 006e 198C     		ldrh	r1, [r3, #32]
+ 311 0070 D869     		ldr	r0, [r3, #28]
+ 312 0072 FFF7FEFF 		bl	HAL_GPIO_WritePin
+ 313              	.LVL17:
+ 314              	.L20:
+ 315              		.loc 4 20 30 view .LVU74
+ 316              	.LBE15:
+ 317              	.LBE14:
   62:src/app/app.cpp ****       }
- 261              		.loc 1 62 13 is_stmt 1 view .LVU65
+ 318              		.loc 1 62 13 is_stmt 1 view .LVU75
   62:src/app/app.cpp ****       }
- 262              		.loc 1 62 57 is_stmt 0 view .LVU66
- 263 0076 2148     		ldr	r0, .L22+36
- 264 0078 FFF7FEFF 		bl	_ZN5Timer7read_usEv
- 265              	.LVL15:
- 266 007c 07EE900A 		vmov	s15, r0	@ int
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 8
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 10
 
 
+ 319              		.loc 1 62 57 is_stmt 0 view .LVU76
+ 320 0076 2148     		ldr	r0, .L24+36
+ 321 0078 FFF7FEFF 		bl	_ZN5Timer7read_usEv
+ 322              	.LVL18:
+ 323 007c 07EE900A 		vmov	s15, r0	@ int
   62:src/app/app.cpp ****       }
- 267              		.loc 1 62 60 view .LVU67
- 268 0080 F8EE677A 		vcvt.f32.u32	s15, s15
- 269 0084 9FED1F7A 		vldr.32	s14, .L22+44
- 270 0088 67EE877A 		vmul.f32	s15, s15, s14
+ 324              		.loc 1 62 60 view .LVU77
+ 325 0080 F8EE677A 		vcvt.f32.u32	s15, s15
+ 326 0084 9FED1F7A 		vldr.32	s14, .L24+44
+ 327 0088 67EE877A 		vmul.f32	s15, s15, s14
   62:src/app/app.cpp ****       }
- 271              		.loc 1 62 33 view .LVU68
- 272 008c F7EE006A 		vmov.f32	s13, #1.0e+0
- 273 0090 86EEA77A 		vdiv.f32	s14, s13, s15
+ 328              		.loc 1 62 33 view .LVU78
+ 329 008c F7EE006A 		vmov.f32	s13, #1.0e+0
+ 330 0090 86EEA77A 		vdiv.f32	s14, s13, s15
   62:src/app/app.cpp ****       }
- 274              		.loc 1 62 26 view .LVU69
- 275 0094 BDEEC77A 		vcvt.s32.f32	s14, s14
- 276 0098 1B4B     		ldr	r3, .L22+48
- 277 009a 83ED007A 		vstr.32	s14, [r3]	@ int
+ 331              		.loc 1 62 26 view .LVU79
+ 332 0094 BDEEC77A 		vcvt.s32.f32	s14, s14
+ 333 0098 1B4B     		ldr	r3, .L24+48
+ 334 009a 83ED007A 		vstr.32	s14, [r3]	@ int
   29:src/app/app.cpp ****             process_timer.reset();
- 278              		.loc 1 29 7 is_stmt 1 view .LVU70
- 279              	.L20:
+ 335              		.loc 1 29 7 is_stmt 1 view .LVU80
+ 336              	.L22:
   29:src/app/app.cpp ****             process_timer.reset();
- 280              		.loc 1 29 7 view .LVU71
+ 337              		.loc 1 29 7 view .LVU81
   30:src/app/app.cpp ****             hardware.GetSensors();
- 281              		.loc 1 30 13 view .LVU72
+ 338              		.loc 1 30 13 view .LVU82
   30:src/app/app.cpp ****             hardware.GetSensors();
- 282              		.loc 1 30 32 is_stmt 0 view .LVU73
- 283 009e 1748     		ldr	r0, .L22+36
- 284 00a0 FFF7FEFF 		bl	_ZN5Timer5resetEv
- 285              	.LVL16:
+ 339              		.loc 1 30 32 is_stmt 0 view .LVU83
+ 340 009e 1748     		ldr	r0, .L24+36
+ 341 00a0 FFF7FEFF 		bl	_ZN5Timer5resetEv
+ 342              	.LVL19:
   31:src/app/app.cpp ****             hardware.encoder.Read();
- 286              		.loc 1 31 13 is_stmt 1 view .LVU74
+ 343              		.loc 1 31 13 is_stmt 1 view .LVU84
   31:src/app/app.cpp ****             hardware.encoder.Read();
- 287              		.loc 1 31 32 is_stmt 0 view .LVU75
- 288 00a4 0D4C     		ldr	r4, .L22+4
- 289 00a6 2046     		mov	r0, r4
- 290 00a8 FFF7FEFF 		bl	_ZN8Hardware10GetSensorsEv
- 291              	.LVL17:
+ 344              		.loc 1 31 32 is_stmt 0 view .LVU85
+ 345 00a4 0D4C     		ldr	r4, .L24+4
+ 346 00a6 2046     		mov	r0, r4
+ 347 00a8 FFF7FEFF 		bl	_ZN8Hardware10GetSensorsEv
+ 348              	.LVL20:
   32:src/app/app.cpp ****             hardware.MainUart();
- 292              		.loc 1 32 13 is_stmt 1 view .LVU76
+ 349              		.loc 1 32 13 is_stmt 1 view .LVU86
   32:src/app/app.cpp ****             hardware.MainUart();
- 293              		.loc 1 32 34 is_stmt 0 view .LVU77
- 294 00ac 04F18000 		add	r0, r4, #128
- 295 00b0 FFF7FEFF 		bl	_ZN7Encoder4ReadEv
- 296              	.LVL18:
+ 350              		.loc 1 32 34 is_stmt 0 view .LVU87
+ 351 00ac 04F18000 		add	r0, r4, #128
+ 352 00b0 FFF7FEFF 		bl	_ZN7Encoder4ReadEv
+ 353              	.LVL21:
   33:src/app/app.cpp ****             if (hardware.info.Line.do_read == 1) {
- 297              		.loc 1 33 13 is_stmt 1 view .LVU78
+ 354              		.loc 1 33 13 is_stmt 1 view .LVU88
   33:src/app/app.cpp ****             if (hardware.info.Line.do_read == 1) {
- 298              		.loc 1 33 30 is_stmt 0 view .LVU79
- 299 00b4 2046     		mov	r0, r4
- 300 00b6 FFF7FEFF 		bl	_ZN8Hardware8MainUartEv
- 301              	.LVL19:
+ 355              		.loc 1 33 30 is_stmt 0 view .LVU89
+ 356 00b4 2046     		mov	r0, r4
+ 357 00b6 FFF7FEFF 		bl	_ZN8Hardware8MainUartEv
+ 358              	.LVL22:
   34:src/app/app.cpp ****                   hardware.line.OnLed();
- 302              		.loc 1 34 13 is_stmt 1 view .LVU80
+ 359              		.loc 1 34 13 is_stmt 1 view .LVU90
   34:src/app/app.cpp ****                   hardware.line.OnLed();
- 303              		.loc 1 34 36 is_stmt 0 view .LVU81
- 304 00ba 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
-  34:src/app/app.cpp ****                   hardware.line.OnLed();
- 305              		.loc 1 34 13 view .LVU82
- 306 00bc 002B     		cmp	r3, #0
- 307 00be A1D0     		beq	.L16
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 9
+ 360              		.loc 1 34 36 is_stmt 0 view .LVU91
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 11
 
 
+ 361 00ba 237C     		ldrb	r3, [r4, #16]	@ zero_extendqisi2
+  34:src/app/app.cpp ****                   hardware.line.OnLed();
+ 362              		.loc 1 34 13 view .LVU92
+ 363 00bc 002B     		cmp	r3, #0
+ 364 00be A1D0     		beq	.L18
   35:src/app/app.cpp ****                   hardware.line.Read();
- 308              		.loc 1 35 19 is_stmt 1 view .LVU83
+ 365              		.loc 1 35 19 is_stmt 1 view .LVU93
   35:src/app/app.cpp ****                   hardware.line.Read();
- 309              		.loc 1 35 38 is_stmt 0 view .LVU84
- 310 00c0 04F6B854 		addw	r4, r4, #3512
- 311 00c4 2046     		mov	r0, r4
- 312 00c6 FFF7FEFF 		bl	_ZN4Line5OnLedEv
- 313              	.LVL20:
+ 366              		.loc 1 35 38 is_stmt 0 view .LVU94
+ 367 00c0 04F6B854 		addw	r4, r4, #3512
+ 368 00c4 2046     		mov	r0, r4
+ 369 00c6 FFF7FEFF 		bl	_ZN4Line5OnLedEv
+ 370              	.LVL23:
   36:src/app/app.cpp ****                   hardware.line.Compute();
- 314              		.loc 1 36 19 is_stmt 1 view .LVU85
+ 371              		.loc 1 36 19 is_stmt 1 view .LVU95
   36:src/app/app.cpp ****                   hardware.line.Compute();
- 315              		.loc 1 36 37 is_stmt 0 view .LVU86
- 316 00ca 2046     		mov	r0, r4
- 317 00cc FFF7FEFF 		bl	_ZN4Line4ReadEv
- 318              	.LVL21:
+ 372              		.loc 1 36 37 is_stmt 0 view .LVU96
+ 373 00ca 2046     		mov	r0, r4
+ 374 00cc FFF7FEFF 		bl	_ZN4Line4ReadEv
+ 375              	.LVL24:
   37:src/app/app.cpp ****             } else {
- 319              		.loc 1 37 19 is_stmt 1 view .LVU87
+ 376              		.loc 1 37 19 is_stmt 1 view .LVU97
   37:src/app/app.cpp ****             } else {
- 320              		.loc 1 37 40 is_stmt 0 view .LVU88
- 321 00d0 2046     		mov	r0, r4
- 322 00d2 FFF7FEFF 		bl	_ZN4Line7ComputeEv
- 323              	.LVL22:
- 324 00d6 98E7     		b	.L17
- 325              	.L23:
- 326              		.align	2
- 327              	.L22:
- 328 00d8 B80D0000 		.word	hardware+3512
- 329 00dc 00000000 		.word	hardware
- 330 00e0 00000000 		.word	encoder
- 331 00e4 00000000 		.word	dir
- 332 00e8 00000000 		.word	is_half_out
- 333 00ec 00000000 		.word	is_leftside_white
- 334 00f0 00000000 		.word	is_rightside_white
- 335 00f4 00000000 		.word	is_on_line
- 336 00f8 00000000 		.word	max_interval
- 337 00fc 00000000 		.word	process_timer
- 338 0100 00000000 		.word	process_time_
- 339 0104 BD378635 		.word	897988541
- 340 0108 00000000 		.word	process_freq
- 341              		.cfi_endproc
- 342              	.LFE263:
- 343              		.fnend
- 345              		.section	.text._GLOBAL__sub_I_hardware,"ax",%progbits
- 346              		.align	1
- 347              		.syntax unified
- 348              		.thumb
- 349              		.thumb_func
- 351              	_GLOBAL__sub_I_hardware:
- 352              		.fnstart
- 353              	.LFB265:
- 354              		.loc 1 64 1 is_stmt 1 view -0
- 355              		.cfi_startproc
- 356              		@ args = 0, pretend = 0, frame = 0
- 357              		@ frame_needed = 0, uses_anonymous_args = 0
- 358 0000 08B5     		push	{r3, lr}
- 359              	.LCFI3:
- 360              		.cfi_def_cfa_offset 8
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 10
+ 377              		.loc 1 37 40 is_stmt 0 view .LVU98
+ 378 00d0 2046     		mov	r0, r4
+ 379 00d2 FFF7FEFF 		bl	_ZN4Line7ComputeEv
+ 380              	.LVL25:
+ 381 00d6 98E7     		b	.L19
+ 382              	.L25:
+ 383              		.align	2
+ 384              	.L24:
+ 385 00d8 B80D0000 		.word	hardware+3512
+ 386 00dc 00000000 		.word	hardware
+ 387 00e0 00000000 		.word	encoder
+ 388 00e4 00000000 		.word	dir
+ 389 00e8 00000000 		.word	is_half_out
+ 390 00ec 00000000 		.word	is_leftside_white
+ 391 00f0 00000000 		.word	is_rightside_white
+ 392 00f4 00000000 		.word	is_on_line
+ 393 00f8 00000000 		.word	max_interval
+ 394 00fc 00000000 		.word	process_timer
+ 395 0100 00000000 		.word	process_time_
+ 396 0104 BD378635 		.word	897988541
+ 397 0108 00000000 		.word	process_freq
+ 398              		.cfi_endproc
+ 399              	.LFE265:
+ 400              		.fnend
+ 402              		.section	.text._GLOBAL__sub_I_hardware,"ax",%progbits
+ 403              		.align	1
+ 404              		.syntax unified
+ 405              		.thumb
+ 406              		.thumb_func
+ 408              	_GLOBAL__sub_I_hardware:
+ 409              		.fnstart
+ 410              	.LFB270:
+ 411              		.loc 1 64 1 is_stmt 1 view -0
+ 412              		.cfi_startproc
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 12
 
 
- 361              		.cfi_offset 3, -8
- 362              		.cfi_offset 14, -4
- 363              		.loc 1 64 1 is_stmt 0 view .LVU90
- 364 0002 4FF6FF71 		movw	r1, #65535
- 365 0006 0120     		movs	r0, #1
- 366 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
- 367              	.LVL23:
- 368 000c 08BD     		pop	{r3, pc}
- 369              		.cfi_endproc
- 370              	.LFE265:
- 371              		.cantunwind
- 372              		.fnend
- 374              		.section	.init_array,"aw",%init_array
- 375              		.align	2
- 376 0000 00000000 		.word	_GLOBAL__sub_I_hardware(target1)
- 377              		.global	is_rightside_white
- 378              		.section	.bss.is_rightside_white,"aw",%nobits
- 381              	is_rightside_white:
- 382 0000 00       		.space	1
- 383              		.global	is_leftside_white
- 384              		.section	.bss.is_leftside_white,"aw",%nobits
- 387              	is_leftside_white:
- 388 0000 00       		.space	1
- 389              		.global	is_on_line
- 390              		.section	.bss.is_on_line,"aw",%nobits
- 393              	is_on_line:
- 394 0000 00       		.space	1
- 395              		.global	is_half_out
- 396              		.section	.bss.is_half_out,"aw",%nobits
- 399              	is_half_out:
- 400 0000 00       		.space	1
- 401              		.global	max_interval
- 402              		.section	.bss.max_interval,"aw",%nobits
- 405              	max_interval:
- 406 0000 00       		.space	1
- 407              		.global	dir
- 408              		.section	.bss.dir,"aw",%nobits
- 409              		.align	1
- 412              	dir:
- 413 0000 0000     		.space	2
- 414              		.global	encoder
- 415              		.section	.bss.encoder,"aw",%nobits
- 416              		.align	2
- 419              	encoder:
- 420 0000 00000000 		.space	16
- 420      00000000 
- 420      00000000 
- 420      00000000 
- 421              		.global	process_freq
- 422              		.section	.bss.process_freq,"aw",%nobits
- 423              		.align	2
- 426              	process_freq:
- 427 0000 00000000 		.space	4
- 428              		.global	process_time_
- 429              		.section	.bss.process_time_,"aw",%nobits
- 430              		.align	1
- 433              	process_time_:
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 11
+ 413              		@ args = 0, pretend = 0, frame = 0
+ 414              		@ frame_needed = 0, uses_anonymous_args = 0
+ 415 0000 08B5     		push	{r3, lr}
+ 416              	.LCFI4:
+ 417              		.cfi_def_cfa_offset 8
+ 418              		.cfi_offset 3, -8
+ 419              		.cfi_offset 14, -4
+ 420              		.loc 1 64 1 is_stmt 0 view .LVU100
+ 421 0002 4FF6FF71 		movw	r1, #65535
+ 422 0006 0120     		movs	r0, #1
+ 423 0008 FFF7FEFF 		bl	_Z41__static_initialization_and_destruction_0ii
+ 424              	.LVL26:
+ 425 000c 08BD     		pop	{r3, pc}
+ 426              		.cfi_endproc
+ 427              	.LFE270:
+ 428              		.cantunwind
+ 429              		.fnend
+ 431              		.section	.init_array,"aw",%init_array
+ 432              		.align	2
+ 433 0000 00000000 		.word	_GLOBAL__sub_I_hardware(target1)
+ 434              		.global	is_rightside_white
+ 435              		.section	.bss.is_rightside_white,"aw",%nobits
+ 438              	is_rightside_white:
+ 439 0000 00       		.space	1
+ 440              		.global	is_leftside_white
+ 441              		.section	.bss.is_leftside_white,"aw",%nobits
+ 444              	is_leftside_white:
+ 445 0000 00       		.space	1
+ 446              		.global	is_on_line
+ 447              		.section	.bss.is_on_line,"aw",%nobits
+ 450              	is_on_line:
+ 451 0000 00       		.space	1
+ 452              		.global	is_half_out
+ 453              		.section	.bss.is_half_out,"aw",%nobits
+ 456              	is_half_out:
+ 457 0000 00       		.space	1
+ 458              		.global	max_interval
+ 459              		.section	.bss.max_interval,"aw",%nobits
+ 462              	max_interval:
+ 463 0000 00       		.space	1
+ 464              		.global	dir
+ 465              		.section	.bss.dir,"aw",%nobits
+ 466              		.align	1
+ 469              	dir:
+ 470 0000 0000     		.space	2
+ 471              		.global	encoder
+ 472              		.section	.bss.encoder,"aw",%nobits
+ 473              		.align	2
+ 476              	encoder:
+ 477 0000 00000000 		.space	16
+ 477      00000000 
+ 477      00000000 
+ 477      00000000 
+ 478              		.global	process_freq
+ 479              		.section	.bss.process_freq,"aw",%nobits
+ 480              		.align	2
+ 483              	process_freq:
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 13
 
 
- 434 0000 0000     		.space	2
- 435              		.global	process_timer
- 436              		.section	.bss.process_timer,"aw",%nobits
- 437              		.align	2
- 440              	process_timer:
- 441 0000 00000000 		.space	4
- 442              		.global	hardware
- 443              		.section	.bss.hardware,"aw",%nobits
- 444              		.align	3
- 447              	hardware:
- 448 0000 00000000 		.space	3816
- 448      00000000 
- 448      00000000 
- 448      00000000 
- 448      00000000 
- 449              		.text
- 450              	.Letext0:
- 451              		.file 3 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
- 452              		.file 4 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
- 453              		.file 5 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
- 454              		.file 6 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
- 455              		.file 7 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
- 456              		.file 8 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
- 457              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
- 458              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
- 459              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
- 460              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
- 461              		.file 13 "Lib/Timer/Timer.hpp"
- 462              		.file 14 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
- 463              		.file 15 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
- 464              		.file 16 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
- 465              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
- 466              		.file 18 "Lib/BufferedSerial/BufferedSerial.hpp"
- 467              		.file 19 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
- 468              		.file 20 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
- 469              		.file 21 "Lib/MovingAve/MovingAve.hpp"
- 470              		.file 22 "src/unit/encoder/encoder.hpp"
- 471              		.file 23 "src/unit/line/line.hpp"
- 472              		.file 24 "src/unit/hardware/hardware.hpp"
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 12
+ 484 0000 00000000 		.space	4
+ 485              		.global	process_time_
+ 486              		.section	.bss.process_time_,"aw",%nobits
+ 487              		.align	1
+ 490              	process_time_:
+ 491 0000 0000     		.space	2
+ 492              		.global	process_timer
+ 493              		.section	.bss.process_timer,"aw",%nobits
+ 494              		.align	2
+ 497              	process_timer:
+ 498 0000 00000000 		.space	4
+ 499              		.global	hardware
+ 500              		.section	.bss.hardware,"aw",%nobits
+ 501              		.align	3
+ 504              	hardware:
+ 505 0000 00000000 		.space	3816
+ 505      00000000 
+ 505      00000000 
+ 505      00000000 
+ 505      00000000 
+ 506              		.text
+ 507              	.Letext0:
+ 508              		.file 5 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/machine/_default_ty
+ 509              		.file 6 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_stdint.h"
+ 510              		.file 7 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f446xx.h"
+ 511              		.file 8 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h"
+ 512              		.file 9 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/lib/gcc/arm-none-eabi/12.3.1/include/stdd
+ 513              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_def.h"
+ 514              		.file 11 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 515              		.file 12 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_dma.h"
+ 516              		.file 13 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h"
+ 517              		.file 14 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 518              		.file 15 "Lib/Timer/Timer.hpp"
+ 519              		.file 16 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/_types.h"
+ 520              		.file 17 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/reent.h"
+ 521              		.file 18 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/sys/lock.h"
+ 522              		.file 19 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/stdio.h"
+ 523              		.file 20 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/cstdio"
+ 524              		.file 21 "/opt/ST/STM32CubeCLT_1.16.0/GNU-tools-for-STM32/arm-none-eabi/include/c++/12.3.1/arm-non
+ 525              		.file 22 "Lib/MovingAve/MovingAve.hpp"
+ 526              		.file 23 "src/unit/encoder/encoder.hpp"
+ 527              		.file 24 "src/unit/line/line.hpp"
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 14
 
 
 DEFINED SYMBOLS
                             *ABS*:00000000 app.cpp
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:21     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:26     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:70     .text._Z41__static_initialization_and_destruction_0ii:00000020 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:447    .bss.hardware:00000000 hardware
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:440    .bss.process_timer:00000000 process_timer
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:21     .text._Z41__static_initialization_and_destruction_0ii:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:26     .text._Z41__static_initialization_and_destruction_0ii:00000000 _Z41__static_initialization_and_destruction_0ii
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:72     .text._Z41__static_initialization_and_destruction_0ii:0000002c $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:504    .bss.hardware:00000000 hardware
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:88     .text._ZN8HardwareD2Ev:00000000 _ZN8HardwareD1Ev
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:497    .bss.process_timer:00000000 process_timer
 .ARM.exidx.text._Z41__static_initialization_and_destruction_0ii:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:78     .text.setup:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:84     .text.setup:00000000 setup
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:113    .text.setup:00000014 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:82     .text._ZN8HardwareD2Ev:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:88     .text._ZN8HardwareD2Ev:00000000 _ZN8HardwareD2Ev
+ .ARM.exidx.text._ZN8HardwareD2Ev:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:135    .text.setup:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:141    .text.setup:00000000 setup
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:170    .text.setup:00000014 $d
             .ARM.exidx.text.setup:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:119    .text.main_app:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:125    .text.main_app:00000000 main_app
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:328    .text.main_app:000000d8 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:419    .bss.encoder:00000000 encoder
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:412    .bss.dir:00000000 dir
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:399    .bss.is_half_out:00000000 is_half_out
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:387    .bss.is_leftside_white:00000000 is_leftside_white
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:381    .bss.is_rightside_white:00000000 is_rightside_white
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:393    .bss.is_on_line:00000000 is_on_line
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:405    .bss.max_interval:00000000 max_interval
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:433    .bss.process_time_:00000000 process_time_
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:426    .bss.process_freq:00000000 process_freq
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:176    .text.main_app:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:182    .text.main_app:00000000 main_app
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:385    .text.main_app:000000d8 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:476    .bss.encoder:00000000 encoder
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:469    .bss.dir:00000000 dir
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:456    .bss.is_half_out:00000000 is_half_out
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:444    .bss.is_leftside_white:00000000 is_leftside_white
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:438    .bss.is_rightside_white:00000000 is_rightside_white
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:450    .bss.is_on_line:00000000 is_on_line
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:462    .bss.max_interval:00000000 max_interval
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:490    .bss.process_time_:00000000 process_time_
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:483    .bss.process_freq:00000000 process_freq
          .ARM.exidx.text.main_app:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:346    .text._GLOBAL__sub_I_hardware:00000000 $t
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:351    .text._GLOBAL__sub_I_hardware:00000000 _GLOBAL__sub_I_hardware
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:403    .text._GLOBAL__sub_I_hardware:00000000 $t
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:408    .text._GLOBAL__sub_I_hardware:00000000 _GLOBAL__sub_I_hardware
 .ARM.exidx.text._GLOBAL__sub_I_hardware:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:375    .init_array:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:382    .bss.is_rightside_white:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:388    .bss.is_leftside_white:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:394    .bss.is_on_line:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:400    .bss.is_half_out:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:406    .bss.max_interval:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:409    .bss.dir:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:416    .bss.encoder:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:423    .bss.process_freq:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:430    .bss.process_time_:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:437    .bss.process_timer:00000000 $d
-/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s:444    .bss.hardware:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:432    .init_array:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:439    .bss.is_rightside_white:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:445    .bss.is_leftside_white:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:451    .bss.is_on_line:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:457    .bss.is_half_out:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:463    .bss.max_interval:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:466    .bss.dir:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:473    .bss.encoder:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:480    .bss.process_freq:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:487    .bss.process_time_:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:494    .bss.process_timer:00000000 $d
+/var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s:501    .bss.hardware:00000000 $d
+                           .group:00000000 _ZN8HardwareD5Ev
 
 UNDEFINED SYMBOLS
 _ZN8HardwareC1Ev
+__aeabi_atexit
 _ZN5TimerC1Ev
+__dso_handle
+_ZdaPv
 _ZN8Hardware4InitEv
 _ZN4Line5SetThEv
 __aeabi_unwind_cpp_pr0
 _ZN4Line6OffLedEv
 _ZN5Timer7read_usEv
+ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccxDJnPp.s 			page 15
+
+
 HAL_GPIO_WritePin
 _ZN5Timer5resetEv
 _ZN8Hardware10GetSensorsEv
@@ -700,6 +834,3 @@ _ZN8Hardware8MainUartEv
 _ZN4Line5OnLedEv
 _ZN4Line4ReadEv
 _ZN4Line7ComputeEv
-ARM GAS  /var/folders/5c/srt4fy4j1pd641bjfx75k5000000gn/T//ccEdFyvV.s 			page 13
-
-

@@ -7,8 +7,8 @@
 #include "Timer.hpp"
 
 #define LINE_QTY 24
-#define SET_TH_NUM 1000
-#define TH_VALUE 8
+#define SET_TH_NUM 1500
+#define TH_VALUE 7
 
 #define WAIT_US 3
 
